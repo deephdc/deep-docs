@@ -3,4 +3,5 @@ This repository contains software documentations, guides, tutorials, logbooks an
 
 ## OpenStack nova-lxd
 * [Installing nova-lxd with Openstack Ansible](https://github.com/indigo-dc/deep-docs/blob/master/docs/nova-lxd-ansible.md)
+* [Installing nova-lxd with Juju](https://github.com/indigo-dc/deep-docs/blob/master/docs/nova-lxd-juju.md)
 
