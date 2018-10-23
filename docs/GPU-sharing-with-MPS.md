@@ -173,7 +173,7 @@ Only first part (forward) of each test passed, then the execution terminated (co
 
 ## Identified reasons why Tensoflow does not work correctly with MPS
 
-The reasons have been discussed in [4]:
+The reasons have been discussed in [3]:
 
 * stream callbacks are not supported on pre-Volta MPS clients. Calling any stream callback APIs will return an error. (from MPS official document [4])
 * But CUDA streams are used everywhere in Tensorflow
@@ -192,7 +192,6 @@ So Tensorflow will not work with MPS on old (pre-Volta) GPU.
 1. http://manpages.ubuntu.com/manpages/xenial/man1/alt-nvidia-340-cuda-mps-control.1.html
 2. https://docs.nvidia.com/deploy/mps/index.html
 3. https://github.com/tensorflow/tensorflow/issues/9080
-4. https://github.com/tensorflow/tensorflow/issues/9080
-5. https://docs.nvidia.com/deploy/mps/index.html
+4. https://docs.nvidia.com/deploy/mps/index.html
 
 
