@@ -13,3 +13,7 @@ This repository contains software documentations, guides, tutorials, logbooks an
 
 ## Mesos
 
+
+## Usefull links
+* [Converting documents form Confluence to Github markdown](https://www.npmjs.com/package/confluence-to-github-markdown) 
+
