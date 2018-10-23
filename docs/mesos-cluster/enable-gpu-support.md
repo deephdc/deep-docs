@@ -11,9 +11,9 @@ Enabling GPU support in a Mesos cluster is really straightforward (as stated in 
 
 <span>Mesos exposes GPUs as a simple </span>`SCALAR`<span> resource in the same way it always has for CPUs, memory, and disk.</span>
 
-An important remark is that **currently the GPU support is available for the** **Mesos containerizer and not for the Docker containerizer. **Anyway the Mesos containerizer is now able to run docker images natively through the **<a href="http://mesos.apache.org/documentation/latest/container-image" class="external-link">Universal Container Runtime</a> (UCR)**. ****  
+An important remark is that currently the GPU support is available for the Mesos containerizer and not for the Docker containerizer. Anyway the Mesos containerizer is now able to run docker images natively through the <a href="http://mesos.apache.org/documentation/latest/container-image" class="external-link">Universal Container Runtime</a> (UCR). 
 
-<img src="assets/images/icons/emoticons/warning.png" title="(warning)" alt="(warning)" class="emoticon emoticon-warning" />The following limitations can, on the other hand, have impacts on the deployment of Long-Running services (Marathon) requiring GPUs:
+The following limitations can, on the other hand, have impacts on the deployment of Long-Running services (Marathon) requiring GPUs:
 
 -   The UCR does not support the following: runtime privileges, Docker options, force pull, named ports, numbered ports, bridge networking, port mapping.
 
@@ -66,17 +66,8 @@ Testbed Setup
 
 | Node         | Description                                                                |
 |--------------|----------------------------------------------------------------------------|
-| Mesos Master | VM 4vCPU, 16GB RAM                                                         
-                                                                                            
-                SO: Ubuntu 16.04                                                            |
-| Mesos Slave  | baremetal                                                                  
-                                                                                            
-                40 CPUs, 250GB RAM                                                          
-                                                                                            
-                82:00.0 3D controller: NVIDIA Corporation GK110BGL \[Tesla K40m\] (rev a1)  
-                Model name: Intel(R) Xeon(R) CPU E5-2650L v2 @ 1.70GHz                      
-                                                                                            
-                SO: Ubuntu 16.04                                                            |
+| Mesos Master | VM 4vCPU, 16GB RAM <br> SO: Ubuntu 16.04                                   |
+| Mesos Slave  | baremetal <br> 40 CPUs, 250GB RAM <br> 82:00.0 3D controller: NVIDIA Corporation GK110BGL \[Tesla K40m\] (rev a1) <br> Model name: Intel(R) Xeon(R) CPU E5-2650L v2 @ 1.70GHz <br>SO: Ubuntu 16.04 |
 
 ### Tested Components Versions
 
@@ -92,9 +83,9 @@ Prepare the agent (slave) node
 
 Download the driver repo from <a href="http://www.nvidia.com/Download/index.aspx?lang=en-us" class="uri" class="external-link">http://www.nvidia.com/Download/index.aspx?lang=en-us</a> choosing the proper version.
 
-<span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img src="assets/images/7274714/7274930.png" class="confluence-embedded-image" height="250" /></span>
+<span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img src="images/7274930.png" class="confluence-embedded-image" height="250" /></span>
 
-<span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img src="assets/images/7274714/7274931.png" class="confluence-embedded-image" height="217" /></span>
+<span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img src="images/7274931.png" class="confluence-embedded-image" height="217" /></span>
 
 Install the downloaded .deb file (repo), install the driver and reboot:
 
@@ -238,7 +229,7 @@ The following steps are needed to test the patch:
     && mvn package -DskipTests"
     ```
 
-    The jar **chronos-3.0.2-1.jar **will be created in the folder ./target/
+    The jar **chronos-3.0.2-1.jar** will be created in the folder ./target/
 
 3.  Create the docker image
     **Dockerfile:**
@@ -257,8 +248,8 @@ The following steps are needed to test the patch:
     ENTRYPOINT ["/entrypoint.sh"]
     ```
 
-    **File entrypoint.sh:
-    **
+    **File entrypoint.sh**:
+    
 
     ``` syntaxhighlighter-pre
     #!/bin/sh
@@ -325,9 +316,7 @@ Two different versions of the tensorflow docker image will be used in order to v
 
 | Docker tag | CUDA & cuDNN version | Test id |
 |------------|----------------------|---------|
-| latest-gpu 
-             
- (1.6.0)     | CUDA 9.0, cuDNN 7    | \#1     |
+| latest-gpu (1.6.0)     | CUDA 9.0, cuDNN 7    | \#1     |
 | 1.4.0-gpu  | CUDA 8.0, cuDNN 6    | \#2     |
 
 #### Test \#1:
@@ -570,7 +559,6 @@ If the "port" field in portDefinitions is set to 0 then Marathon will assign a r
 <span>
 </span>
 
-<span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
 
 References
 ----------
