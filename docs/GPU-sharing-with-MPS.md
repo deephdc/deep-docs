@@ -181,10 +181,11 @@ The reasons have been discussed in [4]:
 So Tensorflow will not work with MPS on old (pre-Volta) GPU.
 
 ## Final remarks:
-Without MPS service, native CUDA samples can be executed in parallel and the GPU performance is divided among processes
-With MPS service, CUDA executions with different user IDs are serialized, one needs to wait until other finishes. CUDA processes with the same user ID can be executed in parallel.
-Tensorflow will not work with MPS on old (pre-Volta) GPU.
-Need to test on newer GPU cards
+* Without MPS service, native CUDA samples can be executed in parallel and the GPU performance is divided among processes
+* With MPS service, CUDA executions with different user IDs are serialized, one needs to wait until other finishes. 
+* CUDA processes with the same user ID can be executed in parallel.
+* Tensorflow will not work with MPS on old (pre-Volta) GPU.
+* Need to test on newer GPU cards (Volta)
 
 ## References
 
