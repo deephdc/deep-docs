@@ -13,6 +13,7 @@ This repository contains software documentations, guides, tutorials, logbooks an
 
 ## Mesos
 * [How to enable GPU support](docs/mesos-cluster/enable-gpu-support.md)
+* [How to enable Openid-Connect authentication](docs/mesos-cluster/enable-openid-authentication.md)
 
 ## Usefull links
 * [Converting documents form Confluence to Github markdown](https://www.npmjs.com/package/confluence-to-github-markdown) 
