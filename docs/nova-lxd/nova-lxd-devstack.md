@@ -1,5 +1,5 @@
 
-# Overview
+# Deploying OpenStack environment with nova-lxd via DevStack
 
 This document is a step-by-step guide of OpenStack with nova-lxd deployment via DevStack on a single machine (All-in-One). The guide was tested on a host running Xenial or Bionic. The host has pre-installed following libraries:
 
