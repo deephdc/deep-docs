@@ -2,7 +2,7 @@
 
 As the nova-lxd plugin in OpenStack is still experimental, we need to deploy and test its current status to find out the working configuration before implementing new features
 
-## Testing of nova-lxd
+## Testing of nova-lxd with different software configurations
 OpenStack with nova-lxd has been deployed by different methods: OpenStack DevStack, JuJu, and OpenStack Ansible. Various combinations with OpenStack/LXD and base OS version have been tested to find out the working configuration of OpenStack nova-lxd for production. 
 
 Since nova-lxd plugin and OpenStack DevStack (deployment of OpenStack Cloud by Python scripts) have extremely shallow documentation, the first step was finding out the best starting configuration for development. We reached the following results (without advanced post-configuration efforts):
