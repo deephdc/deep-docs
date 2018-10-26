@@ -9,7 +9,7 @@ This repository contains software documentations, guides, tutorials, logbooks an
 * [Testing GPU sharing with NVIDIA MPS service](https://github.com/indigo-dc/deep-docs/blob/master/docs/GPU-sharing-with-MPS.md)
 
 ## Kubernetes
-
+* [Installing GPU node and adding it to Kubernetes cluster](https://github.com/indigo-dc/deep-docs/blob/master/docs/kubernetes-gpu.md)
 
 ## Mesos
 * [How to enable GPU support](docs/mesos-cluster/enable-gpu-support.md)
