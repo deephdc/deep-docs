@@ -114,9 +114,7 @@ $ sudo lxc delete u1
 ```bash
 $ sudo useradd -s /bin/bash -d /opt/stack -m stack
 $ echo "stack ALL=(ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/stack
-$ sudo adduser martin lxd
-$ newgrp lxd
-$ groups
+$ sudo usermod -G lxd -a stack
 $ sudo su - stack
 ```
 
@@ -139,7 +137,6 @@ RABBIT_PASSWORD=$ADMIN_PASSWORD
 SERVICE_PASSWORD=$ADMIN_PASSWORD
 SERVICE_TOKEN=$ADMIN_PASSWORD
 
-
 # run the services you want to use
 ENABLED_SERVICES=rabbit,mysql,key
 ENABLED_SERVICES+=,g-api,g-reg
@@ -154,7 +151,57 @@ disable_service n-net
 # enable nova-lxd
 enable_plugin nova-lxd https://git.openstack.org/openstack/nova-lxd stable/rocky
 ```
-13. Start installation (it will take a 15 - 20 minutes, largely depending on the speed of your internet connection. Many git trees and packages will be installed during this process.)
+
+13. Start installation of an OpenStack environment (it will take a 15 - 20 minutes, largely depending on the speed of your internet connection. Many git trees and packages will be installed during this process.)
 ```bash
 $ ./stack.sh
 ```
+
+14. Configuration of ```bash nova-compute```: In order for a lxd storage pool to be recognized in nova, the ```bash/etc/nova/nova-cpu.conf``` file needs to have ```bash [lxd] section``` containing the following lines:
+```bash
+[lxd]
+allow_live_migration = True
+pool = {{ storage_pool }}
+```
+Restart nova-compute service:
+```bash
+$ systemctl restart devstack@n-cpu.service
+$ systemctl status devstack@n-cpu.service
+```
+
+15. *Optional step:* if your OpenStack installation is set to incorect repository, execute the following commands (adding a Rocky cloud archive):
+```bash
+$ sudo rm /etc/apt/sources.list.d/{{Bad_archive}}.list
+$ sudo add-apt-repository cloud-archive:rocky
+```
+
+16. *Optional step:*  Use IP forwarding to get access to dashboard from outside by executing the following command on the host where whole openstack with nova-lxd is installed:
+```bash
+$ sudo iptables -t nat -A PREROUTING -p tcp --dport 8080 -j DNAT --to “{{IP_of_horizon}}:80”
+```
+where IP_of_horizon is the IP address of the dashboard that is given when the installation finishes (in format of 10.x.x.x, e.g. 10.110.236.154)
+
+17. Log into the dashboard (http://{{IP_address_of_host}}:8080/horizon), with “admin_domain” domain, “admin” user and “openstack” password, where ip_address_of_host is the IP of host machine, where whole Openstack is installed (e.g. http://147.213.76.100:8080/horizon)
+
+18. Create a new VM (Launch instance) in Compute->Instances. Do not create new volume (choose NO for new volume), and add only internal network.
+
+19. In Network->Security group, add new ingress rules for ICMP (ping) and TCP port 22 (SSH) to default security group.
+
+20. Allocate a new floating IP from Network -> Floating IPs and assign to the VM.
+
+21. From host machine, try ssh to floating IP of VM
+```bash
+$ ssh ubuntu@{{Floating_ip}}
+```
+
+# Handy commands:
+
+# Notes:
+* CEPH volume is still not attachable to VM by defaults, some additional work required.
+
+# References
+1. https://discuss.linuxcontainers.org/t/lxd-3-0-0-has-been-released/1491
+2. https://docs.jujucharms.com/devel/en/tut-lxd
+3. https://docs.openstack.org/devstack/latest/
+4. https://github.com/openstack/nova-lxd/blob/master/devstack/local.conf.sample
+5. https://wiki.ubuntu.com/OpenStack/CloudArchive
