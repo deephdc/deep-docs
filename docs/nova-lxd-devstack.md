@@ -8,7 +8,7 @@ This document is a step-by-step guide of OpenStack with nova-lxd deployment via 
 
 # Installation steps
 
-1. Create a new host host running Xenial or Bionic with Python 2.7
+1. Create a new host running Xenial or Bionic with Python 2.7
 
 2. Install the newest version of a library PyLXD 2.2.7
 
@@ -36,15 +36,15 @@ This document is a step-by-step guide of OpenStack with nova-lxd deployment via 
 $ sudo apt install lxd zfsutils-linux
 ```
 
-4. *Optional step:* If you need to install a different LXD/LXC version, execute following steps:
+4. *Optional step:* If you need to install a different LXD/LXC version, execute the following steps:
 
-   1. Unstall LXD and LXC (delete configuration and data files of LXD/LXC and it's dependencies)
+   1. Uninstall LXD and LXC (delete configuration and data files of LXD/LXC and it's dependencies)
    ```bash
    $ sudo apt-get purge --auto-remove lxd lxc
    ```
    
    2. Install the wanted version of LXD/LXC:
-      * LXD/LXC 3.0.1 on a host runing Xenial
+      * LXD/LXC 3.0.1 on a host running Xenial
       ```bash
       $ sudo apt-get purge --auto-remove lxd lxc
       ```
@@ -94,7 +94,7 @@ $ sudo /snap/bin/lxd.migrate
 
 7. *Optional step:* Increase the limit of number open files (only needed for larger tests). See https://lxd.readthedocs.io/en/latest/production-setup/
 
-8. *Optional step:* Check configuration (as user), if your configuration is correct
+8. *Optional step:* Check configuration (as a user), if your configuration is correct
 ```bash
 $ sudo /snap/bin/lxc storage list
 $ sudo /snap/bin/lxc storage show default
@@ -102,7 +102,7 @@ $ sudo /snap/bin/lxc network show lxdbr0
 $ sudo /snap/bin/lxc profile show default
 ```
 
-9.*Optional step:* Run a test container in LXD (as user), if LXD work correctly
+9.*Optional step:* Run a test container in LXD (as a user), if LXD work correctly
 ```bash
 $ sudo lxc launch ubuntu:16.04 u1
 $ sudo lxc exec u1 ping www.ubuntu.com
@@ -110,7 +110,7 @@ $ sudo lxc stop u1
 $ sudo lxc delete u1
 ```
 
-10. Create Stack user and add it to the 'lxd' user group
+10. Create a user "Stack" and add it to the 'lxd' user group
 ```bash
 $ sudo useradd -s /bin/bash -d /opt/stack -m stack
 $ echo "stack ALL=(ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/stack
@@ -124,14 +124,14 @@ $ git clone https://git.openstack.org/openstack-dev/devstack
 $ cd devstack
 ```
 
-12. Create a **local.conf** file (a branch of nova-lxd plugin is ```bash stable/rocky```) as follows:
+12. Create a **local.conf** file (a branch of a nova-lxd plugin is ```bash stable/rocky```) as follows:
 ```bash
 [[local|localrc]]
 
 HOST_IP=127.0.0.1 # set this to your IP
 FLAT_INTERFACE=ens2 # change this to your eth0
 
-ADMIN_PASSWORD=secret
+ADMIN_PASSWORD=devstack
 DATABASE_PASSWORD=$ADMIN_PASSWORD
 RABBIT_PASSWORD=$ADMIN_PASSWORD
 SERVICE_PASSWORD=$ADMIN_PASSWORD
@@ -175,15 +175,15 @@ $ sudo rm /etc/apt/sources.list.d/{{Bad_archive}}.list
 $ sudo add-apt-repository cloud-archive:rocky
 ```
 
-16. *Optional step:*  Use IP forwarding to get access to dashboard from outside by executing the following command on the host where whole openstack with nova-lxd is installed:
+16. *Optional step:*  Use IP forwarding to get access to the dashboard from outside by executing the following command on the host where the whole OpenStack environment with nova-lxd is installed:
 ```bash
 $ sudo iptables -t nat -A PREROUTING -p tcp --dport 8080 -j DNAT --to “{{IP_of_horizon}}:80”
 ```
-where IP_of_horizon is the IP address of the dashboard that is given when the installation finishes (in format of 10.x.x.x, e.g. 10.110.236.154)
+where IP_of_horizon is the IP address of the dashboard that is given when the installation finishes (in the format of 10.x.x.x, e.g. 10.110.236.154)
 
-17. Log into the dashboard (http://{{IP_address_of_host}}:8080/horizon), with “admin_domain” domain, “admin” user and “openstack” password, where ip_address_of_host is the IP of host machine, where whole Openstack is installed (e.g. http://147.213.76.100:8080/horizon)
+17. Log into the dashboard (http://{{IP_address_of_host}}:8080/horizon), with “admin_domain” domain, “admin” user and “devstack” password, where ip_address_of_host is the IP of the host machine, where the whole OpenStack environment is installed (e.g. http://147.213.76.100:8080/horizon)
 
-18. Create a new VM (Launch instance) in Compute->Instances. Do not create new volume (choose NO for new volume), and add only internal network.
+18. Create a new VM (Launch instance) in Compute->Instances. **Do not create a new volume (choose NO for new volume)**, and add only internal network.
 
 19. In Network->Security group, add new ingress rules for ICMP (ping) and TCP port 22 (SSH) to default security group.
 
