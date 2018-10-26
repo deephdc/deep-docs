@@ -47,5 +47,5 @@ pool = {{ storage_pool }}
 
 A problem with the post-configuration is that it has to be performed in a different way within an OpenStack Cloud environment deployed by DevStack. The environment has a dedicated configuration file nova-cpu.conf. The other approaches create the standard deployment of an OpenStack Cloud environment, and so the configuration of the nova-lxd plugin is performed by editing of a nova.conf file.
 
-## Working configuration and documentation
+## Working configuration
 According to the performed test mentioned above, we chose OpenStack Ansible repository for deployment of an OpenStack Cloud. The main reason is that it deploys a standard OpenStack Cloud with LXD/LXC 3.0.1 which supports GPUs.
