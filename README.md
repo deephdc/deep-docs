@@ -5,6 +5,7 @@ This repository contains software documentations, guides, tutorials, logbooks an
 * [Installing nova-lxd with Openstack Ansible](https://github.com/indigo-dc/deep-docs/blob/master/docs/nova-lxd/nova-lxd-ansible.md)
 * [Installing nova-lxd with Juju](https://github.com/indigo-dc/deep-docs/blob/master/docs/nova-lxd/nova-lxd-juju.md)
 * [Installing nova-lxd by DevStack](https://github.com/indigo-dc/deep-docs/blob/master/docs/nova-lxd/nova-lxd-devstack.md)
+* [Testing of different nova-lxd configurations](https://github.com/indigo-dc/deep-docs/blob/master/docs/nova-lxd/nova-lxd-configuration-testing.md)
 
 ## GPU sharing between processes/containers
 * [Testing GPU sharing with NVIDIA MPS service](https://github.com/indigo-dc/deep-docs/blob/master/docs/GPU-sharing-with-MPS.md)
