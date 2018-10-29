@@ -57,7 +57,7 @@ comparing to 1.5.0.
 
 ![GPU implementation tests](images/181004-udocker_tests_tf150+180_scaled.png)
 Figure 1: _uDocker_ performance tests using Tensorflow 1.5.0 and 1.8.0 in comparison with Baremetal installation 
-in a user directory and Singularity. Lower values indicate better performance. Further details are provided in the text.
+in a user directory and Singularity. Lower values indicate better performance. 
 
 One job per node is executed in these tests, i.e. only one GPU card of the node is used and three other cards are 
 not involved. _uDocker_ however allows to pass environment settings inside containers, therefore making it 
