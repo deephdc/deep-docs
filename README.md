@@ -8,10 +8,11 @@ This repository contains software documentations, guides, tutorials, logbooks an
 * [Testing of different nova-lxd configurations](https://github.com/indigo-dc/deep-docs/blob/master/docs/nova-lxd/nova-lxd-configuration-testing.md)
 
 ## GPU sharing between processes/containers
-* [Testing GPU sharing with NVIDIA MPS service](https://github.com/indigo-dc/deep-docs/blob/master/docs/GPU-sharing-with-MPS.md)
+* [Testing GPU sharing with NVIDIA MPS service](https://github.com/indigo-dc/deep-docs/blob/master/docs/others/GPU-sharing-with-MPS.md)
 
 ## Kubernetes
-* [Installing GPU node and adding it to Kubernetes cluster](https://github.com/indigo-dc/deep-docs/blob/master/docs/kubernetes-gpu.md)
+* [Installing GPU node and adding it to Kubernetes cluster](https://github.com/indigo-dc/deep-docs/blob/master/docs/kubernetes/kubernetes-gpu-Ubuntu.md)
+* [Installing GPU node and adding it to Kubernetes cluster - CentOS](https://github.com/indigo-dc/deep-docs/blob/master/docs/kubernetes/GPU-Kubernetes-CentOS7.md)
 
 ## Mesos
 * [How to enable GPU support](docs/mesos-cluster/enable-gpu-support.md)
