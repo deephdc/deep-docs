@@ -11,6 +11,10 @@ Cluster Name: KubeDeep
 Kubectl components
 -- add table
 
+| Master | Worker Node |
+| --- | --- |
+| | |
+
 Worker GPU specifications
 -- add table
 
