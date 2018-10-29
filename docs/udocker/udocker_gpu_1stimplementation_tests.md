@@ -5,10 +5,10 @@ In order to use the GPUs inside containers, the devices associated to the GPU ha
 Furthermore, the driver has to be installed in the image and the version has to match the one deployed on the guest host. 
 This turns the Docker images un-shareable and the image must be built locally for each host. 
 The alternative is to have an image for each version of the driver, which is un-manageable since at each update, 
-many images would have to be built. The udocker released at the end of the Indigo-Datacloud project 
+many images would have to be built. The _uDocker_released at the end of the Indigo-Datacloud project 
 does not have such features, as such in order to use GPUs, the image has to have the NVIDIA drivers and 
 libraries matching the host system. On the other hand, it is not necessary to pass the NVIDIA devices 
-to the udocker container since they are visible inside the container, in the same way a non-privileged user 
+to the _uDocker_container since they are visible inside the container, in the same way a non-privileged user 
 can use those devices in the host system.
 
 The work performed during the first months of the DEEP-HybridDataCloud project, was to implement such automatism. 
@@ -20,7 +20,7 @@ The tests performed in the framework of DEEP-HybridDataCloud project WP3 and WP4
 
 ## Test and evaluation of new implementation ##
 The following tests and benchmark tools were developed to test performance of the python code packed in a Docker container 
-and executed by means of udocker [2]. We compare udocker  performance with baremetal execution and via 
+and executed by means of _uDocker_[2]. We compare _uDocker_ performance with baremetal execution and via 
 Singularity 2.5.2-dist [3]. The benchmark tools are based on official Tensorflow Docker images from the Docker Hub [4] 
 and deep learning python scripts publicly available at GitHub [5]. All scripts implement convolutional neural networks (CNN) 
 but of different architecture: AlexNet, GoogLeNet, Overfeat, VGG [6], and one based on Tensorflow example for 
@@ -36,18 +36,18 @@ Operating System is RedHat Enterprise Linux 7.5, CUDA Toolkit 9.0.176 and NVIDIA
 cudnn 7.0.5 is installed in the user's $HOME directory. The test are performed with Python version 2.7.5.
 1.  For baremetal performance tests, two Tensorflow GPU versions 1.5.0 and 1.8.0 are installed in separate 
 virtual environments via pip installation tool.
-1.  For udocker tests, we build two Docker images based on the same Tensorflow versions, 1.5.0 and 1.8.0. 
+1.  For _uDocker_tests, we build two Docker images based on the same Tensorflow versions, 1.5.0 and 1.8.0. 
 The python scripts and MNIST data are stored inside the images. In both Docker images CUDA Toolkit is 9.0.176, 
-cudnn version is 7.0.5, and Python is 2.7.12. We use udocker (devel branch) to pull images from the Docker Hub. 
+cudnn version is 7.0.5, and Python is 2.7.12. We use _uDocker_(devel branch) to pull images from the Docker Hub. 
 To run the containers, F3 (Fakechroot) mode is set with --nvidia flag (to add NVIDIA libraries and binaries).
-1.  For Singularity tests, Docker images built for udocker tests where converted  to Singularity images and 
+1.  For Singularity tests, Docker images built for _uDocker_tests where converted  to Singularity images and 
 uploaded to ForHLR II. Singularity version 2.5.2-dist was used. The containers are executed with --nv flag for NVIDIA support.
 1.  In all tests, the CNN scripts with synthetic data are executed for 1000 batches, therefore the mean time per batch is averaged over 1000 steps, 
 the MNIST script is run for 20000 steps.
 
 The results of the tests are shown in Figure 1, where we normalize the mean runtime per batch to the baremetal case 
 and Tensorflow 1.8.0. Error bars are scaled by the mean time per batch for baremetal and Tensorflow 1.8.0. 
-The tests do not indicate any penalty in executing the CNN scripts in either container technology udocker or 
+The tests do not indicate any penalty in executing the CNN scripts in either container technology _uDocker_or 
 Singularity in comparison with baremetal within the statistical uncertainty. 
 They may even suggest that running the scripts inside containers is slightly faster than in baremetal, 
 which could be connected to caching of data locally at the node in case of containers but needs to be better understood. 
