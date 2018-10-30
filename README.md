@@ -1,6 +1,9 @@
 # Documentation repository
 This repository contains software documentations, guides, tutorials, logbooks and similar documents produced with DEEP Hybrid DataCloud project
 
+## udcoker
+* [Test and evaluation of new GPU implementation in udocker](https://github.com/indigo-dc/deep-docs/blob/master/docs/udocker/udocker_gpu_1stimplementation_tests.md)
+
 ## OpenStack nova-lxd
 * [Installing nova-lxd with Openstack Ansible](https://github.com/indigo-dc/deep-docs/blob/master/docs/nova-lxd/nova-lxd-ansible.md)
 * [Installing nova-lxd with Juju](https://github.com/indigo-dc/deep-docs/blob/master/docs/nova-lxd/nova-lxd-juju.md)
