@@ -18,8 +18,8 @@ This repository contains software documentations, guides, tutorials, logbooks an
 * [Installing GPU node and adding it to Kubernetes cluster - CentOS](https://github.com/indigo-dc/deep-docs/blob/master/docs/kubernetes/GPU-Kubernetes-CentOS7.md)
 
 ## Mesos
-* [How to enable GPU support](docs/mesos-cluster/enable-gpu-support.md)
-* [How to enable Openid-Connect authentication](docs/mesos-cluster/enable-openid-authentication.md)
+* [How to enable GPU support in Mesos](docs/mesos-cluster/enable-gpu-support.md)
+* [How to enable OpenID-Connect authentication in Mesos](docs/mesos-cluster/enable-openid-authentication.md)
 
 ## Usefull links
 * [Converting documents form Confluence to Github markdown](https://www.npmjs.com/package/confluence-to-github-markdown) 
