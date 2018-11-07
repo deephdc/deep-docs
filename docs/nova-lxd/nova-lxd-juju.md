@@ -30,7 +30,18 @@ Say none to IPv6. If there a empty disk volume (block storage) attached, use it 
     # sudo /snap/bin/lxd.migrate
 ```
 7. Optional: increase the limit of number open files (only needed for larger tests). See https://lxd.readthedocs.io/en/latest/production-setup/
-
+```
+    # echo fs.inotify.max_queued_events=1048576 | sudo tee -a /etc/sysctl.conf
+    # echo fs.inotify.max_user_instances=1048576 | sudo tee -a /etc/sysctl.conf
+    # echo fs.inotify.max_user_watches=1048576 | sudo tee -a /etc/sysctl.conf
+    # echo vm.max_map_count=262144 | sudo tee -a /etc/sysctl.conf
+    # echo vm.swappiness=1 | sudo tee -a /etc/sysctl.conf
+    # sudo sysctl -p
+```
+Also update default profile for improving network connnection
+```
+    # lxc profile device set default eth0 mtu 9000
+```
 8. Optional: Check configuration (as user), if your configuration is correct
 ```
     # /snap/bin/lxc storage list
