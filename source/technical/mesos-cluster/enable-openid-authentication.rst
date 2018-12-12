@@ -1,5 +1,5 @@
-<span class="inline-comment-marker" data-ref="6ed8b205-08df-4728-a178-2cc82c675af2">Enabling open-id connect authentication</span>
-----------------------------------------------------------------------------------------------------------------------------------
+Enabling open-id connect authentication
+---------------------------------------
 
 Mesos/Marathon/Chronos do not support open-id connect authentication natively. 
 

@@ -1,4 +1,3 @@
-
 # Deploying OpenStack environment with nova-lxd via DevStack
 
 This document is a step-by-step guide of OpenStack with nova-lxd deployment via DevStack on a single machine (All-in-One). The guide was tested on a host running Xenial or Bionic. The host has pre-installed following libraries:
@@ -6,7 +5,7 @@ This document is a step-by-step guide of OpenStack with nova-lxd deployment via 
 * Python 2.7
 * PyLXD 2.2.7
 
-# Installation steps
+## Installation steps
 
 1. Create a new host running Xenial or Bionic with Python 2.7
 
@@ -17,14 +16,14 @@ This document is a step-by-step guide of OpenStack with nova-lxd deployment via 
    $ sudo apt update
    $ sudo apt install python-pip
    ```
-   
+
    2. Set up your environment variable ```bash LC_ALL```
    ```bash
    $ export LC_ALL="en_US.UTF-8"
    $ export LC_CTYPE="en_US.UTF-8"
    $ sudo dpkg-reconfigure locales
    ```
-   
+
    3. Download and install the library PyLXD
    ```bash
    $ git clone https://github.com/lxc/pylxd.git
@@ -42,7 +41,7 @@ $ sudo apt install lxd zfsutils-linux
    ```bash
    $ sudo apt-get purge --auto-remove lxd lxc
    ```
-   
+
    2. Install the wanted version of LXD/LXC:
       * LXD/LXC 3.0.1 on a host running Xenial
       ```bash
@@ -56,7 +55,7 @@ $ sudo apt install lxd zfsutils-linux
       ```bash
       $ sudo snap install lxd --channel=3.0
       ```
-      
+
 5. Configure LXD:
    1. In order to use LXD, the system user must be a member of the 'lxd' user group.
       ```bash
@@ -64,27 +63,27 @@ $ sudo apt install lxd zfsutils-linux
       $ newgrp lxd
       $ groups
       ```
-      
+
    2. LXD initialisation
       ```bash
       $ sudo lxd init
       ```
       The session below (LXD 3.0.1 with a zfs storage backend) is what was used to write this guide. Note that pressing Enter (a null answer) will accept the default answer (provided in square brackets).
       ```bash
-      Would you like to use LXD clustering? (yes/no) [default=no]: 
-      Do you want to configure a new storage pool? (yes/no) [default=yes]: 
+      Would you like to use LXD clustering? (yes/no) [default=no]:
+      Do you want to configure a new storage pool? (yes/no) [default=yes]:
       Name of the new storage pool [default=default]: lxd
-      Name of the storage backend to use (btrfs, dir, lvm, zfs) [default=zfs]: 
-      Create a new ZFS pool? (yes/no) [default=yes]: 
-      Would you like to use an existing block device? (yes/no) [default=no]: 
+      Name of the storage backend to use (btrfs, dir, lvm, zfs) [default=zfs]:
+      Create a new ZFS pool? (yes/no) [default=yes]:
+      Would you like to use an existing block device? (yes/no) [default=no]:
       Size in GB of the new loop device (1GB minimum) [default=15GB]:
-      Would you like to connect to a MAAS server? (yes/no) [default=no]: 
-      Would you like to create a new local network bridge? (yes/no) [default=yes]: 
-      What should the new bridge be called? [default=lxdbr0]: 
-      What IPv4 address should be used? (CIDR subnet notation, “auto” or “none”) [default=auto]:     
+      Would you like to connect to a MAAS server? (yes/no) [default=no]:
+      Would you like to create a new local network bridge? (yes/no) [default=yes]:
+      What should the new bridge be called? [default=lxdbr0]:
+      What IPv4 address should be used? (CIDR subnet notation, “auto” or “none”) [default=auto]:
       What IPv6 address should be used? (CIDR subnet notation, “auto” or “none”) [default=auto]: none
-      Would you like LXD to be available over the network? (yes/no) [default=no]: 
-      Would you like stale cached images to be updated automatically? (yes/no) [default=yes] 
+      Would you like LXD to be available over the network? (yes/no) [default=no]:
+      Would you like stale cached images to be updated automatically? (yes/no) [default=yes]
       Would you like a YAML "lxd init" preseed to be printed? (yes/no) [default=no]:
       ```
 6. *Optional step:* Remove old LXD version to avoid conflict
@@ -137,7 +136,7 @@ RABBIT_PASSWORD=$ADMIN_PASSWORD
 SERVICE_PASSWORD=$ADMIN_PASSWORD
 SERVICE_TOKEN=$ADMIN_PASSWORD
 
-# run the services you want to use
+## run the services you want to use
 ENABLED_SERVICES=rabbit,mysql,key
 ENABLED_SERVICES+=,g-api,g-reg
 ENABLED_SERVICES+=,n-cpu,n-api,n-crt,n-obj,n-cond,n-sch,n-novnc,n-cauth,placement-api,placement-client
@@ -145,10 +144,10 @@ ENABLED_SERVICES+=,neutron,q-svc,q-agt,q-dhcp,q-meta,q-l3
 ENABLED_SERVICES+=,cinder,c-sch,c-api,c-vol
 ENABLED_SERVICES+=,horizon
 
-# disabled services
+## disabled services
 disable_service n-net
 
-# enable nova-lxd
+## enable nova-lxd
 enable_plugin nova-lxd https://git.openstack.org/openstack/nova-lxd stable/rocky
 ```
 
@@ -194,12 +193,12 @@ where IP_of_horizon is the IP address of the dashboard that is given when the in
 $ ssh ubuntu@{{Floating_ip}}
 ```
 
-# Handy commands:
+## Handy commands:
 
-# Notes:
+## Notes:
 * CEPH volume is still not attachable to VM by defaults, some additional work required.
 
-# References
+## References
 1. https://discuss.linuxcontainers.org/t/lxd-3-0-0-has-been-released/1491
 2. https://docs.jujucharms.com/devel/en/tut-lxd
 3. https://docs.openstack.org/devstack/latest/

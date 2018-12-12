@@ -1,6 +1,5 @@
-
-<span id="title-text"> DEEP : Installing and testing GPU Node in Kubernetes - CentOS7 </span>
-=============================================================================================
+Installing and testing GPU Node in Kubernetes - CentOS7
+=======================================================
 
 -   [Introduction](#InstallingandtestingGPUNodeinKubernetes-CentOS7-Introduction)
 -   [Cluster

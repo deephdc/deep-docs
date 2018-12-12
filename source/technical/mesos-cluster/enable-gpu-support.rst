@@ -1,3 +1,5 @@
+GPU support on Mesos
+====================
 
 Introduction
 ------------
@@ -123,7 +125,7 @@ Output:
 |   0  Tesla K40m          Off  | 00000000:82:00.0 Off |                    0 |
 | N/A   21C    P8    18W / 235W |      0MiB / 11441MiB |      0%      Default |
 +-------------------------------+----------------------+----------------------+
-                                                                               
+
 +-----------------------------------------------------------------------------+
 | Processes:                                                       GPU Memory |
 |  GPU       PID   Type   Process name                             Usage      |
@@ -179,7 +181,7 @@ Prepared mount '{"flags":20480,"source":"\/var\/lib\/mesos\/slaves\/d33d527c-8d1
 Prepared mount '{"flags":20481,"source":"\/var\/run\/mesos\/isolators\/gpu\/nvidia_390.30","target":"\/var\/lib\/mesos\/provisioner\/containers\/5ebbfaf3-3b8b-4c32-9337-740a85feef75\/backends\/overlay\/rootfses\/e56d62ea-4334-4582-a820-2b9406e2b7f8\/usr\/local\/nvidia"}'
 Prepared mount '{"flags":20513,"target":"\/var\/lib\/mesos\/provisioner\/containers\/5ebbfaf3-3b8b-4c32-9337-740a85feef75\/backends\/overlay\/rootfses\/e56d62ea-4334-4582-a820-2b9406e2b7f8\/usr\/local\/nvidia"}'
 Changing root to /var/lib/mesos/provisioner/containers/5ebbfaf3-3b8b-4c32-9337-740a85feef75/backends/overlay/rootfses/e56d62ea-4334-4582-a820-2b9406e2b7f8
-Mon Mar  5 14:23:41 2018       
+Mon Mar  5 14:23:41 2018
 +-----------------------------------------------------------------------------+
 | NVIDIA-SMI 390.30                 Driver Version: 390.30                    |
 |-------------------------------+----------------------+----------------------+
@@ -189,7 +191,7 @@ Mon Mar  5 14:23:41 2018
 |   0  Tesla K40m          Off  | 00000000:82:00.0 Off |                    0 |
 | N/A   21C    P8    18W / 235W |      0MiB / 11441MiB |      0%      Default |
 +-------------------------------+----------------------+----------------------+
-                                                                               
+
 +-----------------------------------------------------------------------------+
 | Processes:                                                       GPU Memory |
 |  GPU       PID   Type   Process name                             Usage      |
@@ -249,7 +251,7 @@ The following steps are needed to test the patch:
     ```
 
     **File entrypoint.sh**:
-    
+
 
     ``` syntaxhighlighter-pre
     #!/bin/sh
@@ -301,7 +303,7 @@ CHRONOS_ENABLE_FEATURES=gpu_resources
 Approach: submit a batch-like job that uses the tensorflow docker image, downloads the code available <a href="https://github.com/aymericdamien/TensorFlow-Examples" class="external-link">here</a> and runs <span style="color: rgb(50,58,78);">the convolutional network example</span>
 
 ``` syntaxhighlighter-pre
-apt-get update; apt-get install -y git 
+apt-get update; apt-get install -y git
 
 git clone https://github.com/aymericdamien/TensorFlow-Examples
 
@@ -354,7 +356,7 @@ Cloning into 'TensorFlow-Examples'...
 /usr/local/lib/python2.7/dist-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
   from ._conv import register_converters as _register_converters
 WARNING:tensorflow:Using temporary folder as model directory: /tmp/tmpLLDDDs
-2018-03-05 14:38:59.059890: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1212] Found device 0 with properties: 
+2018-03-05 14:38:59.059890: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1212] Found device 0 with properties:
 name: Tesla K40m major: 3 minor: 5 memoryClockRate(GHz): 0.745
 pciBusID: 0000:82:00.0
 totalMemory: 11.17GiB freeMemory: 11.09GiB
@@ -405,7 +407,7 @@ Also in this case the job is correcly run:
 Cloning into 'TensorFlow-Examples'...
 WARNING:tensorflow:Using temporary folder as model directory: /tmp/tmpomIcq9
 2018-03-05 16:36:24.518455: I tensorflow/core/platform/cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX
-2018-03-05 16:36:25.261578: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1030] Found device 0 with properties: 
+2018-03-05 16:36:25.261578: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1030] Found device 0 with properties:
 name: Tesla K40m major: 3 minor: 5 memoryClockRate(GHz): 0.745
 pciBusID: 0000:82:00.0
 totalMemory: 11.17GiB freeMemory: 11.09GiB

@@ -1,5 +1,5 @@
-<span id="title-text"> Installing GPU node and adding it to Kubernetes cluster </span>
-=============================================================================================
+Installing GPU node and adding it to Kubernetes cluster
+=======================================================
 
 This is a guide on how to install a GPU node and join it in a running
 Kubernetes cluster deployed with kubeadm. The guide was tested on a
@@ -24,7 +24,7 @@ Step-by-step guide
 
     ``` syntaxhighlighter-pre
     ubuntu@virtual-kubernetes-gpu-2:~$ nvidia-smi
-    Wed Mar 14 08:52:53 2018       
+    Wed Mar 14 08:52:53 2018
     +-----------------------------------------------------------------------------+
     | NVIDIA-SMI 387.26                 Driver Version: 387.26                    |
     |-------------------------------+----------------------+----------------------+
@@ -34,7 +34,7 @@ Step-by-step guide
     |   0  Tesla K20m          Off  | 00000000:00:07.0 Off |                    0 |
     | N/A   30C    P0    53W / 225W |      0MiB /  4742MiB |    100%      Default |
     +-------------------------------+----------------------+----------------------+
-                                                                                   
+
     +-----------------------------------------------------------------------------+
     | Processes:                                                       GPU Memory |
     |  GPU       PID   Type   Process name                             Usage      |
@@ -50,7 +50,7 @@ Step-by-step guide
     class="collapse-spinner-wrapper"></span>
 
     ``` syntaxhighlighter-pre
-    ubuntu@virtual-kubernetes-gpu-2:~$ cat /usr/local/cuda-8.0/version.txt 
+    ubuntu@virtual-kubernetes-gpu-2:~$ cat /usr/local/cuda-8.0/version.txt
     CUDA Version 8.0.61
     ```
 
@@ -85,7 +85,7 @@ Step-by-step guide
     root@virtual-kubernetes-gpu-2:~# docker run hello-world
     Unable to find image 'hello-world:latest' locally
     latest: Pulling from library/hello-world
-    ca4f61b1923c: Pull complete 
+    ca4f61b1923c: Pull complete
     Digest: sha256:97ce6fa4b6cdc0790cda65fe7290b74cfebd9fa0c9b8c38e979330d547d22ce1
     Status: Downloaded newer image for hello-world:latest
 
@@ -135,19 +135,19 @@ Step-by-step guide
     root@virtual-kubernetes-gpu-2:~# docker run --runtime=nvidia --rm nvidia/cuda nvidia-smi
     Unable to find image 'nvidia/cuda:latest' locally
     latest: Pulling from nvidia/cuda
-    22dc81ace0ea: Pull complete 
-    1a8b3c87dba3: Pull complete 
-    91390a1c435a: Pull complete 
-    07844b14977e: Pull complete 
-    b78396653dae: Pull complete 
-    95e837069dfa: Pull complete 
-    fef4aadda783: Pull complete 
-    343234bd5cf3: Pull complete 
-    64e8786fc8c1: Pull complete 
-    d6a4723d353c: Pull complete 
+    22dc81ace0ea: Pull complete
+    1a8b3c87dba3: Pull complete
+    91390a1c435a: Pull complete
+    07844b14977e: Pull complete
+    b78396653dae: Pull complete
+    95e837069dfa: Pull complete
+    fef4aadda783: Pull complete
+    343234bd5cf3: Pull complete
+    64e8786fc8c1: Pull complete
+    d6a4723d353c: Pull complete
     Digest: sha256:3524adf9b563c27d9a0f6d0584355c1f4f4b38e90b66289b8f8de026a9162eee
     Status: Downloaded newer image for nvidia/cuda:latest
-    Wed Mar 14 10:14:51 2018       
+    Wed Mar 14 10:14:51 2018
     +-----------------------------------------------------------------------------+
     | NVIDIA-SMI 387.26                 Driver Version: 387.26                    |
     |-------------------------------+----------------------+----------------------+
@@ -157,7 +157,7 @@ Step-by-step guide
     |   0  Tesla K20m          Off  | 00000000:00:07.0 Off |                    0 |
     | N/A   30C    P0    52W / 225W |      0MiB /  4742MiB |    100%      Default |
     +-------------------------------+----------------------+----------------------+
-                                                                                   
+
     +-----------------------------------------------------------------------------+
     | Processes:                                                       GPU Memory |
     |  GPU       PID   Type   Process name                             Usage      |
@@ -209,14 +209,14 @@ Step-by-step guide
     class="collapse-spinner-wrapper"></span>
 
     ``` syntaxhighlighter-pre
-    # install aptitude, an interface to package manager 
+    # install aptitude, an interface to package manager
     root@virtual-kubernetes-gpu-2:~# apt install aptitude -y
 
     # show available kubeadm versions in the repositories
     root@virtual-kubernetes-gpu-2:~# aptitude versions kubeadm
-    Package kubeadm:                        
-    p   1.5.7-00   kubernetes-xenial   500 
-    p   1.6.1-00   kubernetes-xenial   500 
+    Package kubeadm:
+    p   1.5.7-00   kubernetes-xenial   500
+    p   1.6.1-00   kubernetes-xenial   500
     p   1.6.2-00   kubernetes-xenial   500
     ...
     p   1.9.3-00   kubernetes-xenial   500
@@ -338,9 +338,9 @@ Step-by-step guide
     NAME                       STATUS    ROLES     AGE       VERSION   ACCELERATOR
     virtual-kubernetes-gpu     Ready     <none>    1d        v1.9.4    nvidia-tesla-k20m
     virtual-kubernetes-gpu-2   Ready     <none>    24m       v1.9.4    nvidia-tesla-k20m
-    virutal-kubernetes-1       Ready     master    5d        v1.9.4    
-    virutal-kubernetes-2       Ready     <none>    5d        v1.9.4    
-    virutal-kubernetes-3       Ready     <none>    5d        v1.9.4    
+    virutal-kubernetes-1       Ready     master    5d        v1.9.4
+    virutal-kubernetes-2       Ready     <none>    5d        v1.9.4
+    virutal-kubernetes-3       Ready     <none>    5d        v1.9.4
     ```
 
 15. To test the GPU nodes, go to the master and create a file with the

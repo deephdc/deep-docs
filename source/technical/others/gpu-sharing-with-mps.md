@@ -1,7 +1,7 @@
-# Overview of MPS
+# GPU sharing with MPS
 
-From [1], MPS  is  a  runtime  service  designed  to  let  multiple  MPI processes using CUDA to 
-run concurrently on a single GPU. A CUDA program runs in MPS mode if the MPS control daemon is 
+From [1], MPS  is  a  runtime  service  designed  to  let  multiple  MPI processes using CUDA to
+run concurrently on a single GPU. A CUDA program runs in MPS mode if the MPS control daemon is
 running on the system.
 
 When  CUDA  is  first initialized in a program, the CUDA driver attempts to connect to the MPS
@@ -23,7 +23,7 @@ The MPS server creates the shared GPU context, manages its clients, and issues w
 GPU on behalf of its clients. An MPS server can support upto 16 client CUDA contexts at  a
 time.  MPS  is  transparent  to  CUDA  programs,  with all the complexity of communication
 between the client process, the server and the control daemon  hidden  within  the  driver
-binaries. 
+binaries.
 
 From [2], the Volta architecture introduced new MPS capabilities. Compared to MPS on pre-Volta GPUs,
 Volta MPS provides a few key improvements:
@@ -49,7 +49,7 @@ Stop MPS service:
 ### a. Single CUDA process
 ```
 #./nbody -benchmark -numbodies=512000
- 
+
 number of bodies = 512000
 512000 bodies, total time for 10 iterations: 29438.994 ms
 = 89.047 billion interactions per second
@@ -58,7 +58,7 @@ number of bodies = 512000
 ### b. Two processes at the same time:
 ```
 # ./nbody -benchmark -numbodies=512000
- 
+
 512000 bodies, total time for 10 iterations: 52418.652 ms
 = 50.010 billion interactions per second
 = 1000.194 single-precision GFLOP/s at 20 flops per interaction
@@ -161,14 +161,14 @@ According to [3], only Tensorflow with version 1.6 and higher can support MPS.
 
 Tensorflow 1.8.0, GPU version, python 2, command:
 ```
-sudo docker run --ipc=host --runtime=nvidia --rm -ti  vykozlov/tf-benchmarks:181004-tf180-gpu  ./tf-benchmarks.sh all 
+sudo docker run --ipc=host --runtime=nvidia --rm -ti  vykozlov/tf-benchmarks:181004-tf180-gpu  ./tf-benchmarks.sh all
 ```
 
 ### a. without MPS service
 all tests passed.
 
 ### b. with MPS service
-Only first part (forward) of each test passed, then the execution terminated (core dumped). 
+Only first part (forward) of each test passed, then the execution terminated (core dumped).
 
 
 ## Identified reasons why Tensoflow does not work correctly with MPS
@@ -182,7 +182,7 @@ So Tensorflow will not work with MPS on old (pre-Volta) GPU.
 
 ## Final remarks:
 * Without MPS service, native CUDA samples can be executed in parallel and the GPU performance is divided among processes
-* With MPS service, CUDA executions with different user IDs are serialized, one needs to wait until other finishes. 
+* With MPS service, CUDA executions with different user IDs are serialized, one needs to wait until other finishes.
 * CUDA processes with the same user ID can be executed in parallel.
 * Tensorflow will not work with MPS on old (pre-Volta) GPU.
 * Need to test on newer GPU cards (Volta)
