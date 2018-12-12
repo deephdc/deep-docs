@@ -1,9 +1,8 @@
-
 # Installing nova-lxd with Juju
 
 This is instruction of deploying Openstack with nova-lxd on single machine (All-in-One) for testing and deployment. Tested on Ubuntu Xenial and Bionic. Whole process of installation would take around 2h. Be careful with the LXD setting, leave default values when possible to avoid later problems. ("none" to IPv6, "lxdbr0" for bridge and "default" for name of LXD storage.
 
-# Installation
+## Installation
 1. Create/Install a new machine with Ubuntu 16/18.04 and adequate performance (16GB RAM needed)
 
 2. Optional: Update all packages (as root)
@@ -94,6 +93,6 @@ where IP_of_horizon is the IP address of the dashboard that is given when the in
 ```
     # ssh ubuntu@floating_ip
 ```
-# Notes
+## Notes
 * Ceph and Cinder are installed together with other Openstack services, however attaching block storage does not work. According to https://lists.gt.net/openstack/dev/64776, it should require some additional work.
 * Although Ubuntu Bionic with LXD 3.0 was used as base OS on the host, in LXD containers are Ubuntu Xenial with LXD 2.0

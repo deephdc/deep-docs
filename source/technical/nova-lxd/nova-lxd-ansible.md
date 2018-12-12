@@ -1,11 +1,10 @@
+# OpenStack nova-lxd installation via Ansible
 
-# Overview
-
-This document provide step by step deployment of Openstack site with nova-lxd via Openstack Ansible. That would allows site admins to avoid obstacles and pitfalls during deployment and create a Openstack site with nova-lxd for testing and development in a short time without studying extensive documentation of Openstack Ansible. 
+This document provide step by step deployment of Openstack site with nova-lxd via Openstack Ansible. That would allows site admins to avoid obstacles and pitfalls during deployment and create a Openstack site with nova-lxd for testing and development in a short time without studying extensive documentation of Openstack Ansible.
 
 This documentation also show that nova-lxd is supported (although not perfectly, see steps 10-11 for fixing LXD configuration) in mainstream Openstack deployment tool beside Ubuntu-specific Juju charms. Ubuntu 18.04 and LXD 3.0 are also supported (instead of 16.04 / LXD 2.0 used in Juju).
 
-# Comparison between Openstack Ansible and Juju/conjure-up
+## Comparison between Openstack Ansible and Juju/conjure-up
 
 Juju is Ubuntu- specific, and using Ubuntu distro packages for installing Openstack. Openstack Ansible is distro-neutral and by default it uses source code from github for Openstack installation (configurable for distro packages, however). For testing and development, installation via source code has advantages using latest codes, however, for production sites, distro packages are more stable, especially when Ubuntu offers up to 5-year software maintenance in comparison with 18-month from Openstack.
 
@@ -13,7 +12,7 @@ Other differences: Juju uses LXD containers for all Openstack services and has b
 
 Openstack Ansible offers wide possibilities of customization, e.g. method of installation (distro package vs source), based Linux distro (RedHat/CenOS, openSUSE and Ubuntu), selection of services to be installed. Beside Openstack installation, it also does many other tasks for security hardening and high availability (e.g. haproxy/Galera). As the result, it is more complex and need more time for deployment. (Un)fortunately, Openstack Ansible has very extensive documentation that is useful but may require time to study. See [1] and [2] from references for more information.
 
-# Installing a All-in-One Openstack site with nova-lxd via Openstack Ansible
+## Installing a All-in-One Openstack site with nova-lxd via Openstack Ansible
 
 This installation takes rather long time (totally around ~2h according to disk performance, network connection and list of installed services). Fast disk and network connection is strongly recommended because of intensive disk operation during installation and large amount of files downloaded from repositories
 
@@ -46,7 +45,7 @@ This installation takes rather long time (totally around ~2h according to disk p
     # scripts/bootstrap-aio.sh
 ```
 
-7. Setting hypervisor to LXD: 
+7. Setting hypervisor to LXD:
 
 Edit file “/etc/openstack_deploy/user_variables.yml”. Add a line “nova_virt_type: lxd” into it.
 ```
@@ -114,10 +113,10 @@ Edit file /etc/nova/nova.conf, add the following section into the file. For the 
 
 18. Success.
 
-# Notes:
+## Notes:
 * CEPH volume is still not attachable to VM by defaults, some additional work required.
 
-# References
+## References
 1. https://docs.openstack.org/openstack-ansible/latest/user/aio/quickstart.html
 2. https://docs.openstack.org/project-deploy-guide/openstack-ansible/latest/
 3. https://docs.openstack.org/openstack-ansible/latest/admin/openstack-firstrun.html
