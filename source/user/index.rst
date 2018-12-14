@@ -8,6 +8,10 @@ User roles
 ------------
 Brief description of the user roles and their relation with the usecases and the applications.
 
+   user_roles/role1.rst
+   user_roles/role2.rst
+   user_roles/role3.rst
+
 
 Applications
 ------------
