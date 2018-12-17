@@ -16,13 +16,13 @@ Brief description of the user roles and their relation with the usecases and the
    user_roles/role3.rst
 
 
-Applications
+Catalogue of modules
 ------------
 
 .. toctree::
    :maxdepth: 1
 
-   applications/image_classification.rst
+   catalogue/image_classification.rst
 
 
 Use cases
