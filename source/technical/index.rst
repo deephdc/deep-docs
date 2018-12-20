@@ -20,7 +20,7 @@ Kubernetes
 .. toctree::
    :maxdepth: 1
 
-   kubernetes/gpu-kubernetes-centos7
+   kubernetes/gpu-kubernetes-centos7.md
    kubernetes/gpu-kubernetes-ubuntu
 
 
