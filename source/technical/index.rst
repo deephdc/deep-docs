@@ -10,8 +10,8 @@ Mesos
 .. toctree::
    :maxdepth: 1
 
-   mesos-cluster/enable-gpu-support.rst
-   mesos-cluster/enable-openid-authentication.rst
+   mesos-cluster/enable-gpu-support.md
+   mesos-cluster/enable-openid-authentication.md
 
 
 Kubernetes
@@ -21,7 +21,7 @@ Kubernetes
    :maxdepth: 1
 
    kubernetes/gpu-kubernetes-centos7.md
-   kubernetes/gpu-kubernetes-ubuntu
+   kubernetes/gpu-kubernetes-ubuntu.md
 
 
 OpenStack nova-lxd

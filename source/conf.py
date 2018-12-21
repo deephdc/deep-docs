@@ -49,6 +49,11 @@ source_parsers = {
     '.md': 'recommonmark.parser.CommonMarkParser',
 }
 
+
+extensions = [
+    'sphinx_markdown_tables',
+]
+
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
 #
