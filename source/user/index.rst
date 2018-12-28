@@ -3,37 +3,34 @@ User documentation
 
 .. todo:: Documentation is being written at this moment.
 
+Quickstart
+----------
 
-User roles
-------------
-Brief description of the user roles and their relation with the usecases and the applications.
-
-.. toctree::
-   :maxdepth: 1
-
-   user_roles/role1.rst
-   user_roles/role2.rst
-   user_roles/role3.rst
-
-
-Catalogue of modules
-------------
+If you want a quickstart guide, please check the following link.
 
 .. toctree::
    :maxdepth: 1
 
-   catalogue/image_classification.rst
+   quickstart
 
+Overview
+---------
 
-Use cases
-------------
+A more in depth documentation, with detailed description on the archicture and
+components is provided in the following sections.
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
-   usecases/plants.rst
-   usecases/satellites.rst
-   usecases/mods.rst
-   usecases/retinopathy.rst
-   usecases/lattice_qcd.rst
-   usecases/toy_model-dog_breeds.rst
+   overview/index
+
+Examples
+--------
+
+The following sections provide information on how several deep learning models
+have been developed and integrated with our platform.
+
+.. toctree::
+   :maxdepth: 2
+
+   examples/index
