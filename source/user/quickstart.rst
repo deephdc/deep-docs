@@ -24,7 +24,7 @@ You must define the entrypoints to this file in the ``setup.cfg`` as following:
     deepaas.model =
         pkg_name = pkg_name.api
 
-The ``api.py`` file can (optionally) include any of the  following :ref:`methods <api-methods>` to apply to your model:
+The ``api.py`` file can (optionally) include any of the  following :ref:`methods <user/overview/api:Methods>` to apply to your model:
 
 * :ref:`get_metadata <api-methods_get-metadata>`
 * :ref:`get_train_args <api-methods_get-train-args>`

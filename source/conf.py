@@ -41,6 +41,7 @@ release = 'DEEP-1 (Genesis)'
 extensions = [
     'sphinx.ext.todo',
     'sphinx_markdown_tables',
+    'sphinx.ext.autosectionlabel'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -174,3 +175,7 @@ texinfo_documents = [
 
 # If true, `todo` and `todoList` produce output, else they produce nothing.
 todo_include_todos = True
+
+# -- Options for autosectionlabel extension ----------------------------------------------
+
+autosectionlabel_prefix_document = True

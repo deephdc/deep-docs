@@ -1,7 +1,6 @@
 DEEPaaS API
 ===========
 
-.. _api-methods:
 
 Methods
 -------
