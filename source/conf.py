@@ -40,6 +40,7 @@ release = 'DEEP-1 (Genesis)'
 # ones.
 extensions = [
     'sphinx.ext.todo',
+    'sphinx_markdown_tables',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -49,10 +50,6 @@ source_parsers = {
     '.md': 'recommonmark.parser.CommonMarkParser',
 }
 
-
-extensions = [
-    'sphinx_markdown_tables',
-]
 
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
