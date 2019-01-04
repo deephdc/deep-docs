@@ -15,16 +15,15 @@ Quickstart guide
 Integrate a model with the API
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Check the full :doc:`API guide <overview/api>` for more info.
+The `DEEPaaS API <https://github.com/indigo-dc/DEEPaaS>`_ enables a user friendly interaction with the underlying Deep
+Learning models and can be used both for training and inference with the models.
 
-To integrate a model with the `DEEPaaS API <https://github.com/indigo-dc/DEEPaaS>`_ you need to define an python script (named for example ``api.py``).
-You must define the entrypoints to this file in the ``setup.cfg`` as following:
-::
-    [entry_points]
-    deepaas.model =
-        pkg_name = pkg_name.api
+.. image:: ../_static/deepaas.png
 
-The ``api.py`` file can (optionally) include any of the  following :ref:`methods <user/overview/api:Methods>` to apply to your model:
+
+To :ref:`integrate your model with the API <user/overview/api:Integrate your model with the API>` with the API you need
+to define the :ref:`API methods <user/overview/api:Methods>` on your model.
+Those methods can (optionally) include any of the following:
 
 * :ref:`get_metadata <api-methods_get-metadata>`
 * :ref:`get_train_args <api-methods_get-train-args>`
@@ -35,3 +34,4 @@ The ``api.py`` file can (optionally) include any of the  following :ref:`methods
 
 To test the API locally, install the API with ``pip install deepaas`` and run it with ``deepaas-run --listen-ip 0.0.0.0``.
 
+Check the full :doc:`API guide <overview/api>` for more info.

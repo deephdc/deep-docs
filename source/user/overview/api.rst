@@ -2,12 +2,37 @@ DEEPaaS API
 ===========
 
 
+The `DEEPaaS API <https://github.com/indigo-dc/DEEPaaS>`_ enables a user friendly interaction with the underlying Deep
+Learning models and can be used both for training and inference with the models.
+
+Integrate your model with the API
+---------------------------------
+
+To make your Deep Learning model compatible with the DEEPaaS API you have to:
+
+1. **Define the API methods for your model**
+
+Create a Python file (named for example ``api.py``) inside your package. In this file you can define any of the
+:ref:`API methods <user/overview/api:Methods>`. You don't need to define all the methods, just the ones you need.
+Every other method will return a ``NotImplementError`` when  queried from the API.
+
+Here is `example <https://github.com/indigo-dc/image-classification-tf/blob/master/imgclas/api.py>`__ of the
+implementation of the methods
+
+2. **Define the entrypoints to your model**
+
+You must define the entrypoints to this file in the ``setup.cfg`` as following:
+::
+    [entry_points]
+    deepaas.model =
+        pkg_name = pkg_name.api
+
+Here is an `example <https://github.com/indigo-dc/image-classification-tf/blob/master/setup.cfg#L25-L27>`__ of the entrypoint
+definition in the ``setup.cfg`` file.
+
+
 Methods
 -------
-
-The following methods must be defined in a python file (named for example `api.py`) inside your package. You don't need
-to define all the methods, just the ones you needs. Everyother method will return a `NotImplementError` when  queried
-from the API.
 
 .. _api-methods_get-metadata:
 
@@ -16,7 +41,7 @@ from the API.
     Return metadata from the exposed model.
 
     :return: dictionary containing the model's metadata. Possible keys of this dict can include: 'Name', 'Version',
-    'Summary', 'Home-page', 'Author', 'Author-email', 'License', etc.
+        'Summary', 'Home-page', 'Author', 'Author-email', 'License', etc.
 
 
 .. _api-methods_get-train-args:
@@ -87,13 +112,3 @@ from the API.
     This method will perform a prediction based on the data stored in the URL passed as argument.
 
     :param str url: URL pointing to the data to be analized
-
-
-References
-----------
-
-Here are some pointers of a the integration of an image classification model with the API:
-
-* An `example <https://github.com/indigo-dc/image-classification-tf/blob/master/imgclas/api.py>`__ of the implementation of the methods
-
-* An `example <https://github.com/indigo-dc/image-classification-tf/blob/master/setup.cfg>`__ of the entrypoint definition in the ``setup.cfg`` file.
