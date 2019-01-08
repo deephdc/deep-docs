@@ -7,5 +7,7 @@ Overview
 
    architecture
    cookiecutter
+   cookiecutter-develop-model
+   try-model-locally
    user-roles
    api
