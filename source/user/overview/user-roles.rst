@@ -2,6 +2,7 @@ Our different user roles
 ========================
 
 .. todo:: Check the bullet points for correctness and add additional bullet points
+.. todo:: Add diagrams of interaction with the diferent :doc:`DEEP components <architecture>`
 
 DEEPaaS is focused with three different types of users in mind, whcih vary in their machine learning knowledge and their
 usage of DEEPaaS.
