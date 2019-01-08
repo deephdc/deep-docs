@@ -39,13 +39,17 @@ The structure of ``your_project`` contains the following core items needed to de
 You can also add more source files and put them into the directory structure.
 
 **Installing development requirements**
+
 Modify ``requirements.txt`` according to your needs (e.g. add more libraries)
 ::
 	pip install -r requirements.txt
 	
+
 **Make datasets**
 
+
 **Build features***
+
 
 **Develop models***
 	
