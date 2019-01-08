@@ -29,4 +29,23 @@ Do ``git push origin master`` in both created directories. This puts your initia
 Develop a model using the created DEEP UC template
 --------------------------------------------------
 
-TBD 
+The structure of ``your_project`` contains the following core items needed to develop a model
+::
+	requirements.txt
+	{{cookiecutter.repo_name}}/dataset/make_dataset.py
+	{{cookiecutter.repo_name}}/features/build_features.py
+	{{cookiecutter.repo_name}}/models/model.py
+	
+You can also add more source files and put them into the directory structure.
+
+**Installing development requirements**
+Modify ``requirements.txt`` according to your needs (e.g. add more libraries)
+::
+	pip install -r requirements.txt
+	
+**Make datasets**
+
+**Build features***
+
+**Develop models***
+	
