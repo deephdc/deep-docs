@@ -32,6 +32,8 @@ Develop a model using the created DEEP UC template
 The structure of ``your_project`` contains the following core items needed to develop a model
 ::
 	requirements.txt
+	data/
+	models/
 	{{cookiecutter.repo_name}}/dataset/make_dataset.py
 	{{cookiecutter.repo_name}}/features/build_features.py
 	{{cookiecutter.repo_name}}/models/model.py
@@ -40,7 +42,7 @@ You can also add more source files and put them into the directory structure.
 
 **Installing development requirements**
 
-Modify ``requirements.txt`` according to your needs (e.g. add more libraries)
+Modify ``requirements.txt`` according to your needs (e.g. add more libraries) then run
 ::
 	pip install -r requirements.txt
 	
@@ -48,8 +50,8 @@ Modify ``requirements.txt`` according to your needs (e.g. add more libraries)
 **Make datasets**
 
 
-**Build features***
+**Build features**
 
 
-**Develop models***
+**Develop models**
 	
