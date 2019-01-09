@@ -12,6 +12,8 @@ If you want a quickstart guide, please check the following link.
    :maxdepth: 1
 
    quickstart
+   try-model-locally
+   develop-model
 
 Overview
 ---------
