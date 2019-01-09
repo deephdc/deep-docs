@@ -5,10 +5,12 @@ Try a model locally
 
 
 2. **Search for a model in the marketplace**
-TBD 
+ 
 
 3. **Get the model**
+
 clone the repo
+
 build the container or get from DockerHub
 
 
@@ -16,7 +18,8 @@ build the container or get from DockerHub
 
 
 5. **Go to the API, get the results**
-MODS
+
+MODS - probs as outpus
 
 Need reviewing/improvements for other UCs
 
