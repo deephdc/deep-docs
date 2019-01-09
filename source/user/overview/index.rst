@@ -6,8 +6,9 @@ Overview
    :glob:
 
    architecture
+   user-roles
    cookiecutter
    cookiecutter-develop-model
+   train-model-locally
    try-model-locally
-   user-roles
    api

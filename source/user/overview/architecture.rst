@@ -23,9 +23,10 @@ For more information have a look at the marketplace.
 The API
 =======
 
-The DEEPaaS API is a key component for making the modules accessible to everybody. It is a graphical interface that the
-user can take advantage of to interact with the model. It is available for both inference and training. Advanced user
-that want to create new models can make them compatible with the API to make them available to the whole community.
+The DEEPaaS API is a key component for making the modules accessible to everybody. It provides a graphical interface that the
+user can take advantage of to easily interact with the model. It is available for both inference and training. Advanced users
+that want to create new models can make them :ref:`compatible with the API <user/overview/api:Integrate your model with the API>`
+to make them available to the whole community.
 
 For more information take a look on the full :doc:`API guide <api>`.
 
