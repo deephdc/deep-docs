@@ -46,6 +46,7 @@ A set of various HowTo examples.
 
 
 .. raw:: html
+
    <h2>Models</h2>
 
 
@@ -55,4 +56,4 @@ have been developed and integrated with our platform.
 .. toctree::
    :maxdepth: 2
 
-   examples/index
+   models/index
