@@ -1,15 +1,19 @@
 Develop a model using DEEP UC template
 ======================================
 
+.. highlight:: console
+
 Prepare DEEP UC environment
 ---------------------------
 
 Install cookiecutter (if not yet done)
 ::
+
 	$ pip install cookiecutter
 	
 Run the DEEP UC cookiecutter template
 ::
+
 	$ cookiecutter https://github.com/indigo-dc/cookiecutter-data-science
 	
 Answer all questions from DEEP UC cookiecutter template with attentions to 
@@ -17,6 +21,7 @@ Answer all questions from DEEP UC cookiecutter template with attentions to
 
 This creates two project directories:
 ::
+
 	~/DEEP-OC-your_project
 	~/your_project
 	
@@ -33,6 +38,7 @@ The structure of ``your_project`` created using
 `DEEP UC template <https://github.com/indigo-dc/cookiecutter-data-science>`__ contains 
 the following core items needed to develop a model
 ::
+
 	requirements.txt
 	data/
 	models/
@@ -44,6 +50,7 @@ the following core items needed to develop a model
 
 Modify ``requirements.txt`` according to your needs (e.g. add more libraries) then run
 ::
+
 	$ pip install -r requirements.txt
 	
 
@@ -54,6 +61,7 @@ You can modify as well as add more source files and put them accordingly into th
 **1. Make datasets:** source files in this directory aim to manipulate with raw dataset(s). 
 The output of this step is raw data, which can be cleaned and/or pre-formatted.
 ::
+
 	{{cookiecutter.repo_name}}/dataset/make_dataset.py
 	{{cookiecutter.repo_name}}/dataset/
 
@@ -62,6 +70,7 @@ creates ML train, test as well as validation data from raw data.
 The concrete realisation is depend on concrete UC, the aim of the application as well as 
 technological background (e.g. high-performance supports).
 ::
+
 	{{cookiecutter.repo_name}}/features/build_features.py
 	{{cookiecutter.repo_name}}/features/
 
@@ -70,6 +79,7 @@ The most important thing in the ``model.py`` are implementations for DEEP entry 
 which are defined according to :ref:`API methods <user/overview/api:Methods>`. 
 You don't need to implement all the methods, just the ones you need.
 ::
+
 	{{cookiecutter.repo_name}}/models/model.py
 	{{cookiecutter.repo_name}}/models/
 

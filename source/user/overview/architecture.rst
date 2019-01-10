@@ -11,13 +11,16 @@ The marketplace
 This is one of the most important components. It is a catalogue of modules that every user can have access to. We can
 divide the modules in two different categories:
 
-* **Models** are modules (eg. an image classifier) that an user can train on their own data to create a new tool.
+* **Models** are modules (eg. an :ref:`image classifier <https://marketplace.deep-hybrid-datacloud.eu/models/deep-oc-image-classification-tensorflow.html>`_)
+  that an user can train on their own data to create a new tool.
 
 * **Tools** are models that have been trained for a specific task (eg. an plant classifier).
 
-For more information have a look at the marketplace.
+For more information have a look at the :ref:`marketplace <https://marketplace.deep-hybrid-datacloud.eu/>`_.
 
-.. todo:: Add final links to marketplace, image classifier and plant classifier
+.. todo:: If everyone agrees in this nomenclature, tags should be changed in the marketplace --> in process
+
+.. todo:: Add links to the plant classifier in Tensorflow (which is still not uploaded to the marketplace)
 
 
 The API

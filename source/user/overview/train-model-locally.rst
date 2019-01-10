@@ -25,17 +25,17 @@ Possible option include image classifiers, etc.
 
 You will find that your model has an associate Docker container in DockerHub. Please download and run the container with:
 
-.. code-block:: bash
+.. code-block:: console
 
-    docker pull dockerhub_url
-    docker run -p 5000:5000 -p 6006:6006 -ti container_name /bin/bash
+    $ docker pull dockerhub_url
+    $ docker run -p 5000:5000 -p 6006:6006 -ti container_name /bin/bash
 
 For example if you wanted to download the image classifier model you would have to run:
 
-.. code-block:: bash
+.. code-block:: console
 
-    docker pull https://hub.docker.com/r/deephdc/deep-oc-image-classification-tf
-    docker run -p 5000:5000 -p 6006:6006 -ti imgclas-tf-normal /bin/bash
+    $ docker pull https://hub.docker.com/r/deephdc/deep-oc-image-classification-tf
+    $ docker run -p 5000:5000 -p 6006:6006 -ti imgclas-tf-normal /bin/bash
 
 We are using the port ``5000`` to deploy the API and the port ``6006`` to monitor the training (for example using
 `Tensorboard <https://www.tensorflow.org/guide/summaries_and_tensorboard>`_).
