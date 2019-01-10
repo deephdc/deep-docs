@@ -3,8 +3,11 @@ User documentation
 
 .. todo:: Documentation is being written at this moment.
 
-Quickstart
-----------
+
+.. raw:: html
+
+   <h2>Quickstart guide</h2>
+
 
 If you want a quickstart guide, please check the following link.
 
@@ -15,8 +18,10 @@ If you want a quickstart guide, please check the following link.
    try-model-locally
    develop-model
 
-Overview
----------
+.. raw:: html
+
+   <h2>Overview</h2>
+
 
 A more in depth documentation, with detailed description on the archicture and
 components is provided in the following sections.
@@ -26,8 +31,9 @@ components is provided in the following sections.
 
    overview/index
 
-Examples
---------
+.. raw:: html
+   <h2>Examples</h2>
+
 
 The following sections provide information on how several deep learning models
 have been developed and integrated with our platform.
