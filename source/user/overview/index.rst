@@ -7,7 +7,7 @@ Overview
 
    architecture
    user-roles
-   cookiecutter
+   cookiecutter-template
    develop-model
    train-model-locally
    try-model-locally
