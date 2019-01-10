@@ -88,7 +88,7 @@ The `DEEPaaS API <https://github.com/indigo-dc/DEEPaaS>`_ enables a user friendl
 Learning models and can be used both for training and inference with the models. Check the full :doc:`API guide <overview/api>` for the detailed info.
 
 An easy way to integrate your model with the API and create Dockerfiles for building the Docker image with the integrated 
-`DEEPaaS API <https://github.com/indigo-dc/DEEPaaS>`_ is to use our :doc:`cookiecutter-data-science <overview/cookiecutter-template>` template.
+:doc:`DEEPaaS API <overview/api>` is to use our :doc:`cookiecutter-data-science <overview/cookiecutter-template>` template.
 
 
 Run model on DEEP Pilot Infrastructure
