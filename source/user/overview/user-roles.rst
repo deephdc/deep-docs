@@ -4,6 +4,7 @@ Our different user roles
 DEEPaaS is focused with three different types of users in mind, whcih vary in their machine learning knowledge and their
 usage of DEEPaaS.
 
+
 The basic user
 --------------
 

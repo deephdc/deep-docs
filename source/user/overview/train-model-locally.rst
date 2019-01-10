@@ -4,11 +4,13 @@ Train a model locally
 This is a step by step guide on how to train a model from the Marketplace with your own dataset.
 You can also look at `video demo <https://www.youtube.com/watch?v=Mh6rdlqX-7I&feature=youtu.be>`_ on how to do this.
 
+
 1. Get Docker
 =============
 
 The first step is having `Docker <https://www.docker.com>`_ installed. To have an up-to-date installation please follow
 the `official Docker installation guide <https://docs.docker.com/install>`_.
+
 
 2. Search for a model in the marketplace
 ========================================
@@ -17,6 +19,7 @@ the `official Docker installation guide <https://docs.docker.com/install>`_.
 
 The next step is to look for a model in the marketplace you want to retrain on your own data.
 Possible option include image classifiers, etc.
+
 
 3. Get the model
 ================
@@ -40,10 +43,12 @@ For example if you wanted to download the image classifier model you would have 
 We are using the port ``5000`` to deploy the API and the port ``6006`` to monitor the training (for example using
 `Tensorboard <https://www.tensorflow.org/guide/summaries_and_tensorboard>`_).
 
+
 4. Upload your data to storage resources
 ========================================
 
 .. todo:: Lara and Valentin: Fill this section. Look at the possibility of using rclone with Google Drive, Dropbox, etc.
+
 
 5. Train the model
 ==================

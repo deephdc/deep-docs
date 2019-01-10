@@ -1,9 +1,9 @@
 DEEPaaS API
 ===========
 
-
 The `DEEPaaS API <https://github.com/indigo-dc/DEEPaaS>`_ enables a user friendly interaction with the underlying Deep
 Learning models and can be used both for training and inference with the models.
+
 
 Integrate your model with the API
 ---------------------------------
