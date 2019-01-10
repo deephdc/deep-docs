@@ -1,5 +1,5 @@
 DEEP Use-cases template
-===================
+========================
 
 To simplify development and in easy way integrate your model with DEEPaaS API, 
 a project template, `cookiecutter-data-science <https://github.com/indigo-dc/cookiecutter-data-science>`_ [*]_, is provided in our GitHub.
