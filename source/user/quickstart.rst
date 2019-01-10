@@ -91,7 +91,7 @@ An easy way to integrate your model with the API and create Dockerfiles for buil
 `DEEPaaS API <https://github.com/indigo-dc/DEEPaaS>`_ is to use our :doc:`cookiecutter-data-science <overview/cookiecutter-template>` template.
 
 
-Run model on DEEP Infrastructures
+Run model on DEEP Pilot Infrastructure
 ---------------------------------
 **Prerequisites:**
 
@@ -105,7 +105,7 @@ If your are going to use `DEEP-Nextcloud <https://nc.deep-hybrid-datacloud.eu>`_
 * Include `rclone <https://rclone.org/install/>`_ installation in your Dockerfile (see :doc:`rclone howto <howto/rclone>`)
 * Include call to rclone in your code (see :doc:`rclone howto <howto/rclone>`)
 
-In order to submit your job to DEEP Infrastructures one has to create TOSCA YAML file, for some examples, please, 
+In order to submit your job to DEEP Pilot Infrastructure one has to create TOSCA YAML file, for some examples, please, 
 see `here <https://github.com/indigo-dc/tosca-templates/tree/master/deep-oc>`_.
 
 The submission is then done via::
