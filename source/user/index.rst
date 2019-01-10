@@ -31,8 +31,22 @@ components is provided in the following sections.
 
    overview/index
 
+
 .. raw:: html
-   <h2>Examples</h2>
+   
+   <h2>HowTo's</h2>
+   
+
+A set of various HowTo examples.
+
+.. toctree::
+   :maxdepth: 2
+
+   howto/index
+
+
+.. raw:: html
+   <h2>Models</h2>
 
 
 The following sections provide information on how several deep learning models
