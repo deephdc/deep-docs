@@ -6,3 +6,4 @@ Models
    :glob:
 
    toy_model-dog_breeds
+   image_classification_tf

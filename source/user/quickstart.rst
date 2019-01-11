@@ -78,6 +78,7 @@ Using Github way allows to modify the Dockerfile for including additional packag
 
 .. note:: One can also clone the source code of the model, usually located in the 'model_of_interest' repository.  
 
+.. _api-integration:
 
 Integrate your model with the API
 ---------------------------------
