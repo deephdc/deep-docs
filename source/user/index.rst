@@ -16,7 +16,6 @@ If you want a quickstart guide, please check the following link.
 
    quickstart
 
-
 .. raw:: html
 
    <h2>Overview</h2>
