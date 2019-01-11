@@ -2,7 +2,7 @@ Train a model locally
 ---------------------
 
 This is a step by step guide on how to train a model from the Marketplace with your own dataset.
-You can also look at `video demo <https://www.youtube.com/watch?v=Mh6rdlqX-7I&feature=youtu.be>`_ on how to do this.
+You can also look at :ref:`video demo <video-demo_train-locally>` on how to do this.
 
 
 1. Get Docker

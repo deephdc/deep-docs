@@ -12,10 +12,10 @@ This is one of the most important components. It is a catalogue of modules that 
 divide the modules in two different categories:
 
 * **Models** are modules (eg. an `image classifier <https://marketplace.deep-hybrid-datacloud.eu/models/deep-oc-image-classification-tensorflow.html>`_)
-  that an user can train on their own data to create a new tool. They have not already been trained to perform any particular task.
+  that an user can train on their own data to create a new service. They have not already been trained to perform any particular task.
 
-* **Tools** are models that have been trained for a specific task (eg. an plant classifier). They usually derive from model,
-  although sometimes, for very specific tasks, a module can be both a model and a tool.
+* **Services** are models that have been trained for a specific task (eg. an plant classifier). They usually derive from model,
+  although sometimes, for very specific tasks, a module can be both a model and a service.
 
 For more information have a look at the `marketplace <https://marketplace.deep-hybrid-datacloud.eu/>`_.
 
@@ -38,7 +38,7 @@ For more information take a look on the full :doc:`API guide <api>`.
 The storage resources
 =====================
 
-Storage is essential for user that want to create new tools by training models on their custom data. For the moment we
+Storage is essential for user that want to create new services by training models on their custom data. For the moment we
 support saving data in NextCloud.
 
 .. todo:: Check rclone integration with Dropbox and Google Drive

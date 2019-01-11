@@ -15,16 +15,16 @@ Quickstart Guide
    4. Create a container from a model
 
 
-Download model from the marketplace
------------------------------------
+Download module from the marketplace
+------------------------------------
 
 #. go to `DEEP Open Catalog <https://deephdc.github.io/>`_
-#. `Browse <https://deephdc.github.io/#model-list>`_ available models
-#. Find the model and get it either from `Docker hub <https://hub.docker.com/u/deephdc>`_ (easy) or `github <https://github.com/topics/deep-hybrid-datacloud>`_ (pro)
+#. `Browse <https://deephdc.github.io/#model-list>`_ available modules
+#. Find the module and get it either from `Docker hub <https://hub.docker.com/u/deephdc>`_ (easy) or `github <https://github.com/topics/deep-hybrid-datacloud>`_ (pro)
 
 
-Run downloaded model locally
-----------------------------
+Run the downloaded module locally
+---------------------------------
 
 .. _docker-hub-way:
 
@@ -34,30 +34,37 @@ Docker Hub way (easy)
 (+ `nvidia-docker <https://github.com/nvidia/nvidia-docker/wiki/Installation-(version-2.0)>`_ for GPU support) or 
 `udocker <https://github.com/indigo-dc/udocker/releases>`_ (GPU support is implemented)
 
-1. To run the Docker container directly from Docker Hub and start using the `API <https://github.com/indigo-dc/DEEPaaS>`_ simply run the following:
+1. **Run the container**
+
+To run the Docker container directly from Docker Hub and start using the `API <https://github.com/indigo-dc/DEEPaaS>`_
+simply run the following:
 
     Via docker command::
 
-        $ docker run -ti -p 5000:5000 deephdc/deep-oc-model_of_interest
+        $ docker run -ti -p 5000:5000 -p 6006:6006 deephdc/deep-oc-module_of_interest
 
     With GPU support::
 
-        $ nvidia-docker run -ti -p 5000:5000 deephdc/deep-oc-model_of_interest
+        $ nvidia-docker run -ti -p 5000:5000 -p 6006:6006 deephdc/deep-oc-module_of_interest
     
     Via udocker::
 
-        $ udocker run -p 5000:5000 deephdc/deep-oc-model_of_interest
+        $ udocker run -p 5000:5000 -p 6006:6006 deephdc/deep-oc-module_of_interest
     
     Via udocker with GPU support::
 
-        $ udocker pull deephdc/deep-oc-model_of_interest
-        $ udocker create --name=model_of_interest deephdc/deep-oc-model_of_interest
-        $ udocker setup --nvidia model_of_interest
-        $ udocker run -p 5000:5000 model_of_interest
+        $ udocker pull deephdc/deep-oc-module_of_interest
+        $ udocker create --name=module_of_interest deephdc/deep-oc-module_of_interest
+        $ udocker setup --nvidia module_of_interest
+        $ udocker run -p 5000:5000 -p 6006:6006 module_of_interest
     
-2. To access the downloaded model via `API <https://github.com/indigo-dc/DEEPaaS>`_, direct your web browser to http://127.0.0.1:5000
+2. **Access the module via API**
 
-For more details on particular model, please, read :doc:`model <models/index>` documentation.
+To access the downloaded module via `API <https://github.com/indigo-dc/DEEPaaS>`_, direct your web browser to http://127.0.0.1:5000.
+If you are training a model, you can go to http://127.0.0.1:6006 to monitor the training progress (if such monitoring is
+available for the model).
+
+For more details on particular models, please, read :doc:`model <models/index>` documentation.
 
 .. note:: udocker is entirely a user tool, i.e. it can be installed and used without any root priveledges, e.g. in a user environment at HPC cluster.
 
@@ -67,18 +74,18 @@ Github way (pro)
 
 Using Github way allows to modify the Dockerfile for including additional packages, for example.
 
-1. Clone the DEEP-OC-model_of_interest github repository::
+1. Clone the DEEP-OC-module_of_interest github repository::
 
-    $ git clone https://github.com/indigo-dc/DEEP-OC-model_of_interest
+    $ git clone https://github.com/indigo-dc/DEEP-OC-module_of_interest
 
 2. Build the container::
 
-    $ cd DEEP-OC-model_of_interest
-    $ docker build -t deephdc/deep-oc-model_of_interest .
+    $ cd DEEP-OC-module_of_interest
+    $ docker build -t deephdc/deep-oc-module_of_interest .
 
 3. Run the container using one of the methods described above, :ref:`docker-hub-way`
 
-.. note:: One can also clone the source code of the model, usually located in the 'model_of_interest' repository.  
+.. note:: One can also clone the source code of the module, usually located in the 'module_of_interest' repository.
 
 .. _api-integration:
 
@@ -88,15 +95,16 @@ Integrate your model with the API
 .. image:: ../_static/deepaas.png
 
 The `DEEPaaS API <https://github.com/indigo-dc/DEEPaaS>`_ enables a user friendly interaction with the underlying Deep
-Learning models and can be used both for training and inference with the models. Check the full :doc:`API guide <overview/api>` for the detailed info.
+Learning modules and can be used both for training models and doing inference with the services.
+Check the full :doc:`API guide <overview/api>` for the detailed info.
 
 An easy way to integrate your model with the API and create Dockerfiles for building the Docker image with the integrated 
 :doc:`DEEPaaS API <overview/api>` is to use our :doc:`DEEP UC template <overview/cookiecutter-template>` when developing
 your model.
 
 
-Run model on DEEP Pilot Infrastructure
---------------------------------------
+Run module on DEEP Pilot Infrastructure
+---------------------------------------
 **Prerequisites:**
 
 * `DEEP-IAM <https://iam.deep-hybrid-datacloud.eu/>`_ registration

@@ -1,23 +1,16 @@
 .. highlight:: console
 
-*******************
-Try a model locally
-*******************
+**********************
+Try a service remotely
+**********************
 
 
-1. Get Docker
--------------
-
-The first step is having `Docker <https://www.docker.com>`_ installed. To have an up-to-date installation please follow
-the `official Docker installation guide <https://docs.docker.com/install>`_.
-
-
-2. Search for a model in the marketplace
+1. Search for a model in the marketplace
 ----------------------------------------
 
 The next step is to look for a model 
 in the `DEEP Open Catalog marketplace <https://marketplace.deep-hybrid-datacloud.eu/>`_
-you want to try locally.  
+you want to try remotely.  
 The marketplace contains an extensible list of existing models e.g. 
 `DEEP OC Image Classification <https://marketplace.deep-hybrid-datacloud.eu/models/deep-oc-image-classification-tensorflow.html>`_,
 `DEEP OC Retinopathy <https://marketplace.deep-hybrid-datacloud.eu/models/deep-oc-retinopathy.html>`_,
@@ -27,26 +20,15 @@ The marketplace contains an extensible list of existing models e.g.
 `DEEP OC Conus Classification <https://marketplace.deep-hybrid-datacloud.eu/models/deep-oc-conus-classification-theano.html>`_,
 `DEEP OC dogs breed determination <https://marketplace.deep-hybrid-datacloud.eu/models/deep-oc-dogs-breed-determination.html>`_,
 and many more.
-	
 
-3. Get the model
-----------------
 
-You will find that each model has an associate Docker container in DockerHub
-	`DEEP OC Image Classification <https://marketplace.deep-hybrid-datacloud.eu/models/deep-oc-image-classification-tensorflow.html>`_
-	is associated with `deephdc/deep-oc-image-classification-tf <https://hub.docker.com/r/deephdc/deep-oc-image-classification-tf>`_,
-	`DEEP OC Massive Online Data Streams <https://marketplace.deep-hybrid-datacloud.eu/models/deep-oc-massive-online-data-streams.html>`_
-	is associated with `deephdc/deep-oc-mods <https://hub.docker.com/r/deephdc/deep-oc-mods>`_, etc.
+2. Prepare your TOSCA file
+--------------------------
 
-Let call the model you selected ``deep-oc-model_of_interest``. 
-Please, download the container with:
+Let call the model you selected ``deep-oc-model_of_interest``.
 
-::
 
-    $ docker pull deephdc/deep-oc-model_of_interest
-    
-
-4. Run the model
+3. Run the model
 ----------------
 
 Run the container with:

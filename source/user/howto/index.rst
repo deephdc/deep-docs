@@ -9,6 +9,7 @@ HowTo's
    Use rclone <rclone>
    Develop a model <develop-model>
    Train a model locally <train-model-locally>
-   Test a tool locally <try-model-locally>
-   Test a tool remotely <try-model-remotely>
+   Test a service locally <try-service-locally>
+   Test a service remotely <try-service-remotely>
    Use Openstack API with OIDC tokens <oidc-auth>
+   Video demos <video-demos>

@@ -1,4 +1,4 @@
-DEEP Use-cases template
+DEEP Use-Cases template
 ========================
 
 To simplify development and in easy way integrate your model with :doc:`DEEPaaS API <api>`, 
