@@ -1,3 +1,5 @@
+.. highlight:: console
+
 =================
 Quickstart Guide
 =================
@@ -89,11 +91,12 @@ The `DEEPaaS API <https://github.com/indigo-dc/DEEPaaS>`_ enables a user friendl
 Learning models and can be used both for training and inference with the models. Check the full :doc:`API guide <overview/api>` for the detailed info.
 
 An easy way to integrate your model with the API and create Dockerfiles for building the Docker image with the integrated 
-:doc:`DEEPaaS API <overview/api>` is to use our :doc:`cookiecutter-data-science <overview/cookiecutter-template>` template.
+:doc:`DEEPaaS API <overview/api>` is to use our :doc:`DEEP UC template <overview/cookiecutter-template>` when developing
+your model.
 
 
 Run model on DEEP Pilot Infrastructure
----------------------------------
+--------------------------------------
 **Prerequisites:**
 
 * `DEEP-IAM <https://iam.deep-hybrid-datacloud.eu/>`_ registration
@@ -114,7 +117,9 @@ The submission is then done via::
     $ orchent depcreate ./topology-orchent.yml '{}'
     
 If you also want to access `DEEP-Nextcloud <https://nc.deep-hybrid-datacloud.eu>`_ from your container via rclone, 
-you can create a following bash script for job submission::
+you can create a following bash script for job submission:
+
+.. code-block:: bash
 
     #!/bin/bash
  

@@ -8,7 +8,7 @@ usage of DEEPaaS.
 The basic user
 --------------
 
-This user wants to use the tools that have been already developed and :doc:`test them with their data <try-model-locally>`,
+This user wants to use the tools that have been already developed and :doc:`test them with their data <user/howto/try-model-locally>`,
 and therefore don't need to have any machine learning knowledge. For example, they can take an already trained network
 for plant classification that has been containerized, and use it to classify their own plant images.
 
@@ -23,7 +23,7 @@ for plant classification that has been containerized, and use it to classify the
 The intermediate user
 ---------------------
 
-The intermediate user wants to :doc:`retrain an available model <train-model-locally>` to perform the same task but fine
+The intermediate user wants to :doc:`retrain an available model <user/howto/train-model-locally>` to perform the same task but fine
 tuning it to their own data.
 They still might not need high level knowledge on modelling of machine learning problems, but typically do need basic
 programming skills to prepare their own data into the appropriate format.
@@ -43,7 +43,7 @@ An example could be a user who takes the plant classification tool but retrains 
 The advanced user
 -----------------
 
-The advanced users are the ones that will :doc:`develop their own machine learning models <cookiecutter-develop-model>`
+The advanced users are the ones that will :doc:`develop their own machine learning models <user/howto/develop-model>`
 and therefore need to be competent in machine learning. This would be the case for example if we provided an image
 classification tool but the users wanted to perform object localisation, which is a fundamentally different task.
 Therefore they will design their own neural network architecture, potentially re-using parts of the code from other

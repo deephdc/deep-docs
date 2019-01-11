@@ -1,14 +1,11 @@
 ..    include:: <isonum.txt>
 
-
-
-
 How to use rclone 
 =================
 
 
 Installation of rclone in Docker image (pro)
-------------------------------------------
+--------------------------------------------
 All the applications in the `DEEP Open Catalog <https://deephdc.github.io/>`_ are packed within a Docker containing rclone installed by default. If you want to create a Docker containing your own application, you should install rclone in the container to be able to access the data stored remotely. The following lines are an example of what has to be added in the Dockerfile when installation is based on Ubuntu. For other Linux flavors, please, refer to the `rclone official site  <https://rclone.org/downloads/>`_  ::
 
 	# install rclone
@@ -23,14 +20,14 @@ All the applications in the `DEEP Open Catalog <https://deephdc.github.io/>`_ ar
 
  
 Nextcloud configuration for rclone
-------------------------------------------
+----------------------------------
 .. image:: ../../_static/nc-access.png
 
 After login into `DEEP-Nextcloud  <https://nc.deep-hybrid-datacloud.eu/login>`_ with your DEEP-IAM credentials, go to (1) **Settings (top right corner)** |rarr|  (2) **Security**  |rarr|  (3) **Devices & sessions**. Set a name for you application and clik on **Create new app password**. That user and password is what one needs to include in the rclone config file (rclone.conf). 
 
 
 Creating rclone.conf
--------------------------
+--------------------
 
 You can install rclone at your host or run Docker image with rclone installed (see installation steps of rclone above). In order to create the cofiguration file (rclone.conf) for rclone::
     
@@ -67,7 +64,7 @@ One has, however, to call rclone with "--config" option to point to the rclone.c
         $ rclone --config /rclone/rclone.conf ls deep-nextcloud:/Datasets/dogs_breed/models
 
 Example code on usage of rclone from python
--------------------------
+-------------------------------------------
 
 **Simple example**
 

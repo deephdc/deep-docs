@@ -1,12 +1,12 @@
 DEEP Open Catalogue: Image classification on TensorFlow
-============================================
+=======================================================
 
 
 This is a plug-and-play tool to train and evaluate an image classifier on a custom dataset using deep neural networks running on TensorFlow. Further information on the package structure and the requirements can be found in the documentation in the `git repository <https://github.com/indigo-dc/image-classification-tf>`_ 
 
 
 Workflow
------------
+--------
 
 
 **1. Data preprocessing**
@@ -48,7 +48,8 @@ After training check the `prediction statistics notebook <https://github.com/ind
 You can test the classifier on a number of tasks: predict a single local image (or url), predict multiple images (or urls), merge the predictions of a multi-image single observation, etc. All these tasks are explained in the computing prediction notebooks.
 
 .. image:: ../../_static/seeds1.png
-	:scale: 60 %
+  :scale: 60 %
+
 You can also make and store the predictions of the `test.txt` file (if you provided one). Once you have done that you can visualize the statistics of the predictions like popular metrics (accuracy, recall, precision, f1-score), the confusion matrix, etc by running the  
 `predictions statistics notebook <https://github.com/indigo-dc/image-classification-tf/blob/master/notebooks/3.1-Prediction_statistics.ipynb>`_. 
 
@@ -60,7 +61,7 @@ Finally you can `launch a simple webpage <https://github.com/indigo-dc/image-cla
 
 
 Launching the full DEEPaas API
----------------------------------------
+------------------------------
 
 **Preliminaries for prediction**
 

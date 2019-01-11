@@ -15,9 +15,7 @@ If you want a quickstart guide, please check the following link.
    :maxdepth: 1
 
    quickstart
-   try-model-locally
-   try-model-remotely
-   develop-model
+
 
 .. raw:: html
 

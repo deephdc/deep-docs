@@ -23,6 +23,7 @@ implementation of the methods
 
 You must define the entrypoints to this file in the ``setup.cfg`` as following:
 ::
+
     [entry_points]
     deepaas.model =
         pkg_name = pkg_name.api

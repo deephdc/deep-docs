@@ -8,7 +8,4 @@ Overview
    architecture
    user-roles
    cookiecutter-template
-   develop-model
-   train-model-locally
-   try-model-locally
    api
