@@ -32,7 +32,7 @@ After login into `DEEP-Nextcloud  <https://nc.deep-hybrid-datacloud.eu/login>`_ 
 Creating rclone.conf
 -------------------------
 
-You can install rclone at your host or run Docker image with rclone installed (see necessary installation of clone in Docker image above). In order to create the cofiguration file (rclone.conf) for rclone::
+You can install rclone at your host or run Docker image with rclone installed (see installation steps of rclone above). In order to create the cofiguration file (rclone.conf) for rclone::
     
     	$ rclone config
    	 choose "n"  for "New remote"
@@ -44,11 +44,11 @@ You can install rclone at your host or run Docker image with rclone installed (s
    	 specify password (see "Nextcloud configuration for rclone" above).
    	 by default rclone.conf is created in your $HOME/.config/rclone/rclone.conf
 
-If you create rclone.conf from your running Docker container, ensure to copy it to your host, i.e. outside of container. **DO NOT STORE IT IN THE CONTAINER** (e.g. if you use uDocker, it will be stored in your filesystem, even being in the container).
+The rclone.conf file should be in your host, i.e. outside of container. **DO NOT STORE IT IN THE CONTAINER** (e.g. if you use uDocker, it will be stored in your filesystem, even being in the container).
 
-Then one may have two options:
+Then one has two options:
 
-If your know under what user your run your application in the container, e.g. if docker or nvidia-docker is used, most probably this is 'root', you can mount your located at your host rclone.conf into the container as::
+If your know under what user your run your application in the container (e.g. if docker or nvidia-docker is used, most probably this is 'root') you can mount your host rclone.conf into the container as::
     
         $ docker run -ti -v $HOSTDIR_WITH_RCLONE_CONF/rclone.conf:/root/.config/rclone/rclone.conf <your-docker-image>
 
@@ -58,11 +58,11 @@ One can also mount rclone directory with the rclone.conf file::
 
   	$ docker run -ti -v $HOSTDIR_WITH_RCLONE_CONF:/root/.config/rclone <your-docker-image>
 
-A more reliable way can be to mount either rclone directory or directly rclone.conf file into a pre-defined location and not (container) user-depended place::
+A more reliable way can be to mount either rclone directory or directly rclone.conf file into a pre-defined location and not (container) user-dependent place::
 
     	$ docker run -ti -v $HOSTDIR_WITH_RCLONE_CONF:/rclone <your-docker-image>
 
-One has, however, later call rclone with "--config" option to point to the rclone.conf file, e.g::
+One has, however, to call rclone with "--config" option to point to the rclone.conf file, e.g::
 
         $ rclone --config /rclone/rclone.conf ls deep-nextcloud:/Datasets/dogs_breed/models
 
