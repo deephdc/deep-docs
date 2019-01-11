@@ -59,8 +59,8 @@ By running the `saliency maps notebook <https://github.com/indigo-dc/image-class
 Finally you can `launch a simple webpage <https://github.com/indigo-dc/image-classification-tf/tree/master/imgclas/webpage/README.md>`_ to use the trained classifier to predict images (both local and urls) on your favorite brownser.
 
 
-Launching the full API
-----------------------------
+Launching the full DEEPaas API
+---------------------------------------
 
 **Preliminaries for prediction**
 
@@ -69,8 +69,5 @@ If you want to use the API for prediction,  you have to do some preliminary step
 * Copy your desired `.models/[timestamp]` to `.models/api`. If there is no `.models/api` folder, the default is to use the last available timestamp.
 * In the `.models/api/ckpts` leave only the desired checkpoint to use for prediction. If there are more than one chekpoints, the default is to use the last available checkpoint.
 
-Running the API
---------------------
-
-To access this package's complete functionality (both for training and predicting) through an API you have to follow the instructions here: :ref:`api-integration`
+To access this package's complete functionality (both for training and predicting) through the DEEPaaS API you have to follow the instructions here: :ref:`api-integration`
 

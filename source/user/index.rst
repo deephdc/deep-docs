@@ -16,6 +16,7 @@ If you want a quickstart guide, please check the following link.
 
    quickstart
    try-model-locally
+   try-model-remotely
    develop-model
 
 .. raw:: html
