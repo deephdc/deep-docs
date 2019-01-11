@@ -26,7 +26,8 @@ Possible option include image classifiers, etc.
 
 .. todo:: Check that names of the docker containers are correct for the image classifier example.
 
-You will find that your model has an associate Docker container in DockerHub. Please download and run the container with:
+You will find that your model has an associate Docker container in `DockerHub <https://hub.docker.com/u/deephdc/>`_.
+Please download and run the container with:
 
 .. code-block:: console
 
@@ -38,7 +39,7 @@ For example if you wanted to download the image classifier model you would have 
 .. code-block:: console
 
     $ docker pull https://hub.docker.com/r/deephdc/deep-oc-image-classification-tf
-    $ docker run -p 5000:5000 -p 6006:6006 -ti imgclas-tf-normal /bin/bash
+    $ docker run -p 5000:5000 -p 6006:6006 -ti deep-oc-image-classification-tf /bin/bash
 
 We are using the port ``5000`` to deploy the API and the port ``6006`` to monitor the training (for example using
 `Tensorboard <https://www.tensorflow.org/guide/summaries_and_tensorboard>`_).
@@ -53,7 +54,7 @@ We are using the port ``5000`` to deploy the API and the port ``6006`` to monito
 5. Train the model
 ==================
 
-Now comes the fun! Go to `<http://0.0.0.0:5000>`_ and look for the train mehod. Modify the training parameters you wish to
-change and execute. If some kind of monitorization tool is available for this model you will be able to folllow the training
+Now comes the fun! Go to `<http://0.0.0.0:5000>`_ and look for the ``train`` method. Modify the training parameters you wish to
+change and execute. If some kind of monitorization tool is available for this model you will be able to follow the training
 progress from `<http://0.0.0.0:6006>`_.
 

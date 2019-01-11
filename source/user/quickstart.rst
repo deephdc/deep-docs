@@ -18,21 +18,26 @@ Quickstart Guide
 Download module from the marketplace
 ------------------------------------
 
-#. go to `DEEP Open Catalog <https://deephdc.github.io/>`_
-#. `Browse <https://deephdc.github.io/#model-list>`_ available modules
-#. Find the module and get it either from `Docker hub <https://hub.docker.com/u/deephdc>`_ (easy) or `github <https://github.com/topics/deep-hybrid-datacloud>`_ (pro)
+#. go to `DEEP Open Catalog <https://marketplace.deep-hybrid-datacloud.eu/>`_
+#. `Browse <https://marketplace.deep-hybrid-datacloud.eu/#model-list>`_ available modules
+#. Find the module and get it either from `Docker Hub <https://hub.docker.com/u/deephdc>`_ (easy) or `Github <https://github.com/topics/deep-hybrid-datacloud>`_ (pro)
 
 
-Run the downloaded module locally
----------------------------------
+Run a module locally
+--------------------
 
 .. _docker-hub-way:
 
 Docker Hub way (easy)
 ^^^^^^^^^^^^^^^^^^^^^
-**Prerequisites:** either `docker <https://docs.docker.com/install/#supported-platforms>`_  
-(+ `nvidia-docker <https://github.com/nvidia/nvidia-docker/wiki/Installation-(version-2.0)>`_ for GPU support) or 
-`udocker <https://github.com/indigo-dc/udocker/releases>`_ (GPU support is implemented)
+
+.. admonition:: Prerequisites
+
+    * `docker <https://docs.docker.com/install/#supported-platforms>`_
+    * If you want GPU support you can install `nvidia-docker <https://github.com/nvidia/nvidia-docker/wiki/Installation-(version-2.0)>`_
+      along with docker or install `udocker <https://github.com/indigo-dc/udocker/releases>`_ instead of docker.
+      udocker is entirely a user tool, i.e. it can be installed and used without any root priveledges, e.g. in a user
+      environment at HPC cluster.
 
 1. **Run the container**
 
@@ -66,11 +71,13 @@ available for the model).
 
 For more details on particular models, please, read :doc:`model <models/index>` documentation.
 
-.. note:: udocker is entirely a user tool, i.e. it can be installed and used without any root priveledges, e.g. in a user environment at HPC cluster.
 
 Github way (pro)
 ^^^^^^^^^^^^^^^^
-**Prerequisites:** `docker <https://docs.docker.com/install/#supported-platforms>`_
+
+.. admonition:: Prerequisites
+
+   * `docker <https://docs.docker.com/install/#supported-platforms>`_
 
 Using Github way allows to modify the Dockerfile for including additional packages, for example.
 
@@ -83,44 +90,33 @@ Using Github way allows to modify the Dockerfile for including additional packag
     $ cd DEEP-OC-module_of_interest
     $ docker build -t deephdc/deep-oc-module_of_interest .
 
-3. Run the container using one of the methods described above, :ref:`docker-hub-way`
+3. Run the container and access the module via API as described :ref:`above <docker-hub-way>`
 
 .. note:: One can also clone the source code of the module, usually located in the 'module_of_interest' repository.
 
 .. _api-integration:
 
-Integrate your model with the API
----------------------------------
 
-.. image:: ../_static/deepaas.png
+Run a module on DEEP Pilot Infrastructure
+-----------------------------------------
 
-The `DEEPaaS API <https://github.com/indigo-dc/DEEPaaS>`_ enables a user friendly interaction with the underlying Deep
-Learning modules and can be used both for training models and doing inference with the services.
-Check the full :doc:`API guide <overview/api>` for the detailed info.
+.. admonition:: Prerequisites
 
-An easy way to integrate your model with the API and create Dockerfiles for building the Docker image with the integrated 
-:doc:`DEEPaaS API <overview/api>` is to use our :doc:`DEEP UC template <overview/cookiecutter-template>` when developing
-your model.
+    * `DEEP-IAM <https://iam.deep-hybrid-datacloud.eu/>`_ registration
+    * `oidc-agent <https://github.com/indigo-dc/oidc-agent/releases>`_ installed and configured for `DEEP-IAM <https://iam.deep-hybrid-datacloud.eu/>`_
+    * `orchent <https://github.com/indigo-dc/orchent/releases>`_ tool
 
+    If your are going to use `DEEP-Nextcloud <https://nc.deep-hybrid-datacloud.eu>`_ for storing you data you also have to:
 
-Run module on DEEP Pilot Infrastructure
----------------------------------------
-**Prerequisites:**
+    * Register at `DEEP-Nextcloud <https://nc.deep-hybrid-datacloud.eu>`_
+    * Include `rclone <https://rclone.org/install/>`_ installation in your Dockerfile (see :doc:`rclone howto <howto/rclone>`)
+    * Include call to rclone in your code (see :doc:`rclone howto <howto/rclone>`)
 
-* `DEEP-IAM <https://iam.deep-hybrid-datacloud.eu/>`_ registration
-* `oidc-agent <https://github.com/indigo-dc/oidc-agent/releases>`_ installed and configured for `DEEP-IAM <https://iam.deep-hybrid-datacloud.eu/>`_
-* `orchent <https://github.com/indigo-dc/orchent/releases>`_ tool
+In order to submit your job to DEEP Pilot Infrastructure one has to create
+`TOSCA YAML file <https://github.com/indigo-dc/tosca-templates/tree/master/deep-oc>`_.
 
-If your are going to use `DEEP-Nextcloud <https://nc.deep-hybrid-datacloud.eu>`_ you also have to:
-
-* Register at `DEEP-Nextcloud <https://nc.deep-hybrid-datacloud.eu>`_
-* Include `rclone <https://rclone.org/install/>`_ installation in your Dockerfile (see :doc:`rclone howto <howto/rclone>`)
-* Include call to rclone in your code (see :doc:`rclone howto <howto/rclone>`)
-
-In order to submit your job to DEEP Pilot Infrastructure one has to create TOSCA YAML file, for some examples, please, 
-see `here <https://github.com/indigo-dc/tosca-templates/tree/master/deep-oc>`_.
-
-The submission is then done via::
+The submission is then done via
+::
 
     $ orchent depcreate ./topology-orchent.yml '{}'
     
@@ -137,6 +133,21 @@ you can create a following bash script for job submission:
                                                 "rclone_pass": <your_nextcloud_password> }'
 
 
-To check status of your job::
+To check status of your job
+::
 
     $ orchent depshow <Deployment ID>
+
+
+Integrate your model with the API
+---------------------------------
+
+.. image:: ../_static/deepaas.png
+
+The `DEEPaaS API <https://github.com/indigo-dc/DEEPaaS>`_ enables a user friendly interaction with the underlying Deep
+Learning modules and can be used both for training models and doing inference with the services.
+Check the full :doc:`API guide <overview/api>` for the detailed info.
+
+An easy way to integrate your model with the API and create Dockerfiles for building the Docker image with the integrated
+:doc:`DEEPaaS API <overview/api>` is to use our :doc:`DEEP UC template <overview/cookiecutter-template>` when developing
+your model.

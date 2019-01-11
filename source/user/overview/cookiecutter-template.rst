@@ -1,7 +1,9 @@
+.. highlight:: console
+
 DEEP Use-Cases template
 ========================
 
-To simplify development and in easy way integrate your model with :doc:`DEEPaaS API <api>`, 
+To simplify development and as an easy way integrate your model with the :doc:`DEEPaaS API <api>`,
 a project template, `cookiecutter-data-science <https://github.com/indigo-dc/cookiecutter-data-science>`_ [*]_, is provided in our GitHub.
 
 In order to create your project based on the template, one has to `install <https://cookiecutter.readthedocs.io/en/latest/installation.html>`_ and then run 
@@ -23,7 +25,7 @@ You will be asked several questions, e.g.:
 * Docker Hub account name
 * Base image for Dockerfile
 
-.. note::  These parameters are defined in cookiecutter.json in the `cookiecutter-data-science <https://github.com/indigo-dc/cookiecutter-data-science>`_ source.
+.. note::  These parameters are defined in ``cookiecutter.json`` in the `cookiecutter-data-science <https://github.com/indigo-dc/cookiecutter-data-science>`_ source.
 
 When these questions are answered, following two repositories will be created locally and immediately linked to your github.com account::
 
@@ -87,7 +89,7 @@ Main repository for your model with the following structure::
     └─ tox.ini                tox file with settings for running tox; see tox.testrun.org
     
     
-Certain files, e.g. README.md, Jenkinsfile, setup.cfg, development Dockerfiles, tox.ini, etc are pre-populated 
+Certain files, e.g. ``README.md``, ``Jenkinsfile``, ``setup.cfg``, development Dockerfiles, ``tox.ini``, etc are pre-populated
 based on the answers you provided during cookiecutter call (see above).
 
 
@@ -111,4 +113,4 @@ All files get filled with the info provided during cookiecutter execution (see a
 
 ------------------
 
-.. [*] A more general `cockiecutter-data-science <http://drivendata.github.io/cookiecutter-data-science/>`_ template was adapted for the purpose of DEEP.
+.. [*] The more general `cockiecutter-data-science <http://drivendata.github.io/cookiecutter-data-science/>`_ template was adapted for the purpose of DEEP.

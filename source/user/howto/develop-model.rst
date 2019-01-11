@@ -35,7 +35,7 @@ Do ``git push origin master`` in both created directories. This puts your initia
 ----------------------------------------
 
 The structure of ``your_project`` created using 
-`DEEP UC template <https://github.com/indigo-dc/cookiecutter-data-science>`__ contains 
+`DEEP UC template <https://github.com/indigo-dc/cookiecutter-data-science>`_ contains
 the following core items needed to develop a DEEP UC model:
 ::
 
@@ -60,9 +60,9 @@ accordingly into the directory structure.
 
 
 2.2 Make datasets 
-==================
+=================
 
-Source files in this directory aim to manipulate with raw dataset(s). 
+Source files in this directory aim to manipulate raw datasets.
 The output of this step is also raw data, but cleaned and/or pre-formatted.
 ::
 
@@ -73,9 +73,9 @@ The output of this step is also raw data, but cleaned and/or pre-formatted.
 2.3 Build features
 ===================
 
-This step takes the output from the previous step ``Make datasets`` and 
+This step takes the output from the previous step `Make datasets` and
 creates train, test as well as validation ML data from raw but cleaned and pre-formatted data.
-The realisation of this step depends on concrete UC, the aim of the application as well as 
+The realisation of this step depends on the concrete Use Case, the aim of the application as well as
 available technological backgrounds (e.g. high-performance supports for data processing).
 ::
 

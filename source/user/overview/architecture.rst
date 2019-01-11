@@ -19,17 +19,17 @@ divide the modules in two different categories:
 
 For more information have a look at the `marketplace <https://marketplace.deep-hybrid-datacloud.eu/>`_.
 
-.. todo:: If everyone agrees in this nomenclature, tags should be changed in the marketplace
+.. todo:: If everyone agrees in this nomenclature, tags should be changed in the marketplace. Also models --> modules in the marketplace navigation bar
 
-.. todo:: Add links to the plant classifier in Tensorflow (which is still not uploaded to the marketplace)
+.. todo:: Add links to the marketplace url of the plant classifier in Tensorflow (which is still not uploaded to the marketplace)
 
 
 The API
 =======
 
 The DEEPaaS API is a key component for making the modules accessible to everybody. It provides a graphical interface that the
-user can take advantage of to easily interact with the model. It is available for both inference and training. Advanced users
-that want to create new models can make them :ref:`compatible with the API <user/overview/api:Integrate your model with the API>`
+user can take advantage of to easily interact with the module. It is available for both inference and training. Advanced users
+that want to create new modules can make them :ref:`compatible with the API <user/overview/api:Integrate your model with the API>`
 to make them available to the whole community.
 
 For more information take a look on the full :doc:`API guide <api>`.
@@ -39,6 +39,6 @@ The storage resources
 =====================
 
 Storage is essential for user that want to create new services by training models on their custom data. For the moment we
-support saving data in NextCloud.
+support saving data into `DEEP-Nextcloud <https://nc.deep-hybrid-datacloud.eu>`_.
 
 .. todo:: Check rclone integration with Dropbox and Google Drive

@@ -7,4 +7,4 @@ This page gathers different video demos available:
 
 * `Training a model locally <https://www.youtube.com/watch?v=EP594ac3ZHw&feature=youtu.be>`_
 
-    [Short description of the demo]
+  [Short description of the demo]
