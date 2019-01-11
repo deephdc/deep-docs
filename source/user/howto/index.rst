@@ -7,3 +7,7 @@ HowTo's
    :glob:
 
    rclone
+   develop-model
+   oidc-auth 
+   try-model-locally
+   try-model-remotely
