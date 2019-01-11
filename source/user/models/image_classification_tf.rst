@@ -48,7 +48,7 @@ After training check the `prediction statistics notebook <https://github.com/ind
 You can test the classifier on a number of tasks: predict a single local image (or url), predict multiple images (or urls), merge the predictions of a multi-image single observation, etc. All these tasks are explained in the computing prediction notebooks.
 
 .. image:: ../../_static/seeds1.png
-
+	:scale: 60 %
 You can also make and store the predictions of the `test.txt` file (if you provided one). Once you have done that you can visualize the statistics of the predictions like popular metrics (accuracy, recall, precision, f1-score), the confusion matrix, etc by running the  
 `predictions statistics notebook <https://github.com/indigo-dc/image-classification-tf/blob/master/notebooks/3.1-Prediction_statistics.ipynb>`_. 
 
