@@ -61,25 +61,17 @@ Next time you want to start oidc-agent from scratch, you will only have to do::
 * You should set OIDC_SOCK (this is not needed, if you did it before)::
 
 	$ eval (oidc-agent)
+        oidc-add deep-iam
 
 * Set the agent account to be used with orchent::
 
 	$ export ORCHENT_AGENT_ACCOUNT=deep-iam
 
-* Print deployments done by you::
-
-	$ orchent depls -c me
-
-* Print all deployments::
-
-	$ orchent depls
-
-For orchent you also need to set ORCHENT_URL, e.g::
+* You also need to set ORCHENT_URL, e.g::
 
 	$ export ORCHENT_URL="https://deep-paas.cloud.cnaf.infn.it/orchestrator"
 
-* Pilot preview:: 
 
-	http://paas.cloud.cnaf.infn.it:8888/orchestrator/ 
+
 
 
