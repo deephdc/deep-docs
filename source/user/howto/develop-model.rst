@@ -66,8 +66,8 @@ Source files in this directory aim to manipulate raw datasets.
 The output of this step is also raw data, but cleaned and/or pre-formatted.
 ::
 
-	{{cookiecutter.repo_name}}/dataset/make_dataset.py
-	{{cookiecutter.repo_name}}/dataset/
+	{{repo_name}}/dataset/make_dataset.py
+	{{repo_name}}/dataset/
 
 
 2.3 Build features
@@ -79,8 +79,8 @@ The realisation of this step depends on the concrete Use Case, the aim of the ap
 available technological backgrounds (e.g. high-performance supports for data processing).
 ::
 
-	{{cookiecutter.repo_name}}/features/build_features.py
-	{{cookiecutter.repo_name}}/features/
+	{{repo_name}}/features/build_features.py
+	{{repo_name}}/features/
 
 
 2.4 Develop models
@@ -93,8 +93,8 @@ DEEP entry points are defined using :ref:`API methods <user/overview/api:Methods
 You don't need to implement all of them, just the ones you need.
 ::
 
-	{{cookiecutter.repo_name}}/models/model.py
-	{{cookiecutter.repo_name}}/models/
+	{{repo_name}}/models/model.py
+	{{repo_name}}/models/
 
 
 3. Create a docker containe for your model
