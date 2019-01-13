@@ -32,7 +32,7 @@ Nextcloud configuration for rclone
 After login into `DEEP-Nextcloud  <https://nc.deep-hybrid-datacloud.eu/login>`_ with your DEEP-IAM credentials, go to
 (1) **Settings (top right corner)** |rarr|  (2) **Security**  |rarr|  (3) **Devices & sessions**. Set a name for you
 application and clik on **Create new app password**. That user and password is what one needs to include in the rclone
-config file (``rclone.conf``).
+config file (``rclone.conf``) to run locally or in the orchent script to generate the deployment when running remotely (see :doc:`here <train-model-locally>` and :doc:`here <train-model-remotely>`).
 
 
 Creating rclone.conf
@@ -53,8 +53,7 @@ In order to create the configuration file (``rclone.conf``) for rclone::
 
 
 .. important::
-    The rclone.conf file should be in your host, i.e. outside of container. **DO NOT STORE IT IN THE CONTAINER** (e.g.
-    if you use uDocker, it will be stored in your filesystem, even being in the container).
+    The rclone.conf file should be in your host, i.e. outside of container. **DO NOT STORE IT IN THE CONTAINER** 
 
 Then one has two options:
 
