@@ -95,3 +95,8 @@ Now comes the fun! Go to `<http://0.0.0.0:5000>`_ and look for the ``train`` met
 change and execute. If some kind of monitorization tool is available for this model you will be able to follow the training
 progress from `<http://0.0.0.0:6006>`_.
 
+
+6. Testing the training
+---------------------------
+
+Once the training has finished, you can directly test it by clicking on the ``predict`` method. There you can either upload the image your want to classify or give a URL to it. 
