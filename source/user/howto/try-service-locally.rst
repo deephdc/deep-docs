@@ -15,15 +15,8 @@ the `official Docker installation guide <https://docs.docker.com/install>`_.
 2. Search for a model in the marketplace
 ----------------------------------------
 
-The next step is to look for a service
-in the `DEEP Open Catalog marketplace <https://marketplace.deep-hybrid-datacloud.eu/>`_
-you want to try locally. Possible services include
-`Retinopathy diagnosing <https://marketplace.deep-hybrid-datacloud.eu/models/deep-oc-retinopathy.html>`_,
-plant classification,
-seed classification,
-etc.
+The next step is to look for a service in the `DEEP Open Catalog marketplace <https://marketplace.deep-hybrid-datacloud.eu/>`_ you want to try locally. 
 
-.. todo:: Add link to marketplace services tag + ling to plant classifier seed clasifier in tensorflow.
 	
 
 3. Get the model

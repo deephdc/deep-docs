@@ -5,8 +5,9 @@ Develop a model using DEEP UC template
 **************************************
 
 
-Prepare DEEP UC environment
----------------------------
+1. Prepare DEEP UC environment
+------------------------------
+
 
 Install cookiecutter (if not yet done)
 ::
@@ -48,7 +49,6 @@ the following core items needed to develop a DEEP UC model:
 
 
 2.1 Installing development requirements
-=======================================
 
 Modify ``requirements.txt`` according to your needs (e.g. add more libraries) then run
 ::
@@ -95,3 +95,55 @@ You don't need to implement all of them, just the ones you need.
 
 	{{cookiecutter.repo_name}}/models/model.py
 	{{cookiecutter.repo_name}}/models/
+
+
+3. Create a docker containe for your model
+=========================================
+
+Once your model is well in place, you can encapsulate it by creating a docker container. For this you need to create a Dockerfile. This file will contain the information about the Docker, including the type of operating system you want to run on and the packages you need installed to make your package run.
+
+The simplest Dockerfile could look like this::
+
+	FROM ubuntu:18.04
+
+	WORKDIR /srv
+	
+	#Download and install your model package
+	RUN git clone https://github.com/your_git/your_model_package && \
+    	cd image-classification-tf && \
+    	python -m pip install -e . && \
+	cd ..
+
+	#Download and install DEEPaaS API
+	RUN git clone https://github.com/indigo-dc/DEEPaaS.git && \
+    	cd DEEPaaS && \
+    	python -m pip install -U . && \
+    	cd ..
+
+	# Install rclone
+	RUN wget https://downloads.rclone.org/rclone-current-linux-amd64.deb && \
+    	dpkg -i rclone-current-linux-amd64.deb && \
+    	apt install -f && \
+    	rm rclone-current-linux-amd64.deb && \
+    	apt-get clean && \
+    	rm -rf /var/lib/apt/lists/* && \
+    	rm -rf /root/.cache/pip/* && \
+    	rm -rf /tmp/*
+
+	# Expose API on port 5000 and tensorboard on port 6006
+	EXPOSE 5000 6006
+
+    	CMD deepaas-run --listen-ip 0.0.0.0
+
+
+For more details on rclone or on DEEPaas API you can check :doc:`here <rclone>` and `here <https://github.com/indigo-dc/DEEPaaS>`_ respectively.
+
+If you want to see an example of a more complex Dockerfile, you can check it `here <https://github.com/indigo-dc/DEEP-OC-image-classification-tf/blob/master/Dockerfile>`_.
+
+In order to compile the Dockerfile, you should choose a name for the container and use the docker build command::
+	
+	docker build -t your_container_name -f Dockerfile
+
+
+You can then upload it to Docker hub so that you can download the already compiled image directly. To do so, follow the instructions `here <https://docs.docker.com/docker-hub/repos/>`_.
+
