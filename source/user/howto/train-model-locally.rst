@@ -1,3 +1,8 @@
+.. include:: <isonum.txt>
+
+.. highlight:: console
+
+
 Train a model locally
 ---------------------
 
@@ -50,7 +55,7 @@ To run locally you have two options:
 
 1. Have your data stored locally
 
-You should make sure that you export inside of the container all the folders you need for the training. 
+You should make sure that you export inside of the container all the folders you need for the training::
 
 	$ docker run -ti -v  -p 5000:5000 -p 6006:6006 -v path_to_local_folder:path_to_docker_folder -v host_path_to_rclone.conf:/root/.config/rclone/rclone.conf <your-docker-image>
 
