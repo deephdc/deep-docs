@@ -27,7 +27,7 @@ Before being able to run your model at the Pilot Infraestructure you should firs
     * Install oidc-agent and configure it for DEEP-IAM. Instructions for this can be found  :doc:`here <oidc-agent>`. Make sure you follow the instructions in the *Usage with orchent* section. 
     * Install `orchent <https://github.com/indigo-dc/orchent/releases>`_ tool
 
-For this example we are going to use `DEEP-Nextcloud <https://nc.deep-hybrid-datacloud.eu>`_ for storing you data you also have to:
+For this example we are going to use `DEEP-Nextcloud <https://nc.deep-hybrid-datacloud.eu>`_ for storing you data. This means you also have to:
 
     * Register at `DEEP-Nextcloud <https://nc.deep-hybrid-datacloud.eu>`_
     * Follow the **Nextcloud configuration for rclone** :doc:`here <rclone>`. This will give you <your_nextcloud_username> and <your_nextcloud_password>.
