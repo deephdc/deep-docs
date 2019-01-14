@@ -1,11 +1,11 @@
 .. highlight:: console
 
 **************************************
-Develop a model using DEEP UC template
+Develop a model using DEEP DS template
 **************************************
 
 
-1. Prepare DEEP UC environment
+1. Prepare DEEP DS environment
 ------------------------------
 
 
@@ -14,12 +14,12 @@ Install cookiecutter (if not yet done)
 
 	$ pip install cookiecutter
 	
-Run the DEEP UC cookiecutter template
+Run the DEEP DS cookiecutter template
 ::
 
 	$ cookiecutter https://github.com/indigo-dc/cookiecutter-data-science
 	
-Answer all questions from DEEP UC cookiecutter template with attentions to 
+Answer all questions from DEEP DS cookiecutter template with attentions to
 ``repo_name`` i.e. the name of your github repositories, etc.
 This creates two project directories:
 ::
@@ -36,8 +36,8 @@ Do ``git push origin master`` in both created directories. This puts your initia
 ----------------------------------------
 
 The structure of ``your_project`` created using 
-`DEEP UC template <https://github.com/indigo-dc/cookiecutter-data-science>`_ contains
-the following core items needed to develop a DEEP UC model:
+`DEEP DS template <https://github.com/indigo-dc/cookiecutter-data-science>`_ contains
+the following core items needed to develop a DEEP DS model:
 ::
 
 	requirements.txt
@@ -75,7 +75,7 @@ The output of this step is also raw data, but cleaned and/or pre-formatted.
 
 This step takes the output from the previous step `Make datasets` and
 creates train, test as well as validation ML data from raw but cleaned and pre-formatted data.
-The realisation of this step depends on the concrete Use Case, the aim of the application as well as
+The realisation of this step depends on the concrete use case, the aim of the application as well as
 available technological backgrounds (e.g. high-performance supports for data processing).
 ::
 
@@ -87,7 +87,7 @@ available technological backgrounds (e.g. high-performance supports for data pro
 ==================
 
 This step deals with the most interesting phase in ML i.e. modelling. 
-The most important thing of DEEP UC models is located in ``model.py``
+The most important thing of DEEP DS models is located in ``model.py``
 containing DEEP entry point implementations. 
 DEEP entry points are defined using :ref:`API methods <user/overview/api:Methods>`. 
 You don't need to implement all of them, just the ones you need.

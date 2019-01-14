@@ -32,7 +32,7 @@ Here is an `example <https://github.com/indigo-dc/image-classification-tf/blob/m
 definition in the ``setup.cfg`` file.
 
 .. tip::
-    When developing a model with the :doc:`DEEP UC template <cookiecutter-template>`, the entrypoints and the Python file
+    When developing a model with the :doc:`DEEP DS template <cookiecutter-template>`, the entrypoints and the Python file
     for the API methods will automatically be created at ``pkg_name/models/model.py``.
 
 

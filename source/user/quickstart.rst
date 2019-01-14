@@ -151,5 +151,5 @@ Check the full :doc:`API guide <overview/api>` for the detailed info.
 The integration with the API is based on the definition of entrypoints to the model and the creation of standard API methods
 (eg. train, predict, etc).
 An easy way to :ref:`integrate your model with the API <user/overview/api:Integrate your model with the API>` and create
-Dockerfiles for building the Docker image is to use our :doc:`DEEP UC template <overview/cookiecutter-template>` when developing
+Dockerfiles for building the Docker image is to use our :doc:`DEEP DS template <overview/cookiecutter-template>` when developing
 your model.

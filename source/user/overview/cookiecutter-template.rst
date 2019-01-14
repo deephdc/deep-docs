@@ -1,7 +1,7 @@
 .. highlight:: console
 
-DEEP Use-Cases template
-========================
+DEEP Data Science template
+==========================
 
 To simplify development and as an easy way integrate your model with the :doc:`DEEPaaS API <api>`,
 a project template, `cookiecutter-data-science <https://github.com/indigo-dc/cookiecutter-data-science>`_ [*]_, is provided in our GitHub.
