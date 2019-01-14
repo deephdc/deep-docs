@@ -27,10 +27,8 @@ For more information have a look at the `marketplace <https://marketplace.deep-h
 The API
 =======
 
-The DEEPaaS API is a key component for making the modules accessible to everybody. It provides a graphical interface that the
-user can take advantage of to easily interact with the module. It is available for both inference and training. Advanced users
-that want to create new modules can make them :ref:`compatible with the API <user/overview/api:Integrate your model with the API>`
-to make them available to the whole community.
+The DEEPaaS API is a key component for making the modules accessible to everybody. It is available for both inference and training. Advanced users that want to create new modules can make them :ref:`compatible with the API <user/overview/api:Integrate your model with the API>`
+to make them available to the whole community. This can be easily done, with just some minor changes to the module itsef, since it only requires adding additional entry points. 
 
 For more information take a look on the full :doc:`API guide <api>`.
 
@@ -39,6 +37,6 @@ The storage resources
 =====================
 
 Storage is essential for user that want to create new services by training models on their custom data. For the moment we
-support saving data into `DEEP-Nextcloud <https://nc.deep-hybrid-datacloud.eu>`_.
+support saving data into `DEEP-Nextcloud <https://nc.deep-hybrid-datacloud.eu>`_. We are currently working on adding additional storage support, as well as more advanced features such as data caching, in cooperation with the `eXtreme-DataCloud <www.extreme-datacloud.eu>`_ project.
 
 .. todo:: Check rclone integration with Dropbox and Google Drive

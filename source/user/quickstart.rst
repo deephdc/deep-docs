@@ -103,7 +103,7 @@ Run a module on DEEP Pilot Infrastructure
 .. admonition:: Prerequisites
 
     * `DEEP-IAM <https://iam.deep-hybrid-datacloud.eu/>`_ registration
-    * `oidc-agent <https://github.com/indigo-dc/oidc-agent/releases>`_ installed and configured for `DEEP-IAM <https://iam.deep-hybrid-datacloud.eu/>`_
+    * `oidc-agent <https://github.com/indigo-dc/oidc-agent/releases>`_ installed and configured for `DEEP-IAM <https://iam.deep-hybrid-datacloud.eu/>`_ (see :doc:`rclone howto <howto/oidc-agent>`).
     * `orchent <https://github.com/indigo-dc/orchent/releases>`_ tool
 
     If your are going to use `DEEP-Nextcloud <https://nc.deep-hybrid-datacloud.eu>`_ for storing you data you also have to:

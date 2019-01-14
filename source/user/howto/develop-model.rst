@@ -114,11 +114,8 @@ The simplest Dockerfile could look like this::
     	python -m pip install -e . && \
 	cd ..
 
-	#Download and install DEEPaaS API
-	RUN git clone https://github.com/indigo-dc/DEEPaaS.git && \
-    	cd DEEPaaS && \
-    	python -m pip install -U . && \
-    	cd ..
+	#Install DEEPaaS
+	pip install deepaas
 
 	# Install rclone
 	RUN wget https://downloads.rclone.org/rclone-current-linux-amd64.deb && \
