@@ -31,6 +31,10 @@ You must define the entrypoints to this file in the ``setup.cfg`` as following:
 Here is an `example <https://github.com/indigo-dc/image-classification-tf/blob/master/setup.cfg#L25-L27>`__ of the entrypoint
 definition in the ``setup.cfg`` file.
 
+.. tip::
+    When developing a model with the :doc:`DEEP UC template <cookiecutter-template>`, the entrypoints and the Python file
+    for the API methods will automatically be created at ``pkg_name/models/model.py``.
+
 
 Methods
 -------

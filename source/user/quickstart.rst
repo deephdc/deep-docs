@@ -148,6 +148,8 @@ The `DEEPaaS API <https://github.com/indigo-dc/DEEPaaS>`_ enables a user friendl
 Learning modules and can be used both for training models and doing inference with the services.
 Check the full :doc:`API guide <overview/api>` for the detailed info.
 
-An easy way to integrate your model with the API and create Dockerfiles for building the Docker image with the integrated
-:doc:`DEEPaaS API <overview/api>` is to use our :doc:`DEEP UC template <overview/cookiecutter-template>` when developing
+The integration with the API is based on the definition of entrypoints to the model and the creation of standard API methods
+(eg. train, predict, etc).
+An easy way to :ref:`integrate your model with the API <user/overview/api:Integrate your model with the API>` and create
+Dockerfiles for building the Docker image is to use our :doc:`DEEP UC template <overview/cookiecutter-template>` when developing
 your model.

@@ -5,6 +5,9 @@ DEEPaaS is focused with three different types of users in mind, which vary in th
 usage they will make of DEEPaaS.
 
 
+.. image:: ../../_static/DEEP_WP2-User_Viewpoint.png
+
+
 The basic user
 --------------
 
