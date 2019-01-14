@@ -40,6 +40,8 @@ release = 'DEEP-1 (Genesis)'
 # ones.
 extensions = [
     'sphinx.ext.todo',
+    'sphinx_markdown_tables',
+    'sphinx.ext.autosectionlabel'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -49,10 +51,6 @@ source_parsers = {
     '.md': 'recommonmark.parser.CommonMarkParser',
 }
 
-
-extensions = [
-    'sphinx_markdown_tables',
-]
 
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
@@ -176,4 +174,9 @@ texinfo_documents = [
 # -- Options for todo extension ----------------------------------------------
 
 # If true, `todo` and `todoList` produce output, else they produce nothing.
-todo_include_todos = True
+todo_include_todos = False
+todo_emit_warnings = True
+
+# -- Options for autosectionlabel extension ----------------------------------------------
+
+autosectionlabel_prefix_document = True

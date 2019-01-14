@@ -7,7 +7,7 @@ User documentation
 If you are a user (current or potential) you should start here.
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 2
 
    user/index
 
