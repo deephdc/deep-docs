@@ -96,7 +96,8 @@ Training labels are also created automatically based on the directory names, tru
 
 If you want to use your own dataset then it has to follow similar structure.
 
-**Suggested local directory structure:**
+
+**If local directories are mounted into the container, the following directory structure is suggested:**
 ::
     data/
         dogImages/
@@ -114,7 +115,7 @@ If you want to use your own dataset then it has to follow similar structure.
 In the 'local' case, you place `dogImages.zip <https://s3-us-west-1.amazonaws.com/udacity-aind/dog-project/dogImages.zip>`_ in ``LOCAL_DIR/data/raw``, 
 which makes it available in ``/srv/dogs_breed_det/data/raw``.
 
-**Necessary remote structure:**
+**If you connect a remote storage, the following directories have to be created there:**
 ::
     /Datasets/dogs_breed/data
     /Datasets/dogs_breed/data/dogImages
