@@ -43,8 +43,8 @@ into so-called 'bottleneck_features'. These bottleneck_features are used then as
 
 Local Workflow
 ---------------
-The described workflow supposes usage of downloaded from DEEP Open Catalogue Docker images, i.e. you need either 
-`docker <https://docs.docker.com/install/#supported-platforms>`_ or `udocker <https://github.com/indigo-dc/udocker/releases>`_ tool.
+The described workflow supposes usage of downloaded from `DEEP Open Catalog <https://marketplace.deep-hybrid-datacloud.eu/>`_ Docker images, 
+i.e. you need either `docker <https://docs.docker.com/install/#supported-platforms>`_ or `udocker <https://github.com/indigo-dc/udocker/releases>`_ tool.
 
 1. Workflow intro
 """"""""""""""""""
@@ -89,7 +89,7 @@ The archive contains three directories for ``train``, ``test``, and ``valid`` da
 
 These directories are automatically de-archived in ``/srv/dogs_breed_det/data/dogImages/``. 
 
-Trainig labels are also created automatically based on the directory names, truncating leading numbers, e.g. '002.'.
+Training labels are also created automatically based on the directory names, truncating leading numbers, e.g. '002.'.
 
 **The minimum requirement for training is to make** `dogImages.zip <https://s3-us-west-1.amazonaws.com/udacity-aind/dog-project/dogImages.zip>`_ 
 **available in** ``/srv/dogs_breed_det/data/raw/`` **directory.**
@@ -111,7 +111,7 @@ If you want to use your own dataset then it has to follow similar structure.
 | ``LOCAL_DIR/models``   | ``/srv/dogs_breed_det/models``           |
 +------------------------+------------------------------------------+
 
-In this case, you place `dogImages.zip <https://s3-us-west-1.amazonaws.com/udacity-aind/dog-project/dogImages.zip>`_ in ``LOCAL_DIR/data/raw``, 
+In the 'local' case, you place `dogImages.zip <https://s3-us-west-1.amazonaws.com/udacity-aind/dog-project/dogImages.zip>`_ in ``LOCAL_DIR/data/raw``, 
 which makes it available in ``/srv/dogs_breed_det/data/raw``.
 
 **Necessary remote structure:**
@@ -121,7 +121,7 @@ which makes it available in ``/srv/dogs_breed_det/data/raw``.
     /Datasets/dogs_breed/data/raw
     /Datasets/dogs_breed/models
 
-In this case, you place `dogImages.zip <https://s3-us-west-1.amazonaws.com/udacity-aind/dog-project/dogImages.zip>`_ in ``/Datasets/dogs_breed/data/raw``, 
+In the 'remote' case, you place `dogImages.zip <https://s3-us-west-1.amazonaws.com/udacity-aind/dog-project/dogImages.zip>`_ in ``/Datasets/dogs_breed/data/raw``, 
 which makes it available in ``/srv/dogs_breed_det/data/raw``.
 
 
@@ -169,7 +169,7 @@ which makes it available in ``/srv/dogs_breed_det/data/raw``.
 DEEP Pilot infrastructure submission
 ------------------------------------
 
-Please, refere to :doc:`Quickstart Guide <../quickstart>`, section "Run model on DEEP Pilot infrastructure", 
+Please, refer to :doc:`Quickstart Guide <../quickstart>`, section "Run model on DEEP Pilot infrastructure", 
 on what is required to start the application on DEEP Pilot infrastructure.
 
 .. _sec-examples:
@@ -195,7 +195,7 @@ Mount local host directories
     deephdc/deep-oc-dogs_breed_det:cpu deepaas-run --listen-ip=0.0.0.0
 
 
-Connect to a remote storage by using ``rclone.conf`` from your host
+Connecting remote storage by using ``rclone.conf`` from your host
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 `rclone <https://rclone.org/>`_ tool allows to connect to a plenty of remote storages. 
@@ -234,10 +234,10 @@ You can rename one of the pre-configured remote storages to ``deepnc``, then mou
 
 .. note:: Check `rclone <https://rclone.org/>`_ documentation on how to configure different types of remote storage.
 
-Connect to a remote storage by passing rclone configuration parameters as environment settings
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Connecting remote storage by passing rclone configuration as environment settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-It is also possible to pass necessary configuration as environment settings during instantiation of the container, 
+It is also possible to pass necessary rclone configuration parameters as environment settings during instantiation of the container, 
 best is to create a runnable bash script:
 
 **Example 6:** connecting `DEEP-Nextcloud <https://nc.deep-hybrid-datacloud.eu/>`_ remote storage
