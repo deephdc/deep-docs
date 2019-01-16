@@ -51,18 +51,18 @@ simply run the following:
     With GPU support::
 
         $ nvidia-docker run -ti -p 5000:5000 -p 6006:6006 deephdc/deep-oc-module_of_interest
-    
+
     Via udocker::
 
         $ udocker run -p 5000:5000 -p 6006:6006 deephdc/deep-oc-module_of_interest
-    
+
     Via udocker with GPU support::
 
         $ udocker pull deephdc/deep-oc-module_of_interest
         $ udocker create --name=module_of_interest deephdc/deep-oc-module_of_interest
         $ udocker setup --nvidia module_of_interest
         $ udocker run -p 5000:5000 -p 6006:6006 module_of_interest
-    
+
 2. **Access the module via API**
 
 To access the downloaded module via `API <https://github.com/indigo-dc/DEEPaaS>`_, direct your web browser to http://127.0.0.1:5000.
@@ -83,7 +83,7 @@ Using Github way allows to modify the Dockerfile for including additional packag
 
 1. Clone the DEEP-OC-module_of_interest github repository::
 
-    $ git clone https://github.com/indigo-dc/DEEP-OC-module_of_interest
+    $ git clone https://github.com/deephdc/DEEP-OC-module_of_interest
 
 2. Build the container::
 
@@ -119,14 +119,14 @@ The submission is then done via
 ::
 
     $ orchent depcreate ./topology-orchent.yml '{}'
-    
-If you also want to access `DEEP-Nextcloud <https://nc.deep-hybrid-datacloud.eu>`_ from your container via rclone, 
+
+If you also want to access `DEEP-Nextcloud <https://nc.deep-hybrid-datacloud.eu>`_ from your container via rclone,
 you can create a following bash script for job submission:
 
 .. code-block:: bash
 
     #!/bin/bash
- 
+
     orchent depcreate ./topology-orchent.yml '{ "rclone_url": "https://nc.deep-hybrid-datacloud.eu/remote.php/webdav/",
                                                 "rclone_vendor": "nextcloud",
                                                 "rclone_user": <your_nextcloud_username>
