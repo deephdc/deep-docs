@@ -1,7 +1,7 @@
 Our different user roles
 ========================
 
-The DEEP-HybridDataCloud project is focused with three different types of users in mind, depending on what you want to achieve you should enter into one or more of the following categories:
+The DEEP-HybridDataCloud project is focused on three different types of users, depending on what you want to achieve you should enter into one or more of the following categories:
 
 
 .. image:: ../../_static/DEEP_WP2-User_Viewpoint.png
