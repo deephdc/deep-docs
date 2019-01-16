@@ -1,8 +1,7 @@
 Our different user roles
 ========================
 
-DEEPaaS is focused with three different types of users in mind, which vary in their machine learning knowledge and the
-usage they will make of DEEPaaS.
+The DEEP-HybridDataCloud project is focused with three different types of users in mind, depending on what you want to achieve you should enter into one or more of the following categories:
 
 
 .. image:: ../../_static/DEEP_WP2-User_Viewpoint.png
@@ -15,7 +14,7 @@ This user wants to use the services that have been already developed and :doc:`t
 and therefore don't need to have any machine learning knowledge. For example, they can take an already trained network
 for plant classification that has been containerized, and use it to classify their own plant images.
 
-**What DEEPaaS can offer to you:**
+**What DEEP can offer to you:**
 
 * a :ref:`catalogue <user/overview/architecture:The marketplace>` full of ready-to-use services to make inference with your data
 * an :ref:`API <user/overview/architecture:The API>` to easily interact with the services
@@ -34,7 +33,7 @@ Nevertheless, they can re-use the knowledge being captured in a trained network 
 at hand by re-training the network on their own dataset.
 An example could be a user who takes the generic image classifier model and retrains it to perform seed classification.
 
-**What DEEPaaS can offer to you:**
+**What DEEP can offer to you:**
 
 * the ability to train out-of-the-box a model of the :ref:`catalogue <user/overview/architecture:The marketplace>` on your personal dataset
 * an :ref:`API <user/overview/architecture:The API>` to easily interact with the model
@@ -53,7 +52,7 @@ classification model but the users wanted to perform object localization, which 
 Therefore they will design their own neural network architecture, potentially re-using parts of the code from other
 models.
 
-**What DEEPaaS can offer to you:**
+**What DEEP can offer to you:**
 
 * a ready-to-use environment with the main DL frameworks running in a dockerized solution running on different types of
   hardware (CPUs, GPUs, etc)
