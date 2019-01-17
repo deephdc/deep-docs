@@ -97,7 +97,7 @@ You don't need to implement all of them, just the ones you need.
 	{{repo_name}}/models/
 
 
-3. Create a docker containe for your model
+3. Create a docker container for your model
 =========================================
 
 Once your model is well in place, you can encapsulate it by creating a docker container. For this you need to create a Dockerfile. This file will contain the information about the Docker, including the type of operating system you want to run on and the packages you need installed to make your package run.
