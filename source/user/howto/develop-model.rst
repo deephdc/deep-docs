@@ -97,8 +97,30 @@ You don't need to implement all of them, just the ones you need.
 	{{repo_name}}/models/
 
 
-3. Create a docker container for your model
-=========================================
+3. Create a python installable package for your model
+====================================================
+To create a python installable package the initial directory structure should look something like this::
+
+	your_model_package/
+		your_model_package/
+			__init__.py
+		setup.py
+		setup.cfg
+		requirements.txt
+		LICENSE
+                README
+
+* The top level directory will be the root of your repo, e.g. your_model_package.git. The subdir, also called your_model_package, is the actual python module. 
+* setup.py is the build script for setuptools. It tells setuptools about your package (such as the name and version) as well as which code files to include. You can find an example of a setup.py file `here <https://github.com/deephdc/image-classification-tf/blob/master/setup.py>`_. For the official documentation on how to write your setup script, you can go `here <https://docs.python.org/2/distutils/setupscript.html>`_.
+* setup.cfg can be used to get some information from the user, or from the user's system in order to proceed. Configuration files also let you providedefault values for any command option. An example of a setup.cfg file can be found `here <https://github.com/deephdc/image-classification-tf/blob/master/setup.cfg>`_. The official python documentation on the setup configuration file can be found `here <https://docs.python.org/3/distutils/configfile.html>`_.
+* requirements.txt contains any external requirement needed to run the package. You can see an example of a requirements file `here <https://github.com/deephdc/image-classification-tf/blob/master/requirements.txt>`_. An example of a requirements file can be found `here <https://github.com/deephdc/image-classification-tf/blob/master/requirements.txt>`_.
+* The README file will contain information on how to run the package or anything else that you may find useful for someone running your package.
+* LICENSE It’s important for every package uploaded to the Python Package Index to include a license. This tells users who install your package the terms under which they can use your package. For help choosing a license, go `here <https://choosealicense.com/>`_.
+
+To see how to install your model package, check the Dockerfile in the next section.
+  
+4. Create a docker container for your model
+===========================================
 
 Once your model is well in place, you can encapsulate it by creating a docker container. For this you need to create a Dockerfile. This file will contain the information about the Docker, including the type of operating system you want to run on and the packages you need installed to make your package run.
 
