@@ -15,7 +15,7 @@ A toy example to identify Dog's breed, "Dogs breed detector" [*]_, images for tr
 +-----------------------------------------------------------------+---------------------+
 | `DEEPaaS API <https://deepaas.readthedocs.io/en/stable/>`_      |        yes          |
 +-----------------------------------------------------------------+---------------------+ 
-| :doc:`DEEP UC template <../overview/cookiecutter-template>`     |        yes          |
+| :doc:`DEEP DS template <../overview/cookiecutter-template>`     |        yes          |
 +-----------------------------------------------------------------+---------------------+
 | `DEEP-Nextcloud <https://nc.deep-hybrid-datacloud.eu/>`_ access |        yes          |
 +-----------------------------------------------------------------+---------------------+

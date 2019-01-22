@@ -98,7 +98,7 @@ You don't need to implement all of them, just the ones you need.
 
 
 3. Create a python installable package for your model
-====================================================
+=====================================================
 To create a python installable package the initial directory structure should look something like this::
 
 	your_model_package/
