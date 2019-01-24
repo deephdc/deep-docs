@@ -45,13 +45,13 @@ A set of various HowTo examples.
 
 .. raw:: html
 
-   <h2>Models</h2>
+   <h2>Modules</h2>
 
 
-The following sections provide information on how several deep learning models
+The following sections provide information on how several deep learning modules
 have been developed and integrated with our platform.
 
 .. toctree::
    :maxdepth: 2
 
-   models/index
+   modules/index
