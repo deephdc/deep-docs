@@ -7,3 +7,4 @@ Modules
 
    toy_model-dog_breeds
    image_classification_tf
+   mods
