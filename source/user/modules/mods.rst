@@ -75,24 +75,42 @@ You don't have to use all features in your dataset, the selected features are sp
 You can find an example of ML/DL dataformat `here <https://github.com/deephdc/mods/blob/master/data/features-20180414-20181015-win-1_hour-slide-10_minutes.tsv>`_.
 
 
+2. Predict using a existing model
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-2. Train the model
+You can test prediction functionality with an existing model by running e.g.::
+
+	./mods/models/predict.py predict.py --model_name MODEL_NAME --file FILE
+	
+Most of the parameters is defaultly, except the ``model`` and ``data``, which must be specified by user. 
+Manual is available as ``./mods/models/predict.py --help``	
+
+
+3. Train the model
 ^^^^^^^^^^^^^^^^^^
 
 Before training the model you can customize the default parameters of the configuration file ``./mods/config.py``. 
 This step is optional and training can be launched with the default configurarion parameters and still offers reasonably good results.
 
-Once you have customized the configuration parameters, you can launch the train model using default configuration by running 
-``./mods/models/model.py --method train [args ...]``. 
+Once you have customized the configuration parameters, you can launch the train model using default configuration by running::
 
-.. note:: Work-in-progress to be consistent with DEEP DS Template and DEEPaaS API. After training, the trained model is packed together with the model scaler and the model configuration in one ``.zip`` file located in the ``./models/`` folder.  
+   ./mods/models/train.py --model_name MODEL_NAME --data DATA
 
+Most of the parameters is defaultly, except the ``model_name`` and ``data``,  which must be specified by user. 
+Manual is available as ``./mods/models/train.py --help``
 
-3. Test the model
+The prediction using the created model goes through DEEPaaS API
+``./mods/models/model.py --method train fullpath_to_data fullpath_to_model [args ...]``
+
+After training, the trained model is packed together with the model scaler and the model configuration in one ``.zip`` file located in the ``./models/`` folder.  
+
+.. note:: Work-in-progress. 
+
+4. Test the model
 ^^^^^^^^^^^^^^^^^
 
 You can test the created model using default configuration by running
-``./mods/models/model.py --method test [args ...]``. 
+``./mods/models/test.py --model_name MODEL_NAME --file FILE``. 
 
 .. image:: ../../_static/mods_20181015_lstm_6m_1h_1h.png
 Fig. 1 Train and test on 6 month monitoring dataset. 
@@ -102,14 +120,14 @@ Blue=dataset, green=prediction on train dataset, red=prediction on test (unseen)
 Fig. 2 Train and test on three day dataset for better visualisation (monitoring of two aspects simultaneously).
 Blue=dataset, green=prediction on train dataset, red=prediction on test (unseen) dataset.
 
-.. note:: Work-in-progress to be consistent with DEEP DS Template and DEEPaaS API.
+.. note:: Work-in-progress.
 
 
 
 Launching the full DEEPaas API
 ------------------------------
 
-1. Prediction/inference through DEEPaaS
+1. Prediction and train through DEEPaaS
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * You can easily try the default configuration by start the container as::
@@ -118,11 +136,11 @@ Launching the full DEEPaas API
        
 * Direct your web browser to http://127.0.0.1:5000
 
-* Go to ``POST /models/mods/predict`` , click ``Try it out`` button
+* Go to ``POST /models/mods/predict`` for prediction OR ``PUT /models/mods/train`` for retrain, click ``Try it out`` button
 
-* Go to ``Data file``, select some ``.tsv`` file containing observations like `here <https://github.com/deephdc/mods/blob/master/data/sample_data.tsv>`_.
+* Go to ``Data file``, select some ``.tsv`` file containing observations like `here <https://github.com/deephdc/mods/blob/master/data/sample_data.tsv>`_. Set parameters for retrain if needed.
 
-* Click ``Execute`` and get predicted values in JSON format.
+* Click ``Execute`` and get predicted values in JSON format OR new retrained model in the ``./models/`` folder.
 
 The prediction using the created model goes through DEEPaaS API
 ``./mods/models/model.py --method predict_data [args ...]``
