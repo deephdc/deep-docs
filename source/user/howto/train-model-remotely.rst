@@ -6,13 +6,13 @@
 Train a model remotely 
 **********************
 
-This is a step by step guide on how to train a general model from the `DEEP Open Catalog marketplace <https://marketplace.deep-hybrid-datacloud.eu/>`_ with your own dataset. 
+This is a step by step guide on how to train a general model from the `DEEP Open Catalog marketplace <https://marketplace.deep-hybrid-datacloud.eu/>`__ with your own dataset.
 
 
 1. Choose a model
 -----------------
 
-The first step is to choose a model from the `DEEP Open Catalog marketplace <https://marketplace.deep-hybrid-datacloud.eu/>`_.  For educational purposes We are going to use a `general model to identify images <https://marketplace.deep-hybrid-datacloud.eu/modules/deep-oc-image-classification-tensorflow.html>`_. Some of the model dependent details can change if using another model, but this tutorial will provide a general overview of the workflow to follow when using any of the models in the Marketplace. A demo showing the different steps in this HowTo has also be recorded and you can find it here :ref:`here <video-demo_train-remotely>`.
+The first step is to choose a model from the `DEEP Open Catalog marketplace <https://marketplace.deep-hybrid-datacloud.eu/>`__.  For educational purposes We are going to use a `general model to identify images <https://marketplace.deep-hybrid-datacloud.eu/modules/deep-oc-image-classification-tensorflow.html>`_. Some of the model dependent details can change if using another model, but this tutorial will provide a general overview of the workflow to follow when using any of the models in the Marketplace. A demo showing the different steps in this HowTo has also be recorded and you can find it here :ref:`here <video-demo_train-remotely>`.
 
 
 
@@ -27,16 +27,16 @@ Before being able to run your model at the Pilot Infraestructure you should firs
     * Install oidc-agent and configure it for DEEP-IAM. Instructions for this can be found  :doc:`here <oidc-agent>`. Make sure you follow the instructions in the *Usage with orchent* section. 
     * Install `orchent <https://github.com/indigo-dc/orchent/releases>`_ tool
 
-For this example we are going to use `DEEP-Nextcloud <https://nc.deep-hybrid-datacloud.eu>`_ for storing you data. This means you also have to:
+For this example we are going to use `DEEP-Nextcloud <https://nc.deep-hybrid-datacloud.eu>`__ for storing you data. This means you also have to:
 
-    * Register at `DEEP-Nextcloud <https://nc.deep-hybrid-datacloud.eu>`_
+    * Register at `DEEP-Nextcloud <https://nc.deep-hybrid-datacloud.eu>`__
     * Follow the **Nextcloud configuration for rclone** :doc:`here <rclone>`. This will give you <your_nextcloud_username> and <your_nextcloud_password>.
 
 
 3. Upload your files to Nextcloud
 ---------------------------------
 
-Upload the files you need for the training to DEEP-Nextcloud. For this, after login into `DEEP-Nextcloud  <https://nc.deep-hybrid-datacloud.eu/login>`_ with your DEEP-IAM credentials, go to: **(1) Settings (top right corner)** |rarr|  **(2) Security**  |rarr|  **(3) Devices & sessions**
+Upload the files you need for the training to DEEP-Nextcloud. For this, after login into `DEEP-Nextcloud  <https://nc.deep-hybrid-datacloud.eu/login>`__ with your DEEP-IAM credentials, go to: **(1) Settings (top right corner)** |rarr|  **(2) Security**  |rarr|  **(3) Devices & sessions**
 
 
 .. image:: ../../_static/nc-access.png
@@ -88,7 +88,7 @@ Remember that the first line should include the name of the remote Nextcloud app
 6. Prepare your TOSCA file
 --------------------------
 
-In the orchent submission script there is a call to a TOSCA file (TOSCA.yml). A generic template can be found `here <https://github.com/indigo-dc/tosca-templates/blob/master/deep-oc/deep-oc-mesos-gpu-webdav.yml>`_. The sections that should be modified are the following (TOSCA experts may modify the rest of the template to their will.)
+In the orchent submission script there is a call to a TOSCA file (TOSCA.yml). A generic template can be found `here <https://github.com/indigo-dc/tosca-templates/blob/master/deep-oc/deep-oc-mesos-gpu-webdav.yml>`__. The sections that should be modified are the following (TOSCA experts may modify the rest of the template to their will.)
 
 * Docker image to deploy. In this case we will be using deephdc/deep-oc-image-classification-tf::
 
@@ -106,7 +106,7 @@ In the orchent submission script there is a call to a TOSCA file (TOSCA.yml). A 
       required: yes
       default: "/srv/image-classification-tf/rclone.conf"
 
-For further TOSCA templates examples you can go `here <https://github.com/indigo-dc/tosca-templates/tree/master/deep-oc>`_. 
+For further TOSCA templates examples you can go `here <https://github.com/indigo-dc/tosca-templates/tree/master/deep-oc>`__.
 
 
 

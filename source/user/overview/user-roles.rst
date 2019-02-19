@@ -12,7 +12,8 @@ The basic user
 
 This user wants to use the services that have been already developed and :doc:`test them with their data <../howto/try-service-locally>`,
 and therefore don't need to have any machine learning knowledge. For example, they can take an already trained network
-for plant classification that has been containerized, and use it to classify their own plant images.
+for `plant classification <https://marketplace.deep-hybrid-datacloud.eu/modules/deep-oc-plant-classification.html>`_
+that has been containerized, and use it to classify their own plant images.
 
 **What DEEP can offer to you:**
 
@@ -31,7 +32,8 @@ They still might not need high level knowledge on modelling of machine learning 
 programming skills to prepare their own data into the appropriate format.
 Nevertheless, they can re-use the knowledge being captured in a trained network and adjust the network to their problem
 at hand by re-training the network on their own dataset.
-An example could be a user who takes the generic image classifier model and retrains it to perform seed classification.
+An example could be a user who takes the generic `image classifier <https://marketplace.deep-hybrid-datacloud.eu/modules/deep-oc-image-classification-tensorflow.html>`_
+model and retrain it to perform `seed classification <https://marketplace.deep-hybrid-datacloud.eu/modules/deep-oc-seeds-classification.html>`_.
 
 **What DEEP can offer to you:**
 
@@ -62,5 +64,3 @@ models.
 * the ability to share the module with other users in the user's :ref:`catalogue <user/overview/architecture:The marketplace>`
 * the possibility to :ref:`integrate your module <user/overview/api:Integrate your model with the API>` with
   the :ref:`API <user/overview/architecture:The API>` to enable easier user interaction
-
-.. todo:: Add links to image classifier-tf, plant classifier-tf, seed classifier-tf once they will be uploaded to the marketplace
