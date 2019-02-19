@@ -11,15 +11,13 @@ The marketplace
 This is one of the most important components. It is a catalogue of modules that every user can have access to. We can
 divide the modules in two different categories:
 
-* **Models** are modules (eg. an `image classifier <https://marketplace.deep-hybrid-datacloud.eu/models/deep-oc-image-classification-tensorflow.html>`_)
+* **Models** are modules (eg. an `image classifier <https://marketplace.deep-hybrid-datacloud.eu/modules/deep-oc-image-classification-tensorflow.html>`_)
   that an user can train on their own data to create a new service. They have not already been trained to perform any particular task.
 
 * **Services** are models that have been trained for a specific task (eg. an plant classifier). They usually derive from model,
   although sometimes, for very specific tasks, a module can be both a model and a service.
 
 For more information have a look at the `marketplace <https://marketplace.deep-hybrid-datacloud.eu/>`_.
-
-.. todo:: If everyone agrees in this nomenclature, tags should be changed in the marketplace. Also models --> modules in the marketplace navigation bar
 
 .. todo:: Add links to the marketplace url of the plant classifier in Tensorflow (which is still not uploaded to the marketplace)
 

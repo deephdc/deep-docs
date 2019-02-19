@@ -19,7 +19,7 @@ the `official Docker installation guide <https://docs.docker.com/install>`_.
 1. Search for a model in the marketplace
 ========================================
 
-The first step is to choose a model from the `DEEP Open Catalog marketplace <https://marketplace.deep-hybrid-datacloud.eu/>`_.  For educational purposes we are going to use a `general model to identify images <https://marketplace.deep-hybrid-datacloud.eu/models/deep-oc-image-classification-tensorflow.html>`_. This will allow us to see the general workflow.
+The first step is to choose a model from the `DEEP Open Catalog marketplace <https://marketplace.deep-hybrid-datacloud.eu/>`_.  For educational purposes we are going to use a `general model to identify images <https://marketplace.deep-hybrid-datacloud.eu/modules/deep-oc-image-classification-tensorflow.html>`_. This will allow us to see the general workflow.
 
 
 
