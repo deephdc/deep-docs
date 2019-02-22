@@ -73,7 +73,9 @@ to a persistent volume. You can either use your local directories or connect you
 Original dataset consists of dog's images for 133 breeds. The images are compressed in 
 one `dogImages.zip <https://s3-us-west-1.amazonaws.com/udacity-aind/dog-project/dogImages.zip>`_  file. 
 The archive contains three directories for ``train``, ``test``, and ``valid`` datasets:
-::
+
+.. code-block:: console
+
     test/
         001.Affenpinscher/
         002.Afghan_hound/
@@ -98,7 +100,9 @@ If you want to use your own dataset then it has to follow similar structure.
 
 
 **If local directories are mounted into the container, the following directory structure is suggested:**
-::
+
+.. code-block:: console
+
     data/
         dogImages/
         raw/
@@ -116,7 +120,9 @@ In the 'local' case, you place `dogImages.zip <https://s3-us-west-1.amazonaws.co
 which makes it available in ``/srv/dogs_breed_det/data/raw``.
 
 **If you connect a remote storage, the following directories have to be created there:**
-::
+
+.. code-block:: console
+
     /Datasets/dogs_breed/data
     /Datasets/dogs_breed/data/dogImages
     /Datasets/dogs_breed/data/raw
@@ -182,14 +188,16 @@ Mount local host directories
 """""""""""""""""""""""""""""
 
 **Example 1 (GPU, default):**
-::
+
+.. code-block:: console
 
     docker run -ti -p 5000:5000 -v ~/data:/srv/dogs_breed_det/data \
     -v ~/models:/srv/dogs_breed_det/models \
     deephdc/deep-oc-dogs_breed_det deepaas-run --listen-ip=0.0.0.0
 
 **Example 2 (CPU):**
-::
+
+.. code-block:: console
 
     docker run -ti -p 5000:5000 -v ~/data:/srv/dogs_breed_det/data \
     -v ~/models:/srv/dogs_breed_det/models \
@@ -207,7 +215,9 @@ If you are familiar with the `rclone <https://rclone.org/>`_ tool, you probably 
 You can rename one of the pre-configured remote storages to ``deepnc``, then mount host directory with your ``rclone.conf`` file into the container:
 
 **Example 3:** using in the container ``rclone.conf`` from your host
-::
+
+.. code-block:: console
+
 
     docker run -ti -p 5000:5000 -v $HOSTDIR_WITH_RCLONE_CONF:/srv/rclone \
     -e RCLONE_CONFIG=/srv/rclone/rclone.conf \
@@ -216,7 +226,9 @@ You can rename one of the pre-configured remote storages to ``deepnc``, then mou
 `dogImages.zip <https://s3-us-west-1.amazonaws.com/udacity-aind/dog-project/dogImages.zip>`_  file is expected to be in ``/Datasets/dogs_breed/data/raw``
 
 **Example 4:** ``rclone.conf`` with `DEEP-Nextcloud <https://nc.deep-hybrid-datacloud.eu/>`_ configured as ``deepnc`` remote storage:
-::
+
+.. code-block:: console
+
     [deepnc]
     type = webdav
     url = https://nc.deep-hybrid-datacloud.eu/remote.php/webdav/
@@ -226,7 +238,9 @@ You can rename one of the pre-configured remote storages to ``deepnc``, then mou
 
 
 **Example 5:** ``rclone.conf`` with Google Drive configured as ``deepnc`` remote storage:
-::
+
+.. code-block:: console
+
     [deepnc]
     type = drive
     scope = drive

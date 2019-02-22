@@ -23,9 +23,9 @@ The next step is to look for a service in the `DEEP Open Catalog marketplace <ht
 ----------------
 
 You will find that each model has an associate Docker container in DockerHub. For eaxample
-`DEEP OC Image Classification <https://marketplace.deep-hybrid-datacloud.eu/models/deep-oc-image-classification-tensorflow.html>`_
+`DEEP OC Image Classification <https://marketplace.deep-hybrid-datacloud.eu/modules/deep-oc-image-classification-tensorflow.html>`_
 is associated with `deephdc/deep-oc-image-classification-tf <https://hub.docker.com/r/deephdc/deep-oc-image-classification-tf>`_,
-`DEEP OC Massive Online Data Streams <https://marketplace.deep-hybrid-datacloud.eu/models/deep-oc-massive-online-data-streams.html>`_
+`DEEP OC Massive Online Data Streams <https://marketplace.deep-hybrid-datacloud.eu/modules/deep-oc-massive-online-data-streams.html>`_
 is associated with `deephdc/deep-oc-mods <https://hub.docker.com/r/deephdc/deep-oc-mods>`_, etc.
 
 Let call the service you selected ``deep-oc-service_of_interest``.

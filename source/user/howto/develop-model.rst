@@ -111,11 +111,11 @@ To create a python installable package the initial directory structure should lo
                 README
 
 * The top level directory will be the root of your repo, e.g. your_model_package.git. The subdir, also called your_model_package, is the actual python module. 
-* ``setup.py`` is the build script for setuptools. It tells setuptools about your package (such as the name and version) as well as which code files to include. You can find an example of a setup.py file `here <https://github.com/deephdc/image-classification-tf/blob/master/setup.py>`_. For the official documentation on how to write your setup script, you can go `here <https://docs.python.org/2/distutils/setupscript.html>`_.
-* ``setup.cfg`` can be used to get some information from the user, or from the user's system in order to proceed. Configuration files also let you providedefault values for any command option. An example of a setup.cfg file can be found `here <https://github.com/deephdc/image-classification-tf/blob/master/setup.cfg>`_. The official python documentation on the setup configuration file can be found `here <https://docs.python.org/3/distutils/configfile.html>`_.
-* ``requirements.txt`` contains any external requirement needed to run the package. You can see an example of a requirements file `here <https://github.com/deephdc/image-classification-tf/blob/master/requirements.txt>`_. An example of a requirements file can be found `here <https://github.com/deephdc/image-classification-tf/blob/master/requirements.txt>`_.
+* ``setup.py`` is the build script for setuptools. It tells setuptools about your package (such as the name and version) as well as which code files to include. You can find an example of a setup.py file `here <https://github.com/deephdc/image-classification-tf/blob/master/setup.py>`__. For the official documentation on how to write your setup script, you can go `here <https://docs.python.org/2/distutils/setupscript.html>`__.
+* ``setup.cfg`` can be used to get some information from the user, or from the user's system in order to proceed. Configuration files also let you providedefault values for any command option. An example of a setup.cfg file can be found `here <https://github.com/deephdc/image-classification-tf/blob/master/setup.cfg>`__. The official python documentation on the setup configuration file can be found `here <https://docs.python.org/3/distutils/configfile.html>`__.
+* ``requirements.txt`` contains any external requirement needed to run the package. You can see an example of a requirements file `here <https://github.com/deephdc/image-classification-tf/blob/master/requirements.txt>`__. An example of a requirements file can be found `here <https://github.com/deephdc/image-classification-tf/blob/master/requirements.txt>`_.
 * The ``README`` file will contain information on how to run the package or anything else that you may find useful for someone running your package.
-* ``LICENSE`` It’s important for every package uploaded to the Python Package Index to include a license. This tells users who install your package the terms under which they can use your package. For help choosing a license, go `here <https://choosealicense.com/>`_.
+* ``LICENSE`` It’s important for every package uploaded to the Python Package Index to include a license. This tells users who install your package the terms under which they can use your package. For help choosing a license, go `here <https://choosealicense.com/>`__.
 
 To see how to install your model package, check the Dockerfile in the next section.
   
@@ -155,14 +155,14 @@ The simplest Dockerfile could look like this::
     	CMD deepaas-run --listen-ip 0.0.0.0
 
 
-For more details on rclone or on DEEPaas API you can check :doc:`here <rclone>` and `here <https://github.com/indigo-dc/DEEPaaS>`_ respectively.
+For more details on rclone or on DEEPaas API you can check :doc:`here <rclone>` and `here <https://github.com/indigo-dc/DEEPaaS>`__ respectively.
 
-If you want to see an example of a more complex Dockerfile, you can check it `here <https://github.com/indigo-dc/DEEP-OC-image-classification-tf/blob/master/Dockerfile>`_.
+If you want to see an example of a more complex Dockerfile, you can check it `here <https://github.com/indigo-dc/DEEP-OC-image-classification-tf/blob/master/Dockerfile>`__.
 
 In order to compile the Dockerfile, you should choose a name for the container and use the docker build command::
 	
 	docker build -t your_container_name -f Dockerfile
 
 
-You can then upload it to Docker hub so that you can download the already compiled image directly. To do so, follow the instructions `here <https://docs.docker.com/docker-hub/repos/>`_.
+You can then upload it to Docker hub so that you can download the already compiled image directly. To do so, follow the instructions `here <https://docs.docker.com/docker-hub/repos/>`__.
 

@@ -4,16 +4,6 @@
 Quickstart Guide
 =================
 
-.. todo:: Provide information on (at least):
-
-   1. How to download and test a model (i.e. get docker, go to the marketplace, get the model, run it).
-
-   2. Use cookiecutter to develop a model
-
-   3. Integrate an existing model with DEEPaaS
-
-   4. Create a container from a model
-
 
 Download module from the marketplace
 ------------------------------------
@@ -69,7 +59,7 @@ To access the downloaded module via `API <https://github.com/indigo-dc/DEEPaaS>`
 If you are training a model, you can go to http://127.0.0.1:6006 to monitor the training progress (if such monitoring is
 available for the model).
 
-For more details on particular models, please, read :doc:`model <models/index>` documentation.
+For more details on particular models, please, read :doc:`model <modules/index>` documentation.
 
 
 Github way (pro)
