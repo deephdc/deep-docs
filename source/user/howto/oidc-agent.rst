@@ -60,8 +60,8 @@ Next time you want to start oidc-agent from scratch, you will only have to do::
 
 * You should set OIDC_SOCK (this is not needed, if you did it before)::
 
-	$ eval (oidc-agent)
-        oidc-add deep-iam
+	$ eval $(oidc-agent)
+        $ oidc-add deep-iam
 
 * Set the agent account to be used with orchent::
 
@@ -69,7 +69,7 @@ Next time you want to start oidc-agent from scratch, you will only have to do::
 
 * You also need to set ORCHENT_URL, e.g::
 
-	$ export ORCHENT_URL="https://deep-paas.cloud.cnaf.infn.it/orchestrator"
+	$ export ORCHENT_URL="https://paas.cloud.cnaf.infn.it/orchestrator"
 
 
 
