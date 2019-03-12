@@ -13,7 +13,7 @@ In order to create your project based on the template, one has to `install <http
     
 You will be asked several questions, e.g.:
 
-* User account at github.com, e.g. 'indigo-dc'
+* User account at github.com, e.g. 'deephdc'
 * Project name
 * Repository name for the new project
 * (main) author name
@@ -115,7 +115,7 @@ All files get filled with the info provided during cookiecutter execution (see a
 
 Step-by-step guide
 -------------------
-#. (if not yet done) install cockiecutter, as e.g. ``pip install cookiecutter``
+#. (if not yet done) install cookiecutter, as e.g. ``pip install cookiecutter``
 #. run ``cookiecutter https://github.com/indigo-dc/cookiecutter-data-science``
 #. answer all the questions, pay attention about python version and docker tags!
 #. two directories will be created: <user_project> and <DEEP-OC-user_project>
@@ -128,4 +128,4 @@ Step-by-step guide
 
 ------------------
 
-.. [*] The more general `cockiecutter-data-science <http://drivendata.github.io/cookiecutter-data-science/>`_ template was adapted for the purpose of DEEP.
+.. [*] The more general `cookiecutter-data-science <http://drivendata.github.io/cookiecutter-data-science/>`_ template was adapted for the purpose of DEEP.
