@@ -23,7 +23,9 @@ You will be asked several questions, e.g.:
 * Choose open source license
 * Version of python interpreter
 * Docker Hub account name
-* Base image for Dockerfile
+* Base image for Dockerfile (as tensorflow/tensorflow)
+* CPU tag for the Base Docker image, e.g. 1.12.0-py3
+* GPU tag for the Base Docker image, e.g. 1.12.0-gpu-py3
 
 .. note::  These parameters are defined in ``cookiecutter.json`` in the `cookiecutter-data-science <https://github.com/indigo-dc/cookiecutter-data-science>`_ source.
 
@@ -110,6 +112,19 @@ Repository for the integration of the :doc:`DEEPaaS API <api>` and your_project 
 
 
 All files get filled with the info provided during cookiecutter execution (see above).
+
+Step-by-step guide
+-------------------
+#. (if not yet done) install cockiecutter, as e.g. ``pip install cookiecutter``
+#. run ``cookiecutter https://github.com/indigo-dc/cookiecutter-data-science``
+#. answer all the questions, pay attention about python version and docker tags!
+#. two directories will be created: <user_project> and <DEEP-OC-user_project>
+#. go to github.com/user_account and create corresponding repositories <user_project> and <DEEP-OC-user_project>
+#. go to your terminal, <user_project>, ``git push origin master``
+#. go to your terminal, <DEEP-OC-user_project>, ``git push origin master``
+#. your github repositories are now updated with initial commits
+#. you can build <deep-oc-user_project> Docker image locally: go to <DEEP-OC-user_project> directory, do ``docker build -t dockerhubuser/deep-oc-user_project .``
+#. you can now run deepaas as ``docker run -p 5000:5000 dockerhubuser/deep-oc-user_project``
 
 ------------------
 
