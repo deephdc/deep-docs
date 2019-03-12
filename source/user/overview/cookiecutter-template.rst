@@ -34,6 +34,7 @@ When these questions are answered, following two repositories will be created lo
 	~/DEEP-OC-your_project
 	~/your_project
 
+each repository has two branches: 'master' and 'test'.
 
 your_project repo
 -----------------
