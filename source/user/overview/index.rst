@@ -5,7 +5,7 @@ Overview
    :maxdepth: 1
    :glob:
 
-   architecture
-   user-roles
-   cookiecutter-template
-   api
+   DEEP architecture <architecture>
+   User roles and workflows <user-roles>
+   DEEP Cookiecutter template <cookiecutter-template>
+   DEEPaaS API <api>
