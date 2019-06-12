@@ -18,7 +18,7 @@ In case you are only developing a service based on an already existing model (li
 The code repo
 ^^^^^^^^^^^^^
 
-This is the repo containing the code of your model. If you are adding a service (ie. a trained model) the weights of the trained model must be stored in your personal storage services (e.g Google Drive, Dropbox, etc). A few MUSTs your code has to comply with in order to ensure compatibility and ease of use:
+This is the repo containing the code of your model. If you are adding a service (ie. a trained model) the weights of the trained model must be stored in a location accessible over a network connection, so that your container can download them upon creation. A few MUSTs your code has to comply with in order to ensure compatibility and ease of use:
 
 * your code must be packaged in order to be ``pip`` installable. This should be the default behaviour if you used the :doc:`DEEP cookiecutter template <../overview/cookiecutter-template>` to develop your code.
 * your code must be integrated with the DEEPaaS API. Check :ref:`this guide <user/overview/api:Integrate your model with the API>` on how to do this.
