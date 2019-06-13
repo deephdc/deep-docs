@@ -22,6 +22,10 @@ that has been containerized, and use it to classify their own plant images.
 * solutions to run the inference in the Cloud or in your local resources
 * the ability to develop complex topologies by composing different modules
 
+**Related HowTo's:**
+
+* :doc:`How to try a service locally <../howto/try-service-locally>`
+
 
 The intermediate user
 ---------------------
@@ -44,6 +48,12 @@ model and retrain it to perform `seed classification <https://marketplace.deep-h
 * the ability to deploy the developed service on Cloud resources
 * the ability to share the service with other users in the user's catalogue
 
+**Related HowTo's:**
+
+* :doc:`How to train a model locally <../howto/train-model-locally>`
+* :doc:`How to train a model remotely <../howto/train-model-remotely>`
+* :doc:`How to add your service to the DEEP Marketplace <../howto/add-to-DEEP-marketplace>`
+
 
 The advanced user
 -----------------
@@ -64,3 +74,11 @@ models.
 * the ability to share the module with other users in the user's :ref:`catalogue <user/overview/architecture:The marketplace>`
 * the possibility to :ref:`integrate your module <user/overview/api:Integrate your model with the API>` with
   the :ref:`API <user/overview/architecture:The API>` to enable easier user interaction
+
+
+**Related HowTo's:**
+
+* :doc:`How to use the DEEP Cookiecutter template for model development <cookiecutter-template>`
+* :doc:`How to develop your own machine learning model <../howto/develop-model>`
+* :ref:`How to integrate your model with the DEEPaaS API <user/overview/api:Integrate your model with the API>`
+* :doc:`How to add your model to the DEEP Marketplace <../howto/add-to-DEEP-marketplace>`
