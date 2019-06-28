@@ -26,7 +26,7 @@ This is the repo containing the code of your model. If you are adding a service 
 The Docker repo
 ^^^^^^^^^^^^^^^
 
-This repo contains has to contain at least the following files:
+This repo has to contain at least the following files:
 
 * ``Dockerfile``
 
