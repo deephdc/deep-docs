@@ -43,6 +43,12 @@ This repo has to contain at least the following files:
 * ``metadata.json``
 
    This file contains the information that is going to be displayed in the Marketplace. You can build your own starting from this `metadata.json example <https://github.com/deephdc/DEEP-OC-plants-classification-tf/blob/master/metadata.json>`_
+   This metadata will be validated during integration tests when the PR is accepted but you can manually `validate the metadata <https://github.com/deephdc/schema4deep>`_  beforehand by running:
+
+   .. code-block:: console
+
+    pip install git+https://github.com/deephdc/schema4apps
+    deep-app-schema-validator metadata.json
 
 Making the Pull Request
 -----------------------
