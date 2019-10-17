@@ -92,7 +92,7 @@ Launching the full DEEPaas API
 1. Prediction through DEEPaaS API
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* You can easily try the default configuration by start the container as::
+You can easily try the default configuration by start the container as::
 
     $ docker run -ti -p 5000:5000 deephdc/deep-oc-mods   
        
@@ -114,7 +114,7 @@ Launching the full DEEPaas API
 2. Train through DEEPaaS API in DEEP stack
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-After starting MODS container in DEEP stack, you can easily retraining MODS model with the default datapool (located in NextCloud ``nc:/mods/data/features/``) as follows:
+After starting MODS container in DEEP stack, you can easily retraining MODS model with the default datapool, which is located in NextCloud ``nc:/mods/data/features/`` as follows:
      
 * Direct your web browser to DEEPaaS endpoint
 
@@ -122,7 +122,7 @@ After starting MODS container in DEEP stack, you can easily retraining MODS mode
 
 * Specified new values for retrain if needed.
 
-* Click ``Execute``, wait for model retraining in DEEP pilot infrastructure and get new retrained model (located in NextCloud ``nc:/mods/models/``).
+* Click ``Execute``, wait for model retraining in DEEP pilot infrastructure and get new retrained model located in NextCloud ``nc:/mods/models/``.
 
 .. note:: New retrained model is packed in ``.zip`` containing the model, scaler, config and trained metrics.
 
