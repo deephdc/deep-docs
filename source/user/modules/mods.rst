@@ -7,7 +7,6 @@ machine learning application using deep learning techniques for modelling
 in co-function with underlying Intrusion Detection Systems (IDS) supervising network traffic 
 of computing infrastruture. 
 The service is running on TensorFlow backend. 
-
 Further references like articles, posters, detail descriptions of this module is available 
 in `MODS git repository <https://github.com/deephdc/mods/tree/master/references>`_.
 
@@ -32,9 +31,7 @@ in `MODS git repository <https://github.com/deephdc/mods/tree/master/references>
 Keywords: machine learning, deep learning, deep neural networks, recurrent neural networks, cyber security, anomaly detection, time-series forecasting, Tensorflow
 
 DEEP-OC DockerHub image: https://hub.docker.com/r/deephdc/deep-oc-mods
-
 DEEP-OC Dockerfile: https://github.com/deephdc/DEEP-OC-mods
-
 Application source code: https://github.com/deephdc/mods
 
 
