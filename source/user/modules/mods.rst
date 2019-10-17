@@ -2,11 +2,14 @@ DEEP Open Catalogue: Massive Online Data Streams
 ================================================
 
 This is a service to analyze online data streams in order to generate alerts in real-time. 
-The core part is built as ML application using ML/DL techniques for modelling in co-function 
-with underlying Intrusion Detection Systems (IDS) supervising traffic networks of compute centers. 
+The core part (the intelligent module) is built as 
+machine learning application using deep learning techniques for modelling 
+in co-function with underlying Intrusion Detection Systems (IDS) supervising network traffic 
+of computing infrastruture. 
 The service is running on TensorFlow backend. 
-Further information on the package structure and the requirements can be found in the
-documentation in the `git repository <https://github.com/deephdc/mods>`_.
+
+Further references like articles, posters, detail descriptions of this module is available 
+in `MODS git repository <https://github.com/deephdc/mods/tree/master/references>`_.
 
 +-----------------------------------------------------------------+---------------------+
 | Data Science application                                        |   ML/DL, NN, RNN    |
@@ -26,7 +29,7 @@ documentation in the `git repository <https://github.com/deephdc/mods>`_.
 | `DEEP-Nextcloud <https://nc.deep-hybrid-datacloud.eu/>`_ access |        yes          |
 +-----------------------------------------------------------------+---------------------+
 
-Keywords: ML/DL, NN, RNN, time-series data, cyber-security, Tensorflow
+Keywords: machine learning, deep learning, deep neural networks, recurrent neural networks, cyber security, anomaly detection, time-series forecasting, Tensorflow
 
 DEEP-OC DockerHub image: https://hub.docker.com/r/deephdc/deep-oc-mods
 
@@ -38,79 +41,39 @@ Application source code: https://github.com/deephdc/mods
 Description
 -----------
 
-The principle of the security/anomaly detection is proactive time-series prediction adopting artificial NNs 
-to build prediction models capable to predict next step(s) in near future based on given current and past steps. 
-The discrepancy between the prediction and the reality gives an indication of warning levels
-when supervising networks activities.
+The deep learning module (MODS) of the service is built as a part of 
+proactive network monitoring solution focusing on abnormal state detection 
+in the mean of security protection for computing infrastructure. 
+The principle is based on proactive time-series ferecasting adopting deep neural networks 
+to build an intelligent module capable to provide a near future behaviour estimation 
+of multiple simultaneous monitoring channels based on the knowledge base of past activities.
+An ongoing activity is expected to present a monitoring anomaly, where anomaly stands for a behaviour 
+that deviates from the standard, normal or expected activities.
 
-The challenge of the solution is also it aims to scalable edge technologies to support extensive data analysis and modelling 
-as well as to improve the cyber-resilience by adopting an heuristic approach combining misuse detection 
-in real-time with the building intelligence module using ML, NN and DL techniques.
+The challenge of the proactive network monitoring solution is also 
+the cooperation of scalable edge technologies supporting
+extensive data analysis, data processing and deep learning modelling 
+to improve the cyber-resilience protection for computing infrastrutures.
+The proactive solution comprises of MODS and its data processing (DS) module. 
+The DS source code as well as raw data are not publicly available due to their security sensitiveness.
+The ML/DL data for MODS module is available at the institutional Open Source 
+`public repository  <https:digital.csic.es>`_
 
 
 Workflow
---------
-The described workflow supposes usage of downloaded from `DEEP Open Catalog <https://marketplace.deep-hybrid-datacloud.eu/>`_ Docker images, 
-i.e. you need either `docker <https://docs.docker.com/install/#supported-platforms>`_ or `udocker <https://github.com/indigo-dc/udocker/releases>`_ tool.
+^^^^^^^^
 
+The data processing module prepares ML/DL datasets through ML steps such as data filtering,
+feature extraction, feature selection for datapool building. 
+The MODS workflow goes through configuration specification for training and hyperparameter setting, 
+then model training and model testing.
 
-1. Data preprocessing
-^^^^^^^^^^^^^^^^^^^^^
-
-ML/DL learns from data, then the first important thing is to have the data correctly set up.
-
-
-**1.1 Feature building and ML/DL data pool**
-
-.. note:: The description of this step from massive online data through raw private datasets and consequently to ML/DL data using in-memory operations of Apache Spark will be available later due to raw data sensitiveness!
-
-
-**1.2 Prepare ML/DL data**
-
-Put your ML/DL dataset (i.e. already prepared time-series data file) in the ``./data/`` folder. 
-The location of your data can be set also in the ``./mods/config.py`` file.
-Currently, the accepted ML/DL format is either ``.tsv`` or ``.csv``. 
-You don't have to use all features in your dataset, the selected features are specified in ``./mods/config.py``.
-
-You can find an example of ML/DL dataformat `here <https://github.com/deephdc/mods/blob/master/data/features-20180414-20181015-win-1_hour-slide-10_minutes.tsv>`_.
-
-
-2. Predict using a existing model
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-You can test prediction functionality with an existing model by running e.g.::
-
-	./mods/models/predict.py predict.py --model_name MODEL_NAME --file FILE
-	
-Most of the parameters is defaultly, except the ``model`` and ``data``, which must be specified by user. 
-Manual is available as ``./mods/models/predict.py --help``	
-
-
-3. Train the model
-^^^^^^^^^^^^^^^^^^
-
-Before training the model you can customize the default parameters of the configuration file ``./mods/config.py``. 
-This step is optional and training can be launched with the default configurarion parameters and still offers reasonably good results.
-
-Once you have customized the configuration parameters, you can launch the train model using default configuration by running::
-
-   ./mods/models/train.py --model_name MODEL_NAME --data DATA
-
-Most of the parameters is defaultly, except the ``model_name`` and ``data``,  which must be specified by user. 
-Manual is available as ``./mods/models/train.py --help``
-
-The prediction using the created model goes through DEEPaaS API
-``./mods/models/model.py --method train fullpath_to_data fullpath_to_model [args ...]``
-
-After training, the trained model is packed together with the model scaler and the model configuration in one ``.zip`` file located in the ``./models/`` folder.  
-
-.. note:: Work-in-progress. 
-
-4. Test the model
-^^^^^^^^^^^^^^^^^
-
-You can test the created model using default configuration by running
-``./mods/models/test.py --model_name MODEL_NAME --file FILE``. 
+The described MODS workflow is fully supported by the DEEP as Service and DEEP learning facility. 
+It supposes usage of downloaded from 
+`DEEP Open Catalog <https://marketplace.deep-hybrid-datacloud.eu/>`_ docker images, 
+i.e. you need either 
+`docker <https://docs.docker.com/install/#supported-platforms>`_ or 
+`udocker <https://github.com/indigo-dc/udocker/releases>`_ tool.
 
 .. image:: ../../_static/mods_20181015_lstm_6m_1h_1h.png
 Fig. 1 Train and test on 6 month monitoring dataset. 
@@ -120,35 +83,51 @@ Blue=dataset, green=prediction on train dataset, red=prediction on test (unseen)
 Fig. 2 Train and test on three day dataset for better visualisation (monitoring of two aspects simultaneously).
 Blue=dataset, green=prediction on train dataset, red=prediction on test (unseen) dataset.
 
-.. note:: Work-in-progress.
-
+The MODS module is fully and ready to be used leveraging the DEEPaaS API (see below).
 
 
 Launching the full DEEPaas API
 ------------------------------
 
-1. Prediction and train through DEEPaaS
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+1. Prediction through DEEPaaS API
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* You can easily try the default configuration by start the container as::
+You can easily try the default configuration by start the container as::
 
     $ docker run -ti -p 5000:5000 deephdc/deep-oc-mods   
        
-* Direct your web browser to http://127.0.0.1:5000
+* Direct your web browser to http://localhost:5000 to get the OpenAPI (Swagger) 
 
-* Go to ``POST /models/mods/predict`` for prediction OR ``PUT /models/mods/train`` for retrain, click ``Try it out`` button
+* Go to ``POST /models/mods/predict`` for prediction, click ``Try it out`` button
 
-* Go to ``Data file``, select some ``.tsv`` file containing observations like `here <https://github.com/deephdc/mods/blob/master/data/sample_data.tsv>`_. Set parameters for retrain if needed.
+* Go to ``Data file``, select some ``.tsv`` file containing observations like `here <https://github.com/deephdc/mods/blob/master/data/test/sample-test-w01h-s10m.tsv>`_. 
 
-* Click ``Execute`` and get predicted values in JSON format OR new retrained model in the ``./models/`` folder.
+* Go to ``Model name``, select a model e.g., ``model_default_cpu.zip``
 
-The prediction using the created model goes through DEEPaaS API
-``./mods/models/model.py --method predict_data [args ...]``
+* Click ``Execute`` and get predicted values in JSON format.
 
-.. note:: The model scaler and model configuration are required for prediction using the trained model. All available MODS models are packed in ``.zip`` with all three files.
+.. note:: All available default models are packed in ``.zip`` containing the model, scaler, config and trained metrics. The model has to be trained with train data (e.g., built from datapool) in the same format as data file used for prediction.
+
+* If you want to build the container directly in your machine, follow the instructions `DEEP-OC-mods<https://github.com/deephdc/DEEP-OC-mods>`_.
 
 
-2. DEEPaaS API functionality
+2. Train through DEEPaaS API in DEEP stack
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+After starting MODS container in DEEP stack, you can easily retraining MODS model with the default datapool, which is located in NextCloud ``nc:/mods/data/features/`` as follows:
+     
+* Direct your web browser to DEEPaaS endpoint
+
+* Go to ``PUT /models/mods/train`` for retrain, click ``Try it out`` button
+
+* Specified new values for retrain if needed.
+
+* Click ``Execute``, wait for model retraining in DEEP pilot infrastructure and get new retrained model located in NextCloud ``nc:/mods/models/``.
+
+.. note:: New retrained model is packed in ``.zip`` containing the model, scaler, config and trained metrics.
+
+
+3. DEEPaaS API functionality
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To access this package's complete functionality (both for training and predicting) through the DEEPaaS API 
