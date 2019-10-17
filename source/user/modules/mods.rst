@@ -7,6 +7,7 @@ machine learning application using deep learning techniques for modelling
 in co-function with underlying Intrusion Detection Systems (IDS) supervising network traffic 
 of computing infrastruture. 
 The service is running on TensorFlow backend. 
+
 Further references like articles, posters, detail descriptions of this module is available 
 in `MODS git repository <https://github.com/deephdc/mods/tree/master/references>`_.
 
@@ -31,7 +32,9 @@ in `MODS git repository <https://github.com/deephdc/mods/tree/master/references>
 Keywords: machine learning, deep learning, deep neural networks, recurrent neural networks, cyber security, anomaly detection, time-series forecasting, Tensorflow
 
 DEEP-OC DockerHub image: https://hub.docker.com/r/deephdc/deep-oc-mods
+
 DEEP-OC Dockerfile: https://github.com/deephdc/DEEP-OC-mods
+
 Application source code: https://github.com/deephdc/mods
 
 
@@ -56,17 +59,9 @@ The DS source code as well as raw data are not publicly available due to their s
 The ML/DL data for MODS module is available at the institutional Open Source 
 `public repository  <https:digital.csic.es>`_
 
-.. image:: ../../_static/mods_20181015_lstm_6m_1h_1h.png
-Fig. 1 Train and test on 6 month monitoring dataset. 
-Blue=dataset, green=prediction on train dataset, red=prediction on test (unseen) dataset.
-
-.. image:: ../../_static/mods_20181018-lstm-3days.png
-Fig. 2 Train and test on three day dataset for better visualisation (monitoring of two aspects simultaneously).
-Blue=dataset, green=prediction on train dataset, red=prediction on test (unseen) dataset.
-
 
 Workflow
---------
+^^^^^^^^
 
 The data processing module prepares ML/DL datasets through ML steps such as data filtering,
 feature extraction, feature selection for datapool building. 
@@ -81,6 +76,14 @@ i.e. you need either
 `udocker <https://github.com/indigo-dc/udocker/releases>`_ tool.
 
 The MODS module is fully and ready to be used leveraging the DEEPaaS API (see below).
+
+.. image:: ../../_static/mods_20181015_lstm_6m_1h_1h.png
+Fig. 1 Train and test on 6 month monitoring dataset. 
+Blue=dataset, green=prediction on train dataset, red=prediction on test (unseen) dataset.
+
+.. image:: ../../_static/mods_20181018-lstm-3days.png
+Fig. 2 Train and test on three day dataset for better visualisation (monitoring of two aspects simultaneously).
+Blue=dataset, green=prediction on train dataset, red=prediction on test (unseen) dataset.
 
 .. note:: Figure (to be added) 
 
