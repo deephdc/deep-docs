@@ -2,11 +2,14 @@ DEEP Open Catalogue: Massive Online Data Streams
 ================================================
 
 This is a service to analyze online data streams in order to generate alerts in real-time. 
-The core part is built as ML application using ML/DL techniques for modelling in co-function 
-with underlying Intrusion Detection Systems (IDS) supervising traffic networks of compute centers. 
+The core part (the intelligent module) is built as 
+machine learning application using deep learning techniques for modelling 
+in co-function with underlying Intrusion Detection Systems (IDS) supervising network traffic 
+of computing infrastruture. 
 The service is running on TensorFlow backend. 
-Further information on the package structure and the requirements can be found in the
-documentation in the `git repository <https://github.com/deephdc/mods>`_.
+
+Further reference information like articles, posters, detail descriptions of this module is available 
+in `git repository <https://github.com/deephdc/mods/tree/master/references>`_.
 
 +-----------------------------------------------------------------+---------------------+
 | Data Science application                                        |   ML/DL, NN, RNN    |
@@ -26,7 +29,7 @@ documentation in the `git repository <https://github.com/deephdc/mods>`_.
 | `DEEP-Nextcloud <https://nc.deep-hybrid-datacloud.eu/>`_ access |        yes          |
 +-----------------------------------------------------------------+---------------------+
 
-Keywords: ML/DL, NN, RNN, time-series data, cyber-security, Tensorflow
+Keywords: machine learning, deep learning, deep neural networks, recurrent neural networks, cyber security, anomaly detection, time-series forecasting, Tensorflow
 
 DEEP-OC DockerHub image: https://hub.docker.com/r/deephdc/deep-oc-mods
 
@@ -38,23 +41,31 @@ Application source code: https://github.com/deephdc/mods
 Description
 -----------
 
-The principle of the security/anomaly detection is proactive time-series prediction adopting artificial NNs 
-to build prediction models capable to predict next step(s) in near future based on given current and past steps. 
-The discrepancy between the prediction and the reality gives an indication of warning levels
-when supervising networks activities.
+This module is built as a part of proactive proactive network monitoring and anomaly detection 
+in the mean of security protection for computing infrastructure. 
+The principle is based on proactive time-series ferecasting adopting deep neural networks to build 
+an intelligent module capable to provide a near future behaviour estimation 
+of multiple simultaneous monitoring channels based on the knowledge base of past activities.
+An ongoing attack is expected to present a monitoring anomaly, where anomaly stands for a behaviour 
+that deviates from the standard, normal or expected activities.
 
-The challenge of the solution is also it aims to scalable edge technologies to support extensive data analysis and modelling 
-as well as to improve the cyber-resilience by adopting an heuristic approach combining misuse detection 
-in real-time with the building intelligence module using ML, NN and DL techniques.
+The challenge of the proactive network monitoring solution is also 
+the cooperation of scalable edge technologies supporting
+extensive data analysis, data processing and deep learning modelling 
+to improve the cyber-resilience protection for computing infrastrutures.
+
 
 
 Workflow
 --------
-The described workflow supposes usage of downloaded from `DEEP Open Catalog <https://marketplace.deep-hybrid-datacloud.eu/>`_ Docker images, 
-i.e. you need either `docker <https://docs.docker.com/install/#supported-platforms>`_ or `udocker <https://github.com/indigo-dc/udocker/releases>`_ tool.
+The described workflow supposes usage of downloaded from 
+`DEEP Open Catalog <https://marketplace.deep-hybrid-datacloud.eu/>`_ Docker images, 
+i.e. you need either 
+`docker <https://docs.docker.com/install/#supported-platforms>`_ or 
+`udocker <https://github.com/indigo-dc/udocker/releases>`_ tool.
 
 
-1. Data preprocessing
+1. Data processing
 ^^^^^^^^^^^^^^^^^^^^^
 
 ML/DL learns from data, then the first important thing is to have the data correctly set up.
