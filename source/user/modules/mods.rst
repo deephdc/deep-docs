@@ -91,8 +91,8 @@ The MODS module is fully and ready to be used leveraging the DEEPaaS API (see be
 Launching the full DEEPaas API
 ------------------------------
 
-1. Prediction through DEEPaaS
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+1. Prediction through DEEPaaS API
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * You can easily try the default configuration by start the container as::
 
@@ -108,30 +108,25 @@ Launching the full DEEPaas API
 
 * Click ``Execute`` and get predicted values in JSON format.
 
-.. note:: All available default models are packed in ``.zip`` containing: model, scaler, config and trained metrics. The model has to be trained in the same data format as data file used for prediction.
+.. note:: All available default models are packed in ``.zip`` containing the model, scaler, config and trained metrics. The model has to be trained in the same data format as data file used for prediction.
 
-* If you want to build the container directly in your machine, follow the instructions `here <https://github.com/deephdc/DEEP-OC-mods>`_.
+* If you want to build the container directly in your machine, follow the instructions `DEEP-OC-mods<https://github.com/deephdc/DEEP-OC-mods>`_.
 
 
-2. Train through DEEPaaS
-^^^^^^^^^^^^^^^^^^^^^^^^
+2. Train through DEEPaaS API in DEEP stack
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* You can easily try the default configuration by start the container as::
+After starting MODS container in DEEP stack, you can easily retraining MODS model with the default datapool (located in NextCloud ``nc:/mods/data/features/``) as follows:
+     
+* Direct your web browser to DEEPaaS endpoint
 
-    $ docker run -ti -p 5000:5000 deephdc/deep-oc-mods   
-       
-* Direct your web browser to http://127.0.0.1:5000
+* Go to ``PUT /models/mods/train`` for retrain, click ``Try it out`` button
 
-* Go to ``POST /models/mods/predict`` for prediction OR ``PUT /models/mods/train`` for retrain, click ``Try it out`` button
+* Specified new values for retrain if needed.
 
-* Go to ``Data file``, select some ``.tsv`` file containing observations like `here <https://github.com/deephdc/mods/blob/master/data/sample_data.tsv>`_. Set parameters for retrain if needed.
+* Click ``Execute``, wait for model retraining in DEEP pilot infrastructure and get new retrained model (located in NextCloud ``nc:/mods/models/``).
 
-* Click ``Execute`` and get predicted values in JSON format OR new retrained model in the ``./models/`` folder.
-
-The prediction using the created model goes through DEEPaaS API
-``./mods/models/model.py --method predict_data [args ...]``
-
-.. note:: The model scaler and model configuration are required for prediction using the trained model. All available MODS models are packed in ``.zip`` with all three files.
+.. note:: New retrained model is packed in ``.zip`` containing the model, scaler, config and trained metrics.
 
 
 3. DEEPaaS API functionality
