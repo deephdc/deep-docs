@@ -108,7 +108,7 @@ Launching the full DEEPaas API
 
 * Click ``Execute`` and get predicted values in JSON format.
 
-.. note:: All available default models are packed in ``.zip`` containing: model, scaler, config and trained metrics. 
+.. note:: All available default models are packed in ``.zip`` containing: model, scaler, config and trained metrics. The model has to be trained in the same data format as data file used for prediction.
 
 * If you want to build the container directly in your machine, follow the instructions `here <https://github.com/deephdc/DEEP-OC-mods>`_.
 
