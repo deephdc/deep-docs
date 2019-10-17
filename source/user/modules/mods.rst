@@ -9,7 +9,7 @@ of computing infrastruture.
 The service is running on TensorFlow backend. 
 
 Further references like articles, posters, detail descriptions of this module is available 
-in `git repository <https://github.com/deephdc/mods/tree/master/references>`_.
+in `MODS git repository <https://github.com/deephdc/mods/tree/master/references>`_.
 
 +-----------------------------------------------------------------+---------------------+
 | Data Science application                                        |   ML/DL, NN, RNN    |
@@ -56,8 +56,8 @@ extensive data analysis, data processing and deep learning modelling
 to improve the cyber-resilience protection for computing infrastrutures.
 The proactive solution comprises of MODS and its data processing (DS) module. 
 The DS source code as well as raw data are not publicly available due to their security sensitiveness.
-The ML/DL data for MODS module is publicly available at the institutional  
-`repository  <https:digital.csic.es>`_
+The ML/DL data for MODS module is available at the institutional Open Source 
+`public repository  <https:digital.csic.es>`_
 
 .. image:: ../../_static/mods_20181015_lstm_6m_1h_1h.png
 Fig. 1 Train and test on 6 month monitoring dataset. 
@@ -71,8 +71,8 @@ Blue=dataset, green=prediction on train dataset, red=prediction on test (unseen)
 Workflow
 --------
 
-The data processing module prepares ML/DL datasets through ML steps such as 
-dataset building, feature extraction and feature selection. 
+The data processing module prepares ML/DL datasets through ML steps such as data filtering,
+feature extraction, feature selection for datapool building. 
 The MODS workflow goes through configuration specification for training and hyperparameter setting, 
 then model training and model testing.
 
@@ -83,16 +83,38 @@ i.e. you need either
 `docker <https://docs.docker.com/install/#supported-platforms>`_ or 
 `udocker <https://github.com/indigo-dc/udocker/releases>`_ tool.
 
+The MODS module is fully and ready to be used leveraging the DEEPaaS API (see below).
 
-.. note:: Work-in-progress.
-
+.. note:: Figure (to be added) 
 
 
 Launching the full DEEPaas API
 ------------------------------
 
-1. Prediction and train through DEEPaaS
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+1. Prediction through DEEPaaS
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* You can easily try the default configuration by start the container as::
+
+    $ docker run -ti -p 5000:5000 deephdc/deep-oc-mods   
+       
+* Direct your web browser to http://localhost:5000 to get the OpenAPI (Swagger) 
+
+* Go to ``POST /models/mods/predict`` for prediction, click ``Try it out`` button
+
+* Go to ``Data file``, select some ``.tsv`` file containing observations like `here <https://github.com/deephdc/mods/blob/master/data/test/sample-test-w01h-s10m.tsv>`_. 
+
+* Go to ``Model name``, select a model e.g., ``model_default_cpu.zip``
+
+* Click ``Execute`` and get predicted values in JSON format.
+
+.. note:: All available default models are packed in ``.zip`` containing: model, scaler, config and trained metrics. 
+
+* If you want to build the container directly in your machine, follow the instructions `here <https://github.com/deephdc/DEEP-OC-mods>`_.
+
+
+2. Train through DEEPaaS
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 * You can easily try the default configuration by start the container as::
 
@@ -112,7 +134,7 @@ The prediction using the created model goes through DEEPaaS API
 .. note:: The model scaler and model configuration are required for prediction using the trained model. All available MODS models are packed in ``.zip`` with all three files.
 
 
-2. DEEPaaS API functionality
+3. DEEPaaS API functionality
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To access this package's complete functionality (both for training and predicting) through the DEEPaaS API 
