@@ -75,8 +75,6 @@ i.e. you need either
 `docker <https://docs.docker.com/install/#supported-platforms>`_ or 
 `udocker <https://github.com/indigo-dc/udocker/releases>`_ tool.
 
-The MODS module is fully and ready to be used leveraging the DEEPaaS API (see below).
-
 .. image:: ../../_static/mods_20181015_lstm_6m_1h_1h.png
 Fig. 1 Train and test on 6 month monitoring dataset. 
 Blue=dataset, green=prediction on train dataset, red=prediction on test (unseen) dataset.
@@ -85,7 +83,7 @@ Blue=dataset, green=prediction on train dataset, red=prediction on test (unseen)
 Fig. 2 Train and test on three day dataset for better visualisation (monitoring of two aspects simultaneously).
 Blue=dataset, green=prediction on train dataset, red=prediction on test (unseen) dataset.
 
-.. note:: Figure (to be added) 
+The MODS module is fully and ready to be used leveraging the DEEPaaS API (see below).
 
 
 Launching the full DEEPaas API
