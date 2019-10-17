@@ -41,23 +41,30 @@ Application source code: https://github.com/deephdc/mods
 Description
 -----------
 
-This module is built as a part of proactive proactive network monitoring and anomaly detection 
+This deep learning module (MODS) is built as a part of 
+proactive proactive network monitoring focusing on abnormal state detection 
 in the mean of security protection for computing infrastructure. 
-The principle is based on proactive time-series ferecasting adopting deep neural networks to build 
-an intelligent module capable to provide a near future behaviour estimation 
+The principle is based on proactive time-series ferecasting adopting deep neural networks 
+to build an intelligent module capable to provide a near future behaviour estimation 
 of multiple simultaneous monitoring channels based on the knowledge base of past activities.
-An ongoing attack is expected to present a monitoring anomaly, where anomaly stands for a behaviour 
+An ongoing activity is expected to present a monitoring anomaly, where anomaly stands for a behaviour 
 that deviates from the standard, normal or expected activities.
 
 The challenge of the proactive network monitoring solution is also 
 the cooperation of scalable edge technologies supporting
 extensive data analysis, data processing and deep learning modelling 
 to improve the cyber-resilience protection for computing infrastrutures.
+The proactive solution comprises of MODS and its data (pre)-processing (DS) module. 
+The DS source code as well as raw data are not publicly available due to their security sensitiveness.
+The ML/DL data for MODS module is publicly available at the institutional  
+`repository  <https:digital.csic.es>`_
 
 
 
 Workflow
 --------
+
+
 The described workflow supposes usage of downloaded from 
 `DEEP Open Catalog <https://marketplace.deep-hybrid-datacloud.eu/>`_ Docker images, 
 i.e. you need either 
