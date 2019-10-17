@@ -8,7 +8,7 @@ in co-function with underlying Intrusion Detection Systems (IDS) supervising net
 of computing infrastruture. 
 The service is running on TensorFlow backend. 
 
-Further reference information like articles, posters, detail descriptions of this module is available 
+Further references like articles, posters, detail descriptions of this module is available 
 in `git repository <https://github.com/deephdc/mods/tree/master/references>`_.
 
 +-----------------------------------------------------------------+---------------------+
@@ -42,7 +42,7 @@ Description
 -----------
 
 This deep learning module (MODS) is built as a part of 
-proactive proactive network monitoring focusing on abnormal state detection 
+proactive network monitoring solution focusing on abnormal state detection 
 in the mean of security protection for computing infrastructure. 
 The principle is based on proactive time-series ferecasting adopting deep neural networks 
 to build an intelligent module capable to provide a near future behaviour estimation 
