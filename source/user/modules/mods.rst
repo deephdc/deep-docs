@@ -54,7 +54,7 @@ The challenge of the proactive network monitoring solution is also
 the cooperation of scalable edge technologies supporting
 extensive data analysis, data processing and deep learning modelling 
 to improve the cyber-resilience protection for computing infrastrutures.
-The proactive solution comprises of MODS and its data (pre)-processing (DS) module. 
+The proactive solution comprises of MODS and its data processing (DS) module. 
 The DS source code as well as raw data are not publicly available due to their security sensitiveness.
 The ML/DL data for MODS module is publicly available at the institutional  
 `repository  <https:digital.csic.es>`_
@@ -64,8 +64,14 @@ The ML/DL data for MODS module is publicly available at the institutional
 Workflow
 --------
 
+The data processing module prepares ML/DL datasets through ML steps such as 
+dataset building, feature extraction and feature selection. 
+The MODS workflow goes through configuration specification for training and hyperparameter setting, 
+then model training and model testing.
 
-The described workflow supposes usage of downloaded from 
+
+The described MODS workflow is fully supported by the DEEP as Service and DEEP learning facility. 
+It supposes usage of downloaded from 
 `DEEP Open Catalog <https://marketplace.deep-hybrid-datacloud.eu/>`_ Docker images, 
 i.e. you need either 
 `docker <https://docs.docker.com/install/#supported-platforms>`_ or 
