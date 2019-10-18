@@ -9,7 +9,7 @@ of computing infrastruture.
 The service is running on TensorFlow backend. 
 
 Further references like articles and presentations of this module are available 
-in the `MODS git repository <https://github.com/deephdc/mods/tree/master/references>`_.
+in the `git repository <https://github.com/deephdc/mods/tree/master/references>`_.
 
 +-----------------------------------------------------------------+---------------------------------+
 | Data Science application                                        | machine learning, deep learning |
