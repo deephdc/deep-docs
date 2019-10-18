@@ -9,7 +9,7 @@ of computing infrastruture.
 The service is running on TensorFlow backend. 
 
 Further references like articles and presentations of this module are available 
-in `MODS git repository <https://github.com/deephdc/mods/tree/master/references>`_.
+in the `MODS git repository <https://github.com/deephdc/mods/tree/master/references>`_.
 
 +-----------------------------------------------------------------+---------------------------------+
 | Data Science application                                        | machine learning, deep learning |
@@ -65,10 +65,10 @@ Workflow
 The data processing (DS) module prepares datasets for machine learning purpose through standard 
 ML steps like data filtering, data cleaning, feature extraction, feature selection for datapool building. 
 
-The MODS workflow goes through configuration specification for training and hyperparameter setting, 
-then model training and model testing. The MODS workflow is fully supported by the DEEP as Service 
-and DEEP learning facility in DEEP stack as well as comfortable local testing. 
-It supposes usage of downloaded from 
+MODS workflow goes through configuration specification for training and hyperparameter setting, 
+then model training and model testing. MODS workflow is fully supported by the DEEP as Service 
+and DEEP learning facility in DEEP stack. The module is also available for comfortable local testing. 
+It supposes the usage of downloaded from 
 `DEEP Open Catalog <https://marketplace.deep-hybrid-datacloud.eu/>`_ docker images, 
 i.e. you need either 
 `docker <https://docs.docker.com/install/#supported-platforms>`_ or 
@@ -116,7 +116,7 @@ You can easily and locally try the default configuration by start the container 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 After starting MODS container in DEEP stack, you can easily retraining MODS model with the default 
-datapool, which is located in your DEEP-NextCloud space ``nc:/mods/data/features/`` as follows:
+datapool located in your DEEP-NextCloud space ``nc:/mods/data/features/`` as follows:
      
 * Direct your web browser to the assigned DEEPaaS endpoint
 
