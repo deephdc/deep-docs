@@ -48,7 +48,7 @@ Our proactive network monitoring solution comprises of the intelligent module
 (with MODS abbreviation) and its data processing (DS) module. 
 The DS source code as well as raw data are not publicly available due to security sensitiveness. 
 Machine learning datapools for MODS deep learning modeling are available at the Open Source public 
-`repository <https:digital.csic.es>`_
+`repository <https://digital.csic.es/handle/10261/192884>`_
 
 The MODS module uses deep learning for modeling. It focuses on abnormal state detection 
 in the mean of security protection for computing infrastructure. 
@@ -62,8 +62,9 @@ or expected activity states.
 Workflow
 ^^^^^^^^
 
-The data processing (DS) module prepares datasets for machine learning purpose through standard 
-ML steps like data filtering, data cleaning, feature extraction, feature selection for datapool building. 
+The data processing (DS) module prepares datasets for machine learning purpose 
+through standard machine learning life cycle steps such as 
+data filtering, data cleaning, feature extraction, feature selection for datapool building. 
 
 MODS workflow goes through configuration specification for training and hyperparameter setting, 
 then model training and model testing. MODS workflow is fully supported by the DEEP as Service 
