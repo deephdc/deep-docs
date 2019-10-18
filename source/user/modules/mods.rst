@@ -107,16 +107,16 @@ You can easily and locally try the default configuration by start the container 
 
 .. note:: All available default models are packed in ``.zip`` containing the model, scaler, config and trained metrics. The model has to be trained with train data (e.g., built from datapool) in the same format as data file used for prediction.
 
-* If you want to build the container directly in your machine, follow the instructions in DEEP-OC Dockerfile `here <https://github.com/deephdc/DEEP-OC-mods>`_.
+* If you want to build the container directly in your machine, follow the instructions in `DEEP-OC Dockerfile <https://github.com/deephdc/DEEP-OC-mods>`_.
 
-* Prediction through DEEPaaS API in DEEP stack is easy and similar as locally. After starting MODS container in DEEP stack, go to the assigned DEEPaaS endpoint instead of the local endpoint and continue as above described.
+* Prediction through DEEPaaS API in DEEP stack is easy and similar as locally. After starting MODS container in DEEP stack, go to the assigned DEEPaaS endpoint instead of the local endpoint and continue above described steps.
 
 
 2. Train through DEEPaaS API in DEEP stack
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 After starting MODS container in DEEP stack, you can easily retraining MODS model with the default 
-datapool, which is located in DEEP-NextCloud ``nc:/mods/data/features/`` as follows:
+datapool, which is located in your DEEP-NextCloud space ``nc:/mods/data/features/`` as follows:
      
 * Direct your web browser to the assigned DEEPaaS endpoint
 
@@ -124,7 +124,7 @@ datapool, which is located in DEEP-NextCloud ``nc:/mods/data/features/`` as foll
 
 * Specified new values for retrain if needed.
 
-* Click ``Execute``, wait for model retraining in DEEP pilot infrastructure and get new retrained model located in DEEP-NextCloud ``nc:/mods/models/``.
+* Click ``Execute``, wait for model retraining in DEEP pilot infrastructure and get new retrained model located in your DEEP-NextCloud space ``nc:/mods/models/``.
 
 .. note:: New retrained model is packed in ``.zip`` containing the model, scaler, config and trained metrics.
 
