@@ -45,13 +45,13 @@ The challenge of the proactive network monitoring solution is about the cooperat
 edge technologies supporting extensive data analysis, large-scale data processing and 
 deep learning modelling to improve the cyber security resilience for computing infrastrutures.
 Our proactive network monitoring solution comprises of the intelligent module 
-(known under the MODS abbreviation) and its data processing (DS) module. 
+(with MODS abbreviation) and its data processing (DS) module. 
 The DS source code as well as raw data are not publicly available due to security sensitiveness. 
-The ML/DL data for MODS module is available at the Open Source public 
+The ML/DL datapools for MODS module is available at the Open Source public 
 `repository <https:digital.csic.es>`_
 
-The intelligent module (MODS) uses deep learning for modeling. It is focusing 
-on abnormal state detection in the mean of security protection for computing infrastructure. 
+The MODS module uses deep learning for modeling. It focuses on abnormal state detection 
+in the mean of security protection for computing infrastructure. 
 The principle is based on proactive time-series ferecasting adopting deep neural networks 
 to provide a near future behaviour estimation of multiple simultaneous monitoring channels 
 based on the knowledge base of past activities. An ongoing network activity is expected to present 
