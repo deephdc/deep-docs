@@ -42,8 +42,8 @@ Description
 -----------
 
 The challenge of the proactive network monitoring solution is about the cooperation of scalable 
-edge technologies supporting extensive data analysis, data processing and deep learning modelling 
-to improve the cyber security resilience for computing infrastrutures.
+edge technologies supporting extensive data analysis, large-scale data processing and 
+deep learning modelling to improve the cyber security resilience for computing infrastrutures.
 Our proactive network monitoring solution comprises of the intelligent module 
 (known under the MODS abbreviation) and its data processing (DS) module. 
 The DS source code as well as raw data are not publicly available due to security sensitiveness. 
@@ -79,7 +79,7 @@ Fig. 1 Train and test on 6 month monitoring dataset.
 Blue=dataset, green=prediction on train dataset, red=prediction on test (unseen) dataset.
 
 .. image:: ../../_static/mods_20181018-lstm-3days.png
-Fig. 2 Train and test on three day dataset for better visualisation (monitoring of two aspects simultaneously).
+Fig. 2 Train and test on three day dataset for better visualisation for two channels simultaneously.
 Blue=dataset, green=prediction on train dataset, red=prediction on test (unseen) dataset.
 
 The MODS module is fully and ready to be used leveraging the DEEPaaS API (see below).
@@ -91,11 +91,11 @@ Launching the full DEEPaas API
 1. Prediction through DEEPaaS API
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-You can easily try the default configuration by start the container as::
+You can easily and locally try the default configuration by start the container as::
 
     $ docker run -ti -p 5000:5000 deephdc/deep-oc-mods   
        
-* Direct your web browser to http://localhost:5000 to get the OpenAPI (Swagger) 
+* Direct your web browser to the local endpoint http://localhost:5000 to get the OpenAPI (Swagger) 
 
 * Go to ``POST /models/mods/predict`` for prediction, click ``Try it out`` button
 
@@ -109,6 +109,8 @@ You can easily try the default configuration by start the container as::
 
 * If you want to build the container directly in your machine, follow the instructions in DEEP-OC Dockerfile `here <https://github.com/deephdc/DEEP-OC-mods>`_.
 
+* Prediction through DEEPaaS API in DEEP stack is easy and similar as locally. You just go to the assigned DEEPaaS endpoint instead of the local endpoint.
+
 
 2. Train through DEEPaaS API in DEEP stack
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -116,7 +118,7 @@ You can easily try the default configuration by start the container as::
 After starting MODS container in DEEP stack, you can easily retraining MODS model with the default 
 datapool, which is located in DEEP-NextCloud ``nc:/mods/data/features/`` as follows:
      
-* Direct your web browser to DEEPaaS endpoint
+* Direct your web browser to the assigned DEEPaaS endpoint
 
 * Go to ``PUT /models/mods/train`` for retrain, click ``Try it out`` button
 
