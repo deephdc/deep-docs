@@ -11,23 +11,23 @@ The service is running on TensorFlow backend.
 Further references like articles and presentations of this module are available 
 in the `git repository <https://github.com/deephdc/mods/tree/master/references>`_.
 
-+-----------------------------------------------------------------+---------------------+
-| Data Science application                                        |   ML/DL, NN, RNN    |
-+-----------------------------------------------------------------+---------------------+
-| Deep Learning Framework(s)                                      |  Tensorflow, Keras  |
-+-----------------------------------------------------------------+---------------------+
-| Programming language                                            |      Python         |
-+-----------------------------------------------------------------+---------------------+
-| GPU version                                                     |        yes          |
-+-----------------------------------------------------------------+---------------------+
-| CPU version                                                     |        yes          |
-+-----------------------------------------------------------------+---------------------+
-| `DEEPaaS API <https://deepaas.readthedocs.io/en/stable/>`_      |        yes          |
-+-----------------------------------------------------------------+---------------------+ 
-| :doc:`DEEP DS template <../overview/cookiecutter-template>`     |        yes          |
-+-----------------------------------------------------------------+---------------------+
-| `DEEP-Nextcloud <https://nc.deep-hybrid-datacloud.eu/>`_ access |        yes          |
-+-----------------------------------------------------------------+---------------------+
++-----------------------------------------------------------------+---------------------------------+
+| Data Science application                                        | machine learning, deep learning |
++-----------------------------------------------------------------+---------------------------------+
+| Deep Learning Framework(s)                                      | Tensorflow, Keras               |
++-----------------------------------------------------------------+---------------------------------+
+| Programming language                                            | Python                          |
++-----------------------------------------------------------------+---------------------------------+
+| GPU version                                                     | yes                             |
++-----------------------------------------------------------------+---------------------------------+
+| CPU version                                                     | yes                             |
++-----------------------------------------------------------------+---------------------------------+
+| `DEEPaaS API <https://deepaas.readthedocs.io/en/stable/>`_      | yes                             |
++-----------------------------------------------------------------+---------------------------------+ 
+| :doc:`DEEP DS template <../overview/cookiecutter-template>`     | yes                             |
++-----------------------------------------------------------------+---------------------------------+
+| `DEEP-Nextcloud <https://nc.deep-hybrid-datacloud.eu/>`_ access | yes                             |
++-----------------------------------------------------------------+---------------------------------+
 
 Keywords: machine learning, deep learning, deep neural networks, recurrent neural networks, cyber security, anomaly detection, time-series forecasting, Tensorflow
 
@@ -62,12 +62,12 @@ or expected activity states.
 Workflow
 ^^^^^^^^
 
-The data processing module prepares ML/DL datasets through standard ML steps like 
-data filtering, data cleaning, feature extraction, feature selection for datapool building. 
-The MODS workflow goes through configuration specification for training and hyperparameter setting, 
-then model training and model testing.
+The data processing (DS) module prepares datasets for machine learning purpose through standard 
+ML steps like data filtering, data cleaning, feature extraction, feature selection for datapool building. 
 
-The described MODS workflow is fully supported by the DEEP as Service and DEEP learning facility. 
+The MODS workflow goes through configuration specification for training and hyperparameter setting, 
+then model training and model testing. The MODS workflow is fully supported by the DEEP as Service 
+and DEEP learning facility in DEEP stack as well as comfortable local testing. 
 It supposes usage of downloaded from 
 `DEEP Open Catalog <https://marketplace.deep-hybrid-datacloud.eu/>`_ docker images, 
 i.e. you need either 
@@ -132,5 +132,5 @@ datapool, which is located in your DEEP-NextCloud space ``nc:/mods/data/features
 3. DEEPaaS API functionality
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To access this package's complete functionality (both for training and predicting) through the DEEPaaS API 
-you have to follow the instructions here: :ref:`api-integration`
+To access this package's complete functionality (both for train and prediction) 
+through the DEEPaaS API, follow the instructions here: :ref:`api-integration`
