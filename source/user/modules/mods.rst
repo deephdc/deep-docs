@@ -109,7 +109,7 @@ You can easily and locally try the default configuration by start the container 
 
 * If you want to build the container directly in your machine, follow the instructions in DEEP-OC Dockerfile `here <https://github.com/deephdc/DEEP-OC-mods>`_.
 
-* Prediction through DEEPaaS API in DEEP stack is easy and similar as locally. You just go to the assigned DEEPaaS endpoint instead of the local endpoint.
+* Prediction through DEEPaaS API in DEEP stack is easy and similar as locally. After starting MODS container in DEEP stack, go to the assigned DEEPaaS endpoint instead of the local endpoint and continue as above described.
 
 
 2. Train through DEEPaaS API in DEEP stack
