@@ -47,8 +47,8 @@ deep learning modelling to improve the cyber security resilience for computing i
 Our proactive network monitoring solution comprises of the intelligent module 
 (with MODS abbreviation) and its data processing (DS) module. 
 The DS source code as well as raw data are not publicly available due to security sensitiveness. 
-Machine learning datapools for MODS deep learning modeling are available at the Open Source public 
-`repository <https://digital.csic.es/handle/10261/192884>`_
+Machine learning datapools for MODS deep learning modeling are available 
+in the `Open Source repository <https://digital.csic.es/handle/10261/192884>`_.
 
 The MODS module uses deep learning for modeling. It focuses on abnormal state detection 
 in the mean of security protection for computing infrastructure. 
