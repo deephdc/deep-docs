@@ -3,13 +3,13 @@ DEEP Open Catalogue: Massive Online Data Streams (MODS)
 
 This is a service to analyze online data streams in order to generate alerts in real-time. 
 Its intelligent module core part is built as 
-machine learning application using deep learning techniques for modelling 
+machine learning application using deep learning techniques for modeling 
 in co-function with underlying Intrusion Detection Systems supervising network traffic 
 of computing infrastruture. 
 The service is running on TensorFlow backend. 
 
 Further references like articles and presentations of this module are available 
-in the `git repository <https://github.com/deephdc/mods/tree/master/references>`_.
+in `MODS git repository <https://github.com/deephdc/mods/tree/master/references>`_.
 
 +-----------------------------------------------------------------+---------------------------------+
 | Data Science application                                        | machine learning, deep learning |
@@ -47,7 +47,7 @@ deep learning modelling to improve the cyber security resilience for computing i
 Our proactive network monitoring solution comprises of the intelligent module 
 (with MODS abbreviation) and its data processing (DS) module. 
 The DS source code as well as raw data are not publicly available due to security sensitiveness. 
-The ML/DL datapools for MODS module is available at the Open Source public 
+Machine learning datapools for MODS deep learning modeling are available at the Open Source public 
 `repository <https:digital.csic.es>`_
 
 The MODS module uses deep learning for modeling. It focuses on abnormal state detection 
