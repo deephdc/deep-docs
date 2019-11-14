@@ -24,9 +24,9 @@ copyright = '2018, DEEP-Hybrid-DataCloud consortium'
 author = 'DEEP-Hybrid-DataCloud consortium'
 
 # The short X.Y version
-version = ''
+version = 'DEEP-2 (XXX)'
 # The full version, including alpha/beta/rc tags
-release = 'DEEP-1 (Genesis)'
+release = 'DEEP-2 (XXX)'
 
 
 # -- General configuration ---------------------------------------------------
