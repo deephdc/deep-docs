@@ -93,7 +93,7 @@ html_theme_options = {
     'collapse_navigation': False,
 }
 
-html_logo = "_static/logo.png"
+html_logo = "_static/logo-solid-white.png"
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
