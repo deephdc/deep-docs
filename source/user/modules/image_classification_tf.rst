@@ -38,7 +38,7 @@ First you need add to the ``./data/dataset_files`` directory the following files
 * ``info.txt`` allows you to provide information (like number of images in the database) about each class.
   This information will be shown when launching a webpage of the classifier.
 
-You can find examples of these files `here <https://github.com/indigo-dc/image-classification-tf/tree/master/data/demo-dataset_files>`_. 
+You can find examples of these files `here <https://github.com/indigo-dc/image-classification-tf/tree/master/data/demo-dataset_files>`_.
 
 2. Train the classifier
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -65,7 +65,7 @@ merge the predictions of a multi-image single observation, etc. All these tasks 
 You can also make and store the predictions of the ``test.txt`` file (if you provided one). Once you have done that
 you can visualize the statistics of the predictions like popular metrics (accuracy, recall, precision, f1-score),
 the confusion matrix, etc by running the
-`predictions statistics notebook <https://github.com/indigo-dc/image-classification-tf/blob/master/notebooks/3.1-Prediction_statistics.ipynb>`_. 
+`predictions statistics notebook <https://github.com/indigo-dc/image-classification-tf/blob/master/notebooks/3.1-Prediction_statistics.ipynb>`_.
 
 By running the `saliency maps notebook <https://github.com/indigo-dc/image-classification-tf/blob/master/notebooks/3.2-Saliency_maps.ipynb>`_
 you can also visualize the saliency maps of the predicted images, which show what were the most relevant pixels in order to make the prediction.

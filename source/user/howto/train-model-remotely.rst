@@ -3,7 +3,7 @@
 .. highlight:: console
 
 **********************
-Train a model remotely 
+Train a model remotely
 **********************
 
 This is a step by step guide on how to train a general model from the `DEEP Open Catalog marketplace <https://marketplace.deep-hybrid-datacloud.eu/>`__ with your own dataset.
@@ -24,7 +24,7 @@ Before being able to run your model at the Pilot Infraestructure you should firs
 
     * `DEEP-IAM <https://iam.deep-hybrid-datacloud.eu/>`_ registration
     * Install rclone and configure it for DEEP-IAM. Instructions for this can be found  :doc:`here <rclone>`.
-    * Install oidc-agent and configure it for DEEP-IAM. Instructions for this can be found  :doc:`here <oidc-agent>`. Make sure you follow the instructions in the *Usage with orchent* section. 
+    * Install oidc-agent and configure it for DEEP-IAM. Instructions for this can be found  :doc:`here <oidc-agent>`. Make sure you follow the instructions in the *Usage with orchent* section.
     * Install `orchent <https://github.com/indigo-dc/orchent/releases>`_ tool
 
 For this example we are going to use `DEEP-Nextcloud <https://nc.deep-hybrid-datacloud.eu>`__ for storing you data. This means you also have to:
@@ -48,7 +48,7 @@ Now you can create the folders that you need in order to store the inputs needed
 .. image:: ../../_static/nc-folders.png
 
 * A folder called **models** where the training weights will be stored after the training
-* A folder called **data** that contains two different folders: 
+* A folder called **data** that contains two different folders:
 	- The folder **images** containing the input images needed for the training
         - The folder **dataset_files** containing a couple of scripts: *train.txt* indicating the relative path to the training images and *classes.txt* indicating which are the categories for the training
 
@@ -62,17 +62,17 @@ With <your_nextcloud_username> and <your_nextcloud_password> from the previous s
 .. code-block:: bash
 
     #!/bin/bash
- 
+
     orchent depcreate ./TOSCA.yml '{ "rclone_url": "https://nc.deep-hybrid-datacloud.eu/remote.php/webdav/",
                                                 "rclone_vendor": "nextcloud",
                                                 "rclone_user": <your_nextcloud_username>
                                                 "rclone_pass": <your_nextcloud_password> }'
 
-This script will be the *only place* where you will have to indicate your username and password. This file should be stored locally. 
+This script will be the *only place* where you will have to indicate your username and password. This file should be stored locally.
 
 .. important::
               **DO NOT** save the rclone credentials in the **CONTAINER** nor in the **TOSCA** file
- 
+
 
 5. The rclone configuration file
 --------------------------------
@@ -123,23 +123,23 @@ This will give you a bunch of information including your deployment ID. To check
     $ orchent depshow <Deployment ID>
 
 Once your deployment is in status **CREATED**, you will be given a web URL::
-	
-	http://your_orchent_deployment:5000/ 
+
+	http://your_orchent_deployment:5000/
 
 8. Go to the API, train the model
 -----------------------------------------
 
-Now comes the fun! 
+Now comes the fun!
 
 Go to *http://your_orchent_deployment:5000/* and look for the ``train`` method. Modify the training parameters you wish to
 change and execute. If some kind of monitorization tool is available for this model you will be able to follow the training
 progress from *http://your_orchent_deployment:6006/*
 
 	.. image:: ../../_static/deepaas.png
-	
-	
+
+
 9. Testing the training
 ---------------------------
 
-Once the training has finished, you can directly test it by clicking on the ``predict`` method. There you can either upload the image your want to classify or give a URL to it. 
+Once the training has finished, you can directly test it by clicking on the ``predict`` method. There you can either upload the image your want to classify or give a URL to it.
 

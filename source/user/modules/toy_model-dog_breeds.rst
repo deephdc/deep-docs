@@ -14,7 +14,7 @@ A toy example to identify Dog's breed, "Dogs breed detector" [*]_, images for tr
 |  CPU version                                                    |        yes          |
 +-----------------------------------------------------------------+---------------------+
 | `DEEPaaS API <https://deepaas.readthedocs.io/en/stable/>`_      |        yes          |
-+-----------------------------------------------------------------+---------------------+ 
++-----------------------------------------------------------------+---------------------+
 | :doc:`DEEP DS template <../overview/cookiecutter-template>`     |        yes          |
 +-----------------------------------------------------------------+---------------------+
 | `DEEP-Nextcloud <https://nc.deep-hybrid-datacloud.eu/>`_ access |        yes          |
@@ -23,11 +23,11 @@ A toy example to identify Dog's breed, "Dogs breed detector" [*]_, images for tr
 
 Keywords: image classification, CNN, transfer learning, Tensorflow
 
-DEEP-OC Dockerfile: https://github.com/indigo-dc/DEEP-OC-dogs_breed_det
+DEEP-OC Dockerfile: https://github.com/deephdc/DEEP-OC-dogs_breed_det
 
-App source code: https://github.com/indigo-dc/dogs_breed_det
+App source code: https://github.com/deephdc/dogs_breed_det
 
-Pre-trained weights: https://nc.deep-hybrid-datacloud.eu/s/D7DLWcDsRoQmRMN 
+Pre-trained weights: https://nc.deep-hybrid-datacloud.eu/s/D7DLWcDsRoQmRMN
 
 
 
@@ -35,21 +35,21 @@ Description
 -----------
 
 The project applies `Transfer learning <https://en.wikipedia.org/wiki/Transfer_learning>`_ for dog's breed identification, implemented with Tensorflow and Keras:
-From a pre-trained model (VGG16 | VGG19 | Resnet50 | InceptionV3) the last layer is removed, 
-then a new Fully Connected (FC) classification layer is added, which is trained. 
-All images first pass through the pre-trained network and converted into the tensor with the shape of the 'before-last' layer of the pre-trained network, 
+From a pre-trained model (VGG16 | VGG19 | Resnet50 | InceptionV3) the last layer is removed,
+then a new Fully Connected (FC) classification layer is added, which is trained.
+All images first pass through the pre-trained network and converted into the tensor with the shape of the 'before-last' layer of the pre-trained network,
 into so-called 'bottleneck_features'. These bottleneck_features are used then as input for the FC classification network.
 
 
 Local Workflow
 ---------------
-The described workflow supposes usage of downloaded from `DEEP Open Catalog <https://marketplace.deep-hybrid-datacloud.eu/>`_ Docker images, 
+The described workflow supposes usage of downloaded from `DEEP Open Catalog <https://marketplace.deep-hybrid-datacloud.eu/>`_ Docker images,
 i.e. you need either `docker <https://docs.docker.com/install/#supported-platforms>`_ or `udocker <https://github.com/indigo-dc/udocker/releases>`_ tool.
 
 1. Workflow intro
 """"""""""""""""""
 
-a. `DEEPaaS API <https://deepaas.readthedocs.io/en/stable/>`_ uses port 5000 for access, one therefore has to map the container and host ports, 
+a. `DEEPaaS API <https://deepaas.readthedocs.io/en/stable/>`_ uses port 5000 for access, one therefore has to map the container and host ports,
 see :ref:`sec-examples`.
 
 b. Following two directories inside the docker container are used for input and output:
@@ -64,14 +64,14 @@ b. Following two directories inside the docker container are used for input and 
 
 If you want to perform full training, then you need to mount your data into ``/srv/dogs_breed_det/data``.
 
-If you want to keep trained weights in the persistant place, then you have to mount ``/srv/dogs_breed_det/models`` 
+If you want to keep trained weights in the persistant place, then you have to mount ``/srv/dogs_breed_det/models``
 to a persistent volume. You can either use your local directories or connect your remote storage, see :ref:`sec-examples`.
 
 2. Data input
 """"""""""""""
 
-Original dataset consists of dog's images for 133 breeds. The images are compressed in 
-one `dogImages.zip <https://s3-us-west-1.amazonaws.com/udacity-aind/dog-project/dogImages.zip>`_  file. 
+Original dataset consists of dog's images for 133 breeds. The images are compressed in
+one `dogImages.zip <https://s3-us-west-1.amazonaws.com/udacity-aind/dog-project/dogImages.zip>`_  file.
 The archive contains three directories for ``train``, ``test``, and ``valid`` datasets:
 
 .. code-block:: console
@@ -89,11 +89,11 @@ The archive contains three directories for ``train``, ``test``, and ``valid`` da
         002.Afghan_hound/
         ...
 
-These directories are automatically de-archived in ``/srv/dogs_breed_det/data/dogImages/``. 
+These directories are automatically de-archived in ``/srv/dogs_breed_det/data/dogImages/``.
 
 Training labels are also created automatically based on the directory names, truncating leading numbers, e.g. '002.'.
 
-**The minimum requirement for training is to make** `dogImages.zip <https://s3-us-west-1.amazonaws.com/udacity-aind/dog-project/dogImages.zip>`_ 
+**The minimum requirement for training is to make** `dogImages.zip <https://s3-us-west-1.amazonaws.com/udacity-aind/dog-project/dogImages.zip>`_
 **available in** ``/srv/dogs_breed_det/data/raw/`` **directory.**
 
 If you want to use your own dataset then it has to follow similar structure.
@@ -116,7 +116,7 @@ If you want to use your own dataset then it has to follow similar structure.
 | ``LOCAL_DIR/models``   | ``/srv/dogs_breed_det/models``           |
 +------------------------+------------------------------------------+
 
-In the 'local' case, you place `dogImages.zip <https://s3-us-west-1.amazonaws.com/udacity-aind/dog-project/dogImages.zip>`_ in ``LOCAL_DIR/data/raw``, 
+In the 'local' case, you place `dogImages.zip <https://s3-us-west-1.amazonaws.com/udacity-aind/dog-project/dogImages.zip>`_ in ``LOCAL_DIR/data/raw``,
 which makes it available in ``/srv/dogs_breed_det/data/raw``.
 
 **If you connect a remote storage, the following directories have to be created there:**
@@ -128,7 +128,7 @@ which makes it available in ``/srv/dogs_breed_det/data/raw``.
     /Datasets/dogs_breed/data/raw
     /Datasets/dogs_breed/models
 
-In the 'remote' case, you place `dogImages.zip <https://s3-us-west-1.amazonaws.com/udacity-aind/dog-project/dogImages.zip>`_ in ``/Datasets/dogs_breed/data/raw``, 
+In the 'remote' case, you place `dogImages.zip <https://s3-us-west-1.amazonaws.com/udacity-aind/dog-project/dogImages.zip>`_ in ``/Datasets/dogs_breed/data/raw``,
 which makes it available in ``/srv/dogs_breed_det/data/raw``.
 
 
@@ -138,10 +138,10 @@ which makes it available in ``/srv/dogs_breed_det/data/raw``.
 * In a minimum case to classify images with already trained Resnet50 model, start the container as::
 
     docker run -ti -p 5000:5000 deephdc/deep-oc-dogs_breed_det:cpu deepaas-run --listen-ip=0.0.0.0
-    
-    
+
+
 * In more advanced cases (see :ref:`sec-examples`) you may need to mount various directories or pass environment settings.
-    
+
 * Direct your web browser to http://127.0.0.1:5000
 
 
@@ -152,7 +152,7 @@ which makes it available in ``/srv/dogs_breed_det/data/raw``.
 
 * Choose an image file for dog's breed identification (N.B. "URL to retrieve data" is not (yet) implemented)
 
-* Type **model_name**, one of the ``Dogs_Resnet50``, ``Dogs_InceptionV3``, ``Dogs_VGG16``, ``Dogs_VGG19`` 
+* Type **model_name**, one of the ``Dogs_Resnet50``, ``Dogs_InceptionV3``, ``Dogs_VGG16``, ``Dogs_VGG19``
 
 * The equivalent API call is::
 
@@ -176,7 +176,7 @@ which makes it available in ``/srv/dogs_breed_det/data/raw``.
 DEEP Pilot infrastructure submission
 ------------------------------------
 
-Please, refer to :doc:`Quickstart Guide <../quickstart>`, section "Run model on DEEP Pilot infrastructure", 
+Please, refer to :doc:`Quickstart Guide <../quickstart>`, section "Run model on DEEP Pilot infrastructure",
 on what is required to start the application on DEEP Pilot infrastructure.
 
 .. _sec-examples:
@@ -207,11 +207,11 @@ Mount local host directories
 Connecting remote storage by using ``rclone.conf`` from your host
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-`rclone <https://rclone.org/>`_ tool allows to connect to a plenty of remote storages. 
+`rclone <https://rclone.org/>`_ tool allows to connect to a plenty of remote storages.
 The tool is already installed in the Docker image and expects your ``data/`` and ``models/`` sub-directories to be under ``deepnc:/Datasets/dogs_breed/``.
 If no data found in your container, rclone attempts to connect to ``deepnc:/`` and download necessary data from there.
 
-If you are familiar with the `rclone <https://rclone.org/>`_ tool, you probably have ``rclone.conf`` file on your host. 
+If you are familiar with the `rclone <https://rclone.org/>`_ tool, you probably have ``rclone.conf`` file on your host.
 You can rename one of the pre-configured remote storages to ``deepnc``, then mount host directory with your ``rclone.conf`` file into the container:
 
 **Example 3:** using in the container ``rclone.conf`` from your host
@@ -252,7 +252,7 @@ You can rename one of the pre-configured remote storages to ``deepnc``, then mou
 Connecting remote storage by passing rclone configuration as environment settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-It is also possible to pass necessary rclone configuration parameters as environment settings during instantiation of the container, 
+It is also possible to pass necessary rclone configuration parameters as environment settings during instantiation of the container,
 best is to create a runnable bash script:
 
 **Example 6:** connecting `DEEP-Nextcloud <https://nc.deep-hybrid-datacloud.eu/>`_ remote storage

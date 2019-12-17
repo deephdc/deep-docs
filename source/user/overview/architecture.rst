@@ -24,7 +24,7 @@ The API
 =======
 
 The DEEPaaS API is a key component for making the modules accessible to everybody. It is available for both inference and training. Advanced users that want to create new modules can make them :ref:`compatible with the API <user/overview/api:Integrate your model with the API>`
-to make them available to the whole community. This can be easily done, with just some minor changes to the module itsef, since it only requires adding additional entry points. 
+to make them available to the whole community. This can be easily done, with just some minor changes to the module itsef, since it only requires adding additional entry points.
 
 For more information take a look on the full :doc:`API guide <api>`.
 

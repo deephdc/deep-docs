@@ -13,12 +13,12 @@ Install cookiecutter (if not yet done)
 ::
 
 	$ pip install cookiecutter
-	
+
 Run the DEEP DS cookiecutter template
 ::
 
 	$ cookiecutter https://github.com/indigo-dc/cookiecutter-data-science
-	
+
 Answer all questions from DEEP DS cookiecutter template with attentions to
 ``repo_name`` i.e. the name of your github repositories, etc.
 This creates two project directories:
@@ -26,8 +26,8 @@ This creates two project directories:
 
 	~/DEEP-OC-your_project
 	~/your_project
-	
-Go to ``github.com/your_account`` and 
+
+Go to ``github.com/your_account`` and
 create corresponding repositories: ``DEEP-OC-your_project`` and ``your_project``
 Do ``git push origin master`` in both created directories. This puts your initial code to ``github``.
 
@@ -35,7 +35,7 @@ Do ``git push origin master`` in both created directories. This puts your initia
 2. Improve the initial code of the model
 ----------------------------------------
 
-The structure of ``your_project`` created using 
+The structure of ``your_project`` created using
 `DEEP DS template <https://github.com/indigo-dc/cookiecutter-data-science>`_ contains
 the following core items needed to develop a DEEP DS model:
 ::
@@ -49,17 +49,18 @@ the following core items needed to develop a DEEP DS model:
 
 
 2.1 Installing development requirements
+=======================================
 
 Modify ``requirements.txt`` according to your needs (e.g. add more libraries) then run
 ::
 
 	$ pip install -r requirements.txt
-	
-You can modify and add more ``source files`` and put them 
+
+You can modify and add more ``source files`` and put them
 accordingly into the directory structure.
 
 
-2.2 Make datasets 
+2.2 Make datasets
 =================
 
 Source files in this directory aim to manipulate raw datasets.
@@ -86,10 +87,10 @@ available technological backgrounds (e.g. high-performance supports for data pro
 2.4 Develop models
 ==================
 
-This step deals with the most interesting phase in ML i.e. modelling. 
+This step deals with the most interesting phase in ML i.e. modelling.
 The most important thing of DEEP DS models is located in ``model.py``
-containing DEEP entry point implementations. 
-DEEP entry points are defined using :ref:`API methods <user/overview/api:Methods>`. 
+containing DEEP entry point implementations.
+DEEP entry points are defined using :ref:`API methods <user/overview/api:Methods>`.
 You don't need to implement all of them, just the ones you need.
 ::
 
@@ -110,7 +111,7 @@ To create a python installable package the initial directory structure should lo
 		LICENSE
                 README
 
-* The top level directory will be the root of your repo, e.g. your_model_package.git. The subdir, also called your_model_package, is the actual python module. 
+* The top level directory will be the root of your repo, e.g. your_model_package.git. The subdir, also called your_model_package, is the actual python module.
 * ``setup.py`` is the build script for setuptools. It tells setuptools about your package (such as the name and version) as well as which code files to include. You can find an example of a setup.py file `here <https://github.com/deephdc/image-classification-tf/blob/master/setup.py>`__. For the official documentation on how to write your setup script, you can go `here <https://docs.python.org/2/distutils/setupscript.html>`__.
 * ``setup.cfg`` can be used to get some information from the user, or from the user's system in order to proceed. Configuration files also let you providedefault values for any command option. An example of a setup.cfg file can be found `here <https://github.com/deephdc/image-classification-tf/blob/master/setup.cfg>`__. The official python documentation on the setup configuration file can be found `here <https://docs.python.org/3/distutils/configfile.html>`__.
 * ``requirements.txt`` contains any external requirement needed to run the package. You can see an example of a requirements file `here <https://github.com/deephdc/image-classification-tf/blob/master/requirements.txt>`__. An example of a requirements file can be found `here <https://github.com/deephdc/image-classification-tf/blob/master/requirements.txt>`_.
@@ -118,7 +119,7 @@ To create a python installable package the initial directory structure should lo
 * ``LICENSE`` It’s important for every package uploaded to the Python Package Index to include a license. This tells users who install your package the terms under which they can use your package. For help choosing a license, go `here <https://choosealicense.com/>`__.
 
 To see how to install your model package, check the Dockerfile in the next section.
-  
+
 4. Create a docker container for your model
 ===========================================
 
@@ -129,7 +130,7 @@ The simplest Dockerfile could look like this::
 	FROM ubuntu:18.04
 
 	WORKDIR /srv
-	
+
 	#Download and install your model package
 	RUN git clone https://github.com/your_git/your_model_package && \
     	cd image-classification-tf && \
@@ -152,15 +153,15 @@ The simplest Dockerfile could look like this::
 	# Expose API on port 5000 and tensorboard on port 6006
 	EXPOSE 5000 6006
 
-    	CMD deepaas-run --listen-ip 0.0.0.0
+    CMD deepaas-run --listen-ip 0.0.0.0
 
 
 For more details on rclone or on DEEPaas API you can check :doc:`here <rclone>` and `here <https://github.com/indigo-dc/DEEPaaS>`__ respectively.
 
-If you want to see an example of a more complex Dockerfile, you can check it `here <https://github.com/indigo-dc/DEEP-OC-image-classification-tf/blob/master/Dockerfile>`__.
+If you want to see an example of a more complex Dockerfile, you can check it `here <https://github.com/deephdc/DEEP-OC-image-classification-tf/blob/master/Dockerfile>`__.
 
 In order to compile the Dockerfile, you should choose a name for the container and use the docker build command::
-	
+
 	docker build -t your_container_name -f Dockerfile
 
 

@@ -24,7 +24,7 @@ oidc-agent is a tool to manage OpenID Connect tokens and make them easily usable
 
 	$ oidc-gen
 
-You will be asked for the name of the account to configure. Let's call it **deep-iam**. 
+You will be asked for the name of the account to configure. Let's call it **deep-iam**.
 After that you will be asked for the additional client-name-identifier, you should choose the option::
 
 		[2] https://iam.deep-hybrid-datacloud.eu/
@@ -36,8 +36,8 @@ Then just click Enter to accept the default values for Space delimited list of s
 	Registering Client ...
 	Generating account configuration ...
 	accepted
-	
-* At this point you will be given a URL. You should visit it in the browser of your choice  in order to continue and approve the registered client. 
+
+* At this point you will be given a URL. You should visit it in the browser of your choice  in order to continue and approve the registered client.
 * For this you will have to login into your DEEP-IAM account and accept the permissions you are asked for.
 
 * Once you have done this you will see the following message::

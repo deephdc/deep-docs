@@ -48,7 +48,7 @@ You can see this last step explained more in detail :doc:`here <rclone>`.
 
 We are using the port ``5000`` to deploy the API and the port ``6006`` to monitor the training (for example using
 `Tensorboard <https://www.tensorflow.org/guide/summaries_and_tensorboard>`_).
-	
+
 
 
 5. Upload your data to storage resources
@@ -109,4 +109,4 @@ progress from `<http://0.0.0.0:6006>`_.
 7. Testing the training
 -----------------------
 
-Once the training has finished, you can directly test it by clicking on the ``predict`` method. There you can either upload the image your want to classify or give a URL to it. 
+Once the training has finished, you can directly test it by clicking on the ``predict`` method. There you can either upload the image your want to classify or give a URL to it.

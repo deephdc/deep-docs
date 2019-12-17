@@ -2,7 +2,7 @@
 .. highlight:: console
 
 
-How to use rclone 
+How to use rclone
 =================
 
 
@@ -24,7 +24,7 @@ the `rclone official site  <https://rclone.org/downloads/>`_  ::
     		rm -rf /root/.cache/pip/* && \
     		rm -rf /tmp/*
 
- 
+
 Nextcloud configuration for rclone
 ----------------------------------
 .. image:: ../../_static/nc-access.png
@@ -40,8 +40,8 @@ Creating rclone.conf
 
 You can install rclone at your host or run Docker image with rclone installed (see installation steps of rclone above).
 In order to create the configuration file (``rclone.conf``) for rclone::
-    
-    	$ rclone config
+
+    $ rclone config
    	 choose "n"  for "New remote"
    	 choose name for DEEP-Nextcloud, e.g. deep-nextcloud
    	 choose "Type of Storage" \u2192 "Webdav" (24)
@@ -53,14 +53,14 @@ In order to create the configuration file (``rclone.conf``) for rclone::
 
 
 .. important::
-    The rclone.conf file should be in your host, i.e. outside of container. **DO NOT STORE IT IN THE CONTAINER** 
+    The rclone.conf file should be in your host, i.e. outside of container. **DO NOT STORE IT IN THE CONTAINER**
 
 Then one has two options:
 
 If your know under what user your run your application in the container (e.g. if docker or nvidia-docker is used, most
 probably this is 'root') you can mount your host ``rclone.conf`` into the container as::
-    
-        $ docker run -ti -v $HOSTDIR_WITH_RCLONE_CONF/rclone.conf:/root/.config/rclone/rclone.conf <your-docker-image>
+
+    $ docker run -ti -v $HOSTDIR_WITH_RCLONE_CONF/rclone.conf:/root/.config/rclone/rclone.conf <your-docker-image>
 
 i.e. you mount ``rclone.conf`` file itself directly as a volume.
 
@@ -108,20 +108,19 @@ Source, check if after copying two versions match exactly.
            rclone calls
         """
          if cmd == 'copy':
-                command = (['rclone', 'copy', '--progress', src_path, dest_dir])
+            command = (['rclone', 'copy', '--progress', src_path, dest_dir])
          elif cmd == 'ls':
-                  command = (['rclone', 'ls', src_path])
-             elif cmd == 'check':
-                  command = (['rclone', 'check', src_path, dest_dir])
+            command = (['rclone', 'ls', src_path])
+         elif cmd == 'check':
+            command = (['rclone', 'check', src_path, dest_dir])
 
          if get_output:
-                 result = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            result = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
          else:
-                 result = subprocess.Popen(command, stderr=subprocess.PIPE)
+             result = subprocess.Popen(command, stderr=subprocess.PIPE)
          output, error = result.communicate()
          return output, error
 
-.. todo:: This Python code should be corretly indented
 
 * rclone_copy
 
@@ -138,43 +137,40 @@ Source, check if after copying two versions match exactly.
 
         if src_type == 'file':
             src_dir = os.path.dirname(src_path)
-         dest_file = src_path.split('/')[-1]
-          dest_path = os.path.join(dest_dir, dest_file)
+            dest_file = src_path.split('/')[-1]
+            dest_path = os.path.join(dest_dir, dest_file)
         else:
             src_dir = src_path
-          dest_path =  dest_dir
+            dest_path =  dest_dir
 
         # check first if we find src_path
         output, error = rclone_call(src_path, dest_dir, cmd='ls')
         if error:
-         print('[ERROR] %s (src):\n%s' % (src_path, error))
-         error_out = error
+            print('[ERROR] %s (src):\n%s' % (src_path, error))
+            error_out = error
             dest_exist = False
         else:
-          # if src_path exists, copy it
-          output, error = rclone_call(src_path, dest_dir, cmd='copy')
-         if not error:
-             # compare two directories, if copied file appears in output
-                # as not found or not matching -> Error
-               print('[INFO] File %s copied. Check if (src) and (dest) really match..' % (dest_file))
-               output, error = rclone_call(src_dir, dest_dir, cmd='check')
-              if 'ERROR : ' + dest_file in error:
-                 print('[ERROR] %s (src) and %s (dest) do not match!' % (src_path, dest_path))
-                    error_out = 'Copy failed: ' + src_path + ' (src) and ' + \
-                               dest_path + ' (dest) do not match'
-                   dest_exist = False
-             else:
-                 output, error = rclone_call(dest_path, dest_dir,
-                                             cmd='ls', get_output = True)
-                 file_size = [ elem for elem in output.split(' ') if elem.isdigit() ][0]
-                 print('[INFO] Checked: Successfully copied to %s %s bytes' % (dest_path, file_size))
-                  dest_exist = True
+            # if src_path exists, copy it
+            output, error = rclone_call(src_path, dest_dir, cmd='copy')
+        if not error:
+            # compare two directories, if copied file appears in output
+            # as not found or not matching -> Error
+            print('[INFO] File %s copied. Check if (src) and (dest) really match..' % (dest_file))
+            output, error = rclone_call(src_dir, dest_dir, cmd='check')
+            if 'ERROR : ' + dest_file in error:
+                print('[ERROR] %s (src) and %s (dest) do not match!' % (src_path, dest_path))
+                error_out = 'Copy failed: ' + src_path + ' (src) and ' + \
+                             dest_path + ' (dest) do not match'
+                dest_exist = False
             else:
-              print('[ERROR] %s (src):\n%s' % (dest_path, error))
-              error_out = error
-         dest_exist = False
- 
+                output, error = rclone_call(dest_path, dest_dir,
+                                            cmd='ls', get_output = True)
+                file_size = [ elem for elem in output.split(' ') if elem.isdigit() ][0]
+                print('[INFO] Checked: Successfully copied to %s %s bytes' % (dest_path, file_size))
+                dest_exist = True
+            else:
+                print('[ERROR] %s (src):\n%s' % (dest_path, error))
+                error_out = error
+                dest_exist = False
+
         return dest_exist, error_out
-
-
-.. todo:: This Python code should be corretly indented

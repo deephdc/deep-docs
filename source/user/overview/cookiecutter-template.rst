@@ -6,11 +6,11 @@ DEEP Data Science template
 To simplify development and as an easy way integrate your model with the :doc:`DEEPaaS API <api>`,
 a project template, `cookiecutter-data-science <https://github.com/indigo-dc/cookiecutter-data-science>`_ [*]_, is provided in our GitHub.
 
-In order to create your project based on the template, one has to `install <https://cookiecutter.readthedocs.io/en/latest/installation.html>`_ and then run 
+In order to create your project based on the template, one has to `install <https://cookiecutter.readthedocs.io/en/latest/installation.html>`_ and then run
 `cookicutter <https://cookiecutter.readthedocs.io/en/latest/>`_ tool as follows::
 
     $ cookiecutter https://github.com/indigo-dc/cookiecutter-data-science
-    
+
 You will be asked several questions, e.g.:
 
 * User account at github.com, e.g. 'deephdc'
@@ -51,7 +51,7 @@ Main repository for your model with the following structure::
     │
     ├─ notebooks              Jupyter notebooks. Naming convention is a number (for ordering),
     │                            the creator's initials (if many user development),
-    │                            and a short `_` delimited description, 
+    │                            and a short `_` delimited description,
     │                            e.g. `1.0-jqp-initial_data_exploration.ipynb`.
     │
     ├─ references             Data dictionaries, manuals, and all other explanatory materials.
@@ -73,25 +73,25 @@ Main repository for your model with the following structure::
     ├─ .dockerignore          Describes what files and directories to exclude for building a Docker image
     │
     ├─ .gitignore             Specifies intentionally untracked files that Git should ignore
-    │    
+    │
     ├─ Jenkinsfile            Describes basic Jenkins CI/CD pipeline
     │
     ├─ LICENSE                License file
     │
     ├─ README.md              The top-level README for developers using this project.
-    │   
+    │
     ├─ requirements.txt       The requirements file for reproducing the analysis environment,
     │                             e.g. generated with `pip freeze > requirements.txt`
     │
     ├─ setup.cfg              makes project pip installable (pip install -e .)
     │
-    ├─ setup.py               makes project pip installable (pip install -e .)    
+    ├─ setup.py               makes project pip installable (pip install -e .)
     │
     ├─ test-requirements.txt  The requirements file for the test environment
-    │    
+    │
     └─ tox.ini                tox file with settings for running tox; see tox.testrun.org
-    
-    
+
+
 Certain files, e.g. ``README.md``, ``Jenkinsfile``, ``setup.cfg``, development Dockerfiles, ``tox.ini``, etc are pre-populated
 based on the answers you provided during cookiecutter call (see above).
 
@@ -102,10 +102,10 @@ DEEP-OC-your_project
 Repository for the integration of the :doc:`DEEPaaS API <api>` and your_project in one Docker image.
 ::
 
-    ├─ Dockerfile     Describes main steps on integrationg DEEPaaS API and 
+    ├─ Dockerfile     Describes main steps on integrationg DEEPaaS API and
     │                     your_project application in one Docker image
     │
-    ├─ Jenkinsfile    Describes basic Jenkins CI/CD pipeline    
+    ├─ Jenkinsfile    Describes basic Jenkins CI/CD pipeline
     │
     ├─ LICENSE        License file
     │

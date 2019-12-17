@@ -14,4 +14,3 @@ HowTo's
    Use rclone <rclone>
    Install and configure oidc-agent <oidc-agent>
    Video demos <video-demos>
-   

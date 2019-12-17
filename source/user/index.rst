@@ -29,9 +29,9 @@ components is provided in the following sections.
 
 
 .. raw:: html
-   
+
    <h2>HowTo's</h2>
-   
+
 
 A set of various HowTo examples.
 
