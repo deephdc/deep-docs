@@ -10,41 +10,41 @@ The DEEP-HybridDataCloud project is focused on three different types of users, d
 The basic user
 --------------
 
-This user wants to use the services that have been already developed and :doc:`test them with their data <../howto/try-service-locally>`,
-and therefore don't need to have any machine learning knowledge. For example, they can take an already trained network
-for `plant classification <https://marketplace.deep-hybrid-datacloud.eu/modules/deep-oc-plant-classification.html>`_
+This user wants to use modules that are already pre-trained and :doc:`test them with their data <../howto/inference-locally>`,
+and therefore don't need to have any machine learning knowledge. For example, they can take an already trained module
+for `plant classification <https://marketplace.deep-hybrid-datacloud.eu/modules/plants-species-classifier.html>`_
 that has been containerized, and use it to classify their own plant images.
 
 **What DEEP can offer to you:**
 
-* a :ref:`catalogue <user/overview/architecture:The marketplace>` full of ready-to-use services to make inference with your data
+* a :ref:`catalogue <user/overview/architecture:The marketplace>` full of ready-to-use modules to perform inference with your data
 * an :ref:`API <user/overview/architecture:The API>` to easily interact with the services
 * solutions to run the inference in the Cloud or in your local resources
 * the ability to develop complex topologies by composing different modules
 
 **Related HowTo's:**
 
-* :doc:`How to try a service locally <../howto/try-service-locally>`
+* :doc:`How to perform inference locally <../howto/inference-locally>`
 
 
 The intermediate user
 ---------------------
 
-The intermediate user wants to :doc:`retrain an available model <../howto/train-model-locally>` to perform the same task but fine
-tuning it to their own data.
+The intermediate user wants to :doc:`retrain an available module <../howto/train-model-locally>` to perform the same
+task but fine tuning it to their own data.
 They still might not need high level knowledge on modelling of machine learning problems, but typically do need basic
 programming skills to prepare their own data into the appropriate format.
 Nevertheless, they can re-use the knowledge being captured in a trained network and adjust the network to their problem
 at hand by re-training the network on their own dataset.
-An example could be a user who takes the generic `image classifier <https://marketplace.deep-hybrid-datacloud.eu/modules/deep-oc-image-classification-tensorflow.html>`_
-model and retrain it to perform `seed classification <https://marketplace.deep-hybrid-datacloud.eu/modules/deep-oc-seeds-classification.html>`_.
+An example could be a user who takes the generic `image classifier <https://marketplace.deep-hybrid-datacloud.eu/modules/train-an-image-classifier.html>`_
+model and retrains it to perform `seed classification <https://marketplace.deep-hybrid-datacloud.eu/modules/seed-species-classifier.html>`_.
 
 **What DEEP can offer to you:**
 
-* the ability to train out-of-the-box a model of the :ref:`catalogue <user/overview/architecture:The marketplace>` on your personal dataset
+* the ability to train out-of-the-box a module of the :ref:`catalogue <user/overview/architecture:The marketplace>` on your personal dataset
 * an :ref:`API <user/overview/architecture:The API>` to easily interact with the model
-* access to data :ref:`storage resources <user/overview/architecture:The storage resources>` via
-  `DEEP-Nextcloud <https://nc.deep-hybrid-datacloud.eu>`_ to save your dataset
+* data :ref:`storage resources <user/overview/architecture:The data storage resources>` to access your dataset
+  (`DEEP-Nextcloud <https://nc.deep-hybrid-datacloud.eu>`_, `OneData <https://onedata.org/>`_, ...)
 * the ability to deploy the developed service on Cloud resources
 * the ability to share the service with other users in the user's catalogue
 
@@ -52,7 +52,7 @@ model and retrain it to perform `seed classification <https://marketplace.deep-h
 
 * :doc:`How to train a model locally <../howto/train-model-locally>`
 * :doc:`How to train a model remotely <../howto/train-model-remotely>`
-* :doc:`How to add your service to the DEEP Marketplace <../howto/add-to-DEEP-marketplace>`
+* :doc:`How to add your module to the DEEP Marketplace <../howto/add-to-DEEP-marketplace>`
 
 
 The advanced user
@@ -68,12 +68,12 @@ models.
 
 * a ready-to-use environment with the main DL frameworks running in a dockerized solution running on different types of
   hardware (CPUs, GPUs, etc)
-* access to data :ref:`storage resources <user/overview/architecture:The storage resources>` via
-  `DEEP-Nextcloud <https://nc.deep-hybrid-datacloud.eu>`_ to save your dataset
+* data :ref:`storage resources <user/overview/architecture:The data storage resources>` to access your dataset
+  (`DEEP-Nextcloud <https://nc.deep-hybrid-datacloud.eu>`_, `OneData <https://onedata.org/>`_, ...)
 * the ability to deploy the developed module on Cloud resources
-* the ability to share the module with other users in the user's :ref:`catalogue <user/overview/architecture:The marketplace>`
-* the possibility to :ref:`integrate your module <user/overview/api:Integrate your model with the API>` with
-  the :ref:`API <user/overview/architecture:The API>` to enable easier user interaction
+* the ability to share the module with other users in the open :ref:`catalogue <user/overview/architecture:The marketplace>`
+* the possibility to :ref:`integrate your module with the API <user/overview/api:Integrate your model with the API>`
+  to enable easier user interaction
 
 
 **Related HowTo's:**

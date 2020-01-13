@@ -8,14 +8,22 @@ how each :doc:`different type of user <user-roles>` can take advantage of the di
 The marketplace
 ===============
 
-This is one of the most important components. It is a catalogue of modules that every user can have access to. We can
-divide the modules in two different categories:
+The DEEP Marketplace is a catalogue of modules that every user can have access to. Modules can be:
 
-* **Models** are modules (eg. an `image classifier <https://marketplace.deep-hybrid-datacloud.eu/modules/deep-oc-image-classification-tensorflow.html>`_)
-  that an user can train on their own data to create a new service. They have not already been trained to perform any particular task.
+* **Trained**: Those are modules that an user can train on their own data to create a new service. Like training an
+  `image classifier <https://marketplace.deep-hybrid-datacloud.eu/modules/train-an-image-classifier.html>`_ with a
+  plants dataset to create a `plant classifier <http://marketplace.deep-hybrid-datacloud.eu/modules/plants-species-classifier.html>`_
+  service.
+  Look for the ``trainable`` tag in the marketplace to find those modules.
 
-* **Services** are models that have been trained for a specific task (eg. an `plant classifier <https://marketplace.deep-hybrid-datacloud.eu/modules/deep-oc-plant-classification.html>`_).
-  They usually derive from model, although sometimes, for very specific tasks, a module can be both a model and a service.
+* **Deployed for inference**: Those are modules that have been trained for a specific task (like the
+  `plant classifier <http://marketplace.deep-hybrid-datacloud.eu/modules/plants-species-classifier.html>`_ mentioned earlier).
+  Look for the ``inference`` and ``pre-trained`` tags in the marketplace to find those modules.
+
+Some modules can both be trained and deployed for inference.
+For example the `image classifier <https://marketplace.deep-hybrid-datacloud.eu/modules/train-an-image-classifier.html>`_
+can be trained to create other image classifiers but can also be deployed for inference as it comes pre-trained with a
+general image classifier.
 
 For more information have a look at the `marketplace <https://marketplace.deep-hybrid-datacloud.eu/>`_.
 
@@ -23,14 +31,47 @@ For more information have a look at the `marketplace <https://marketplace.deep-h
 The API
 =======
 
-The DEEPaaS API is a key component for making the modules accessible to everybody. It is available for both inference and training. Advanced users that want to create new modules can make them :ref:`compatible with the API <user/overview/api:Integrate your model with the API>`
-to make them available to the whole community. This can be easily done, with just some minor changes to the module itsef, since it only requires adding additional entry points.
+The DEEPaaS API is a key component for making the modules accessible to everybody (including non-experts), as it
+provides a consistent and easy to use way to access to the model's functionality. It is available for both inference and training.
+
+Advanced users that want to create new modules can make them :ref:`compatible with the API <user/overview/api:Integrate your model with the API>`
+to make them available to the whole community. This can be easily done, with just some minor changes to the module itsef,
+since it only requires adding additional entry points.
 
 For more information take a look on the full :doc:`API guide <api>`.
 
 
-The storage resources
-=====================
+The data storage resources
+==========================
 
-Storage is essential for user that want to create new services by training models on their custom data. For the moment we
-support saving data into `DEEP-Nextcloud <https://nc.deep-hybrid-datacloud.eu>`_. We are currently working on adding additional storage support, as well as more advanced features such as data caching, in cooperation with the `eXtreme-DataCloud <www.extreme-datacloud.eu>`_ project.
+Storage is essential for user that want to create new services by training modules on their custom data. For the moment
+we support hosting data into `DEEP-Nextcloud <https://nc.deep-hybrid-datacloud.eu>`_. We are currently working on adding
+additional storage support, as well as more advanced features such as data caching (see `OneData <https://onedata.org/>`_),
+in cooperation with the `eXtreme-DataCloud <http://www.extreme-datacloud.eu/>`_ project.
+
+
+The training dashboard
+======================
+
+The DEEP dashboard allows users to access computing resources to train their modules. There are several versions of the
+dashboard depending on how you want to interact with it:
+
+* `Standard dashboard <https://train.deep-hybrid-datacloud.eu/>`_
+    This dashboard allows you to interact with the modules hiding some of the technical parts that most users do not
+    need to worry about. This is the version that most users will want to use.
+
+* `Advanced dashboard <https://deep-paas.cloud.ba.infn.it/>`_
+    This dashboard allows you to interact with the underling TOSCAs instead of the modules.
+
+The dashboard allows a user to select:
+
+* **The module** to run. She can also run the development container to develop new modules as well a external
+  docker images that are not hosted in the `deephdc organization <https://hub.docker.com/u/deephdc/>`_ (that is from modules not available in the
+  Marketplace).
+* **The computing resources** to have available. She can select multiple CPUs and GPUs, the machine RAM as well as optionally choosing
+  the physical site where the machine must be deployed.
+* **The service** to run. Currently, options include running the :doc:`DEEPaaS API <api>` (recommended for fully
+  developed modules than only need to be trained) and `JupyterLab <https://jupyterlab.readthedocs.io/en/stable/>`_
+  (recommended for developing code as well for cases where access to the bash console is needed).
+
+Once the machine is deployed the user will access a page listing all her current deployments.

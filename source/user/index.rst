@@ -19,7 +19,7 @@ If you want a quickstart guide, please check the following link.
    <h2>Overview</h2>
 
 
-A more in depth documentation, with detailed description on the archicture and
+A more in depth documentation, with detailed description on the architecture and
 components is provided in the following sections.
 
 .. toctree::

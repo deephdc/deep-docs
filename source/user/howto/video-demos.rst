@@ -1,10 +1,13 @@
 Video demos
 -----------
 
-This page gathers different video demos available:
+Please refer to the Youtube channel `playlist <https://www.youtube.com/watch?v=mCxz8LQJWWA&list=PLJ9x9Zk1O-J_UZfNO2uWp2pFMmbwLvzXa>`_
+for a comprehensive list of video demos.
 
-.. _video-demo_train-remotely:
+Available demos include:
 
-* `Training a model remotely <https://www.youtube.com/watch?v=EP594ac3ZHw&feature=youtu.be>`_
-
-  [Short description of the demo]
+* How to use the Cookiecutter template
+* How to deploy/train a module locally and remotely
+* How to use some of the modules available in the Marketplace
+* How to develop a module in the Testbed
+* ...

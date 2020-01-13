@@ -30,6 +30,16 @@ following section.
 
    technical/index
 
+.. admonition:: Useful project links
+   :class: important
+
+    * `DEEP IAM <https://iam.deep-hybrid-datacloud.eu/>`_
+    * `DEEP Open Catalog - Marketplace <https://marketplace.deep-hybrid-datacloud.eu/>`_
+    * DEEP Training dashboard (`Standard <https://train.deep-hybrid-datacloud.eu/>`_, `Advanced <https://deep-paas.cloud.ba.infn.it/>`_)
+    * `DEEP Nextcloud <https://nc.deep-hybrid-datacloud.eu>`_
+    * `Official GitHub <https://github.com/deephdc>`_
+    * `Official DockerHub <https://hub.docker.com/u/deephdc/>`_
+
 Indices and tables
 ==================
 
