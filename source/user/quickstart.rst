@@ -24,10 +24,14 @@ Docker Hub way (easy)
 .. admonition:: Prerequisites
 
     * `docker <https://docs.docker.com/install/#supported-platforms>`_
-    * If you want GPU support you can install `nvidia-docker <https://github.com/nvidia/nvidia-docker/wiki/Installation-(version-2.0)>`_
-      along with docker or install `udocker <https://github.com/indigo-dc/udocker/releases>`_ instead of docker.
-      udocker is entirely a user tool, i.e. it can be installed and used without any root priveledges, e.g. in a user
-      environment at HPC cluster.
+    * If GPU support is needed:
+       * you can install `nvidia-docker <https://github.com/nvidia/nvidia-docker/wiki/Installation-(version-2.0)>`_ 
+         along with docker, OR
+       * install `udocker <https://github.com/indigo-dc/udocker/releases>`_ instead of docker.
+         `udocker <https://github.com/indigo-dc/udocker/releases>`_ is entirely a user tool, i.e. it can be installed and used without any root priveledges, e.g. in a user
+         environment at HPC cluster.
+       * N.B.: docker from version 19.03 has support for NVIDIA GPUs 
+         (see `Release notes <https://docs.docker.com/engine/release-notes/>`_ and `moby/moby#38828 <https://github.com/moby/moby/pull/38828>`_)
 
 1. **Run the container**
 
@@ -38,13 +42,17 @@ simply run the following:
 
         $ docker run -ti -p 5000:5000 -p 6006:6006 deephdc/deep-oc-module_of_interest
 
-    With GPU support::
-
-        $ nvidia-docker run -ti -p 5000:5000 -p 6006:6006 deephdc/deep-oc-module_of_interest
-
     Via udocker::
 
         $ udocker run -p 5000:5000 -p 6006:6006 deephdc/deep-oc-module_of_interest
+
+    With GPU support::
+
+        $ nvidia-docker run -ti -p 5000:5000 -p 6006:6006 deephdc/deep-oc-module_of_interest
+   
+    If docker version is 19.03 or above::
+
+        $ docker run -ti --gpus all -p 5000:5000 -p 6006:6006 deephdc/deep-oc-module_of_interest
 
     Via udocker with GPU support::
 
@@ -93,8 +101,11 @@ Run a module on DEEP Pilot Infrastructure
 .. admonition:: Prerequisites
 
     * `DEEP-IAM <https://iam.deep-hybrid-datacloud.eu/>`_ registration
-    * `oidc-agent <https://github.com/indigo-dc/oidc-agent/releases>`_ installed and configured for `DEEP-IAM <https://iam.deep-hybrid-datacloud.eu/>`_ (see :doc:`rclone howto <howto/oidc-agent>`).
-    * `orchent <https://github.com/indigo-dc/orchent/releases>`_ tool
+    * To run it via web interface:
+      access `Orchestrator Dashboard <https://deep-paas.cloud.ba.infn.it/>`_ (https://deep-paas.cloud.ba.infn.it) with DEEP-IAM credentials
+    * To run it via command-line interface (CLI):
+       * `oidc-agent <https://github.com/indigo-dc/oidc-agent/releases>`_ installed and configured for `DEEP-IAM <https://iam.deep-hybrid-datacloud.eu/>`_ (see :doc:`rclone howto <howto/oidc-agent>`).
+       * `orchent <https://github.com/indigo-dc/orchent/releases>`_ tool
 
     If your are going to use `DEEP-Nextcloud <https://nc.deep-hybrid-datacloud.eu>`_ for storing you data you also have to:
 
@@ -102,13 +113,25 @@ Run a module on DEEP Pilot Infrastructure
     * Include `rclone <https://rclone.org/install/>`_ installation in your Dockerfile (see :doc:`rclone howto <howto/rclone>`)
     * Include call to rclone in your code (see :doc:`rclone howto <howto/rclone>`)
 
-In order to submit your job to DEEP Pilot Infrastructure one has to create
-`TOSCA YAML file <https://github.com/indigo-dc/tosca-templates/tree/master/deep-oc>`_.
 
-The submission is then done via
+In order to submit your job to DEEP Pilot Infrastructure one configures job requirements by means of `TOSCA YAML file <https://github.com/indigo-dc/tosca-templates/tree/master/deep-oc>`_. 
+One can either use a `general template <https://github.com/indigo-dc/tosca-templates/blob/master/deep-oc/deep-oc-mesos-webdav.yml>`_ or create a dedicated one based on the `existing ones <https://github.com/indigo-dc/tosca-templates/tree/master/deep-oc>`_.
+
+Orchestrator Dashboard
+^^^^^^^^^^^^^^^^^^^^^^
+The `PaaS Orchestrator Dashboard <https://deep-paas.cloud.ba.infn.it/>`_ is an easy way to deploy one of the existing applications or your own one, also monitor your deployments via the web interface.
+
+.. image:: ../_static/paas-dashboard.png
+
+
+
+CLI interface
+^^^^^^^^^^^^^
+
+The submission is done via
 ::
 
-    $ orchent depcreate ./topology-orchent.yml '{}'
+    $ orchent depcreate ./your_module-template.yml '{}'
 
 If you also want to access `DEEP-Nextcloud <https://nc.deep-hybrid-datacloud.eu>`_ from your container via rclone,
 you can create a following bash script for job submission:
@@ -117,10 +140,10 @@ you can create a following bash script for job submission:
 
     #!/bin/bash
 
-    orchent depcreate ./topology-orchent.yml '{ "rclone_url": "https://nc.deep-hybrid-datacloud.eu/remote.php/webdav/",
-                                                "rclone_vendor": "nextcloud",
-                                                "rclone_user": <your_nextcloud_username>
-                                                "rclone_pass": <your_nextcloud_password> }'
+    orchent depcreate ./your_module-template.yml '{ "rclone_url": "https://nc.deep-hybrid-datacloud.eu/remote.php/webdav/",
+                                                    "rclone_vendor": "nextcloud",
+                                                    "rclone_user": <your_nextcloud_username>
+                                                    "rclone_pass": <your_nextcloud_password> }'
 
 
 To check status of your job
