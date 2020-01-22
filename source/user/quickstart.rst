@@ -25,6 +25,7 @@ Docker Hub way (easy)
 
     * `docker <https://docs.docker.com/install/#supported-platforms>`_
     * If GPU support is needed:
+
        * you can install `nvidia-docker <https://github.com/nvidia/nvidia-docker/wiki/Installation-(version-2.0)>`_ 
          along with docker, OR
        * install `udocker <https://github.com/indigo-dc/udocker/releases>`_ instead of docker.
@@ -104,6 +105,7 @@ Run a module on DEEP Pilot Infrastructure
     * To run it via web interface:
       access `Orchestrator Dashboard <https://deep-paas.cloud.ba.infn.it/>`_ (https://deep-paas.cloud.ba.infn.it) with DEEP-IAM credentials
     * To run it via command-line interface (CLI):
+
        * `oidc-agent <https://github.com/indigo-dc/oidc-agent/releases>`_ installed and configured for `DEEP-IAM <https://iam.deep-hybrid-datacloud.eu/>`_ (see :doc:`rclone howto <howto/oidc-agent>`).
        * `orchent <https://github.com/indigo-dc/orchent/releases>`_ tool
 
@@ -119,14 +121,18 @@ One can either use a `general template <https://github.com/indigo-dc/tosca-templ
 
 Orchestrator Dashboard
 ^^^^^^^^^^^^^^^^^^^^^^
-The `PaaS Orchestrator Dashboard <https://deep-paas.cloud.ba.infn.it/>`_ is an easy way to deploy one of the existing applications or your own one, also monitor your deployments via the web interface.
+The `PaaS Orchestrator Dashboard <https://deep-paas.cloud.ba.infn.it/>`_ is an easy way to deploy an application and monitor your deployments via web interface. You login with DEEP-IAM credentials, select either application specific template or general one, `deep-oc-mesos-webdav.yml`, fill the webform and submit your job.
 
 .. image:: ../_static/paas-dashboard.png
+   :target: https://deep-paas.cloud.ba.infn.it
 
 
 
 CLI interface
 ^^^^^^^^^^^^^
+
+You may also deploy an application and control your deployments from the command-line-interface. 
+Similar, you could create your own TOSCA template or download and use general one, `deep-oc-mesos-webdav.yml <https://github.com/indigo-dc/tosca-templates/blob/master/deep-oc/deep-oc-mesos-webdav.yml>`_, from `here <https://github.com/indigo-dc/tosca-templates/tree/master/deep-oc>`_.
 
 The submission is done via
 ::
