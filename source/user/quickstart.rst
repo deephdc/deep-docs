@@ -124,7 +124,6 @@ Orchestrator Dashboard
 The `PaaS Orchestrator Dashboard <https://deep-paas.cloud.ba.infn.it/>`_ is an easy way to deploy an application and monitor your deployments via web interface. You login with DEEP-IAM credentials, select either application specific template or general one, `deep-oc-mesos-webdav.yml`, fill the webform and submit your job.
 
 .. image:: ../_static/paas-dashboard.png
-   :target: https://deep-paas.cloud.ba.infn.it
 
 
 
