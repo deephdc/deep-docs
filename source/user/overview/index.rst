@@ -7,5 +7,5 @@ Overview
 
    DEEP architecture <architecture>
    User roles and workflows <user-roles>
-   DEEP Cookiecutter template <cookiecutter-template>
+   Data Science template <cookiecutter-template>
    DEEPaaS API <api>
