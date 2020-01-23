@@ -1,10 +1,10 @@
 Modules
 =======
 
-.. toctree::
-   :maxdepth: 1
-   :glob:
+All DEEP Open Catalog modules are found at the `DEEP Open Catalog <https://marketplace.deep-hybrid-datacloud.eu/>`__, the source code is hosted in the ``deephdc`` organization at `github.com <https://github.com/deephdc>`__, corresponding Docker images are located in `DockerHub <https://hub.docker.com/u/deephdc/>`_:
 
-   toy_model-dog_breeds
-   image_classification_tf
-   mods
+DEEP Open Catalog: https://marketplace.deep-hybrid-datacloud.eu/
+
+GitHub organization: https://github.com/deephdc
+
+DockerHub repositories: https://hub.docker.com/u/deephdc/

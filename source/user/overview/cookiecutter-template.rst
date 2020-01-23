@@ -4,7 +4,7 @@ DEEP Data Science template
 ==========================
 
 To simplify development and as an easy way integrate your model with the :doc:`DEEPaaS API <api>`,
-a project template, `cookiecutter-data-science <https://github.com/indigo-dc/cookiecutter-data-science>`_ [*]_, is provided in our GitHub.
+a project template, `cookiecutter-data-science <https://github.com/indigo-dc/cookiecutter-data-science>`__ [*]_, is provided in our GitHub.
 
 In order to create your project based on the template, one has to `install <https://cookiecutter.readthedocs.io/en/latest/installation.html>`_ and then run
 `cookicutter <https://cookiecutter.readthedocs.io/en/latest/>`_ tool as follows::
@@ -15,7 +15,7 @@ You are first provided with [Info] line about the parameter and in the next line
 
 * Remote URL to host your new repositories (git), e.g. https://github.com/deephdc, ``git_base_url``
 * Project name, ``project_name``
-* Name of your new repository, to be added after \"git_base_url\" (see above)", ``repo_name``
+* Name of your new repository, to be added after \"git_base_url\" (see above)", ``repo_name`` (aka <your_project> in the following)
 * Author name(s) (and/or your organization/company/team). If many, separate by comma, ``author_name``
 * E-Mail(s) of main author(s) (or contact person). If many, separate by comma, ``author_email``
 * Short description of the project, ``description``
@@ -26,16 +26,16 @@ You are first provided with [Info] line about the parameter and in the next line
 * CPU tag for the baseimage, e.g. 1.14.0-py3. Has to match python3!, ``baseimage_cpu_tag``
 * GPU tag for the baseimage, e.g. 1.14.0-gpu-py3. Has to match python3!, ``baseimage_gpu_tag``
 
-.. note::  These parameters are defined in ``cookiecutter.json`` in the `cookiecutter-data-science <https://github.com/indigo-dc/cookiecutter-data-science>`_ source.
+.. note::  These parameters are defined in ``cookiecutter.json`` in the `cookiecutter-data-science <https://github.com/indigo-dc/cookiecutter-data-science>`__ source.
 
-When these questions are answered, following two repositories will be created locally and immediately linked to your github.com account::
+When these questions are answered, following two repositories will be created locally and immediately linked to your ``git_base_url``::
 
-	~/DEEP-OC-user_project
-	~/user_project
+	~/DEEP-OC-your_project
+	~/your_project
 
 each repository has two branches: 'master' and 'test'.
 
-<user_project> repo
+<your_project> repo
 -------------------
 
 Main repository to integrate model with the following structure::
@@ -101,7 +101,7 @@ Certain files, e.g. ``README.md``, ``Jenkinsfile``, ``setup.cfg``, ``tox.ini``, 
 based on the answers you provided during cookiecutter call (see above).
 
 
-<DEEP-OC-user_project>
+<DEEP-OC-your_project>
 ----------------------
 
 Repository for the integration of the :doc:`DEEPaaS API <api>` and your_project in one Docker image.
@@ -118,7 +118,7 @@ Repository for the integration of the :doc:`DEEPaaS API <api>` and your_project 
     │
     ├─ docker-compose.yml     Allows running the application with various configurations via docker-compose
     │
-    ├─ metadata.json          Defines information propagated to the [DEEP Open Catalog](https://marketplace.deep-hybrid-datacloud.eu)
+    ├─ metadata.json          Defines information propagated to the DEEP Open Catalog, https://marketplace.deep-hybrid-datacloud.eu
 
 
 All files get filled with the info provided during cookiecutter execution (see above).
@@ -128,14 +128,14 @@ Step-by-step guide
 #. (if not yet done) install cookiecutter, as e.g. ``pip install cookiecutter``
 #. run ``cookiecutter https://github.com/indigo-dc/cookiecutter-data-science``
 #. answer all the questions, pay attention about docker tags!
-#. two directories will be created: <user_project> and <DEEP-OC-user_project> (each with two git branches: master and test)
-#. go to github.com/user_account and create corresponding repositories <user_project> and <DEEP-OC-user_project>
-#. go to your terminal, <user_project>, ``git push origin --all``
-#. go to your terminal, <DEEP-OC-user_project>, ``git push origin --all``
+#. two directories will be created: <your_project> and <DEEP-OC-your_project> (each with two git branches: master and test)
+#. go to github.com/user_account and create corresponding repositories <your_project> and <DEEP-OC-your_project>
+#. go to your terminal, <your_project>, ``git push origin --all``
+#. go to your terminal, <DEEP-OC-your_project>, ``git push origin --all``
 #. your github repositories are now updated with initial commits
-#. you can build <deep-oc-user_project> Docker image locally: go to <DEEP-OC-user_project> directory, do ``docker build -t dockerhubuser/deep-oc-user_project .``
-#. you can now run deepaas as ``docker run -p 5000:5000 dockerhubuser/deep-oc-user_project``
+#. you can build <deep-oc-your_project> Docker image locally: go to <DEEP-OC-your_project> directory, do ``docker build -t dockerhubuser/deep-oc-your_project .``
+#. you can now run deepaas as ``docker run -p 5000:5000 dockerhubuser/deep-oc-your_project``
 
 ------------------
 
-.. [*] The more general `cookiecutter-data-science <http://drivendata.github.io/cookiecutter-data-science/>`_ template was adapted for the purpose of DEEP.
+.. [*] The more general `cookiecutter-data-science <http://drivendata.github.io/cookiecutter-data-science/>`__ template was adapted for the purpose of DEEP.

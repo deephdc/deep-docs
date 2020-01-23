@@ -103,15 +103,15 @@ Run a module on DEEP Pilot Infrastructure
 
     * `DEEP-IAM <https://iam.deep-hybrid-datacloud.eu/>`_ registration
     * To run it via web interface:
-      access `Orchestrator Dashboard <https://deep-paas.cloud.ba.infn.it/>`_  with DEEP-IAM credentials
+      access either `Training Dashboard <https://train.deep-hybrid-datacloud.eu/>`_ or `General purpose Dashboard <https://paas.cloud.cnaf.infn.it/>`_  with DEEP-IAM credentials
     * To run it via command-line interface (CLI):
 
-       * `oidc-agent <https://github.com/indigo-dc/oidc-agent/releases>`_ installed and configured for `DEEP-IAM <https://iam.deep-hybrid-datacloud.eu/>`_ (see :doc:`rclone howto <howto/oidc-agent>`).
+       * `oidc-agent <https://github.com/indigo-dc/oidc-agent/releases>`_ installed and configured for `DEEP-IAM <https://iam.deep-hybrid-datacloud.eu/>`_ (see :doc:`Configure oidc-agent <howto/oidc-agent>`).
        * `orchent <https://github.com/indigo-dc/orchent/releases>`_ tool
 
     If your are going to use `DEEP-Nextcloud <https://nc.deep-hybrid-datacloud.eu>`_ for storing you data you also have to:
 
-    * Register at `DEEP-Nextcloud <https://nc.deep-hybrid-datacloud.eu>`_
+    * Register at `DEEP-Nextcloud <https://nc.deep-hybrid-datacloud.eu>`_ , see :ref:`Nextcloud configuration for rclone <user/howto/rclone:Nextcloud configuration for rclone>`
     * Include `rclone <https://rclone.org/install/>`_ installation in your Dockerfile (see :doc:`rclone howto <howto/rclone>`)
     * Include call to rclone in your code (see :doc:`rclone howto <howto/rclone>`)
 
@@ -119,12 +119,13 @@ Run a module on DEEP Pilot Infrastructure
 In order to submit your job to DEEP Pilot Infrastructure one configures job requirements by means of `TOSCA YAML file <https://github.com/indigo-dc/tosca-templates/tree/master/deep-oc>`_. 
 One can either use a `general template <https://github.com/indigo-dc/tosca-templates/blob/master/deep-oc/deep-oc-mesos-webdav.yml>`_ or create a dedicated one based on the `existing ones <https://github.com/indigo-dc/tosca-templates/tree/master/deep-oc>`_.
 
-Orchestrator Dashboard
+DEEP Dashboards
 ^^^^^^^^^^^^^^^^^^^^^^
-The `PaaS Orchestrator Dashboard <https://deep-paas.cloud.ba.infn.it/>`_ is an easy way to deploy an application and monitor your deployments via web interface. You login with DEEP-IAM credentials, select either application specific template or general one, *deep-oc-mesos-webdav.yml*, fill the webform and submit your job. For more details, please, see :doc:`The Dashboard <overview/architecture>`
+There are two :ref:`Dashboards <user/overview/architecture:The dashboards>` (`Training Dashboard <https://train.deep-hybrid-datacloud.eu/>`_
+and `General purpose Dashboard <https://paas.cloud.cnaf.infn.it/>`_), whcih are an easy way to deploy an application and monitor your deployments via web interface. You login with DEEP-IAM credentials, select either an application of interest (or an application specific template), fill the webform and submit your job. For more details, please, refer to :ref:`The dashboards <user/overview/architecture:The dashboards>` documents.
 
 .. image:: ../_static/paas-dashboard.png
-   :target: https://deep-paas.cloud.ba.infn.it
+   :target: https://paas.cloud.cnaf.infn.it/
 
 
 CLI interface

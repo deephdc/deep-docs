@@ -14,7 +14,7 @@ To make your Deep Learning model compatible with the DEEPaaS API you have to:
 
 1. **Define the API methods for your model**
 
-Create a Python file (named for example ``api.py``) inside your package. In this file you can define any of the
+Create a Python file (named for example ``deep_api.py``) inside your package. In this file you can define any of the
 :ref:`API methods <user/overview/api:Methods>`. You don't need to define all the methods, just the ones you need.
 Every other method will return a ``NotImplementError`` when  queried from the API.
 
@@ -28,14 +28,14 @@ You must define the entrypoints pointing to this file in the ``setup.cfg`` as fo
 
     [entry_points]
     deepaas.v2.model =
-        pkg_name = pkg_name.api
+        pkg_name = pkg_name.deep_api
 
 Here is an `example <https://github.com/indigo-dc/image-classification-tf/blob/master/setup.cfg#L25-L27>`__ of the entrypoint
 definition in the ``setup.cfg`` file.
 
 .. tip::
-    When developing a model with the :doc:`DEEP Cookiecutter template <cookiecutter-template>`, the Python file
-    with the API methods will automatically be created at ``pkg_name/models/model.py``, as well as the entrypoints
+    When developing a model with the :doc:`DEEP Data Science template <cookiecutter-template>`, the Python file
+    with the API methods will automatically be created at ``pkg_name/models/deep_api.py``, as well as the entrypoints
     pointing to it. This path can of course be modified.
 
 

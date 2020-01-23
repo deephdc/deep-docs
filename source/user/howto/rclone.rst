@@ -8,31 +8,34 @@ How to use rclone
 
 Installation of rclone in Docker image (pro)
 --------------------------------------------
-All the applications in the `DEEP Open Catalog <https://deephdc.github.io/>`_ are packed within a Docker containing
-rclone installed by default. If you want to create a Docker containing your own application, you should install rclone
+All applications in the `DEEP Open Catalog <https://deephdc.github.io/>`_ are packed in a Docker image and have
+`rclone <https://rclone.org/>`_ tool installed by default. If you want to create a Docker containing your own application, you should install rclone
 in the container to be able to access the data stored remotely. The following lines are an example of what has to be
 added in the Dockerfile when installation is based on Ubuntu. For other Linux flavors, please, refer to
 the `rclone official site  <https://rclone.org/downloads/>`_  ::
 
 	# install rclone
-		RUN wget https://downloads.rclone.org/rclone-current-linux-amd64.deb && \
-   		dpkg -i rclone-current-linux-amd64.deb && \
-   		apt install -f && \
-   		rm rclone-current-linux-amd64.deb && \
-    		apt-get clean && \
-    		rm -rf /var/lib/apt/lists/* && \
-    		rm -rf /root/.cache/pip/* && \
-    		rm -rf /tmp/*
+	RUN wget https://downloads.rclone.org/rclone-current-linux-amd64.deb && \
+   	dpkg -i rclone-current-linux-amd64.deb && \
+   	apt install -f && \
+   	rm rclone-current-linux-amd64.deb && \
+    	apt-get clean && \
+    	rm -rf /var/lib/apt/lists/* && \
+    	rm -rf /root/.cache/pip/* && \
+    	rm -rf /tmp/*
 
+.. tip::
+    When developing an application with the :ref:`Data Science template <user/overview/cookiecutter-template:DEEP Data Science template>`, 
+    the Dockerfile already includes installation of rclone.
 
 Nextcloud configuration for rclone
 ----------------------------------
 .. image:: ../../_static/nc-access.png
 
 After login into `DEEP-Nextcloud  <https://nc.deep-hybrid-datacloud.eu/login>`_ with your DEEP-IAM credentials, go to
-(1) **Settings (top right corner)** |rarr|  (2) **Security**  |rarr|  (3) **Devices & sessions**. Set a name for you
-application and clik on **Create new app password**. That user and password is what one needs to include in the rclone
-config file (``rclone.conf``) to run locally or in the orchent script to generate the deployment when running remotely (see :doc:`here <train-model-locally>` and :doc:`here <train-model-remotely>`).
+(1) **Settings (top right corner)** |rarr|  (2) **Security**  |rarr|  (3) **Devices & sessions**. Set a name for your
+application and click on **Create new app password**. That user and password is what one needs to include in the rclone
+config file (``rclone.conf``) to run locally or as ``rclone_user`` and ``rclone_password`` either in the Dashboard webform or in the orchent script to generate the deployment when running remotely (see :doc:`here <train-model-locally>` and :doc:`here <train-model-remotely>`).
 
 
 Creating rclone.conf
@@ -126,15 +129,16 @@ Source, check if after copying two versions match exactly.
 
 .. code-block:: python
 
-    def rclone_copy(src_path, dest_dir, src_type='file'):
+    def rclone_copy(src_path, dest_dir, src_type='file', verbose=False):
         """ Function for rclone call to copy data (sync?)
         :param src_path: full path to source (file or directory)
-   		:param dest_dir: full path to destination directory (not file!)
-   		:param src_type: if source is file (default) or directory
-   		:return: if destination was downloaded, and possible error
-  		"""
+        :param dest_dir: full path to destination directory (not file!)
+        :param src_type: if source is file (default) or directory
+        :return: if destination was downloaded, and possible error 
+        """
+    
         error_out = None
-
+    
         if src_type == 'file':
             src_dir = os.path.dirname(src_path)
             dest_file = src_path.split('/')[-1]
@@ -146,30 +150,31 @@ Source, check if after copying two versions match exactly.
         # check first if we find src_path
         output, error = rclone_call(src_path, dest_dir, cmd='ls')
         if error:
-            print('[ERROR] %s (src):\n%s' % (src_path, error))
+            print('[ERROR, rclone_copy()] %s (src):\n%s' % (src_path, error))
             error_out = error
             dest_exist = False
         else:
             # if src_path exists, copy it
             output, error = rclone_call(src_path, dest_dir, cmd='copy')
-        if not error:
-            # compare two directories, if copied file appears in output
-            # as not found or not matching -> Error
-            print('[INFO] File %s copied. Check if (src) and (dest) really match..' % (dest_file))
-            output, error = rclone_call(src_dir, dest_dir, cmd='check')
-            if 'ERROR : ' + dest_file in error:
-                print('[ERROR] %s (src) and %s (dest) do not match!' % (src_path, dest_path))
-                error_out = 'Copy failed: ' + src_path + ' (src) and ' + \
-                             dest_path + ' (dest) do not match'
-                dest_exist = False
-            else:
+            if not error:       
                 output, error = rclone_call(dest_path, dest_dir,
-                                            cmd='ls', get_output = True)
+                                            cmd='ls', get_output=True)
                 file_size = [ elem for elem in output.split(' ') if elem.isdigit() ][0]
-                print('[INFO] Checked: Successfully copied to %s %s bytes' % (dest_path, file_size))
+                print('[INFO] Copied to %s %s bytes' % (dest_path, file_size))
                 dest_exist = True
+                if verbose:
+                    # compare two directories, if copied file appears in output
+                    # as not found or not matching -> Error
+                    print('[INFO] File %s copied. Check if (src) and (dest) really match..' % (dest_file))
+                    output, error = rclone_call(src_dir, dest_dir, cmd='check')
+                    if 'ERROR : ' + dest_file in error:
+                        print('[ERROR, rclone_copy()] %s (src) and %s (dest) do not match!' 
+                              % (src_path, dest_path))
+                        error_out = 'Copy failed: ' + src_path + ' (src) and ' + \
+                                     dest_path + ' (dest) do not match'
+                        dest_exist = False     
             else:
-                print('[ERROR] %s (src):\n%s' % (dest_path, error))
+                print('[ERROR, rclone_copy()] %s (src):\n%s' % (dest_path, error))
                 error_out = error
                 dest_exist = False
 

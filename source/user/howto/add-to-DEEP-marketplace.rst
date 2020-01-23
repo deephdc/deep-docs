@@ -30,14 +30,14 @@ them upon creation.
 A few MUSTs your code has to comply with in order to ensure compatibility and ease of use:
 
 * your code must be packaged in order to be ``pip`` installable. This should be the default behaviour
-  if you used the :doc:`DEEP cookiecutter template <../overview/cookiecutter-template>` to develop your code.
+  if you used the :doc:`DEEP Data Science template <../overview/cookiecutter-template>` to develop your code.
 * your code must be integrated with the DEEPaaS API.
   Check :ref:`this guide <user/overview/api:Integrate your model with the API>` on how to do this.
 
 The Docker repo
 ^^^^^^^^^^^^^^^
 
-If you used the :doc:`DEEP cookiecutter template <../overview/cookiecutter-template>` to develop your code, a
+If you used the :doc:`DEEP Data Science template <../overview/cookiecutter-template>` to develop your code, a
 template of this repo should have been created alongside the template of your code.
 
 This repo has to contain at least the following files (see the `Generic container <https://github.com/deephdc/DEEP-OC-generic-container>`_
@@ -46,7 +46,7 @@ for a template):
 * ``Dockerfile``
 
     This is the file used to build a container from your application. If you developed your application from the
-    :doc:`DEEP cookiecutter template <../overview/cookiecutter-template>` you should have a draft of this file
+    :doc:`DEEP Data Science template <../overview/cookiecutter-template>` you should have a draft of this file
     (although you might need to add additional code depending on the requirements of your model).
 
     If you are adding a service derived from an existing module, it is good practice to draw inspiration from the
@@ -75,18 +75,18 @@ for a template):
         pip install git+https://github.com/deephdc/schema4apps
         deep-app-schema-validator metadata.json
 
-Making the Pull Request
------------------------
+Making the Pull Request (PR)
+----------------------------
 
 Once your repos are set it's time to make a PR to add your model to the marketplace!
 For this you have to fork the code of the DEEP catalog repo (`deephdc/deep-oc <https://github.com/deephdc/deep-oc>`_)
-and add your Docker repo name at the end of the ``project_apps.yml``.
+and add your Docker repo name at the end of the ``MODULES.yml``.
 
 .. code-block:: console
 
     git clone https://github.com/[my-github-fork]
     cd [my-github-fork]
-    echo '- module: https://github.com/[my-account-name]/DEEP-OC-[my-app-name]' >> project_apps.yml
+    echo '- module: https://github.com/[my-account-name]/DEEP-OC-[my-app-name]' >> MODULES.yml
     git commit -a -m "adding new module to the catalogue"
     git push
 

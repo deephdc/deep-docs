@@ -45,10 +45,6 @@ A set of various HowTo examples.
 
    <h2>Modules</h2>
 
-
-The following sections provide information on how several deep learning modules
-have been developed and integrated with our platform.
-
 .. toctree::
    :maxdepth: 2
 

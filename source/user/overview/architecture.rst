@@ -50,28 +50,26 @@ additional storage support, as well as more advanced features such as data cachi
 in cooperation with the `eXtreme-DataCloud <http://www.extreme-datacloud.eu/>`_ project.
 
 
-The training dashboard
-======================
+The dashboards
+==============
 
-The DEEP dashboard allows users to access computing resources to train their modules. There are several versions of the
-dashboard depending on how you want to interact with it:
+The DEEP dashboards allow users to access computing Testbed resources to deploy, perform inference, and train their modules, also to deploy a more complex instances. There are two available options:
 
-* `Standard dashboard <https://train.deep-hybrid-datacloud.eu/>`_
-    This dashboard allows you to interact with the modules hiding some of the technical parts that most users do not
-    need to worry about. This is the version that most users will want to use.
+* `Training dashboard <https://train.deep-hybrid-datacloud.eu/>`_
+    This dashboard allows you to interact with the modules hosted at the `DEEP Open Catalog <https://marketplace.deep-hybrid-datacloud.eu/>`_. It simplifies the deployment and hides some of the technical parts that most users do not need to worry about. Most of DEEP users would use this dashboard.
 
-* `Advanced dashboard <https://deep-paas.cloud.ba.infn.it/>`_
-    This dashboard allows you to interact with the underling TOSCAs instead of the modules.
+* `General purpose dashboard <https://paas.cloud.cnaf.infn.it/>`_
+    This dashboard allows you to interact with the underling TOSCA templates instead of modules and deploy more complex topologies (e.g. kubernetes cluster) than the modules from the DEEP Open Catalog.
 
-The dashboard allows a user to select:
+The dashboards allow a user to select:
 
-* **The module** to run. She can also run the development container to develop new modules as well a external
+* **The module** to run. A user can also run the development container to develop new modules as well a external
   docker images that are not hosted in the `deephdc organization <https://hub.docker.com/u/deephdc/>`_ (that is from modules not available in the
   Marketplace).
-* **The computing resources** to have available. She can select multiple CPUs and GPUs, the machine RAM as well as optionally choosing
+* **The computing resources** to have available. A user can select multiple CPUs and GPUs, the machine RAM as well as optionally choosing
   the physical site where the machine must be deployed.
 * **The service** to run. Currently, options include running the :doc:`DEEPaaS API <api>` (recommended for fully
   developed modules than only need to be trained) and `JupyterLab <https://jupyterlab.readthedocs.io/en/stable/>`_
   (recommended for developing code as well for cases where access to the bash console is needed).
 
-Once the machine is deployed the user will access a page listing all her current deployments.
+Once the machine is deployed the user will access a page listing all the current deployments.
