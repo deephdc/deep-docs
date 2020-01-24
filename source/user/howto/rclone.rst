@@ -60,7 +60,7 @@ In order to create the configuration file (``rclone.conf``) for rclone::
 
 Then one has two options:
 
-If your know under what user your run your application in the container (e.g. if docker or nvidia-docker is used, most
+If you know under what user your run your application in the container (e.g. if docker or nvidia-docker is used, most
 probably this is 'root') you can mount your host ``rclone.conf`` into the container as::
 
     $ docker run -ti -v $HOSTDIR_WITH_RCLONE_CONF/rclone.conf:/root/.config/rclone/rclone.conf <your-docker-image>
