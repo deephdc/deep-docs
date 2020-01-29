@@ -13,4 +13,5 @@ HowTo's
    Add module to the DEEP marketplace <add-to-DEEP-marketplace>
    Use rclone <rclone>
    Install and configure oidc-agent <oidc-agent>
+   Deploy with CLI via Orchent <deploy-orchent>
    Video demos <video-demos>

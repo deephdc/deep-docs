@@ -122,3 +122,6 @@ progress from `<http://0.0.0.0:6006>`_.
 
 Once the training has finished, you can directly test it by clicking on the ``predict`` method.
 Upload the image your want to classify and check on the predicted classes.
+
+.. image:: ../../_static/deepaas.png
+   :width: 500 px

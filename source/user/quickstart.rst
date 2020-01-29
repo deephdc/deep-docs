@@ -16,23 +16,24 @@ Download module from the marketplace
 Run a module locally
 --------------------
 
-.. _docker-hub-way:
-
-Docker Hub way (easy)
-^^^^^^^^^^^^^^^^^^^^^
-
-.. admonition:: Prerequisites
+.. admonition:: Requirements
 
     * `docker <https://docs.docker.com/install/#supported-platforms>`_
     * If GPU support is needed:
 
-       * you can install `nvidia-docker <https://github.com/nvidia/nvidia-docker/wiki/Installation-(version-2.0)>`_ 
+       * you can install `nvidia-docker <https://github.com/nvidia/nvidia-docker/wiki/Installation-(version-2.0)>`_
          along with docker, OR
        * install `udocker <https://github.com/indigo-dc/udocker/releases>`_ instead of docker.
          `udocker <https://github.com/indigo-dc/udocker/releases>`_ is entirely a user tool, i.e. it can be installed and used without any root priveledges, e.g. in a user
          environment at HPC cluster.
-       * N.B.: docker from version 19.03 has support for NVIDIA GPUs 
+       * N.B.: docker from version 19.03 has support for NVIDIA GPUs
          (see `Release notes <https://docs.docker.com/engine/release-notes/>`_ and `moby/moby#38828 <https://github.com/moby/moby/pull/38828>`_)
+
+
+.. _docker-hub-way:
+
+Docker Hub way (easy)
+^^^^^^^^^^^^^^^^^^^^^
 
 1. **Run the container**
 
@@ -50,7 +51,7 @@ simply run the following:
     With GPU support::
 
         $ nvidia-docker run -ti -p 5000:5000 -p 6006:6006 deephdc/deep-oc-module_of_interest
-   
+
     If docker version is 19.03 or above::
 
         $ docker run -ti --gpus all -p 5000:5000 -p 6006:6006 deephdc/deep-oc-module_of_interest
@@ -74,10 +75,6 @@ For more details on particular models, please, read :doc:`model <modules/index>`
 Github way (pro)
 ^^^^^^^^^^^^^^^^
 
-.. admonition:: Prerequisites
-
-   * `docker <https://docs.docker.com/install/#supported-platforms>`_
-
 Using Github way allows to modify the Dockerfile for including additional packages, for example.
 
 1. Clone the DEEP-OC-module_of_interest github repository::
@@ -96,79 +93,58 @@ Using Github way allows to modify the Dockerfile for including additional packag
 .. _api-integration:
 
 
-Run a module on DEEP Pilot Infrastructure
------------------------------------------
+**Related HowTo's:**
 
-.. admonition:: Prerequisites
-
-    * `DEEP-IAM <https://iam.deep-hybrid-datacloud.eu/>`_ registration
-    * To run it via web interface:
-      access either `Training Dashboard <https://train.deep-hybrid-datacloud.eu/>`_ or `General purpose Dashboard <https://paas.cloud.cnaf.infn.it/>`_  with DEEP-IAM credentials
-    * To run it via command-line interface (CLI):
-
-       * `oidc-agent <https://github.com/indigo-dc/oidc-agent/releases>`_ installed and configured for `DEEP-IAM <https://iam.deep-hybrid-datacloud.eu/>`_ (see :doc:`Configure oidc-agent <howto/oidc-agent>`).
-       * `orchent <https://github.com/indigo-dc/orchent/releases>`_ tool
-
-    If your are going to use `DEEP-Nextcloud <https://nc.deep-hybrid-datacloud.eu>`_ for storing you data you also have to:
-
-    * Register at `DEEP-Nextcloud <https://nc.deep-hybrid-datacloud.eu>`_ , see :ref:`Nextcloud configuration for rclone <user/howto/rclone:Nextcloud configuration for rclone>`
-    * Include `rclone <https://rclone.org/install/>`_ installation in your Dockerfile (see :doc:`rclone howto <howto/rclone>`)
-    * Include call to rclone in your code (see :doc:`rclone howto <howto/rclone>`)
+* :doc:`How to perform inference locally <howto/inference-locally>`
 
 
-In order to submit your job to DEEP Pilot Infrastructure one configures job requirements by means of `TOSCA YAML file <https://github.com/indigo-dc/tosca-templates/tree/master/deep-oc>`_. 
-One can either use a `general template <https://github.com/indigo-dc/tosca-templates/blob/master/deep-oc/deep-oc-mesos-webdav.yml>`_ or create a dedicated one based on the `existing ones <https://github.com/indigo-dc/tosca-templates/tree/master/deep-oc>`_.
+Train a module on DEEP Pilot Infrastructure
+-------------------------------------------
 
-DEEP Dashboards
-^^^^^^^^^^^^^^^^^^^^^^
+Sometimes running a module locally is not enough as one may want to access computing resources (like GPUs) in order
+to train a module more efficiently. Then is the moment to deploy your module on the DEEP Pilot Infrastructure.
+In order to submit your job to DEEP Pilot Infrastructure one configures job requirements by means of `TOSCA YAML file <https://github.com/indigo-dc/tosca-templates/tree/master/deep-oc>`_.
+One can either use a `general template <https://github.com/indigo-dc/tosca-templates/blob/master/deep-oc/deep-oc-mesos-webdav.yml>`_
+or create a dedicated one based on the `existing ones <https://github.com/indigo-dc/tosca-templates/tree/master/deep-oc>`_.
+
+The easiest way to deploy a machine in the DEEP Pilot Infrastructure is using the Dashboard.
 There are two :ref:`Dashboards <user/overview/architecture:The dashboards>` (`Training Dashboard <https://train.deep-hybrid-datacloud.eu/>`_
-and `General purpose Dashboard <https://paas.cloud.cnaf.infn.it/>`_), whcih are an easy way to deploy an application and monitor your deployments via web interface. You login with DEEP-IAM credentials, select either an application of interest (or an application specific template), fill the webform and submit your job. For more details, please, refer to :ref:`The dashboards <user/overview/architecture:The dashboards>` documents.
+and `General purpose Dashboard <https://paas.cloud.cnaf.infn.it/>`_), which are an easy way to deploy an application and
+monitor your deployments via web interface. You login with DEEP-IAM credentials, select either an application of interest
+(or an application specific template), fill the webform and submit your job.
 
 .. image:: ../_static/paas-dashboard.png
    :target: https://paas.cloud.cnaf.infn.it/
 
+You may also deploy an application and control your deployments from the command-line-interface.
 
-CLI interface
-^^^^^^^^^^^^^
+**Related HowTo's:**
 
-You may also deploy an application and control your deployments from the command-line-interface. 
-Similar, you could create your own TOSCA template or download and use general one, `deep-oc-mesos-webdav.yml <https://github.com/indigo-dc/tosca-templates/blob/master/deep-oc/deep-oc-mesos-webdav.yml>`_, from `here <https://github.com/indigo-dc/tosca-templates/tree/master/deep-oc>`_.
-
-The submission is done via
-::
-
-    $ orchent depcreate ./your_module-template.yml '{}'
-
-If you also want to access `DEEP-Nextcloud <https://nc.deep-hybrid-datacloud.eu>`_ from your container via rclone,
-you can create a following bash script for job submission:
-
-.. code-block:: bash
-
-    #!/bin/bash
-
-    orchent depcreate ./your_module-template.yml '{ "rclone_url": "https://nc.deep-hybrid-datacloud.eu/remote.php/webdav/",
-                                                    "rclone_vendor": "nextcloud",
-                                                    "rclone_user": <your_nextcloud_username>
-                                                    "rclone_pass": <your_nextcloud_password> }'
+* :doc:`How to train a model remotely <howto/train-model-remotely>`
+* :doc:`How to deploy with CLI <howto/deploy-orchent>`
 
 
-To check status of your job
-::
-
-    $ orchent depshow <Deployment ID>
-
-
-Integrate your model with the API
+Develop and share your own module
 ---------------------------------
 
-.. image:: ../_static/deepaas.png
-
-The `DEEPaaS API <https://github.com/indigo-dc/DEEPaaS>`_ enables a user friendly interaction with the underlying Deep
-Learning modules and can be used both for training models and doing inference with the services.
-Check the full :doc:`API guide <overview/api>` for the detailed info.
+To develop a model you can start from :doc:`the DEEP DS template <overview/cookiecutter-template>`. To enable an easier
+with your model you can integrate it with the DEEPaaS API. The :doc:`DEEPaaS API <overview/api>`
+enables a user friendly interaction with the underlying Deep Learning modules and can be used both for training models
+and doing inference with the services.
 
 The integration with the API is based on the definition of entrypoints to the model and the creation of standard API methods
 (eg. train, predict, etc).
 An easy way to :ref:`integrate your model with the API <user/overview/api:Integrate your model with the API>` and create
 Dockerfiles for building the Docker image is to use our :doc:`DEEP DS template <overview/cookiecutter-template>` when developing
 your model.
+
+.. image:: ../_static/deepaas.png
+   :width: 500 px
+
+
+**Related HowTo's:**
+
+* :doc:`How to use the DEEP Cookiecutter template for model development <overview/cookiecutter-template>`
+* :doc:`How to develop your own machine learning model <howto/develop-model>`
+* :ref:`How to integrate your model with the DEEPaaS API <user/overview/api:Integrate your model with the API>`
+* :doc:`How to add your model to the DEEP Marketplace <howto/add-to-DEEP-marketplace>`
