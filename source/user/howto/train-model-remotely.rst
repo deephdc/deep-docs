@@ -73,6 +73,8 @@ Remember that the first line should include the name of the remote Nextcloud app
 If you prefer deploying using a more advanced deploying via the command-line-interface check the
 :doc:`deploy with CLI <deploy-orchent>` guide.
 
+See the :doc:`Dashboard guide <../overview/dashboard>` for more details.
+
 
 5. Go to the API, train the model
 ---------------------------------
@@ -88,7 +90,7 @@ progress at ``http://monitor_endpoint``.
 
 In the Dashboard you will be able to view the training history of that deployment:
 
-.. image:: ../../_static/training-history.png
+.. image:: ../../_static/dashboard-history.png
 
 6. Testing the training
 -----------------------

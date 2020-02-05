@@ -27,8 +27,7 @@ This creates two project directories:
 	~/DEEP-OC-your_project
 	~/your_project
 
-Go to ``github.com/your_account`` and
-create corresponding repositories: ``DEEP-OC-your_project`` and ``your_project``
+Go to ``github.com/your_account`` and create corresponding repositories: ``DEEP-OC-your_project`` and ``your_project``
 Do ``git push origin --all`` in both created directories. This puts your initial code to ``github``.
 
 
@@ -91,7 +90,7 @@ available technological backgrounds (e.g. high-performance supports for data pro
 
 This step deals with the most interesting phase in Machine Learning i.e. modelling.
 The most important thing is located in ``deep_api.py`` containing DEEP entry point implementations.
-DEEP entry points are defined using :ref:`API methods <user/overview/api:Methods>`.
+DEEP entry points are defined using :ref:`API methods <user/overview/api:1. Define the API methods for your model>`.
 You don't need to implement all of them, just the ones you need.
 ::
 
@@ -103,9 +102,9 @@ You don't need to implement all of them, just the ones you need.
 ================
 
 Code testing, including unit testing, is a necessary part of modern application development.
-If your project is built based on :ref:`Data Science template <user/overview/cookiecutter-template:DEEP Data Science template>`, 
-you get an example on how to test ``get_metadata()`` method and can certainly add more tests. 
-Also ``test-requirements.txt`` file requests installation of two python testing tools: 
+If your project is built based on :ref:`Data Science template <user/overview/cookiecutter-template:DEEP Data Science template>`,
+you get an example on how to test ``get_metadata()`` method and can certainly add more tests.
+Also ``test-requirements.txt`` file requests installation of two python testing tools:
 `stestr <https://pypi.org/project/stestr>`_ and `pytest <https://docs.pytest.org/en/latest>`_.
 ::
 
@@ -153,7 +152,7 @@ The simplest Dockerfile could look like this::
 	         wget \
 	         python3-setuptools \
 	         python3-pip \
-	         python3-wheel && \ 
+	         python3-wheel && \
 	    apt-get clean && \
 	    rm -rf /var/lib/apt/lists/* && \
 	    rm -rf /root/.cache/pip/* && \
@@ -191,7 +190,7 @@ The simplest Dockerfile could look like this::
 	CMD ["deepaas-run", "--openwhisk-detect", "--listen-ip", "0.0.0.0", "--listen-port", "5000"]
 
 
-For more details on rclone or on DEEPaas API you can check :doc:`here <rclone>` and `here <https://github.com/indigo-dc/DEEPaaS>`__ respectively.
+Check the :doc:`rclone guide <rclone>` and :doc:`DEEPaaS guide <../overview/api>` for more details.
 
 If you want to see examples of more complex Dockerfiles, you can check various applications `here <https://github.com/deephdc?utf8=%E2%9C%93&q=DEEP-OC&type=&language=>`__ (look for DEEP-OC-xxx repositories), e.g. `this Dockerfile <https://github.com/deephdc/DEEP-OC-image-classification-tf/blob/master/Dockerfile>`_.
 

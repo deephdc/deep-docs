@@ -1,10 +1,19 @@
 Modules
 =======
 
-All DEEP Open Catalog modules are found at the `DEEP Open Catalog <https://marketplace.deep-hybrid-datacloud.eu/>`__, the source code is hosted in the ``deephdc`` organization at `github.com <https://github.com/deephdc>`__, corresponding Docker images are located in `DockerHub <https://hub.docker.com/u/deephdc/>`_:
+All  modules are found at the `DEEP Marketplace <https://marketplace.deep-hybrid-datacloud.eu/>`_, the source code is
+hosted under `Github's deephdc <https://github.com/deephdc>`_ organization and the corresponding Docker images are
+hosted under `DockerHub's deephdc <https://hub.docker.com/u/deephdc/>`_ organization.
 
-DEEP Open Catalog: https://marketplace.deep-hybrid-datacloud.eu/
+Github repositories follow the following convention:
 
-GitHub organization: https://github.com/deephdc
+* ``deephdc/some_module``: source code of the module
+* ``deephdc/DEEP-OC-some_module``: Dockerfiles and metadata of that module.
 
-DockerHub repositories: https://hub.docker.com/u/deephdc/
+Docker images have usually tags depending on whether they are using Github's ``master`` or ``test`` and
+whether they use ``cpu`` or ``gpu``. Tags are usually:
+
+* ``latest`` or ``cpu``: master + cpu
+* ``gpu``: master + gpu
+* ``cpu-test``: test + cpu
+* ``gpu-test``: test + gpu

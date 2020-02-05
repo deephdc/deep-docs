@@ -18,7 +18,7 @@ Dashboard).
 Prepare your TOSCA file (optional)
 ----------------------------------
 
-The orchent tool needs TOSCA YAML file to configure and establish the deployment. One can generate an application specific TOSCA template or use a general one, `deep-oc-mesos-webdav.yml <https://github.com/indigo-dc/tosca-templates/blob/master/deep-oc/deep-oc-mesos-webdav.yml>`__, while providing necessary inputs in the bash script (see next subsecion).
+The orchent tool needs TOSCA YAML file to configure and establish the deployment. One can generate an application specific TOSCA template or use a general one, `deep-oc-marathon-webdav.yml <https://github.com/indigo-dc/tosca-templates/blob/master/deep-oc/deep-oc-marathon-webdav.yml>`__, while providing necessary inputs in the bash script (see next subsecion).
 
 If you create your own TOSCA YAML file, the following sections should be modified (TOSCA experts may modify the rest of the template to their will):
 
@@ -53,7 +53,7 @@ You can use the general template, `deep-oc-mesos-webdav.yml <https://github.com/
 
     #!/bin/bash
 
-    orchent depcreate ./deep-oc-mesos-webdav.yml '{ "docker_image": "deephdc/deep-oc-image-classification-tf"
+    orchent depcreate ./deep-oc-marathon-webdav.yml '{ "docker_image": "deephdc/deep-oc-image-classification-tf"
                                                     "rclone_url": "https://nc.deep-hybrid-datacloud.eu/remote.php/webdav/",
                                                     "rclone_vendor": "nextcloud",
                                                     "rclone_conf": "/srv/image-classification-tf/rclone.conf"

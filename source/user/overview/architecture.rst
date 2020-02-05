@@ -53,23 +53,19 @@ in cooperation with the `eXtreme-DataCloud <http://www.extreme-datacloud.eu/>`_ 
 The dashboards
 ==============
 
-The DEEP dashboards allow users to access computing Testbed resources to deploy, perform inference, and train their modules, also to deploy a more complex instances. There are two available options:
+The DEEP dashboard allow users to access computing resources to deploy, perform inference, and train their modules.
+To be able to access the Dashboard you need `IAM credentials <https://iam.deep-hybrid-datacloud.eu/>`_.
+There are two versions of the Dashboard:
 
 * `Training dashboard <https://train.deep-hybrid-datacloud.eu/>`_
-    This dashboard allows you to interact with the modules hosted at the `DEEP Open Catalog <https://marketplace.deep-hybrid-datacloud.eu/>`_. It simplifies the deployment and hides some of the technical parts that most users do not need to worry about. Most of DEEP users would use this dashboard.
+    This dashboard allows you to interact with the modules hosted at the `DEEP Open Catalog <https://marketplace.deep-hybrid-datacloud.eu/>`_,
+    as well as deploying external Docker images hosted in Dockerhub. It simplifies the deployment and hides some of
+    the technical parts that most users do not need to worry about. *Most of DEEP users would use this dashboard*.
 
 * `General purpose dashboard <https://paas.cloud.cnaf.infn.it/>`_
-    This dashboard allows you to interact with the underling TOSCA templates instead of modules and deploy more complex topologies (e.g. kubernetes cluster) than the modules from the DEEP Open Catalog.
+    This dashboard allows you to interact with the underling `TOSCA templates <https://github.com/indigo-dc/tosca-templates/tree/master/deep-oc>`_
+    (which configure the job requirements) instead of modules and deploy more complex topologies (e.g. a kubernetes cluster).
+    Modules can either use a `general template <https://github.com/indigo-dc/tosca-templates/blob/master/deep-oc/deep-oc-marathon-webdav.yml>`_
+    or create a dedicated one based on the existing templates.
 
-The dashboards allow a user to select:
-
-* **The module** to run. A user can also run the development container to develop new modules as well a external
-  docker images that are not hosted in the `deephdc organization <https://hub.docker.com/u/deephdc/>`_ (that is from modules not available in the
-  Marketplace).
-* **The computing resources** to have available. A user can select multiple CPUs and GPUs, the machine RAM as well as optionally choosing
-  the physical site where the machine must be deployed.
-* **The service** to run. Currently, options include running the :doc:`DEEPaaS API <api>` (recommended for fully
-  developed modules than only need to be trained) and `JupyterLab <https://jupyterlab.readthedocs.io/en/stable/>`_
-  (recommended for developing code as well for cases where access to the bash console is needed).
-
-Once the machine is deployed the user will access a page listing all the current deployments.
+For more information take a look on the full :doc:`Dashboard guide <api>`.

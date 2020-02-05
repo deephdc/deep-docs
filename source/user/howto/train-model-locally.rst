@@ -31,6 +31,31 @@ docker image from DockerHub:
 
     $ docker pull deephdc/deep-oc-image-classification-tf
 
+Docker images have usually tags depending on whether they are using ``master`` or ``test`` and whether they use
+``cpu`` or ``gpu``. Tags are usually:
+
+* ``latest`` or ``cpu``: master + cpu
+* ``gpu``: master + gpu
+* ``cpu-test``: test + cpu
+* ``gpu-test``: test + gpu
+
+So if you wanted to use gpu and the test branch you could run:
+
+.. code-block:: console
+
+    $ docker pull deephdc/deep-oc-image-classification-tf:gpu-test
+
+Instead of pulling from Dockerhub you can choose to build the image yourself:
+
+.. code-block:: console
+
+    $ git clone https://github.com/deephdc/deep-oc-image-classification-tf
+    $ cd deep-oc-image-classification-tf
+    $ docker build -t deephdc/deep-oc-image-classification-tf .
+
+.. Tip:: It's usually helpful to read the README in the source code of the module, in this case located at
+   https://github.com/deephdc/image-classification-tf.
+
 
 2. Store your data
 ------------------

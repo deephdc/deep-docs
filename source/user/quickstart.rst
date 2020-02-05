@@ -4,13 +4,9 @@
 Quickstart Guide
 =================
 
-
-Download module from the marketplace
-------------------------------------
-
-#. go to `DEEP Open Catalog <https://marketplace.deep-hybrid-datacloud.eu/>`_
-#. `Browse <https://marketplace.deep-hybrid-datacloud.eu/#model-list>`_ available modules
-#. Find the module and get it either from `Docker Hub <https://hub.docker.com/u/deephdc>`_ (easy) or `Github <https://github.com/topics/deep-hybrid-datacloud>`_ (pro)
+The first step is to have in mind what module you want to interact with. For that go to the `DEEP Marketplace <https://marketplace.deep-hybrid-datacloud.eu/>`_
+and browse the `available modules <https://marketplace.deep-hybrid-datacloud.eu/#model-list>`_. Once you are ready let's
+explore what we can do with it!
 
 
 Run a module locally
@@ -24,21 +20,17 @@ Run a module locally
        * you can install `nvidia-docker <https://github.com/nvidia/nvidia-docker/wiki/Installation-(version-2.0)>`_
          along with docker, OR
        * install `udocker <https://github.com/indigo-dc/udocker/releases>`_ instead of docker.
-         `udocker <https://github.com/indigo-dc/udocker/releases>`_ is entirely a user tool, i.e. it can be installed and used without any root priveledges, e.g. in a user
-         environment at HPC cluster.
-       * N.B.: docker from version 19.03 has support for NVIDIA GPUs
-         (see `Release notes <https://docs.docker.com/engine/release-notes/>`_ and `moby/moby#38828 <https://github.com/moby/moby/pull/38828>`_)
+         `udocker <https://github.com/indigo-dc/udocker/releases>`_ is entirely a user tool, i.e. it can be installed
+         and used without any root privileges, e.g. in a user environment at HPC cluster.
+
+     **N.B.:** Starting from version 19.03, docker supports NVIDIA GPUs
+     (see `Release notes <https://docs.docker.com/engine/release-notes/>`_ and `moby/moby#38828 <https://github.com/moby/moby/pull/38828>`_)
 
 
-.. _docker-hub-way:
+Run the container
+^^^^^^^^^^^^^^^^^
 
-Docker Hub way (easy)
-^^^^^^^^^^^^^^^^^^^^^
-
-1. **Run the container**
-
-To run the Docker container directly from Docker Hub and start using the `API <https://github.com/indigo-dc/DEEPaaS>`_
-simply run the following:
+Run the Docker container directly from Docker Hub:
 
     Via docker command::
 
@@ -63,60 +55,31 @@ simply run the following:
         $ udocker setup --nvidia module_of_interest
         $ udocker run -p 5000:5000 -p 6006:6006 module_of_interest
 
-2. **Access the module via API**
+Access the module via API
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To access the downloaded module via `API <https://github.com/indigo-dc/DEEPaaS>`_, direct your web browser to http://127.0.0.1:5000.
-If you are training a model, you can go to http://127.0.0.1:6006 to monitor the training progress (if such monitoring is
+To access the downloaded module via :doc:`the DEEPaaS API <overview/api>`, direct your web browser to http://0.0.0.0:5000/ui.
+If you are training a model, you can go to http://0.0.0.0:6006 to monitor the training progress (if such monitoring is
 available for the model).
 
-For more details on particular models, please, read :doc:`model <modules/index>` documentation.
-
-
-Github way (pro)
-^^^^^^^^^^^^^^^^
-
-Using Github way allows to modify the Dockerfile for including additional packages, for example.
-
-1. Clone the DEEP-OC-module_of_interest github repository::
-
-    $ git clone https://github.com/deephdc/DEEP-OC-module_of_interest
-
-2. Build the container::
-
-    $ cd DEEP-OC-module_of_interest
-    $ docker build -t deephdc/deep-oc-module_of_interest .
-
-3. Run the container and access the module via API as described :ref:`above <docker-hub-way>`
-
-.. note:: One can also clone the source code of the module, usually located in the 'module_of_interest' repository.
-
-.. _api-integration:
-
+For more details on particular models, please read :doc:`the module's <modules/index>` documentation.
 
 **Related HowTo's:**
 
 * :doc:`How to perform inference locally <howto/inference-locally>`
+* :doc:`How to perform training locally <howto/train-model-locally>`
 
 
 Train a module on DEEP Pilot Infrastructure
 -------------------------------------------
 
 Sometimes running a module locally is not enough as one may want to access computing resources (like GPUs) in order
-to train a module more efficiently. Then is the moment to deploy your module on the DEEP Pilot Infrastructure.
-In order to submit your job to DEEP Pilot Infrastructure one configures job requirements by means of `TOSCA YAML file <https://github.com/indigo-dc/tosca-templates/tree/master/deep-oc>`_.
-One can either use a `general template <https://github.com/indigo-dc/tosca-templates/blob/master/deep-oc/deep-oc-mesos-webdav.yml>`_
-or create a dedicated one based on the `existing ones <https://github.com/indigo-dc/tosca-templates/tree/master/deep-oc>`_.
+to train a module faster. Then is the moment to deploy your module on the DEEP Pilot Infrastructure.
+For that you will need to use the :doc:`DEEP Dashboard <overview/dashboard>`. With it you will be able to select
+a module you want to run and the computing resources you need. Once you have your machine deployed you will be able
+to train the module and view the training history:
 
-The easiest way to deploy a machine in the DEEP Pilot Infrastructure is using the Dashboard.
-There are two :ref:`Dashboards <user/overview/architecture:The dashboards>` (`Training Dashboard <https://train.deep-hybrid-datacloud.eu/>`_
-and `General purpose Dashboard <https://paas.cloud.cnaf.infn.it/>`_), which are an easy way to deploy an application and
-monitor your deployments via web interface. You login with DEEP-IAM credentials, select either an application of interest
-(or an application specific template), fill the webform and submit your job.
-
-.. image:: ../_static/paas-dashboard.png
-   :target: https://paas.cloud.cnaf.infn.it/
-
-You may also deploy an application and control your deployments from the command-line-interface.
+.. image:: ../_static/dashboard-history.png
 
 **Related HowTo's:**
 

@@ -12,16 +12,25 @@ Integrate your model with the API
 
 To make your Deep Learning model compatible with the DEEPaaS API you have to:
 
-1. **Define the API methods for your model**
+1. Define the API methods for your model
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Create a Python file (named for example ``deep_api.py``) inside your package. In this file you can define any of the
-:ref:`API methods <user/overview/api:Methods>`. You don't need to define all the methods, just the ones you need.
+`API methods <https://docs.deep-hybrid-datacloud.eu/projects/deepaas/en/stable/api.html#v2-models>`_.
+You don't need to define all the methods, just the ones you need.
 Every other method will return a ``NotImplementError`` when  queried from the API.
+For example:
+
+* **Enable prediction**: implement ``get_predict_args`` and ``predict``.
+* **Enable training**: implement ``get_train_args`` and ``train``.
+* **Enable model weights preloading**: implement ``warm``.
+* **Enable model info**: implement ``get_metadata``.
 
 Here is `example <https://github.com/indigo-dc/image-classification-tf/blob/master/imgclas/api.py>`__ of the
-implementation of the methods
+implementation of the methods.
 
-2. **Define the entrypoints to your model**
+2. Define the entrypoints to your model
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You must define the entrypoints pointing to this file in the ``setup.cfg`` as following:
 ::
@@ -39,8 +48,15 @@ definition in the ``setup.cfg`` file.
     pointing to it. This path can of course be modified.
 
 
-Methods
--------
+Running the API
+---------------
 
-Please check the `official DEEPaaS documentation <https://docs.deep-hybrid-datacloud.eu/projects/deepaas/en/stable/>`_
-for an updated documentation on the available methods.
+To start the API run:
+::
+
+    deepaas-run --listen-ip 0.0.0.0
+
+and go to http://0.0.0.0:5000/ui. You will see a nice UI with all the methods:
+
+.. image:: ../../_static/deepaas.png
+   :width: 500 px
