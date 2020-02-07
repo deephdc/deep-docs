@@ -8,21 +8,23 @@ How to use rclone
 
 Installation of rclone in Docker image (pro)
 --------------------------------------------
+
 All applications in the `DEEP Open Catalog <https://deephdc.github.io/>`_ are packed in a Docker image and have
 `rclone <https://rclone.org/>`_ tool installed by default. If you want to create a Docker containing your own application, you should install rclone
 in the container to be able to access the data stored remotely. The following lines are an example of what has to be
 added in the Dockerfile when installation is based on Ubuntu. For other Linux flavors, please, refer to
 the `rclone official site  <https://rclone.org/downloads/>`_  ::
 
-	# install rclone
+	# Install rclone
 	RUN wget https://downloads.rclone.org/rclone-current-linux-amd64.deb && \
-   	dpkg -i rclone-current-linux-amd64.deb && \
-   	apt install -f && \
-   	rm rclone-current-linux-amd64.deb && \
-    	apt-get clean && \
-    	rm -rf /var/lib/apt/lists/* && \
-    	rm -rf /root/.cache/pip/* && \
-    	rm -rf /tmp/*
+	    dpkg -i rclone-current-linux-amd64.deb && \
+	    apt install -f && \
+	    mkdir /srv/.rclone/ && touch /srv/.rclone/rclone.conf && \
+	    rm rclone-current-linux-amd64.deb && \
+	    apt-get clean && \
+	    rm -rf /var/lib/apt/lists/* && \
+	    rm -rf /root/.cache/pip/* && \
+	    rm -rf /tmp/*
 
 .. tip::
     When developing an application with the :ref:`Data Science template <user/overview/cookiecutter-template:DEEP Data Science template>`, 
@@ -30,6 +32,7 @@ the `rclone official site  <https://rclone.org/downloads/>`_  ::
 
 Nextcloud configuration for rclone
 ----------------------------------
+
 .. image:: ../../_static/nc-access.png
 
 After login into `DEEP-Nextcloud  <https://nc.deep-hybrid-datacloud.eu/login>`_ with your DEEP-IAM credentials, go to
@@ -38,8 +41,8 @@ application and click on **Create new app password**. That user and password is 
 config file (``rclone.conf``) to run locally or as ``rclone_user`` and ``rclone_password`` either in the Dashboard webform or in the orchent script to generate the deployment when running remotely (see :doc:`here <train-model-locally>` and :doc:`here <train-model-remotely>`).
 
 
-Creating rclone.conf
---------------------
+Creating rclone.conf for your local host
+----------------------------------------
 
 You can install rclone at your host or run Docker image with rclone installed (see installation steps of rclone above).
 In order to create the configuration file (``rclone.conf``) for rclone::
@@ -80,10 +83,12 @@ One has, however, to call rclone with ``--config`` option to point to the ``rclo
 
     $ rclone --config /rclone/rclone.conf ls deep-nextcloud:/Datasets/dogs_breed/models
 
-Example code on usage of rclone from python
--------------------------------------------
 
-**Simple example**
+Example code on usage of rclone from python
+--------------------------------------------
+
+Simple example
+==============
 
 A simple call of rclone from python is via ``subprocess.Popen()``
 
@@ -91,13 +96,18 @@ A simple call of rclone from python is via ``subprocess.Popen()``
 
     import subprocess
 
-    # from deep-nextcloud into the container
-    command = (['rclone', 'copy', 'deep-nextcloud:/Datasets/dogs_breed/data', '/srv/dogs_breed_det/data'])
+    # from "rshare" remote storage into the container
+    command = (['rclone', 'copy', 'rshare:/Datasets/dogs_breed/data', '/srv/dogs_breed_det/data'])
 
     result = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     output, error = result.communicate()
 
-**Advanced examples**
+.. important::
+    When deploying a module on the DEEP Pilot testbed, you pass rclone parameters e.g. ``rclone_user`` and ``rclone_password`` during the deployment. 
+    If you use our `general template <https://github.com/indigo-dc/tosca-templates/blob/master/deep-oc/deep-oc-marathon-webdav.yml>`_ , the name of the remote storage has to be ``rshare`` as in the example above (``rshare:/Datasets/dogs_breed/data``). If you create your own TOSCA template, you need to pay attention on matching these names in your code and in the template (for example, see environment parameters in the `general template <https://github.com/indigo-dc/tosca-templates/blob/master/deep-oc/deep-oc-marathon-webdav.yml>`_ like RCLONE_CONFIG_RSHARE_USER etc).
+
+Advanced examples
+=================
 
 More advanced usage includes calling rclone with various options (ls, copy, check) in order to check file existence at
 Source, check if after copying two versions match exactly.

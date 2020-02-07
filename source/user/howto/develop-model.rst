@@ -6,7 +6,7 @@ Develop a model using DEEP Data Science template
 
 
 1. Prepare DEEP Data Science environment
-----------------------------------------
+========================================
 
 
 Install cookiecutter (if not yet done)
@@ -32,7 +32,7 @@ Do ``git push origin --all`` in both created directories. This puts your initial
 
 
 2. Improve the initial code of the model
-----------------------------------------
+========================================
 
 The structure of ``your_project`` created using
 :ref:`Data Science template <user/overview/cookiecutter-template:DEEP Data Science template>` contains
@@ -50,7 +50,7 @@ the following core items needed to integrate your Machine learning model with DE
 
 
 2.1 Installing project requirements
-=======================================
+-----------------------------------
 
 Modify ``requirements.txt`` according to your needs (e.g. add more libraries) then run
 ::
@@ -62,7 +62,7 @@ accordingly into the directory structure.
 
 
 2.2 Make datasets
-=================
+-----------------
 
 Source files in this directory aim to manipulate raw datasets.
 The output of this step is also raw data, but cleaned and/or pre-formatted.
@@ -73,7 +73,7 @@ The output of this step is also raw data, but cleaned and/or pre-formatted.
 
 
 2.3 Build features
-===================
+------------------
 
 This step takes the output from the previous step "2.2 Make datasets" and
 creates train, test as well as validation Machine Learning data from raw but cleaned and pre-formatted data.
@@ -86,7 +86,7 @@ available technological backgrounds (e.g. high-performance supports for data pro
 
 
 2.4 Develop models
-==================
+------------------
 
 This step deals with the most interesting phase in Machine Learning i.e. modelling.
 The most important thing is located in ``deep_api.py`` containing DEEP entry point implementations.
@@ -99,7 +99,7 @@ You don't need to implement all of them, just the ones you need.
 
 
 2.5 Code testing
-================
+----------------
 
 Code testing, including unit testing, is a necessary part of modern application development.
 If your project is built based on :ref:`Data Science template <user/overview/cookiecutter-template:DEEP Data Science template>`,
@@ -112,8 +112,22 @@ Also ``test-requirements.txt`` file requests installation of two python testing 
 	{{repo_name}}/tests/
 
 
-3. Create a python installable package for your model
-=====================================================
+3. Connect with a remote storage
+================================
+
+If you expect your model to use remotely hosted data, you can upload the data in `DEEP-Nextcloud <https://nc.deep-hybrid-datacloud.eu>`__ and 
+later trigger copying of data to your container using :doc:`rclone <rclone>` tool. The tool requires ``rclone.conf`` file to exist, even if it is an empty one. In the :doc:`"How to use rclone" <rclone>` document you find an extended information and :ref:`examples on how to use it from python<user/howto/rclone:Example code on usage of rclone from python>`.
+
+.. tip::
+    When developing an application with the :ref:`Data Science template <user/overview/cookiecutter-template:DEEP Data Science template>`,
+    the Dockerfile already includes creation of an empty rclone.conf
+
+.. important::
+    **DO NOT** save the rclone credentials in the **CONTAINER**
+
+4. Create a python installable package 
+=======================================
+
 To create a python installable package the initial directory structure should look something like this::
 
 	your_model_package/
@@ -126,15 +140,16 @@ To create a python installable package the initial directory structure should lo
                 README
 
 * The top level directory will be the root of your repo, e.g. your_model_package.git. The subdir, also called your_model_package, is the actual python module.
-* ``setup.py`` is the build script for setuptools. It tells setuptools about your package (such as the name and version) as well as which code files to include. You can find an example of a setup.py file `here <https://github.com/deephdc/image-classification-tf/blob/master/setup.py>`__. For the official documentation on how to write your setup script, you can go `here <https://docs.python.org/2/distutils/setupscript.html>`__.
-* ``setup.cfg`` can be used to get some information from the user, or from the user's system in order to proceed. Configuration files also let you providedefault values for any command option. An example of a setup.cfg file can be found `here <https://github.com/deephdc/image-classification-tf/blob/master/setup.cfg>`__. The official python documentation on the setup configuration file can be found `here <https://docs.python.org/3/distutils/configfile.html>`__.
-* ``requirements.txt`` contains any external requirement needed to run the package. You can see an example of a requirements file `here <https://github.com/deephdc/image-classification-tf/blob/master/requirements.txt>`__. An example of a requirements file can be found `here <https://github.com/deephdc/image-classification-tf/blob/master/requirements.txt>`_.
+* ``setup.py`` is the build script for setuptools. It tells setuptools about your package (such as the name and version) as well as which code files to include. You can find an example of a setup.py file `here <https://github.com/deephdc/image-classification-tf/blob/master/setup.py>`__. For the official documentation on how to write your setup script, you can go `here <https://docs.python.org/3.6/distutils/setupscript.html>`__.
+* ``setup.cfg`` can be used to get some information from the user, or from the user's system in order to proceed. Configuration files also let you providedefault values for any command option. An example of a setup.cfg file can be found `here <https://github.com/deephdc/image-classification-tf/blob/master/setup.cfg>`__. The official python documentation on the setup configuration file can be found `here <https://docs.python.org/3.6/distutils/configfile.html>`__.
+* ``requirements.txt`` contains any external requirement needed to run the package. An example of a requirements file can be found `here <https://github.com/deephdc/image-classification-tf/blob/master/requirements.txt>`_.
 * The ``README`` file will contain information on how to run the package or anything else that you may find useful for someone running your package.
 * ``LICENSE`` It’s important for every package uploaded to the Python Package Index to include a license. This tells users who install your package the terms under which they can use your package. For help choosing a license, go `here <https://choosealicense.com/>`__.
 
 To see how to install your model package, check the Dockerfile in the next section.
 
-4. Create a docker container for your model
+
+5. Create a docker container for your model
 ===========================================
 
 Once your model is well in place, you can encapsulate it by creating a docker image. For this you need to modify the Dockerfile created during execution of the :ref:`Data Science template <user/overview/cookiecutter-template:DEEP Data Science template>`. The Dockerfile is pre-populated with the information you provided while running the cookiecutter template. You may need, however, add packages you need installed to make your project run.
@@ -167,6 +182,7 @@ The simplest Dockerfile could look like this::
 	RUN wget https://downloads.rclone.org/rclone-current-linux-amd64.deb && \
 	    dpkg -i rclone-current-linux-amd64.deb && \
 	    apt install -f && \
+	    mkdir /srv/.rclone/ && touch /srv/.rclone/rclone.conf && \
 	    rm rclone-current-linux-amd64.deb && \
 	    apt-get clean && \
 	    rm -rf /var/lib/apt/lists/* && \

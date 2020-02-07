@@ -30,7 +30,7 @@ If you create your own TOSCA YAML file, the following sections should be modifie
       required: yes
       default: deephdc/deep-oc-image-classification-tf
 
-* Location of the .rclone.conf (this file can be empty, but should be at the indicated location)::
+* Location of the ``rclone.conf`` (this file can be empty, but should be at the indicated location)::
 
    rclone_conf:
       type: string

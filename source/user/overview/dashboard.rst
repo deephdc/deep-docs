@@ -1,5 +1,5 @@
 DEEP Dashboard
---------------
+==============
 
 The DEEP dashboard allow users to access computing resources to deploy, perform inference, and train their modules.
 To be able to access the Dashboard you need `IAM credentials <https://iam.deep-hybrid-datacloud.eu/>`_.
@@ -14,7 +14,7 @@ There are two versions of the Dashboard:
     This dashboard allows you to interact with the underling `TOSCA templates <https://github.com/indigo-dc/tosca-templates/tree/master/deep-oc>`_
     (which configure the job requirements) instead of modules and deploy more complex topologies (e.g. a kubernetes cluster).
     Modules can either use a `general template <https://github.com/indigo-dc/tosca-templates/blob/master/deep-oc/deep-oc-marathon-webdav.yml>`_
-    or create a dedicated one based on the existing templates.
+    or create a dedicated one based on the `existing templates <https://github.com/indigo-dc/tosca-templates/tree/master/deep-oc>`__.
 
 We will present the features of the Training Dashboard as it is the one that most users will interact with.
 

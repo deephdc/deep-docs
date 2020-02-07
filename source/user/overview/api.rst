@@ -26,8 +26,8 @@ For example:
 * **Enable model weights preloading**: implement ``warm``.
 * **Enable model info**: implement ``get_metadata``.
 
-Here is `example <https://github.com/indigo-dc/image-classification-tf/blob/master/imgclas/api.py>`__ of the
-implementation of the methods.
+Here is `an example of the implementation <https://github.com/indigo-dc/image-classification-tf/blob/master/imgclas/api.py>`__  
+of the methods. You can also browse our `github repository <https://github.com/deephdc>`__ for more examples.
 
 2. Define the entrypoints to your model
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

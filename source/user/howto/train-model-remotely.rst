@@ -17,7 +17,7 @@ This is a step by step guide on how to train a general model from the `DEEP Open
     For this example we are going to use `DEEP-Nextcloud <https://nc.deep-hybrid-datacloud.eu>`__ for storing data. This means you also have to:
 
         * Register at `DEEP-Nextcloud <https://nc.deep-hybrid-datacloud.eu>`__ (i.e. login with your DEEP-IAM credentials)
-        * :doc:`Configure Nextcloud for rclone <rclone>`. This will give you ``<your_nextcloud_username>`` and
+        * :ref:`Obtain Nextcloud security parameters for rclone <user/howto/rclone:Nextcloud configuration for rclone>`. This will provide you with ``<your_nextcloud_username>`` and
           ``<your_nextcloud_password>``.
 
 
@@ -44,29 +44,13 @@ We login to DEEP-Nextcloud with DEEP-IAM credentials and upload there the files 
 The folder structure and their content will of course depend on the model to be used. This structure is just an example in order to complete the workflow for this tutorial.
 
 
-3. The rclone configuration file
---------------------------------
-
-For running the model remotely you need to include in your git repository either an empty or 'minimal' rclone.conf file, ensure that rclone_confg in the TOSCA file (section ) properly points to this file. The minimal rclone.conf content would correspond to something like::
-
-	[rshare]
-	type = webdav
-	config_automatic = yes
-
-Remember that the first line should include the name of the remote Nextcloud application (**rshare** for this example).
-
-.. tip::
-    When developing an application with the :ref:`Data Science template <user/overview/cookiecutter-template:DEEP Data Science template>`,
-    the Dockerfile already includes creation of an empty rclone.conf
-
-
-4. Deploy with the Training Dashboard
+3. Deploy with the Training Dashboard
 -------------------------------------
 
 * Go to the `Training Dashboard <https://train.deep-hybrid-datacloud.eu/>`_
 * Login with DEEP-IAM credentials
 * Find the **Train an image classifier** module, click **Train module**
-* Fill the webform, e.g. provide <your_nextcloud_username> for ``rclone_user`` and <your_nextcloud_password> for ``rclone_password``
+* Fill the webform, e.g. provide <your_nextcloud_username> for ``rclone_user`` and <your_nextcloud_password> for ``rclone_password`` (see :ref:`Nextcloud configuration for rclone <user/howto/rclone:Nextcloud configuration for rclone>`)
 * Click **Submit**
 * Look for **Access** and choose **DEEPaaS**, you will be redirected to ``http://deepaas_endpoint``
 
@@ -76,7 +60,7 @@ If you prefer deploying using a more advanced deploying via the command-line-int
 See the :doc:`Dashboard guide <../overview/dashboard>` for more details.
 
 
-5. Go to the API, train the model
+4. Go to the API, train the model
 ---------------------------------
 
 Now comes the fun!
@@ -92,7 +76,7 @@ In the Dashboard you will be able to view the training history of that deploymen
 
 .. image:: ../../_static/dashboard-history.png
 
-6. Testing the training
+5. Testing the training
 -----------------------
 
 Once the training has finished, you can directly test it by clicking on the ``predict`` POST method. There you can either upload the image your want to classify or give an URL to it.

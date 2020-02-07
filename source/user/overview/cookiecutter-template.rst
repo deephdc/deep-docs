@@ -3,7 +3,7 @@
 DEEP Data Science template
 ==========================
 
-To simplify development and as an easy way integrate your model with the :doc:`DEEPaaS API <api>`,
+To simplify the development and in an easy way integrate your model with the :doc:`DEEPaaS API <api>`,
 a project template, `cookiecutter-data-science <https://github.com/indigo-dc/cookiecutter-data-science>`__ [*]_, is provided in our GitHub.
 
 In order to create your project based on the template, one has to `install <https://cookiecutter.readthedocs.io/en/latest/installation.html>`_ and then run
