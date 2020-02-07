@@ -1,5 +1,6 @@
+***************
 DEEP Dashboard
-==============
+***************
 
 The DEEP dashboard allow users to access computing resources to deploy, perform inference, and train their modules.
 To be able to access the Dashboard you need `IAM credentials <https://iam.deep-hybrid-datacloud.eu/>`_.
