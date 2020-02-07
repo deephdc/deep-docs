@@ -1,13 +1,13 @@
 .. include:: <isonum.txt>
 .. highlight:: console
 
-
+******************
 How to use rclone
-=================
+******************
 
 
-Installation of rclone in Docker image (pro)
---------------------------------------------
+Installation of rclone in Docker image
+======================================
 
 All applications in the `DEEP Open Catalog <https://deephdc.github.io/>`_ are packed in a Docker image and have
 `rclone <https://rclone.org/>`_ tool installed by default. If you want to create a Docker containing your own application, you should install rclone
@@ -31,7 +31,7 @@ the `rclone official site  <https://rclone.org/downloads/>`_  ::
     the Dockerfile already includes installation of rclone.
 
 Nextcloud configuration for rclone
-----------------------------------
+==================================
 
 .. image:: ../../_static/nc-access.png
 
@@ -42,7 +42,7 @@ config file (``rclone.conf``) to run locally or as ``rclone_user`` and ``rclone_
 
 
 Creating rclone.conf for your local host
-----------------------------------------
+========================================
 
 You can install rclone at your host or run Docker image with rclone installed (see installation steps of rclone above).
 In order to create the configuration file (``rclone.conf``) for rclone::
@@ -85,10 +85,10 @@ One has, however, to call rclone with ``--config`` option to point to the ``rclo
 
 
 Example code on usage of rclone from python
---------------------------------------------
+===========================================
 
 Simple example
-==============
+--------------
 
 A simple call of rclone from python is via ``subprocess.Popen()``
 
@@ -107,7 +107,7 @@ A simple call of rclone from python is via ``subprocess.Popen()``
     If you use our `general template <https://github.com/indigo-dc/tosca-templates/blob/master/deep-oc/deep-oc-marathon-webdav.yml>`_ , the name of the remote storage has to be ``rshare`` as in the example above (``rshare:/Datasets/dogs_breed/data``). If you create your own TOSCA template, you need to pay attention on matching these names in your code and in the template (for example, see environment parameters in the `general template <https://github.com/indigo-dc/tosca-templates/blob/master/deep-oc/deep-oc-marathon-webdav.yml>`_ like RCLONE_CONFIG_RSHARE_USER etc).
 
 Advanced examples
-=================
+-----------------
 
 More advanced usage includes calling rclone with various options (ls, copy, check) in order to check file existence at
 Source, check if after copying two versions match exactly.

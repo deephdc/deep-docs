@@ -1,5 +1,6 @@
+**********************
 Architecture overview
-=====================
+**********************
 
 There are several different components in the DEEP-HybridDataCloud project that are relevant for the users. Later on you will see
 how each :doc:`different type of user <user-roles>` can take advantage of the different components.
