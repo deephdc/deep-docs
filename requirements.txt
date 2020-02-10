@@ -1,3 +1,4 @@
 sphinx>=1.6.2 # BSD
 sphinx-markdown-tables
 recommonmark
+sphinx_rtd_theme

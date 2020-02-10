@@ -24,9 +24,9 @@ copyright = '2018, DEEP-Hybrid-DataCloud consortium'
 author = 'DEEP-Hybrid-DataCloud consortium'
 
 # The short X.Y version
-version = ''
+version = 'DEEP-2 (XXX)'
 # The full version, including alpha/beta/rc tags
-release = 'DEEP-1 (Genesis)'
+release = 'DEEP-2 (XXX)'
 
 
 # -- General configuration ---------------------------------------------------
@@ -93,7 +93,7 @@ html_theme_options = {
     'collapse_navigation': False,
 }
 
-html_logo = "_static/logo.png"
+html_logo = "_static/logo-deep-solid-white.png"
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,

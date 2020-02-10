@@ -6,107 +6,147 @@
 Train a model locally
 *********************
 
-This is a step by step guide on how to train a model from the Marketplace with your own dataset.
+This is a step by step guide on how to train a module from the Marketplace with your own dataset.
+
+.. admonition:: Requirements
+
+    * having `Docker <https://www.docker.com>`_ installed. For an up-to-date installation please follow
+      the `official Docker installation guide <https://docs.docker.com/install>`_.
+    * **Optional**: having a `DEEP IAM <https://iam.deep-hybrid-datacloud.eu/>`_ account if you want to use remote
+      storage resources.
 
 
-1. Get Docker
--------------
+1. Choose your module
+---------------------
 
-The first step is having `Docker <https://www.docker.com>`_ installed. To have an up-to-date installation please follow
-the `official Docker installation guide <https://docs.docker.com/install>`_.
-
-
-2. Search for a model in the marketplace
-----------------------------------------
-
-The first step is to choose a model from the `DEEP Open Catalog marketplace <https://marketplace.deep-hybrid-datacloud.eu/>`_.  For educational purposes we are going to use a `general model to identify images <https://marketplace.deep-hybrid-datacloud.eu/modules/deep-oc-image-classification-tensorflow.html>`_. This will allow us to see the general workflow.
-
-
-3. Get the model
-----------------
+The first step is to choose a module from the `DEEP Open Catalog marketplace <https://marketplace.deep-hybrid-datacloud.eu/>`_.
+For educational purposes we are going to use a `general model to identify images <https://marketplace.deep-hybrid-datacloud.eu/modules/train-an-image-classifier.html>`_. This will allow us to see the general workflow.
 
 Once we have chosen the model at the `DEEP Open Catalog marketplace <https://marketplace.deep-hybrid-datacloud.eu/>`_ we will
 find that it has an associated docker container in `DockerHub <https://hub.docker.com/u/deephdc/>`_. For example, in the
-example we are running here, the container would be deephdc/deep-oc-image-classification-tf. This means that to pull the
-docker image and run it you should:
+example we are running here, the container would be ``deephdc/deep-oc-image-classification-tf``. So let's pull the
+docker image from DockerHub:
 
 .. code-block:: console
 
     $ docker pull deephdc/deep-oc-image-classification-tf
 
+Docker images have usually tags depending on whether they are using ``master`` or ``test`` and whether they use
+``cpu`` or ``gpu``. Tags are usually:
 
-4. Export rclone.conf file
---------------------------
+* ``latest`` or ``cpu``: master + cpu
+* ``gpu``: master + gpu
+* ``cpu-test``: test + cpu
+* ``gpu-test``: test + gpu
 
-When running the container you should export the rclone.conf file so that it can be reached from within the docker. You can see an example on how to do this here
+So if you wanted to use gpu and the test branch you could run:
 
 .. code-block:: console
 
-	$ docker run -ti -v  -p 5000:5000 -p 6006:6006 -v  host_path_to_rclone.conf:/root/.config/rclone/rclone.conf <your-docker-image>
+    $ docker pull deephdc/deep-oc-image-classification-tf:gpu-test
 
-You can see this last step explained more in detail :doc:`here <rclone>`.
+Instead of pulling from Dockerhub you can choose to build the image yourself:
 
-We are using the port ``5000`` to deploy the API and the port ``6006`` to monitor the training (for example using
-`Tensorboard <https://www.tensorflow.org/guide/summaries_and_tensorboard>`_).
-	
+.. code-block:: console
+
+    $ git clone https://github.com/deephdc/deep-oc-image-classification-tf
+    $ cd deep-oc-image-classification-tf
+    $ docker build -t deephdc/deep-oc-image-classification-tf .
+
+.. Tip:: It's usually helpful to read the README in the source code of the module, in this case located at
+   https://github.com/deephdc/image-classification-tf.
 
 
-5. Upload your data to storage resources
-----------------------------------------
+2. Store your data
+------------------
 
 To run locally you have two options:
 
-1. Have your data stored locally
-================================
+* Have your data stored locally
+* Have your data at a remote storage resource
+
+Have your data stored locally
+=============================
 
 You should make sure that you export inside of the container all the folders you need for the training
 
 .. code-block:: console
 
-	$ docker run -ti -v  -p 5000:5000 -p 6006:6006 -v path_to_local_folder:path_to_docker_folder -v host_path_to_rclone.conf:/root/.config/rclone/rclone.conf <your-docker-image>
+	$ docker run -ti -p 5000:5000 -p 6006:6006 -v path_to_local_folder:path_to_docker_folder deephdc/deep-oc-image-classification-tf
 
-2. Have your data at a remote storage resource
-==============================================
+Have your data at a remote storage resource
+===========================================
 
-* **Nextcloud**
+For the time being we support using the DEEP Nextcloud for remote storage, although we plan to support addition platforms
+such as Google Drive, Dropbox and OneData. All of these platforms are supported through `rclone <https://rclone.org/>`_.
 
-If you have the files you need for the training stored in Nextcloud you need first to login into `DEEP-Nextcloud  <https://nc.deep-hybrid-datacloud.eu/login>`_ with your DEEP-IAM credentials. Then you have to go to: **(1) Settings (top right corner)** |rarr|  **(2) Security**  |rarr|  **(3) Devices & sessions**
-
+If you have the files you need for the training stored in Nextcloud you need first to login into
+`DEEP-Nextcloud  <https://nc.deep-hybrid-datacloud.eu/login>`_ with your DEEP-IAM credentials.
+Then you have to go to: **(1) Settings (top right corner)** |rarr|  **(2) Security**  |rarr|  **(3) Devices & sessions**
 
 .. image:: ../../_static/nc-access.png
 
-Set a name for your application (for this example it will be **deepnc**) and clik on **Create new app password**. This will generate <your_nextcloud_username> and <your_nextcloud_password> that you should to include in your rclone.conf file (see  :doc:`more details <rclone>`.).
+Set a name for your application (for this example it will be ``rshare``) and clik on **Create new app password**.
+This will generate ``<your_nextcloud_username>`` and ``<your_nextcloud_password>`` that you should to include in your
+``rclone.conf`` file (see  :doc:`more details <rclone>`). Now you can create the folders that you need in order to data
+the inputs needed for the training.
 
-Now you can create the folders that you need in order to store the inputs needed for the training and to retrieve the output. In order to be able to see these folders locally you should run either on your local host or on the docker container
+.. tip::
 
-.. code-block:: python
+    When developing a model you should add some code to perform a sync to be able to see locally your remote data.
+    If you are using a ``trainable`` module from the Marketplace that you have not developed yourself you can skip
+    this tip as this will have been taken care of.
 
-	import subprocess
+    In order to be able to see your NextCloud folders from your docker, you should run rclone from your module's code,
+    which will synchronize your NextCloud contents with your local contents (or the other way around).
+    It is kind of an `rsync <https://linux.die.net/man/1/rsync>`_ but for remote storage.
 
-	# from deep-nextcloud into the container
-	command = (['rclone', 'copy', 'deepnc:/path_to_remote_nextcloud_folder', 'path_to_local_folder'])
+    So your module should run this synchronization before the ``train()`` function tries to access data.
+    To run it from inside a python script you can use the following code:
 
-	results= subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-	output, error = result.communicate()
+    .. code-block:: python
 
-* **Google Drive**
+        import subprocess
 
-TBC
+        def sync_nextcloud(frompath, topath):
+            """
+            Mount a NextCloud folder in your local machine or viceversa.
+            """
+            command = (['rclone', 'copy', frompath, topath])
+            result = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            output, error = result.communicate()
+            if error:
+                warnings.warn("Error while mounting NextCloud: {}".format(error))
+            return output, error
 
-* **Dropbox**
+        sync_nextcloud('rshare:/your/dataset/folder', '/your/data/path/inside/the/container') # sync local with nextcloud
+        sync_nextcloud('/your/data/path/inside/the/container', 'rshare:/your/dataset/folder') # sync nextcloud with local
 
-TBC
+
+    As you can see you can sync the local contents back to NextCloud, which is useful if you want to save your trained
+    model back to NextCloud.
+
+When running the container you should export the ``rclone.conf`` file so that it can be reached from within the docker.
+You can see an example on how to do this here
+
+.. code-block:: console
+
+	$ docker run -ti -p 5000:5000 -p 6006:6006 -v host_path_to_rclone.conf:/root/.config/rclone/rclone.conf deephdc/deep-oc-image-classification-tf
+
+You can see this last step explained more in detail :doc:`here <rclone>`.
+We are using the port ``5000`` to deploy the API and the port ``6006`` to monitor the training (for example using
+`Tensorboard <https://www.tensorflow.org/guide/summaries_and_tensorboard>`_).
 
 
-6. Train the model
+3. Train the model
 ------------------
 
-Now comes the fun! Go to `<http://0.0.0.0:5000>`_ and look for the ``train`` method. Modify the training parameters you wish to
+Now comes the fun! Go to `<http://0.0.0.0:5000/ui>`_ and look for the ``train`` method. Modify the training parameters you wish to
 change and execute. If some kind of monitorization tool is available for this model you will be able to follow the training
 progress from `<http://0.0.0.0:6006>`_.
 
+Once the training has finished, you can directly test it by clicking on the ``predict`` method.
+Upload the image your want to classify and check on the predicted classes.
 
-7. Testing the training
------------------------
-
-Once the training has finished, you can directly test it by clicking on the ``predict`` method. There you can either upload the image your want to classify or give a URL to it. 
+.. image:: ../../_static/deepaas.png
+   :width: 500 px

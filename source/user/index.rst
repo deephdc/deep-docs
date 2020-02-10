@@ -19,7 +19,7 @@ If you want a quickstart guide, please check the following link.
    <h2>Overview</h2>
 
 
-A more in depth documentation, with detailed description on the archicture and
+A more in depth documentation, with detailed description on the architecture and
 components is provided in the following sections.
 
 .. toctree::
@@ -29,9 +29,9 @@ components is provided in the following sections.
 
 
 .. raw:: html
-   
+
    <h2>HowTo's</h2>
-   
+
 
 A set of various HowTo examples.
 
@@ -44,10 +44,6 @@ A set of various HowTo examples.
 .. raw:: html
 
    <h2>Modules</h2>
-
-
-The following sections provide information on how several deep learning modules
-have been developed and integrated with our platform.
 
 .. toctree::
    :maxdepth: 2
