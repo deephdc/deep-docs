@@ -12,17 +12,17 @@ The marketplace
 The DEEP Marketplace is a catalogue of modules that every user can have access to. Modules can be:
 
 * **Trained**: Those are modules that an user can train on their own data to create a new service. Like training an
-  `image classifier <https://marketplace.deep-hybrid-datacloud.eu/modules/train-an-image-classifier.html>`_ with a
+  `image classifier <https://marketplace.deep-hybrid-datacloud.eu/modules/deep-oc-image-classification-tf.html>`_ with a
   plants dataset to create a `plant classifier <http://marketplace.deep-hybrid-datacloud.eu/modules/plants-species-classifier.html>`_
   service.
   Look for the ``trainable`` tag in the marketplace to find those modules.
 
 * **Deployed for inference**: Those are modules that have been pre-trained for a specific task (like the
-  `plant classifier <http://marketplace.deep-hybrid-datacloud.eu/modules/plants-species-classifier.html>`_ mentioned earlier).
+  `plant classifier <https://marketplace.deep-hybrid-datacloud.eu/modules/deep-oc-plants-classification-tf.html>`_ mentioned earlier).
   Look for the ``inference`` and ``pre-trained`` tags in the marketplace to find those modules.
 
 Some modules can both be trained and deployed for inference.
-For example the `image classifier <https://marketplace.deep-hybrid-datacloud.eu/modules/train-an-image-classifier.html>`_
+For example the `image classifier <https://marketplace.deep-hybrid-datacloud.eu/modules/deep-oc-image-classification-tf.html>`_
 can be trained to create other image classifiers but can also be deployed for inference as it comes pre-trained with a
 general image classifier.
 
@@ -36,7 +36,7 @@ The :doc:`DEEPaaS API <api>` is a key component for making the modules accessibl
 provides a consistent and easy to use way to access the model's functionality. It is available for both inference and training.
 
 Advanced users that want to create new modules can make them :ref:`compatible with the API <user/overview/api:Integrate your model with the API>`
-to make them available to the whole community. This can be easily done, since it only requires minor changes in user's code and 
+to make them available to the whole community. This can be easily done, since it only requires minor changes in user's code and
 adding additional entry points.
 
 For more information take a look on the full :doc:`API guide <api>`.
