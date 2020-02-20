@@ -37,8 +37,11 @@ Nextcloud configuration for rclone
 
 After login into `DEEP-Nextcloud  <https://nc.deep-hybrid-datacloud.eu/login>`_ with your DEEP-IAM credentials, go to
 (1) **Settings (top right corner)** |rarr|  (2) **Security**  |rarr|  (3) **Devices & sessions**. Set a name for your
-application and click on **Create new app password**. That user and password is what one needs to include in the rclone
-config file (``rclone.conf``) to run locally or as ``rclone_user`` and ``rclone_password`` either in the Dashboard webform or in the orchent script to generate the deployment when running remotely (see :doc:`here <train-model-locally>` and :doc:`here <train-model-remotely>`).
+application and click on **Create new app password**. You get <user> and <password> credentials. Next, you need to obscure the <password> for use in the rclone config file (``rclone.conf``). For this you do:
+
+	$ rclone obscure <password>
+	
+This <obscure password> and <user> is what one needs to include in the ``rclone.conf`` to run locally or as ``rclone_user`` and ``rclone_password`` either in the Dashboard webform or in the orchent script to generate the deployment when running remotely (see :doc:`here <train-model-locally>` and :doc:`here <train-model-remotely>`).
 
 
 Creating rclone.conf for your local host
