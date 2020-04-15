@@ -18,12 +18,13 @@ that has been containerized, and use it to classify their own plant images.
 **What DEEP can offer to you:**
 
 * a :ref:`catalogue <user/overview/architecture:The marketplace>` full of ready-to-use modules to perform inference with your data
-* an :ref:`API <user/overview/architecture:The API>` to easily interact with the services
+* an :ref:`API <user/overview/architecture:The DEEPaaS API>` to easily interact with the services
 * solutions to run the inference in the Cloud or in your local resources
 * the ability to develop complex topologies by composing different modules
 
 **Related HowTo's:**
 
+* :doc:`How to perform inference remotely <../howto/inference-remotely>`
 * :doc:`How to perform inference locally <../howto/inference-locally>`
 
 
@@ -42,7 +43,7 @@ model and retrains it to perform `seed classification <https://marketplace.deep-
 **What DEEP can offer to you:**
 
 * the ability to train out-of-the-box a module of the :ref:`catalogue <user/overview/architecture:The marketplace>` on your personal dataset
-* an :ref:`API <user/overview/architecture:The API>` to easily interact with the model
+* an :ref:`API <user/overview/architecture:The DEEPaaS API>` to easily interact with the model
 * data :ref:`storage resources <user/overview/architecture:The data storage resources>` to access your dataset
   (`DEEP-Nextcloud <https://nc.deep-hybrid-datacloud.eu>`_, `OneData <https://onedata.org/>`_, ...)
 * the ability to deploy the developed service on Cloud resources

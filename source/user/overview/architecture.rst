@@ -29,8 +29,19 @@ general image classifier.
 For more information have a look at the `marketplace <https://marketplace.deep-hybrid-datacloud.eu/>`_.
 
 
-The API
-=======
+DEEP as a Service
+=================
+
+`DEEP as a Service (or DEEPaaS) <https://deepaas.deep-hybrid-datacloud.eu/>`_ is a fully managed service that allows
+to easily and automatically deploy developed applications as services, with horizontal scalability thanks to a
+serverless approach. Module owners only need to care about the application development process, and incorporate
+new features that the automation system receives as an input.  The serverless framework  allows any user to
+automatically deploy from the browser any module in real time to try it. We only allow trying prediction, for training,
+which is more resource consuming, users must use the DEEP Training Dashboard.
+
+
+The DEEPaaS API
+===============
 
 The :doc:`DEEPaaS API <api>` is a key component for making the modules accessible to everybody (including non-experts), as it
 provides a consistent and easy to use way to access the model's functionality. It is available for both inference and training.
