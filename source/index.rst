@@ -36,6 +36,7 @@ following section.
     * `DEEP IAM <https://iam.deep-hybrid-datacloud.eu/>`_
     * `DEEP Open Catalog - Marketplace <https://marketplace.deep-hybrid-datacloud.eu/>`_
     * DEEP Dashboard (`Training <https://train.deep-hybrid-datacloud.eu/>`_, `Advanced <https://paas.cloud.cnaf.infn.it/>`_)
+    * `DEEPaaS: DEEP as a Service <https://deepaas.deep-hybrid-datacloud.eu/>`_
     * `DEEP Nextcloud <https://nc.deep-hybrid-datacloud.eu>`_
     * `Official GitHub <https://github.com/deephdc>`_
     * `Official DockerHub <https://hub.docker.com/u/deephdc/>`_
