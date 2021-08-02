@@ -39,7 +39,7 @@ This installation takes rather long time (totally around ~2h according to disk p
     # scripts/bootstrap-ansible.sh
 ```
 
-6. Default scenario is without CEPH. Select CEPH scenario if you want and bootstrap AOI  (about 6min in the test)
+6. Default scenario is without CEPH. Select CEPH scenario if you want and bootstrap AIO  (about 6min in the test)
 ```
     # export SCENARIO='ceph'
     # scripts/bootstrap-aio.sh
