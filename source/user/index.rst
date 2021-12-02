@@ -28,6 +28,8 @@ components is provided in the following sections.
    overview/index
 
 
+You can also check these `slides <https://docs.google.com/viewer?url=https://raw.githubusercontent.com/deephdc/deep-docs/master/source/_static/overview.pdf>`_  for a quick overview of the project from the user's point of view.
+
 .. raw:: html
 
    <h2>HowTo's</h2>
