@@ -20,7 +20,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'DEEP-Hybrid-DataCloud'
-copyright = '2018, DEEP-Hybrid-DataCloud consortium'
+copyright = '2022, DEEP-Hybrid-DataCloud consortium'
 author = 'DEEP-Hybrid-DataCloud consortium'
 
 # The short X.Y version
