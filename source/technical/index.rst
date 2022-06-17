@@ -4,6 +4,14 @@ Technical documentation
 These pages contain technical notes software documentations, guides, tutorials,
 logbooks and similar documents produced with DEEP Hybrid DataCloud project
 
+HowTo's (developers)
+--------------------
+
+.. toctree::
+   :maxdepth: 2
+
+   howto-developers/index
+
 Mesos
 -----
 
