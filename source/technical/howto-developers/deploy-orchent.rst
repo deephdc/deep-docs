@@ -66,7 +66,7 @@ This script will be the **only place** where you will have to indicate <your_nex
     **DO NOT** save the rclone credentials in the **CONTAINER** nor in the **TOSCA** file
 
 .. tip::
-    When developing an application with the :ref:`Data Science template <user/overview/cookiecutter-template:DEEP Data Science template>`,
+    When developing an application with the :ref:`DEEP Modules Template <user/overview/cookiecutter-template>`,
     the DEEP-OC-<your_project> repository will contain an exampled script, named *submit_orchent_tmpl.sh*
 
 Submit your deployment
