@@ -24,9 +24,9 @@ copyright = '2022, DEEP-Hybrid-DataCloud consortium'
 author = 'DEEP-Hybrid-DataCloud consortium'
 
 # The short X.Y version
-version = 'DEEP-2 (XXX)'
+version = 'DEEP-2'  #todo: add deep version
 # The full version, including alpha/beta/rc tags
-release = 'DEEP-2 (XXX)'
+release = 'DEEP-2'
 
 
 # -- General configuration ---------------------------------------------------
