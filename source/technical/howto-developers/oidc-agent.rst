@@ -1,8 +1,7 @@
 .. highlight:: console
 
-********************
 Configure oidc-agent
-********************
+====================
 
 `oidc-agent <https://indigo-dc.gitbook.io/oidc-agent/>`_ is a tool to manage OpenID Connect tokens
 and make them easily usable from the command line.

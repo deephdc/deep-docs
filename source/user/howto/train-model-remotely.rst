@@ -1,10 +1,8 @@
 .. include:: <isonum.txt>
-
 .. highlight:: console
 
-**********************
 Train a model remotely
-**********************
+======================
 
 This is a step by step guide on how to train a general model from the `DEEP Open Catalog marketplace <https://marketplace.deep-hybrid-datacloud.eu/>`__ with your own dataset.
 
@@ -30,6 +28,11 @@ The first step is to choose a model from the `DEEP Open Catalog marketplace <htt
 2. Upload your files to Nextcloud
 ---------------------------------
 
+When training a model, the data has usually to be in a specific format and folder structure.
+It's usually helpful to read the README in the source code of the module
+(in this case located `here <https://github.com/deephdc/image-classification-tf>`_)
+to learn the correct way to setting it up.
+
 We login to DEEP-Nextcloud with DEEP-IAM credentials and upload there the files needed for training. We create the folders that you need in order to store the inputs needed for the training and to retrieve the output. These folders will be visible from within the container. In this example we just need two folders (``models`` and ``data``):
 
 .. image:: ../../_static/nc-folders.png
@@ -54,9 +57,6 @@ The folder structure and their content will of course depend on the model to be 
 * Click **Submit**
 * Look for **Access** and choose **DEEPaaS**, you will be redirected to ``http://deepaas_endpoint``
 
-If you prefer deploying using a more advanced deploying via the command-line-interface check the
-:doc:`deploy with CLI <deploy-orchent>` guide.
-
 See the :doc:`Dashboard guide <../overview/dashboard>` for more details.
 
 
@@ -76,8 +76,57 @@ In the Dashboard you will be able to view the training history of that deploymen
 
 .. image:: ../../_static/dashboard-history.png
 
+
 5. Testing the training
 -----------------------
 
 Once the training has finished, you can directly test it by clicking on the ``predict`` POST method. There you can either upload the image your want to classify or give an URL to it.
 
+
+6. Share your new module in the Marketplace
+-------------------------------------------
+
+.. tip::
+    This section share lots of steps with :doc:`How to develop a model <../howto/develop-model>`
+    so you can always cross-check there in case of doubt.
+
+Let's say you managed to create a plant classifier by retraining the  `general model to identify images <https://marketplace.deep-hybrid-datacloud.eu/modules/train-an-image-classifier.html>`_ on your specific dataset. Now you want to share it with other users.
+
+Look for the Docker repo of the original module (here `deephdc/DEEP-OC-image-classification-tf <https://github.com/deephdc/DEEP-OC-image-classification-tf>`_) and make a fork of it. Rename the repo to a new name (here `deephdc/DEEP-OC-plants-classification-tf <https://github.com/deephdc/DEEP-OC-plants-classification-tf>`_)
+
+Now, in your fork, edit  the following files according to your needs:
+
+* ``Dockerfile``: For example make sure that the model know downloads the `new weights <https://github.com/deephdc/DEEP-OC-plants-classification-tf/blob/ae5eca2bda6a2a7bbbf68f2767954dc819e50c4f/Dockerfile#L19-L21>`_ instead of the `original weights <https://github.com/deephdc/DEEP-OC-image-classification-tf/blob/080584f0ad9c660ec0e55240d4b4979f2d45a2bb/Dockerfile#L112-L114>`_.
+  Check your Dockerfile works correctly by building it locally and running it:
+  ::
+
+    docker build --no-cache -t your_project .
+    docker run -ti -p 5000:5000 -p 6006:6006 -p 8888:8888 your_project
+    # --> your module should be visible in http://0.0.0.0:5000/ui
+
+* ``metadata.json``: this is the information that will be displayed in the Marketplace.
+  Update and add the information you need to make sure it reflects your new usecase.
+  Check you didn't mess up the JSON formatting by running:
+  ::
+
+    pip install git+https://github.com/deephdc/schema4apps
+    deep-app-schema-validator metadata.json
+
+Once you are fine with the state of your module, push the changes to Github.
+
+Once your repos are set it's time to make a PR to add your model to the marketplace!
+For this you have to fork the code of the DEEP catalog repo (`deephdc/deep-oc <https://github.com/deephdc/deep-oc>`_)
+and add your Docker repo name at the end of the ``MODULES.yml``.
+
+.. code-block:: console
+
+    git clone https://github.com/[my-github-fork]
+    cd [my-github-fork]
+    echo '- module: https://github.com/[my-account-name]/DEEP-OC-[my-app-name]' >> MODULES.yml
+    git commit -a -m "adding new module to the catalogue"
+    git push
+
+You can also make it `online on GitHub <https://github.com/deephdc/deep-oc/edit/master/MODULES.yml>`_.
+
+Once the changes are done, make a PR of your fork to the original repo and wait for approval.
+Check the `GitHub Standard Fork & Pull Request Workflow <https://gist.github.com/Chaser324/ce0505fbed06b947d962>`_ in case of doubt.

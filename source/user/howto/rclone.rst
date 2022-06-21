@@ -1,13 +1,12 @@
 .. include:: <isonum.txt>
 .. highlight:: console
 
-******************
 How to use rclone
-******************
+=================
 
 
 Installation of rclone in Docker image
-======================================
+--------------------------------------
 
 All applications in the `DEEP Open Catalog <https://deephdc.github.io/>`_ are packed in a Docker image and have
 `rclone <https://rclone.org/>`_ tool installed by default. If you want to create a Docker containing your own application, you should install rclone
@@ -27,12 +26,11 @@ the `rclone official site  <https://rclone.org/downloads/>`_  ::
 	    rm -rf /tmp/*
 
 .. tip::
-    When developing an application with the :ref:`Data Science template <user/overview/cookiecutter-template:DEEP Data Science template>`, 
+    When developing an application with the :doc:`DEEP Modules Template <../overview/cookiecutter-template>`,
     the Dockerfile already includes installation of rclone.
 
 Nextcloud configuration for rclone
-==================================
-
+----------------------------------
 .. image:: ../../_static/nc-access.png
 
 After login into `DEEP-Nextcloud  <https://nc.deep-hybrid-datacloud.eu/login>`_ with your DEEP-IAM credentials, go to
@@ -40,12 +38,12 @@ After login into `DEEP-Nextcloud  <https://nc.deep-hybrid-datacloud.eu/login>`_ 
 application and click on **Create new app password**. You get <user> and <password> credentials. Next, you need to obscure the <password> for use in the rclone config file (``rclone.conf``). For this you do:
 
 	$ rclone obscure <password>
-	
+
 This <obscure password> and <user> is what one needs to include in the ``rclone.conf`` to run locally or as ``rclone_user`` and ``rclone_password`` either in the Dashboard webform or in the orchent script to generate the deployment when running remotely (see :doc:`here <train-model-locally>` and :doc:`here <train-model-remotely>`).
 
 
 Creating rclone.conf for your local host
-========================================
+----------------------------------------
 
 You can install rclone at your host or run Docker image with rclone installed (see installation steps of rclone above).
 In order to create the configuration file (``rclone.conf``) for rclone::
@@ -88,10 +86,10 @@ One has, however, to call rclone with ``--config`` option to point to the ``rclo
 
 
 Example code on usage of rclone from python
-===========================================
+-------------------------------------------
 
 Simple example
---------------
+^^^^^^^^^^^^^^
 
 A simple call of rclone from python is via ``subprocess.Popen()``
 
@@ -106,11 +104,11 @@ A simple call of rclone from python is via ``subprocess.Popen()``
     output, error = result.communicate()
 
 .. important::
-    When deploying a module on the DEEP Pilot testbed, you pass rclone parameters e.g. ``rclone_user`` and ``rclone_password`` during the deployment. 
+    When deploying a module on the DEEP Pilot testbed, you pass rclone parameters e.g. ``rclone_user`` and ``rclone_password`` during the deployment.
     If you use our `general template <https://github.com/indigo-dc/tosca-templates/blob/master/deep-oc/deep-oc-marathon-webdav.yml>`_ , the name of the remote storage has to be ``rshare`` as in the example above (``rshare:/Datasets/dogs_breed/data``). If you create your own TOSCA template, you need to pay attention on matching these names in your code and in the template (for example, see environment parameters in the `general template <https://github.com/indigo-dc/tosca-templates/blob/master/deep-oc/deep-oc-marathon-webdav.yml>`_ like RCLONE_CONFIG_RSHARE_USER etc).
 
 Advanced examples
------------------
+^^^^^^^^^^^^^^^^^
 
 More advanced usage includes calling rclone with various options (ls, copy, check) in order to check file existence at
 Source, check if after copying two versions match exactly.
@@ -147,11 +145,11 @@ Source, check if after copying two versions match exactly.
         :param src_path: full path to source (file or directory)
         :param dest_dir: full path to destination directory (not file!)
         :param src_type: if source is file (default) or directory
-        :return: if destination was downloaded, and possible error 
+        :return: if destination was downloaded, and possible error
         """
-    
+
         error_out = None
-    
+
         if src_type == 'file':
             src_dir = os.path.dirname(src_path)
             dest_file = src_path.split('/')[-1]
@@ -169,7 +167,7 @@ Source, check if after copying two versions match exactly.
         else:
             # if src_path exists, copy it
             output, error = rclone_call(src_path, dest_dir, cmd='copy')
-            if not error:       
+            if not error:
                 output, error = rclone_call(dest_path, dest_dir,
                                             cmd='ls', get_output=True)
                 file_size = [ elem for elem in output.split(' ') if elem.isdigit() ][0]
@@ -181,11 +179,11 @@ Source, check if after copying two versions match exactly.
                     print('[INFO] File %s copied. Check if (src) and (dest) really match..' % (dest_file))
                     output, error = rclone_call(src_dir, dest_dir, cmd='check')
                     if 'ERROR : ' + dest_file in error:
-                        print('[ERROR, rclone_copy()] %s (src) and %s (dest) do not match!' 
+                        print('[ERROR, rclone_copy()] %s (src) and %s (dest) do not match!'
                               % (src_path, dest_path))
                         error_out = 'Copy failed: ' + src_path + ' (src) and ' + \
                                      dest_path + ' (dest) do not match'
-                        dest_exist = False     
+                        dest_exist = False
             else:
                 print('[ERROR, rclone_copy()] %s (src):\n%s' % (dest_path, error))
                 error_out = error

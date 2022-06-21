@@ -1,8 +1,7 @@
 .. highlight:: console
 
-**********************
 Try a service remotely
-**********************
+======================
 
 
 The first step is to go to the `DEEP as a Service (or DEEPaaS) <https://deepaas.deep-hybrid-datacloud.eu/>`_.

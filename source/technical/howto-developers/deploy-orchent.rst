@@ -2,16 +2,15 @@
 
 .. highlight:: console
 
-*****************************
 Deployment with CLI (orchent)
-*****************************
+=============================
 
 This is a step by step guide on how to make a deployment using the command line interface (instead of the Training
 Dashboard).
 
 .. admonition:: Requirements
 
-   * `oidc-agent <https://github.com/indigo-dc/oidc-agent/releases>`_ installed and configured for `DEEP-IAM <https://iam.deep-hybrid-datacloud.eu/>`_ (see :ref:`Configure oidc-agent <user/howto/oidc-agent:Configure oidc-agent>`).
+   * `oidc-agent <https://github.com/indigo-dc/oidc-agent/releases>`_ installed and configured for `DEEP-IAM <https://iam.deep-hybrid-datacloud.eu/>`_ (see :doc:`Configure oidc-agent <oidc-agent>`).
    * `orchent <https://github.com/indigo-dc/orchent/releases>`_ tool
 
 
@@ -66,7 +65,7 @@ This script will be the **only place** where you will have to indicate <your_nex
     **DO NOT** save the rclone credentials in the **CONTAINER** nor in the **TOSCA** file
 
 .. tip::
-    When developing an application with the :ref:`DEEP Modules Template <user/overview/cookiecutter-template>`,
+    When developing an application with the :doc:`DEEP Modules Template <../../user/overview/cookiecutter-template>`,
     the DEEP-OC-<your_project> repository will contain an exampled script, named *submit_orchent_tmpl.sh*
 
 Submit your deployment

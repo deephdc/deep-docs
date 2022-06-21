@@ -1,6 +1,18 @@
 Welcome to DEEP-Hybrid-DataCloud's documentation!
 =================================================
 
+.. admonition:: Useful project links
+   :class: important
+
+    * `Project's Homepage <https://deep-hybrid-datacloud.eu/>`__
+    * `Marketplace <https://marketplace.deep-hybrid-datacloud.eu/>`__
+    * `Dashboard <https://train.deep-hybrid-datacloud.eu/>`__
+    * `Github <https://github.com/deephdc>`__
+    * `DockerHub <https://hub.docker.com/u/deephdc/>`__
+    * `Docs <https://docs.deep-hybrid-datacloud.eu/en/latest/>`__
+    * `NextCloud <https://nc.deep-hybrid-datacloud.eu/>`__
+    * `DEEP IAM <https://iam.deep-hybrid-datacloud.eu/>`_
+
 User documentation
 ------------------
 
@@ -10,8 +22,6 @@ If you are a user (current or potential) you should start here.
    :maxdepth: 3
 
    user/index
-   
-You can also check these `slides <https://docs.google.com/viewer?url=https://raw.githubusercontent.com/deephdc/deep-docs/master/source/_static/overview.pdf>`_  for a quick overview of the project from the user's point of view.
 
 Component documentation
 -----------------------
@@ -28,20 +38,9 @@ If you are searching for technical notes on various areas, please check the
 following section.
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 3
 
    technical/index
-
-.. admonition:: Useful project links
-   :class: important
-
-    * `DEEP IAM <https://iam.deep-hybrid-datacloud.eu/>`_
-    * `DEEP Open Catalog - Marketplace <https://marketplace.deep-hybrid-datacloud.eu/>`_
-    * DEEP Dashboard (`Training <https://train.deep-hybrid-datacloud.eu/>`_, `Advanced <https://paas.cloud.cnaf.infn.it/>`_)
-    * `DEEPaaS: DEEP as a Service <https://deepaas.deep-hybrid-datacloud.eu/>`_
-    * `DEEP Nextcloud <https://nc.deep-hybrid-datacloud.eu>`_
-    * `Official GitHub <https://github.com/deephdc>`_
-    * `Official DockerHub <https://hub.docker.com/u/deephdc/>`_
 
 Indices and tables
 ==================

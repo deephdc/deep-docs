@@ -1,14 +1,12 @@
-====================================
 Using Openstack API with OIDC tokens
 ====================================
-
 
 |Using Openstack API| |with OIDC tokens|
 
 Note: this guide is made for GNU/Linux distributions
 
 Create file for OIDC
-====================
+--------------------
 
 After downloading Openstack RC file (Identity API v3) from Horizon web
 panel, the following changes are necessary for the authentication with
@@ -41,7 +39,7 @@ All the other attributes for authentication are in the RC v3 file
 downloaded from Horizon web panel.
 
 Using Openstack CLI
-===================
+-------------------
 
 After loading all necessary environment variables to the shell, just run
 openstack command. To create a RC file for OIDC you can do the

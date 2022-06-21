@@ -1,53 +1,92 @@
 User documentation
 ==================
 
+.. admonition:: Useful project links
+   :class: important
 
-.. raw:: html
+    * `Project's Homepage <https://deep-hybrid-datacloud.eu/>`__
+    * `Marketplace <https://marketplace.deep-hybrid-datacloud.eu/>`__
+    * `Dashboard <https://train.deep-hybrid-datacloud.eu/>`__
+    * `Github <https://github.com/deephdc>`__
+    * `DockerHub <https://hub.docker.com/u/deephdc/>`__
+    * `Docs <https://docs.deep-hybrid-datacloud.eu/en/latest/>`__
+    * `NextCloud <https://nc.deep-hybrid-datacloud.eu/>`__
+    * `DEEP IAM <https://iam.deep-hybrid-datacloud.eu/>`_
 
-   <h2>Quickstart guide</h2>
+
+    You can also check these `slides <https://cdn.jsdelivr.net/gh/deephdc/deep-docs@master/source/_static/overview.pdf>`_
+    along with this `video <https://www.youtube.com/watch?v=cRMIviobF_c>`_  for a quick overview of the project
+    from the user's point of view.
 
 
-If you want a quickstart guide, please check the following link.
+New to the project? How about a quick dive?
 
 .. toctree::
    :maxdepth: 1
 
-   quickstart
+   Quickstart <quickstart>
 
-.. raw:: html
-
-   <h2>Overview</h2>
-
+Overview
+--------
 
 A more in depth documentation, with detailed description on the architecture and
 components is provided in the following sections.
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
-   overview/index
+   DEEP architecture <overview/architecture>
+   User roles and workflows <overview/user-roles>
+   DEEP Modules Template <overview/cookiecutter-template>
+   DEEPaaS API <overview/api>
+   DEEP Dashboard <overview/dashboard>
 
+How-to's
+--------
 
-You can also check these `slides <https://docs.google.com/viewer?url=https://raw.githubusercontent.com/deephdc/deep-docs/master/source/_static/overview.pdf>`_  for a quick overview of the project from the user's point of view.
+Use a model (basic user)
+^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. raw:: html
+.. toctree::
+   :maxdepth: 1
 
-   <h2>HowTo's</h2>
+   Perform inference locally <howto/inference-locally>
 
+..
+  // commment because right now deepaas serverless is not working correctly,
+  // thus this can be potentially confusing
+  Perform inference remotely <howto/inference-remotely>
 
-A set of various HowTo examples.
+Train a model (intermediate user)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. toctree::
+   :maxdepth: 1
+
+   Train a model locally <howto/train-model-locally>
+   Train a model remotely <howto/train-model-remotely>
+   Use rclone <howto/rclone>
+
+Develop a model (advanced user)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. toctree::
    :maxdepth: 2
 
-   howto/index
+   Develop a model <howto/develop-model>
 
-
-.. raw:: html
-
-   <h2>Modules</h2>
+Others
+^^^^^^
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
-   modules/index
+   Video demos <howto/video-demos>
+
+More
+----
+
+.. toctree::
+   :maxdepth: 1
+
+   Modules <modules/index>

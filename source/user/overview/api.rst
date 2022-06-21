@@ -10,13 +10,19 @@ For a detailed up-to-date documentation please refer to the `official DEEPaaS do
 Integrate your model with the API
 ---------------------------------
 
+.. tip::
+    The best approach to integrate your code with DEEPaaS is to create an empty template
+    using the :doc:`DEEP Modules Template <cookiecutter-template>`. Once the template is created,
+    move your code inside your package and define the API methods that will interface with
+    your existing code.
+
 To make your Deep Learning model compatible with the DEEPaaS API you have to:
 
 1. Define the API methods for your model
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Create a Python file (named for example ``deep_api.py``) inside your package. In this file you can define any of the
-`API methods <https://docs.deep-hybrid-datacloud.eu/projects/deepaas/en/stable/api.html#v2-models>`_.
+Create a Python file (named for example ``api.py``) inside your package. In this file you can define any of the
+`API methods <https://docs.deep-hybrid-datacloud.eu/projects/deepaas/en/stable/user/v2-api.html>`_.
 You don't need to define all the methods, just the ones you need.
 Every other method will return a ``NotImplementError`` when  queried from the API.
 For example:
@@ -26,8 +32,30 @@ For example:
 * **Enable model weights preloading**: implement ``warm``.
 * **Enable model info**: implement ``get_metadata``.
 
-Here is `an example of the implementation <https://github.com/indigo-dc/image-classification-tf/blob/master/imgclas/api.py>`__  
-of the methods. You can also browse our `github repository <https://github.com/deephdc>`__ for more examples.
+If you don't feel like reading the DEEPaaS docs (you should), here are some
+examples of files you can drawn inspiration from:
+
+* `returning a JSON response <https://github.com/deephdc/demo_app/blob/master/demo_app/api.py>`__
+  for ``predict()``.
+* `returning a file (eg. image, zip, etc) <https://github.com/deephdc/demo_app/blob/return-files/demo_app/api.py>`__
+  for ``predict()``.
+* a `more complex example <https://github.com/deephdc/image-classification-tf/blob/master/imgclas/api.py>`__ which also includes ``train``.
+
+.. tip::
+    Try to keep you module's code as decoupled as possible from DEEPaaS code, so that
+    any future changes in the API are easy to integrate.
+    This means that the ``predict()`` in ``api.py`` should mostly be an interface to
+    your true predict function. In pseudocode:
+
+    .. code-block:: python
+
+        import utils  # this is where your true predict function is
+
+        def predict(**kwargs):
+            args = preprocess(kwargs)  # transform deepaas input to your standard input
+            out = utils.predict(args)  # make prediction
+            resp = postprocess(out)    # transform your standard output to deepaas output
+            return resp
 
 2. Define the entrypoints to your model
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -37,15 +65,10 @@ You must define the entrypoints pointing to this file in the ``setup.cfg`` as fo
 
     [entry_points]
     deepaas.v2.model =
-        pkg_name = pkg_name.deep_api
+        pkg_name = pkg_name.api
 
-Here is an `example <https://github.com/indigo-dc/image-classification-tf/blob/master/setup.cfg#L25-L27>`__ of the entrypoint
+Here is an `example <https://github.com/deephdc/demo_app/blob/cca3cb8e0838b0b6473549c595674e92f561f435/setup.cfg#L25-L27>`__ of the entrypoint
 definition in the ``setup.cfg`` file.
-
-.. tip::
-    When developing a model with the :doc:`DEEP Data Science template <cookiecutter-template>`, the Python file
-    with the API methods will automatically be created at ``pkg_name/models/deep_api.py``, as well as the entrypoints
-    pointing to it. This path can of course be modified.
 
 
 Running the API

@@ -1,10 +1,8 @@
 .. include:: <isonum.txt>
-
 .. highlight:: console
 
-*********************
 Train a model locally
-*********************
+=====================
 
 This is a step by step guide on how to train a module from the Marketplace with your own dataset.
 
@@ -27,7 +25,7 @@ find that it has an associated docker container in `DockerHub <https://hub.docke
 example we are running here, the container would be ``deephdc/deep-oc-image-classification-tf``. So let's pull the
 docker image from DockerHub:
 
-.. code-block:: console
+.. code-block::
 
     $ docker pull deephdc/deep-oc-image-classification-tf
 
@@ -41,20 +39,17 @@ Docker images have usually tags depending on whether they are using ``master`` o
 
 So if you wanted to use gpu and the test branch you could run:
 
-.. code-block:: console
+.. code-block::
 
     $ docker pull deephdc/deep-oc-image-classification-tf:gpu-test
 
 Instead of pulling from Dockerhub you can choose to build the image yourself:
 
-.. code-block:: console
+.. code-block::
 
     $ git clone https://github.com/deephdc/deep-oc-image-classification-tf
     $ cd deep-oc-image-classification-tf
     $ docker build -t deephdc/deep-oc-image-classification-tf .
-
-.. Tip:: It's usually helpful to read the README in the source code of the module, in this case located at
-   https://github.com/deephdc/image-classification-tf.
 
 
 2. Store your data
@@ -65,17 +60,22 @@ To run locally you have two options:
 * Have your data stored locally
 * Have your data at a remote storage resource
 
+When training a model, the data has usually to be in a specific format and folder structure.
+It's usually helpful to read the README in the source code of the module
+(in this case located `here <https://github.com/deephdc/image-classification-tf>`_)
+to learn the correct way to setting it up.
+
 Have your data stored locally
-=============================
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You should make sure that you export inside of the container all the folders you need for the training
 
 .. code-block:: console
 
-	$ docker run -ti -p 5000:5000 -p 6006:6006 -v path_to_local_folder:path_to_docker_folder deephdc/deep-oc-image-classification-tf
+	$ docker run -ti -p 5000:5000 -p 6006:6006  -p 8888:8888 -v path_to_local_folder:path_to_docker_folder deephdc/deep-oc-image-classification-tf
 
 Have your data at a remote storage resource
-===========================================
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 For the time being we support using the DEEP Nextcloud for remote storage, although we plan to support addition platforms
 such as Google Drive, Dropbox and OneData. All of these platforms are supported through `rclone <https://rclone.org/>`_.
@@ -129,7 +129,7 @@ the inputs needed for the training.
 When running the container you should export the ``rclone.conf`` file so that it can be reached from within the docker.
 You can see an example on how to do this here
 
-.. code-block:: console
+.. code-block::
 
 	$ docker run -ti -p 5000:5000 -p 6006:6006 -v host_path_to_rclone.conf:/root/.config/rclone/rclone.conf deephdc/deep-oc-image-classification-tf
 
@@ -150,3 +150,52 @@ Upload the image your want to classify and check on the predicted classes.
 
 .. image:: ../../_static/deepaas.png
    :width: 500 px
+
+
+4. Share your new module in the Marketplace
+-------------------------------------------
+
+.. tip::
+    This section share lots of steps with :doc:`How to develop a model <../howto/develop-model>`
+    so you can always cross-check there in case of doubt.
+
+Let's say you managed to create a plant classifier by retraining the  `general model to identify images <https://marketplace.deep-hybrid-datacloud.eu/modules/train-an-image-classifier.html>`_ on your specific dataset. Now you want to share it with other users.
+
+Look for the Docker repo of the original module (here `deephdc/DEEP-OC-image-classification-tf <https://github.com/deephdc/DEEP-OC-image-classification-tf>`_) and make a fork of it. Rename the repo to a new name (here `deephdc/DEEP-OC-plants-classification-tf <https://github.com/deephdc/DEEP-OC-plants-classification-tf>`_)
+
+Now, in your fork, edit  the following files according to your needs:
+
+* ``Dockerfile``: For example make sure that the model know downloads the `new weights <https://github.com/deephdc/DEEP-OC-plants-classification-tf/blob/ae5eca2bda6a2a7bbbf68f2767954dc819e50c4f/Dockerfile#L19-L21>`_ instead of the `original weights <https://github.com/deephdc/DEEP-OC-image-classification-tf/blob/080584f0ad9c660ec0e55240d4b4979f2d45a2bb/Dockerfile#L112-L114>`_.
+  Check your Dockerfile works correctly by building it locally and running it:
+  ::
+
+    docker build --no-cache -t your_project .
+    docker run -ti -p 5000:5000 -p 6006:6006 -p 8888:8888 your_project
+    # --> your module should be visible in http://0.0.0.0:5000/ui
+
+* ``metadata.json``: this is the information that will be displayed in the Marketplace.
+  Update and add the information you need to make sure it reflects your new usecase.
+  Check you didn't mess up the JSON formatting by running:
+  ::
+
+    pip install git+https://github.com/deephdc/schema4apps
+    deep-app-schema-validator metadata.json
+
+Once you are fine with the state of your module, push the changes to Github.
+
+Once your repos are set it's time to make a PR to add your model to the marketplace!
+For this you have to fork the code of the DEEP catalog repo (`deephdc/deep-oc <https://github.com/deephdc/deep-oc>`_)
+and add your Docker repo name at the end of the ``MODULES.yml``.
+
+.. code-block:: console
+
+    git clone https://github.com/[my-github-fork]
+    cd [my-github-fork]
+    echo '- module: https://github.com/[my-account-name]/DEEP-OC-[my-app-name]' >> MODULES.yml
+    git commit -a -m "adding new module to the catalogue"
+    git push
+
+You can also make it `online on GitHub <https://github.com/deephdc/deep-oc/edit/master/MODULES.yml>`_.
+
+Once the changes are done, make a PR of your fork to the original repo and wait for approval.
+Check the `GitHub Standard Fork & Pull Request Workflow <https://gist.github.com/Chaser324/ce0505fbed06b947d962>`_ in case of doubt.
