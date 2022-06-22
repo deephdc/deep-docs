@@ -1,5 +1,7 @@
 Video demos
------------
+===========
+
+Check this `tutorial <https://www.youtube.com/watch?v=cRMIviobF_c>`_ for an updated overview of the platform.
 
 Please refer to the Youtube channel `playlist <https://www.youtube.com/playlist?list=PLJ9x9Zk1O-J_UZfNO2uWp2pFMmbwLvzXa>`_
 for a comprehensive list of video demos.

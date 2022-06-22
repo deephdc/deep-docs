@@ -1,14 +1,17 @@
 .. highlight:: console
 
-*********************
 Try a service locally
-*********************
-
+=====================
 
 .. admonition:: Requirements
 
-    * having `Docker <https://www.docker.com>`_ installed. For an up-to-date installation please follow
-      the `official Docker installation guide <https://docs.docker.com/install>`_.
+    This section requires having `docker <https://docs.docker.com/install/#supported-platforms>`_ installed.
+
+    Starting from version 19.03 docker supports NVIDIA GPUs (see `here <https://docs.docker.com/engine/release-notes/>`__ and `here <https://github.com/moby/moby/pull/38828>`__).
+    If you happen to be using an older version you can give a try to `nvidia-docker <https://github.com/nvidia/nvidia-docker/wiki/Installation-(version-2.0)>`_
+
+    If you need to use docker in an environment without root privileges (eg. an HPC cluster)
+    check `udocker <https://github.com/indigo-dc/udocker/releases>`_ instead of docker.
 
 
 1. Choose your module
@@ -49,16 +52,12 @@ Instead of pulling from Dockerhub you can choose to build the image yourself:
     $ docker build -t deephdc/deep-oc-image-classification-tf .
 
 
-.. Tip:: It's usually helpful to read the README in the source code of the module, in this case located at
-   https://github.com/deephdc/image-classification-tf.
-
-
 2. Launch the API and predict
 -----------------------------
 
 Run the container with::
 
-	$ docker run -ti -p 5000:5000 deephdc/deep-oc-image-classification-tf
+	$ docker run -ti -p 5000:5000 p 6006:6006 -p 8888:8888 deephdc/deep-oc-image-classification-tf
 
 Once running, point your browser to http://127.0.0.1:5000/ui and you will see the API documentation, where you can
 test the module's functionality, as well as perform other actions.
@@ -68,8 +67,8 @@ test the module's functionality, as well as perform other actions.
 
 Go to the  ``predict()`` function and upload the file/data you want to predict (in the case of the image classifier
 this should be an image file). The appropriate data formats of the files you have to upload are often discussed
-in the module's Marketplace page.
+in the module's Marketplace page or in their Github README files.
 
 The response from the ``predict()`` function will vary from module to module but usually consists on a JSON dict
 with the predictions. For example the image classifier return a list of predicted classes along with predicted accuracy.
-Other modules might return files instead of a JSON.
+Other modules might return files (eg. images, zips, ...) instead of a JSON response.
