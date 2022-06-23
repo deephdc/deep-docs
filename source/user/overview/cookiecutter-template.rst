@@ -1,3 +1,4 @@
+.. include:: <isonum.txt>
 .. highlight:: console
 
 DEEP Modules Template
@@ -29,19 +30,19 @@ and then run the `cookicutter <https://cookiecutter.readthedocs.io>`_ tool as fo
 You are first provided with ``[Info]`` line about the parameter and in the next line you configure this parameter.
 You will be asked to configure:
 
-* Remote URL to host your new repositories (git), e.g. https://github.com/deephdc, ``git_base_url``
-* Project name, ``project_name``
-* Name of your new repository, to be added after \"git_base_url\" (see above)", ``repo_name`` (aka <your_project> in the following)
-* Author name(s) (and/or your organization/company/team). If many, separate by comma, ``author_name``
-* E-Mail(s) of main author(s) (or contact person). If many, separate by comma, ``author_email``
-* Short description of the project, ``description``
-* Application version (expects X.Y.Z (Major.Minor.Patch)), ``app_version``
-* Choose open source license, default is MIT. For more info: https://opensource.org/licenses, ``open_source_license``
-* User account at hub.docker.com, e.g. 'deephdc' in https://hub.docker.com/u/deephdc, ``dockerhub_user``
-* Docker image your Dockerfile starts from (FROM <docker_baseimage>) (don't provide the tag here), e.g. tensorflow/tensorflow, ``docker_baseimage``
-* CPU tag for the baseimage, e.g. 2.9.1. Has to match python3!, ``baseimage_cpu_tag``
-* GPU tag for the baseimage, e.g. 2.9.1-gpu. Has to match python3!, ``baseimage_gpu_tag``
-* whether you want to receive updates if your model fails to build, ``failure_notify``
+* ``git_base_url``: Remote URL to host your new git repositories (e.g. https://github.com/deephdc ).
+* ``project_name``: Project name.
+* ``repo_name``: Name of your new repository, to be added after \"git_base_url\" (see above)", (aka <your_project> in the following).
+* ``author_name``: Author name(s) (and/or your organization/company/team). If many, separate by comma.
+* ``author_email``: E-Mail(s) of main author(s) (or contact person). If many, separate by comma.
+* ``description``: Short description of the project.
+* ``app_version``: Application version (expects X.Y.Z (Major.Minor.Patch)).
+* ``open_source_license``: Choose open source license, default is MIT. `More info <https://opensource.org/licenses>`__.
+* ``dockerhub_user``: User account at hub.docker.com, e.g. 'deephdc' in https://hub.docker.com/u/deephdc .
+* ``docker_baseimage``: Docker image your Dockerfile starts from (`FROM <docker_baseimage>`) (don't provide the tag here), (e.g. tensorflow/tensorflow ).
+* ``baseimage_cpu_tag``: CPU tag for the baseimage, e.g. 2.9.1. Has to match python3!
+* ``baseimage_gpu_tag``: GPU tag for the baseimage, e.g. 2.9.1-gpu. Has to match python3!
+* ``failure_notify``: whether you want to receive updates if your model fails to build.
 
 When these questions are answered, following two repositories will be created locally and immediately linked to your ``git_base_url``:
 
@@ -57,10 +58,9 @@ Project structure
 Based on the on the branch you choose, the template will create different files, being master the most minimal option (see above).
 The content of these files is populated based on your answer to the questions.
 
-Master branch
-^^^^^^^^^^^^^
+**Master branch**
 
-.. code-block::
+.. code-block:: console
 
     <your_project>
     ##############
@@ -68,8 +68,8 @@ Master branch
     │
     ├── README.md              <- The top-level README for developers using this project.
     │
-    ├── requirements.txt       <- The requirements file for reproducing the analysis environment, e.g.
-    │                             generated with `pip freeze > requirements.txt`
+    ├── requirements.txt       <- The requirements file for reproducing the analysis
+    │                              environment (`pip freeze > requirements.txt`)
     │
     ├── setup.py, setup.cfg    <- makes project pip installable (pip install -e .) so
     │                             {{cookiecutter.repo_name}} can be imported
@@ -97,10 +97,9 @@ Master branch
     └─ metadata.json          <- Defines information propagated to the DEEP Marketplace
 
 
-Advanced branch
-^^^^^^^^^^^^^^^
+**Advanced branch**
 
-.. code-block::
+.. code-block:: console
 
     <your_project>
     ##############
@@ -111,24 +110,31 @@ Advanced branch
     │
     ├── docs                   <- A default Sphinx project; see sphinx-doc.org for details
     │
-    ├── models                 <- Trained and serialized models, model predictions, or model summaries
+    ├── models                 <- Trained and serialized models, model predictions, or model
+    │                             summaries
     │
-    ├── notebooks              <- Jupyter notebooks. Naming convention is a number (for ordering),
-    │                             the creator's initials (if many user development),
-    │                             and a short `_` delimited description, e.g.
-    │                             `1.0-jqp-initial_data_exploration.ipynb`.
+    ├── notebooks              <- Jupyter notebooks. Naming convention is a number
+    │                             (for ordering), the creator's initials (if many
+    │                             user development), and a short `_` delimited
+    │                             description.
+    │                             e.g.`1.0-jqp-initial_data_exploration.ipynb`.
     │
-    ├── references             <- Data dictionaries, manuals, and all other explanatory materials.
+    ├── references             <- Data dictionaries, manuals, and all other explanatory
+    │                             materials.
     │
     ├── reports                <- Generated analysis as HTML, PDF, LaTeX, etc.
     │   └── figures            <- Generated graphics and figures to be used in reporting
     │
-    ├── requirements.txt       <- The requirements file for reproducing the analysis environment, e.g.
-    │                             generated with `pip freeze > requirements.txt`
+    ├── requirements.txt       <- The requirements file for reproducing the analysis
+    │                             environment, (`pip freeze > requirements.txt`)
+    │
     ├── test-requirements.txt  <- The requirements file for the test environment
     │
-    ├── setup.py               <- makes project pip installable (pip install -e .) so {{cookiecutter.repo_name}} can be imported
+    ├── setup.py               <- makes project pip installable (pip install -e .) so
+    │                             {{cookiecutter.repo_name}} can be imported
+    │
     ├── {{cookiecutter.repo_name}}    <- Source code for use in this project.
+    │   │
     │   ├── __init__.py        <- Makes {{cookiecutter.repo_name}} a Python module
     │   │
     │   ├── dataset            <- Scripts to download or generate data
@@ -140,16 +146,16 @@ Advanced branch
     │   ├── models             <- Scripts to train models and make predictions
     │   │   └── deep_api.py    <- Main script for the integration with DEEP API
     │   │
-    │   ├── tests              <- Scripts to perfrom code testing
+    │   ├── tests              <- Scripts to perform code testing
     │   │
-    │   └── visualization      <- Scripts to create exploratory and results oriented visualizations
-    │       └── visualize.py
+    │   └── visualization      <- Scripts to create exploratory and results oriented
+    │       └── visualize.py      visualizations
     │
     └── tox.ini                <- tox file with settings for running tox; see tox.testrun.org
 
     DEEP-OC-<your_project>
     ######################
-    ├─ Dockerfile             <- Describes main steps on integrationg DEEPaaS API and
+    ├─ Dockerfile             <- Describes main steps on integration DEEPaaS API and
     │                            <your_project> application in one Docker image
     │
     ├─ Jenkinsfile            <- Describes basic Jenkins CI/CD pipeline
@@ -158,6 +164,7 @@ Advanced branch
     │
     ├─ README.md              <- README for developers and users.
     │
-    ├─ docker-compose.yml     <- Allows running the application with various configurations via docker-compose
+    ├─ docker-compose.yml     <- Allows running the application with various configurations
+    │                            via docker-compose
     │
-    └─ metadata.json          <- Defines information propagated to the [DEEP Open Catalog](https://marketplace.deep-hybrid-datacloud.eu)
+    └─ metadata.json          <- Defines information propagated to the DEEP Marketplace
