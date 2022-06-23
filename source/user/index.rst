@@ -22,7 +22,7 @@ User documentation
 New to the project? How about a quick dive?
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    Quickstart <quickstart>
 
@@ -33,7 +33,7 @@ A more in depth documentation, with detailed description on the architecture and
 components is provided in the following sections.
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    DEEP architecture <overview/architecture>
    User roles and workflows <overview/user-roles>
@@ -48,7 +48,7 @@ Use a model (basic user)
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    Perform inference locally <howto/inference-locally>
 
@@ -61,7 +61,7 @@ Train a model (intermediate user)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    Train a model locally <howto/train-model-locally>
    Train a model remotely <howto/train-model-remotely>

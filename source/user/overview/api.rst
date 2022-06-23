@@ -32,14 +32,14 @@ For example:
 * **Enable model weights preloading**: implement ``warm``.
 * **Enable model info**: implement ``get_metadata``.
 
-If you don't feel like reading the DEEPaaS docs (you should), here are some
-examples of files you can drawn inspiration from:
+If you don't feel like reading the DEEPaaS docs (which you should), here are some
+examples of files you can quickly drawn inspiration from:
 
 * `returning a JSON response <https://github.com/deephdc/demo_app/blob/master/demo_app/api.py>`__
   for ``predict()``.
 * `returning a file (eg. image, zip, etc) <https://github.com/deephdc/demo_app/blob/return-files/demo_app/api.py>`__
   for ``predict()``.
-* a `more complex example <https://github.com/deephdc/image-classification-tf/blob/master/imgclas/api.py>`__ which also includes ``train``.
+* a `more complex example <https://github.com/deephdc/image-classification-tf/blob/master/imgclas/api.py>`__ which also includes ``train()`` with monitoring.
 
 .. tip::
     Try to keep you module's code as decoupled as possible from DEEPaaS code, so that
@@ -49,7 +49,8 @@ examples of files you can drawn inspiration from:
 
     .. code-block:: python
 
-        import utils  # this is where your true predict function is
+        #api.py
+        import utils  # eg. this is where your true predict function is
 
         def predict(**kwargs):
             args = preprocess(kwargs)  # transform deepaas input to your standard input
