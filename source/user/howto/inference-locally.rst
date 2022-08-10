@@ -3,6 +3,11 @@
 Try a service locally
 =====================
 
+.. admonition:: Useful video demos
+   :class: important
+
+    - `Running a module locally with docker <https://www.youtube.com/watch?v=3ORuymzO7V8&list=PLJ9x9Zk1O-J_UZfNO2uWp2pFMmbwLvzXa&index=13>`__
+
 .. admonition:: Requirements
 
     This section requires having `docker <https://docs.docker.com/install/#supported-platforms>`_ installed.

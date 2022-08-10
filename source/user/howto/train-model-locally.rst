@@ -4,6 +4,11 @@
 Train a model locally
 =====================
 
+.. admonition:: Useful video demos
+   :class: important
+
+    - `Running a module locally with docker <https://www.youtube.com/watch?v=3ORuymzO7V8&list=PLJ9x9Zk1O-J_UZfNO2uWp2pFMmbwLvzXa&index=13>`__
+
 This is a step by step guide on how to train a module from the Marketplace with your own dataset.
 
 .. admonition:: Requirements

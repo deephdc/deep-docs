@@ -3,6 +3,13 @@
 Develop a model
 ===============
 
+.. admonition:: Useful video demos
+   :class: important
+
+    - `Deploying the DEEP development module (JupyterLab) <https://www.youtube.com/watch?v=J_l_xWiBGNA&list=PLJ9x9Zk1O-J_UZfNO2uWp2pFMmbwLvzXa&index=3>`__
+    - `Training your model in the cloud with the DEEP training dashboard <https://www.youtube.com/watch?v=uqFXrEwtNNs&list=PLJ9x9Zk1O-J_UZfNO2uWp2pFMmbwLvzXa&index=6>`__
+
+
 Setting the framework
 ---------------------
 
@@ -40,6 +47,37 @@ Try running it with python so you get a more detailed debug message.
 ::
 
     python api.py
+
+Remember to leave the ``get_metadata()`` function that comes predefined with your module,
+as all modules should have proper metadata.
+
+In order to improve the readability of the code and the overall maintainability of the project,
+we enforce proper Python coding styles (``pep8``) to all modules added to the Marketplace.
+Modules that fail to pass style tests won't be able to build docker images.
+If you want to check if your module pass the tests, go to your project folder and type::
+
+    flake8
+
+There you should see a detailed report of the offending lines (if any).
+If your project has many offending lines, it's recommended using a code formatter tool like
+`Black <https://black.readthedocs.io>`__. It also helps for having a consistent code style
+and minimizing git diffs. Once `installed <https://black.readthedocs.io/en/stable/getting_started.html#installation>`__,
+you can check how Black would have reformatted your code:
+::
+
+    black <code-folder> --diff
+
+Remember you can `turn off Black formatting <https://black.readthedocs.io/en/stable/the_black_code_style/current_style.html?highlight=fmt#code-style>`__
+if you want to keep some sections of your code untouched.
+And, similarly, you can `turn off flake8 testing <https://stackoverflow.com/a/64431741>`__
+in some parts of the code if long lines are really needed.
+
+If you are happy with the changes, you can make them permanent using:
+::
+
+    black <code-folder>
+
+Have a backup before reformatting, just in case!
 
 Once you are fine with the state of your module, push the changes to Github.
 
@@ -85,7 +123,7 @@ You can do this directly `online on GitHub <https://github.com/deephdc/deep-oc/e
 
     git clone https://github.com/[my-github-fork]
     cd [my-github-fork]
-    echo '- module: https://github.com/[my-account-name]/DEEP-OC-[my-app-name]' >> MODULES.yml
+    echo '- module: https://github.com/deephdc/UC-[my-account-name]-DEEP-OC-[my-app-name]' >> MODULES.yml
     git commit -a -m "adding new module to the catalogue"
     git push
 
