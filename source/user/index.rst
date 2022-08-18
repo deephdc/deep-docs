@@ -11,12 +11,14 @@ User documentation
     * `DockerHub <https://hub.docker.com/u/deephdc/>`__
     * `Docs <https://docs.deep-hybrid-datacloud.eu/en/latest/>`__
     * `NextCloud <https://nc.deep-hybrid-datacloud.eu/>`__
-    * `DEEP IAM <https://iam.deep-hybrid-datacloud.eu/>`_
+    * `DEEP IAM <https://iam.deep-hybrid-datacloud.eu/>`__
+    * `Status of services <https://status.deep-hybrid-datacloud.eu/>`__
 
 
     You can also check these `slides <https://cdn.jsdelivr.net/gh/deephdc/deep-docs@master/source/_static/overview.pdf>`_
     along with this `video <https://www.youtube.com/watch?v=cRMIviobF_c>`_  for a quick overview of the project
-    from the user's point of view.
+    from the user's point of view (`attached tutorial <https://www.youtube.com/watch?v=cRMIviobF_c>`_).
+
 
 
 New to the project? How about a quick dive?
@@ -53,8 +55,9 @@ Use a model (basic user)
    Perform inference locally <howto/inference-locally>
 
 ..
-  // commment because right now deepaas serverless is not working correctly,
-  // thus this can be potentially confusing
+  // comment because right now deepaas serverless is not working correctly,
+  // thus this guide can be potentially confusing.
+  // TODO: uncomment when ready
   Perform inference remotely <howto/inference-remotely>
 
 Train a model (intermediate user)

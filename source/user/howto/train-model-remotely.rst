@@ -4,6 +4,11 @@
 Train a model remotely
 ======================
 
+.. admonition:: Useful video demos
+   :class: important
+
+    - `Training your model in the cloud with the DEEP training dashboard <https://www.youtube.com/watch?v=uqFXrEwtNNs&list=PLJ9x9Zk1O-J_UZfNO2uWp2pFMmbwLvzXa&index=6>`__
+
 This is a step by step guide on how to train a general model from the `DEEP Open Catalog marketplace <https://marketplace.deep-hybrid-datacloud.eu/>`__ with your own dataset.
 
 .. admonition:: Requirements
@@ -122,7 +127,7 @@ and add your Docker repo name at the end of the ``MODULES.yml``.
 
     git clone https://github.com/[my-github-fork]
     cd [my-github-fork]
-    echo '- module: https://github.com/[my-account-name]/DEEP-OC-[my-app-name]' >> MODULES.yml
+    echo '- module: https://github.com/deephdc/UC-[my-account-name]-DEEP-OC-[my-app-name]' >> MODULES.yml
     git commit -a -m "adding new module to the catalogue"
     git push
 

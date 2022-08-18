@@ -53,7 +53,6 @@ model and retrains it to perform `seed classification <https://marketplace.deep-
 
 * :doc:`How to train a model locally <../howto/train-model-locally>`
 * :doc:`How to train a model remotely <../howto/train-model-remotely>`
-* :doc:`How to add your module to the DEEP Marketplace <../howto/add-to-DEEP-marketplace>`
 
 
 The advanced user
@@ -82,4 +81,3 @@ models.
 * :doc:`How to use the DEEP Cookiecutter template for model development <cookiecutter-template>`
 * :doc:`How to develop your own machine learning model <../howto/develop-model>`
 * :ref:`How to integrate your model with the DEEPaaS API <user/overview/api:Integrate your model with the API>`
-* :doc:`How to add your model to the DEEP Marketplace <../howto/add-to-DEEP-marketplace>`

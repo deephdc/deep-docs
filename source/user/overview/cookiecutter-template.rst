@@ -4,6 +4,12 @@
 DEEP Modules Template
 =====================
 
+.. admonition:: Useful video demos
+   :class: important
+
+    - `Data science cookiecutter template <https://www.youtube.com/watch?v=mCxz8LQJWWA&list=PLJ9x9Zk1O-J_UZfNO2uWp2pFMmbwLvzXa&index=7>`__
+
+
 Overview
 --------
 
@@ -16,9 +22,7 @@ There are two versions of this template:
   looking for. Simple, minimal template, with the minimum requirements to integrate your code in DEEP.
 * `advanced <https://github.com/deephdc/cookiecutter-deep/tree/advanced>`_: this is a more advanced template.
   It makes more assumptions on how to structure projects and adds more files than those strictly needed for integration.
-  It also comes with additional files to implement tests (coverage, code quality, ...) on your module.
-  Unless you are looking for one of these features, you are probably safer using master.
-  This is the template that was used originally in the project.
+  Unless you are looking for some specific feature, you are probably safer using master.
 
 In order to create your project based on the template, one has to `install <https://cookiecutter.readthedocs.io/en/latest/installation.html>`_
 and then run the `cookicutter <https://cookiecutter.readthedocs.io>`_ tool as follows
@@ -78,7 +82,11 @@ The content of these files is populated based on your answer to the questions.
     │   │
     │   ├── __init__.py        <- Makes {{cookiecutter.repo_name}} a Python module
     │   │
-    │   └── api.py             <- Main script for the integration with DEEP API
+    │   ├── api.py             <- Main script for the integration with DEEP API
+    │   │
+    │   ├── misc.py            <- Misc functions that were helpful across projects
+    │   │
+    │   └── tests              <- Scripts to perform code testing
     │
     └── Jenkinsfile            <- Describes basic Jenkins CI/CD pipeline
 

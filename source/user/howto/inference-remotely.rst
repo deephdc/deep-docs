@@ -3,6 +3,10 @@
 Try a service remotely
 ======================
 
+.. admonition:: Useful video demos
+   :class: important
+
+    - `Performing inference in the cloud with the DEEP training dashboard <https://www.youtube.com/watch?v=FyELMIr5Wbo&list=PLJ9x9Zk1O-J_UZfNO2uWp2pFMmbwLvzXa&index=4>`__
 
 The first step is to go to the `DEEP as a Service (or DEEPaaS) <https://deepaas.deep-hybrid-datacloud.eu/>`_.
 For educational purposes we are going to use a `general model to identify images <https://marketplace.deep-hybrid-datacloud.eu/modules/train-an-image-classifier.html>`_. This will allow us to see the general workflow.

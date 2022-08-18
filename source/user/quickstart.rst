@@ -112,4 +112,3 @@ on the definition of entrypoints to the model and the creation of standard API m
 * :doc:`How to use the DEEP Modules Template for model development <overview/cookiecutter-template>`
 * :doc:`How to develop your own machine learning model <howto/develop-model>`
 * :ref:`How to integrate your model with the DEEPaaS API <user/overview/api:Integrate your model with the API>`
-* :doc:`How to add your model to the DEEP Marketplace <howto/add-to-DEEP-marketplace>`
