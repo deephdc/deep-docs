@@ -14,11 +14,8 @@ User documentation
     * `DEEP IAM <https://iam.deep-hybrid-datacloud.eu/>`__
     * `Status of services <https://status.deep-hybrid-datacloud.eu/>`__
 
-
-    You can also check these `slides <https://cdn.jsdelivr.net/gh/deephdc/deep-docs@master/source/_static/overview.pdf>`__
-    along with this `video <https://www.youtube.com/watch?v=cRMIviobF_c>`__  for a quick overview of the project
-    from the user's point of view (`attached tutorial <https://www.youtube.com/watch?v=cRMIviobF_c>`__).
-
+    You can also watch this `tutorial <https://www.youtube.com/watch?v=cRMIviobF_c>`__
+    for a quick overview of the project from the user's point of view ( `attached slides <https://cdn.jsdelivr.net/gh/deephdc/deep-docs@master/source/_static/overview.pdf>`__).
 
 
 New to the project? How about a quick dive?
