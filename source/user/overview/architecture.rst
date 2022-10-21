@@ -52,7 +52,7 @@ The data storage resources
 --------------------------
 
 Storage is essential for user that want to create new services by training modules on their custom data. For the moment
-we support hosting data in `DEEP-Nextcloud <https://nc.deep-hybrid-datacloud.eu>`_. We are currently working on adding
+we support hosting data in `DEEP-Nextcloud <https://data-deep.a.incd.pt/>`__. We are currently working on adding
 additional storage support, as well as more advanced features such as data caching (see `OneData <https://onedata.org/>`_),
 in cooperation with the `eXtreme-DataCloud <http://www.extreme-datacloud.eu/>`_ project.
 

@@ -17,9 +17,9 @@ This is a step by step guide on how to train a general model from the `DEEP Open
 
     * `DEEP-IAM <https://iam.deep-hybrid-datacloud.eu/>`_ registration
 
-    For this example we are going to use `DEEP-Nextcloud <https://nc.deep-hybrid-datacloud.eu>`__ for storing data. This means you also have to:
+    For this example we are going to use `DEEP-Nextcloud <https://data-deep.a.incd.pt/>`__ for storing data. This means you also have to:
 
-        * Register at `DEEP-Nextcloud <https://nc.deep-hybrid-datacloud.eu>`__ (i.e. login with your DEEP-IAM credentials)
+        * Register at `DEEP-Nextcloud <https://data-deep.a.incd.pt/>`__ (i.e. login with your DEEP-IAM credentials)
         * :ref:`Obtain Nextcloud security parameters for rclone <user/howto/rclone:Nextcloud configuration for rclone>`. This will provide you with ``<your_nextcloud_username>`` and
           ``<your_nextcloud_password>``.
 

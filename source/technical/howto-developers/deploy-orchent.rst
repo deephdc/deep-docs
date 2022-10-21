@@ -53,7 +53,7 @@ You can use the general template, `deep-oc-mesos-webdav.yml <https://github.com/
     #!/bin/bash
 
     orchent depcreate ./deep-oc-marathon-webdav.yml '{ "docker_image": "deephdc/deep-oc-image-classification-tf"
-                                                    "rclone_url": "https://nc.deep-hybrid-datacloud.eu/remote.php/webdav/",
+                                                    "rclone_url": "https://data-deep.a.incd.pt/remote.php/webdav/",
                                                     "rclone_vendor": "nextcloud",
                                                     "rclone_conf": "/srv/image-classification-tf/rclone.conf"
                                                     "rclone_user": <your_nextcloud_username>

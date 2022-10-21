@@ -10,7 +10,7 @@ Welcome to DEEP-Hybrid-DataCloud's documentation!
     * `Github <https://github.com/deephdc>`__
     * `DockerHub <https://hub.docker.com/u/deephdc/>`__
     * `Docs <https://docs.deep-hybrid-datacloud.eu/en/latest/>`__
-    * `NextCloud <https://nc.deep-hybrid-datacloud.eu/>`__
+    * `NextCloud <https://data-deep.a.incd.pt/>`__
     * `DEEP IAM <https://iam.deep-hybrid-datacloud.eu/>`_
 
 User documentation

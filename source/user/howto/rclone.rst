@@ -33,7 +33,7 @@ Nextcloud configuration for rclone
 ----------------------------------
 .. image:: ../../_static/nc-access.png
 
-After login into `DEEP-Nextcloud  <https://nc.deep-hybrid-datacloud.eu/login>`_ with your DEEP-IAM credentials, go to
+After login into `DEEP-Nextcloud  <https://data-deep.a.incd.pt/>`__ with your DEEP-IAM credentials, go to
 (1) **Settings (top right corner)** |rarr|  (2) **Security**  |rarr|  (3) **Devices & sessions**. Set a name for your
 application and click on **Create new app password**. You get <user> and <password> credentials. Next, you need to obscure the <password> for use in the rclone config file (``rclone.conf``). For this you do:
 
@@ -52,7 +52,7 @@ In order to create the configuration file (``rclone.conf``) for rclone::
    	 choose "n"  for "New remote"
    	 choose name for DEEP-Nextcloud, e.g. deep-nextcloud
    	 choose "Type of Storage" \u2192 "Webdav" (24)
-   	 provide DEEP-Nextcloud URL for webdav access: https://nc.deep-hybrid-datacloud.eu/remote.php/webdav/
+   	 provide DEEP-Nextcloud URL for webdav access: https://data-deep.a.incd.pt/remote.php/webdav/
    	 choose Vendor, Nextcloud (1)
    	 specify "user" (see "Nextcloud configuration for rclone" above). Your username starts with "DEEP-IAM-..."
    	 specify password (see "Nextcloud configuration for rclone" above).

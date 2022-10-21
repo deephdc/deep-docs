@@ -86,7 +86,7 @@ For the time being we support using the DEEP Nextcloud for remote storage, altho
 such as Google Drive, Dropbox and OneData. All of these platforms are supported through `rclone <https://rclone.org/>`_.
 
 If you have the files you need for the training stored in Nextcloud you need first to login into
-`DEEP-Nextcloud  <https://nc.deep-hybrid-datacloud.eu/login>`_ with your DEEP-IAM credentials.
+`DEEP-Nextcloud  <https://data-deep.a.incd.pt/>`__ with your DEEP-IAM credentials.
 Then you have to go to: **(1) Settings (top right corner)** |rarr|  **(2) Security**  |rarr|  **(3) Devices & sessions**
 
 .. image:: ../../_static/nc-access.png
