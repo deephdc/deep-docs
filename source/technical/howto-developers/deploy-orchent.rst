@@ -10,8 +10,8 @@ Dashboard).
 
 .. admonition:: Requirements
 
-   * `oidc-agent <https://github.com/indigo-dc/oidc-agent/releases>`_ installed and configured for `DEEP-IAM <https://iam.deep-hybrid-datacloud.eu/>`_ (see :doc:`Configure oidc-agent <oidc-agent>`).
-   * `orchent <https://github.com/indigo-dc/orchent/releases>`_ tool
+   * `oidc-agent <https://github.com/indigo-dc/oidc-agent/releases>`__ installed and configured for `DEEP-IAM <https://iam.deep-hybrid-datacloud.eu/>`_ (see :doc:`Configure oidc-agent <oidc-agent>`).
+   * `orchent <https://github.com/indigo-dc/orchent/releases>`__ tool
 
 
 Prepare your TOSCA file (optional)

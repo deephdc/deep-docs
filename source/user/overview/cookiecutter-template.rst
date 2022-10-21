@@ -14,18 +14,18 @@ Overview
 --------
 
 To simplify the development and in an easy way integrate your model with the :doc:`DEEPaaS API <api>`,
-a `standard template <https://github.com/deephdc/cookiecutter-deep>`_ for modules is provided.
+a `standard template <https://github.com/deephdc/cookiecutter-deep>`__ for modules is provided.
 
 There are two versions of this template:
 
-* `master <https://github.com/deephdc/cookiecutter-deep/tree/master>`_: this is what 99% of users are probably
+* `master <https://github.com/deephdc/cookiecutter-deep/tree/master>`__: this is what 99% of users are probably
   looking for. Simple, minimal template, with the minimum requirements to integrate your code in DEEP.
-* `advanced <https://github.com/deephdc/cookiecutter-deep/tree/advanced>`_: this is a more advanced template.
+* `advanced <https://github.com/deephdc/cookiecutter-deep/tree/advanced>`__: this is a more advanced template.
   It makes more assumptions on how to structure projects and adds more files than those strictly needed for integration.
   Unless you are looking for some specific feature, you are probably safer using master.
 
-In order to create your project based on the template, one has to `install <https://cookiecutter.readthedocs.io/en/latest/installation.html>`_
-and then run the `cookicutter <https://cookiecutter.readthedocs.io>`_ tool as follows
+In order to create your project based on the template, one has to `install <https://cookiecutter.readthedocs.io/en/latest/installation.html>`__
+and then run the `cookiecutter <https://cookiecutter.readthedocs.io>`__ tool as follows
 ::
 
     $ pip install cookiecutter

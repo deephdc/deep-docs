@@ -8,11 +8,11 @@ How to use rclone
 Installation of rclone in Docker image
 --------------------------------------
 
-All applications in the `DEEP Open Catalog <https://deephdc.github.io/>`_ are packed in a Docker image and have
-`rclone <https://rclone.org/>`_ tool installed by default. If you want to create a Docker containing your own application, you should install rclone
+All applications in the `DEEP Open Catalog <https://deephdc.github.io/>`__ are packed in a Docker image and have
+`rclone <https://rclone.org/>`__ tool installed by default. If you want to create a Docker containing your own application, you should install rclone
 in the container to be able to access the data stored remotely. The following lines are an example of what has to be
 added in the Dockerfile when installation is based on Ubuntu. For other Linux flavors, please, refer to
-the `rclone official site  <https://rclone.org/downloads/>`_  ::
+the `rclone official site  <https://rclone.org/downloads/>`__ ::
 
 	# Install rclone
 	RUN wget https://downloads.rclone.org/rclone-current-linux-amd64.deb && \
@@ -105,7 +105,7 @@ A simple call of rclone from python is via ``subprocess.Popen()``
 
 .. important::
     When deploying a module on the DEEP Pilot testbed, you pass rclone parameters e.g. ``rclone_user`` and ``rclone_password`` during the deployment.
-    If you use our `general template <https://github.com/indigo-dc/tosca-templates/blob/master/deep-oc/deep-oc-marathon-webdav.yml>`_ , the name of the remote storage has to be ``rshare`` as in the example above (``rshare:/Datasets/dogs_breed/data``). If you create your own TOSCA template, you need to pay attention on matching these names in your code and in the template (for example, see environment parameters in the `general template <https://github.com/indigo-dc/tosca-templates/blob/master/deep-oc/deep-oc-marathon-webdav.yml>`_ like RCLONE_CONFIG_RSHARE_USER etc).
+    If you use our `general template <https://github.com/indigo-dc/tosca-templates/blob/master/deep-oc/deep-oc-marathon-webdav.yml>`__ , the name of the remote storage has to be ``rshare`` as in the example above (``rshare:/Datasets/dogs_breed/data``). If you create your own TOSCA template, you need to pay attention on matching these names in your code and in the template (for example, see environment parameters in the `general template <https://github.com/indigo-dc/tosca-templates/blob/master/deep-oc/deep-oc-marathon-webdav.yml>`_ like RCLONE_CONFIG_RSHARE_USER etc).
 
 Advanced examples
 ^^^^^^^^^^^^^^^^^

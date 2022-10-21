@@ -8,11 +8,11 @@ how each :doc:`different type of user <user-roles>` can take advantage of the di
 The marketplace
 ---------------
 
-The `DEEP Marketplace <https://marketplace.deep-hybrid-datacloud.eu/>`_ is a catalogue of modules that every user can have access to. Modules can be:
+The `DEEP Marketplace <https://marketplace.deep-hybrid-datacloud.eu/>`__ is a catalogue of modules that every user can have access to. Modules can be:
 
 * **Trainable**: Those are modules that an user can train on their own data to create a new service. Like training an
-  `image classifier <https://marketplace.deep-hybrid-datacloud.eu/modules/deep-oc-image-classification-tf.html>`_ with a
-  plants dataset to create a `plant classifier <http://marketplace.deep-hybrid-datacloud.eu/modules/plants-species-classifier.html>`_
+  `image classifier <https://marketplace.deep-hybrid-datacloud.eu/modules/deep-oc-image-classification-tf.html>`__ with a
+  plants dataset to create a `plant classifier <http://marketplace.deep-hybrid-datacloud.eu/modules/plants-species-classifier.html>`__
   service.
   Look for the ``trainable`` tag in the marketplace to find those modules.
 
@@ -21,7 +21,7 @@ The `DEEP Marketplace <https://marketplace.deep-hybrid-datacloud.eu/>`_ is a cat
   Look for the ``inference`` and ``pre-trained`` tags in the marketplace to find those modules.
 
 Some modules can both be trainable and trained.
-For example the `image classifier <https://marketplace.deep-hybrid-datacloud.eu/modules/deep-oc-image-classification-tf.html>`_
+For example the `image classifier <https://marketplace.deep-hybrid-datacloud.eu/modules/deep-oc-image-classification-tf.html>`__
 can be trained to create other image classifiers but can also be deployed for inference as it comes pre-trained with a
 general-purpose image classifier.
 
@@ -29,7 +29,7 @@ general-purpose image classifier.
 DEEP as a Service
 -----------------
 
-`DEEP as a Service (or DEEPaaS) <https://deepaas.deep-hybrid-datacloud.eu/>`_ is a fully managed service that allows
+`DEEP as a Service (or DEEPaaS) <https://deepaas.deep-hybrid-datacloud.eu/>`__ is a fully managed service that allows
 to easily and automatically deploy developed applications as services, with horizontal scalability thanks to a
 serverless approach. Module owners only need to care about the application development process, and incorporate
 new features that the automation system receives as an input.
@@ -53,14 +53,14 @@ The data storage resources
 
 Storage is essential for user that want to create new services by training modules on their custom data. For the moment
 we support hosting data in `DEEP-Nextcloud <https://data-deep.a.incd.pt/>`__. We are currently working on adding
-additional storage support, as well as more advanced features such as data caching (see `OneData <https://onedata.org/>`_),
-in cooperation with the `eXtreme-DataCloud <http://www.extreme-datacloud.eu/>`_ project.
+additional storage support, as well as more advanced features such as data caching (see `OneData <https://onedata.org/>`__),
+in cooperation with the `eXtreme-DataCloud <http://www.extreme-datacloud.eu/>`__ project.
 
 
 The Dashboard
 -------------
 
 The :doc:`DEEP dashboard <dashboard>`. allow users to access computing resources to deploy, perform inference,
-and train modules hosted at the `DEEP Open Catalog <https://marketplace.deep-hybrid-datacloud.eu/>`_, as well
+and train modules hosted at the `DEEP Open Catalog <https://marketplace.deep-hybrid-datacloud.eu/>`__, as well
 as deploying external Docker images hosted in Dockerhub.
 The Dashboard simplifies the deployment and hides some of the technical parts that most users do not need to worry about.

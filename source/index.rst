@@ -11,7 +11,7 @@ Welcome to DEEP-Hybrid-DataCloud's documentation!
     * `DockerHub <https://hub.docker.com/u/deephdc/>`__
     * `Docs <https://docs.deep-hybrid-datacloud.eu/en/latest/>`__
     * `NextCloud <https://data-deep.a.incd.pt/>`__
-    * `DEEP IAM <https://iam.deep-hybrid-datacloud.eu/>`_
+    * `DEEP IAM <https://iam.deep-hybrid-datacloud.eu/>`__
 
 User documentation
 ------------------
@@ -28,7 +28,7 @@ Component documentation
 
 Individual components' documentation can be found here:
 
-* `DEEPaaS documentation <https://docs.deep-hybrid-datacloud.eu/projects/deepaas/>`_
+* `DEEPaaS documentation <https://docs.deep-hybrid-datacloud.eu/projects/deepaas/>`__
 
 
 Technical documentation

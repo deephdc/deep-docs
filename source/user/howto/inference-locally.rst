@@ -10,23 +10,23 @@ Try a service locally
 
 .. admonition:: Requirements
 
-    This section requires having `docker <https://docs.docker.com/install/#supported-platforms>`_ installed.
+    This section requires having `docker <https://docs.docker.com/install/#supported-platforms>`__ installed.
 
     Starting from version 19.03 docker supports NVIDIA GPUs (see `here <https://docs.docker.com/engine/release-notes/>`__ and `here <https://github.com/moby/moby/pull/38828>`__).
-    If you happen to be using an older version you can give a try to `nvidia-docker <https://github.com/nvidia/nvidia-docker/wiki/Installation-(version-2.0)>`_
+    If you happen to be using an older version you can give a try to `nvidia-docker <https://github.com/nvidia/nvidia-docker/wiki/Installation-(version-2.0)>`__
 
     If you need to use docker in an environment without root privileges (eg. an HPC cluster)
-    check `udocker <https://github.com/indigo-dc/udocker/releases>`_ instead of docker.
+    check `udocker <https://github.com/indigo-dc/udocker/releases>`__ instead of docker.
 
 
 1. Choose your module
 ---------------------
 
-The first step is to choose a module from the `DEEP Open Catalog marketplace <https://marketplace.deep-hybrid-datacloud.eu/>`_.
-For educational purposes we are going to use a `general model to identify images <https://marketplace.deep-hybrid-datacloud.eu/modules/train-an-image-classifier.html>`_. This will allow us to see the general workflow.
+The first step is to choose a module from the `DEEP Open Catalog marketplace <https://marketplace.deep-hybrid-datacloud.eu/>`__.
+For educational purposes we are going to use a `general model to identify images <https://marketplace.deep-hybrid-datacloud.eu/modules/train-an-image-classifier.html>`__. This will allow us to see the general workflow.
 
-Once we have chosen the model at the `DEEP Open Catalog marketplace <https://marketplace.deep-hybrid-datacloud.eu/>`_ we will
-find that it has an associated docker container in `DockerHub <https://hub.docker.com/u/deephdc/>`_. For example, in the
+Once we have chosen the model at the `DEEP Open Catalog marketplace <https://marketplace.deep-hybrid-datacloud.eu/>`__ we will
+find that it has an associated docker container in `DockerHub <https://hub.docker.com/u/deephdc/>`__. For example, in the
 example we are running here, the container would be ``deephdc/deep-oc-image-classification-tf``. This means that to pull the
 docker image and run it you should:
 

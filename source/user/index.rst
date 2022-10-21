@@ -15,9 +15,9 @@ User documentation
     * `Status of services <https://status.deep-hybrid-datacloud.eu/>`__
 
 
-    You can also check these `slides <https://cdn.jsdelivr.net/gh/deephdc/deep-docs@master/source/_static/overview.pdf>`_
-    along with this `video <https://www.youtube.com/watch?v=cRMIviobF_c>`_  for a quick overview of the project
-    from the user's point of view (`attached tutorial <https://www.youtube.com/watch?v=cRMIviobF_c>`_).
+    You can also check these `slides <https://cdn.jsdelivr.net/gh/deephdc/deep-docs@master/source/_static/overview.pdf>`__
+    along with this `video <https://www.youtube.com/watch?v=cRMIviobF_c>`__  for a quick overview of the project
+    from the user's point of view (`attached tutorial <https://www.youtube.com/watch?v=cRMIviobF_c>`__).
 
 
 

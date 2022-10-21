@@ -1,7 +1,7 @@
 DEEPaaS API
 ===========
 
-The `DEEPaaS API <https://github.com/indigo-dc/DEEPaaS>`_ enables a user friendly interaction with the underlying Deep
+The `DEEPaaS API <https://github.com/indigo-dc/DEEPaaS>`__ enables a user friendly interaction with the underlying Deep
 Learning modules and can be used both for training models and doing inference with services.
 
 For a detailed up-to-date documentation please refer to the `official DEEPaaS documentation <https://docs.deep-hybrid-datacloud.eu/projects/deepaas/en/stable/>`_.
