@@ -115,9 +115,9 @@ Integrating the module in the Marketplace
 
 Once your repos are set, it's time to make a PR to add your model to the marketplace!
 
-For this you have to fork the code of the DEEP catalog repo (`deephdc/deep-oc <https://github.com/deephdc/deep-oc>`_)
+For this you have to fork the code of the DEEP catalog repo (`deephdc/deep-oc <https://github.com/deephdc/deep-oc>`__)
 and add your Docker repo name at the end of the ``MODULES.yml``.
-You can do this directly `online on GitHub <https://github.com/deephdc/deep-oc/edit/master/MODULES.yml>`_ or via the command line:
+You can do this directly `online on GitHub <https://github.com/deephdc/deep-oc/edit/master/MODULES.yml>`__ or via the command line:
 
 .. code-block:: console
 
@@ -128,7 +128,7 @@ You can do this directly `online on GitHub <https://github.com/deephdc/deep-oc/e
     git push
 
 Once the changes are done, make a PR of your fork to the original repo and wait for approval.
-Check the `GitHub Standard Fork & Pull Request Workflow <https://gist.github.com/Chaser324/ce0505fbed06b947d962>`_ in case of doubt.
+Check the `GitHub Standard Fork & Pull Request Workflow <https://gist.github.com/Chaser324/ce0505fbed06b947d962>`__ in case of doubt.
 
 When your module gets approved, you may need to commit and push a change to ``metadata.json``
 in ``DEEP-OC-your_project`` (`ref <https://github.com/deephdc/DEEP-OC-demo_app/blob/726e068d54a05839abe8aef741b3ace8a078ae6f/Jenkinsfile#L104>`__)

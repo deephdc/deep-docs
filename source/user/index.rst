@@ -10,15 +10,12 @@ User documentation
     * `Github <https://github.com/deephdc>`__
     * `DockerHub <https://hub.docker.com/u/deephdc/>`__
     * `Docs <https://docs.deep-hybrid-datacloud.eu/en/latest/>`__
-    * `NextCloud <https://nc.deep-hybrid-datacloud.eu/>`__
+    * `NextCloud <https://data-deep.a.incd.pt/>`__
     * `DEEP IAM <https://iam.deep-hybrid-datacloud.eu/>`__
     * `Status of services <https://status.deep-hybrid-datacloud.eu/>`__
 
-
-    You can also check these `slides <https://cdn.jsdelivr.net/gh/deephdc/deep-docs@master/source/_static/overview.pdf>`_
-    along with this `video <https://www.youtube.com/watch?v=cRMIviobF_c>`_  for a quick overview of the project
-    from the user's point of view (`attached tutorial <https://www.youtube.com/watch?v=cRMIviobF_c>`_).
-
+    You can also watch this `tutorial <https://www.youtube.com/watch?v=cRMIviobF_c>`__
+    for a quick overview of the project from the user's point of view ( `attached slides <https://cdn.jsdelivr.net/gh/deephdc/deep-docs@master/source/_static/overview.pdf>`__).
 
 
 New to the project? How about a quick dive?

@@ -10,8 +10,8 @@ Dashboard).
 
 .. admonition:: Requirements
 
-   * `oidc-agent <https://github.com/indigo-dc/oidc-agent/releases>`_ installed and configured for `DEEP-IAM <https://iam.deep-hybrid-datacloud.eu/>`_ (see :doc:`Configure oidc-agent <oidc-agent>`).
-   * `orchent <https://github.com/indigo-dc/orchent/releases>`_ tool
+   * `oidc-agent <https://github.com/indigo-dc/oidc-agent/releases>`__ installed and configured for `DEEP-IAM <https://iam.deep-hybrid-datacloud.eu/>`_ (see :doc:`Configure oidc-agent <oidc-agent>`).
+   * `orchent <https://github.com/indigo-dc/orchent/releases>`__ tool
 
 
 Prepare your TOSCA file (optional)
@@ -53,7 +53,7 @@ You can use the general template, `deep-oc-mesos-webdav.yml <https://github.com/
     #!/bin/bash
 
     orchent depcreate ./deep-oc-marathon-webdav.yml '{ "docker_image": "deephdc/deep-oc-image-classification-tf"
-                                                    "rclone_url": "https://nc.deep-hybrid-datacloud.eu/remote.php/webdav/",
+                                                    "rclone_url": "https://data-deep.a.incd.pt/remote.php/webdav/",
                                                     "rclone_vendor": "nextcloud",
                                                     "rclone_conf": "/srv/image-classification-tf/rclone.conf"
                                                     "rclone_user": <your_nextcloud_username>

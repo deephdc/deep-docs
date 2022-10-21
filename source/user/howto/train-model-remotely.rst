@@ -15,11 +15,11 @@ This is a step by step guide on how to train a general model from the `DEEP Open
 
     Before being able to run your model at the Pilot Infrastructure you should first fulfill the following prerequisites:
 
-    * `DEEP-IAM <https://iam.deep-hybrid-datacloud.eu/>`_ registration
+    * `DEEP-IAM <https://iam.deep-hybrid-datacloud.eu/>`__ registration
 
-    For this example we are going to use `DEEP-Nextcloud <https://nc.deep-hybrid-datacloud.eu>`__ for storing data. This means you also have to:
+    For this example we are going to use `DEEP-Nextcloud <https://data-deep.a.incd.pt/>`__ for storing data. This means you also have to:
 
-        * Register at `DEEP-Nextcloud <https://nc.deep-hybrid-datacloud.eu>`__ (i.e. login with your DEEP-IAM credentials)
+        * Register at `DEEP-Nextcloud <https://data-deep.a.incd.pt/>`__ (i.e. login with your DEEP-IAM credentials)
         * :ref:`Obtain Nextcloud security parameters for rclone <user/howto/rclone:Nextcloud configuration for rclone>`. This will provide you with ``<your_nextcloud_username>`` and
           ``<your_nextcloud_password>``.
 
@@ -35,7 +35,7 @@ The first step is to choose a model from the `DEEP Open Catalog marketplace <htt
 
 When training a model, the data has usually to be in a specific format and folder structure.
 It's usually helpful to read the README in the source code of the module
-(in this case located `here <https://github.com/deephdc/image-classification-tf>`_)
+(in this case located `here <https://github.com/deephdc/image-classification-tf>`__)
 to learn the correct way to setting it up.
 
 We login to DEEP-Nextcloud with DEEP-IAM credentials and upload there the files needed for training. We create the folders that you need in order to store the inputs needed for the training and to retrieve the output. These folders will be visible from within the container. In this example we just need two folders (``models`` and ``data``):
@@ -55,7 +55,7 @@ The folder structure and their content will of course depend on the model to be 
 3. Deploy with the Training Dashboard
 -------------------------------------
 
-* Go to the `Training Dashboard <https://train.deep-hybrid-datacloud.eu/>`_
+* Go to the `Training Dashboard <https://train.deep-hybrid-datacloud.eu/>`__
 * Login with DEEP-IAM credentials
 * Find the **Train an image classifier** module, click **Train module**
 * Fill the webform, e.g. provide <your_nextcloud_username> for ``rclone_user`` and <your_nextcloud_password> for ``rclone_password`` (see :ref:`Nextcloud configuration for rclone <user/howto/rclone:Nextcloud configuration for rclone>`)
@@ -95,13 +95,13 @@ Once the training has finished, you can directly test it by clicking on the ``pr
     This section share lots of steps with :doc:`How to develop a model <../howto/develop-model>`
     so you can always cross-check there in case of doubt.
 
-Let's say you managed to create a plant classifier by retraining the  `general model to identify images <https://marketplace.deep-hybrid-datacloud.eu/modules/train-an-image-classifier.html>`_ on your specific dataset. Now you want to share it with other users.
+Let's say you managed to create a plant classifier by retraining the  `general model to identify images <https://marketplace.deep-hybrid-datacloud.eu/modules/train-an-image-classifier.html>`__ on your specific dataset. Now you want to share it with other users.
 
-Look for the Docker repo of the original module (here `deephdc/DEEP-OC-image-classification-tf <https://github.com/deephdc/DEEP-OC-image-classification-tf>`_) and make a fork of it. Rename the repo to a new name (here `deephdc/DEEP-OC-plants-classification-tf <https://github.com/deephdc/DEEP-OC-plants-classification-tf>`_)
+Look for the Docker repo of the original module (here `deephdc/DEEP-OC-image-classification-tf <https://github.com/deephdc/DEEP-OC-image-classification-tf>`__) and make a fork of it. Rename the repo to a new name (here `deephdc/DEEP-OC-plants-classification-tf <https://github.com/deephdc/DEEP-OC-plants-classification-tf>`_)
 
 Now, in your fork, edit  the following files according to your needs:
 
-* ``Dockerfile``: For example make sure that the model know downloads the `new weights <https://github.com/deephdc/DEEP-OC-plants-classification-tf/blob/ae5eca2bda6a2a7bbbf68f2767954dc819e50c4f/Dockerfile#L19-L21>`_ instead of the `original weights <https://github.com/deephdc/DEEP-OC-image-classification-tf/blob/080584f0ad9c660ec0e55240d4b4979f2d45a2bb/Dockerfile#L112-L114>`_.
+* ``Dockerfile``: For example make sure that the model know downloads the `new weights <https://github.com/deephdc/DEEP-OC-plants-classification-tf/blob/ae5eca2bda6a2a7bbbf68f2767954dc819e50c4f/Dockerfile#L19-L21>`__ instead of the `original weights <https://github.com/deephdc/DEEP-OC-image-classification-tf/blob/080584f0ad9c660ec0e55240d4b4979f2d45a2bb/Dockerfile#L112-L114>`_.
   Check your Dockerfile works correctly by building it locally and running it:
   ::
 
@@ -120,7 +120,7 @@ Now, in your fork, edit  the following files according to your needs:
 Once you are fine with the state of your module, push the changes to Github.
 
 Once your repos are set it's time to make a PR to add your model to the marketplace!
-For this you have to fork the code of the DEEP catalog repo (`deephdc/deep-oc <https://github.com/deephdc/deep-oc>`_)
+For this you have to fork the code of the DEEP catalog repo (`deephdc/deep-oc <https://github.com/deephdc/deep-oc>`__)
 and add your Docker repo name at the end of the ``MODULES.yml``.
 
 .. code-block:: console
@@ -131,7 +131,7 @@ and add your Docker repo name at the end of the ``MODULES.yml``.
     git commit -a -m "adding new module to the catalogue"
     git push
 
-You can also make it `online on GitHub <https://github.com/deephdc/deep-oc/edit/master/MODULES.yml>`_.
+You can also make it `online on GitHub <https://github.com/deephdc/deep-oc/edit/master/MODULES.yml>`__.
 
 Once the changes are done, make a PR of your fork to the original repo and wait for approval.
-Check the `GitHub Standard Fork & Pull Request Workflow <https://gist.github.com/Chaser324/ce0505fbed06b947d962>`_ in case of doubt.
+Check the `GitHub Standard Fork & Pull Request Workflow <https://gist.github.com/Chaser324/ce0505fbed06b947d962>`__ in case of doubt.

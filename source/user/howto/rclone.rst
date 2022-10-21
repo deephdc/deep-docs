@@ -8,11 +8,11 @@ How to use rclone
 Installation of rclone in Docker image
 --------------------------------------
 
-All applications in the `DEEP Open Catalog <https://deephdc.github.io/>`_ are packed in a Docker image and have
-`rclone <https://rclone.org/>`_ tool installed by default. If you want to create a Docker containing your own application, you should install rclone
+All applications in the `DEEP Open Catalog <https://deephdc.github.io/>`__ are packed in a Docker image and have
+`rclone <https://rclone.org/>`__ tool installed by default. If you want to create a Docker containing your own application, you should install rclone
 in the container to be able to access the data stored remotely. The following lines are an example of what has to be
 added in the Dockerfile when installation is based on Ubuntu. For other Linux flavors, please, refer to
-the `rclone official site  <https://rclone.org/downloads/>`_  ::
+the `rclone official site  <https://rclone.org/downloads/>`__ ::
 
 	# Install rclone
 	RUN wget https://downloads.rclone.org/rclone-current-linux-amd64.deb && \
@@ -33,7 +33,7 @@ Nextcloud configuration for rclone
 ----------------------------------
 .. image:: ../../_static/nc-access.png
 
-After login into `DEEP-Nextcloud  <https://nc.deep-hybrid-datacloud.eu/login>`_ with your DEEP-IAM credentials, go to
+After login into `DEEP-Nextcloud  <https://data-deep.a.incd.pt/>`__ with your DEEP-IAM credentials, go to
 (1) **Settings (top right corner)** |rarr|  (2) **Security**  |rarr|  (3) **Devices & sessions**. Set a name for your
 application and click on **Create new app password**. You get <user> and <password> credentials. Next, you need to obscure the <password> for use in the rclone config file (``rclone.conf``). For this you do:
 
@@ -52,7 +52,7 @@ In order to create the configuration file (``rclone.conf``) for rclone::
    	 choose "n"  for "New remote"
    	 choose name for DEEP-Nextcloud, e.g. deep-nextcloud
    	 choose "Type of Storage" \u2192 "Webdav" (24)
-   	 provide DEEP-Nextcloud URL for webdav access: https://nc.deep-hybrid-datacloud.eu/remote.php/webdav/
+   	 provide DEEP-Nextcloud URL for webdav access: https://data-deep.a.incd.pt/remote.php/webdav/
    	 choose Vendor, Nextcloud (1)
    	 specify "user" (see "Nextcloud configuration for rclone" above). Your username starts with "DEEP-IAM-..."
    	 specify password (see "Nextcloud configuration for rclone" above).
@@ -105,7 +105,7 @@ A simple call of rclone from python is via ``subprocess.Popen()``
 
 .. important::
     When deploying a module on the DEEP Pilot testbed, you pass rclone parameters e.g. ``rclone_user`` and ``rclone_password`` during the deployment.
-    If you use our `general template <https://github.com/indigo-dc/tosca-templates/blob/master/deep-oc/deep-oc-marathon-webdav.yml>`_ , the name of the remote storage has to be ``rshare`` as in the example above (``rshare:/Datasets/dogs_breed/data``). If you create your own TOSCA template, you need to pay attention on matching these names in your code and in the template (for example, see environment parameters in the `general template <https://github.com/indigo-dc/tosca-templates/blob/master/deep-oc/deep-oc-marathon-webdav.yml>`_ like RCLONE_CONFIG_RSHARE_USER etc).
+    If you use our `general template <https://github.com/indigo-dc/tosca-templates/blob/master/deep-oc/deep-oc-marathon-webdav.yml>`__ , the name of the remote storage has to be ``rshare`` as in the example above (``rshare:/Datasets/dogs_breed/data``). If you create your own TOSCA template, you need to pay attention on matching these names in your code and in the template (for example, see environment parameters in the `general template <https://github.com/indigo-dc/tosca-templates/blob/master/deep-oc/deep-oc-marathon-webdav.yml>`_ like RCLONE_CONFIG_RSHARE_USER etc).
 
 Advanced examples
 ^^^^^^^^^^^^^^^^^

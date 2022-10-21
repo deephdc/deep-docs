@@ -1,7 +1,7 @@
 DEEP Dashboard
 ==============
 
-The `DEEP dashboard <https://train.deep-hybrid-datacloud.eu/>`_ allows users to access computing resources to deploy, perform inference,
+The `DEEP dashboard <https://train.deep-hybrid-datacloud.eu/>`__ allows users to access computing resources to deploy, perform inference,
 and train modules hosted at the `DEEP Open Catalog <https://marketplace.deep-hybrid-datacloud.eu/>`_, as well
 as deploying external Docker images hosted in Dockerhub.
 The Dashboard simplifies the deployment and hides some of the technical parts that most users do not need to worry about.

@@ -4,7 +4,7 @@
 Quickstart Guide
 =================
 
-#. Go to the `DEEP Marketplace <https://marketplace.deep-hybrid-datacloud.eu/>`_
+#. Go to the `DEEP Marketplace <https://marketplace.deep-hybrid-datacloud.eu/>`__
 #. Browse `available modules <https://marketplace.deep-hybrid-datacloud.eu/#model-list>`_.
 #. Find the module you are interested in and get it
 
@@ -16,13 +16,13 @@ Run a module locally
 
 .. admonition:: Requirements
 
-    This section requires having `docker <https://docs.docker.com/install/#supported-platforms>`_ installed.
+    This section requires having `docker <https://docs.docker.com/install/#supported-platforms>`__ installed.
 
     Starting from version 19.03 docker supports NVIDIA GPUs (see `here <https://docs.docker.com/engine/release-notes/>`__ and `here <https://github.com/moby/moby/pull/38828>`__).
-    If you happen to be using an older version you can give a try to `nvidia-docker <https://github.com/nvidia/nvidia-docker/wiki/Installation-(version-2.0)>`_
+    If you happen to be using an older version you can give a try to `nvidia-docker <https://github.com/nvidia/nvidia-docker/wiki/Installation-(version-2.0)>`__
 
     If you need to use docker in an envirronment without root privileges (eg. an HPC cluster)
-    check `udocker <https://github.com/indigo-dc/udocker/releases>`_ instead of docker.
+    check `udocker <https://github.com/indigo-dc/udocker/releases>`__ instead of docker.
 
 Run the container
 ^^^^^^^^^^^^^^^^^
@@ -81,7 +81,7 @@ Train a module on DEEP Dashboard
 
 .. admonition:: Requirements
 
-    For accessing the Dashboard, you will need to register a `DEEP-IAM <https://iam.deep-hybrid-datacloud.eu/>`_ credential.
+    For accessing the Dashboard, you will need to register a `DEEP-IAM <https://iam.deep-hybrid-datacloud.eu/>`__ credential.
 
 Sometimes running a module locally is not enough as one may need more powerful computing resources (like GPUs) in order
 to train a module faster. For that you can use the :doc:`DEEP Dashboard <overview/dashboard>`.

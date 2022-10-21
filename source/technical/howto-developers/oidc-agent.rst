@@ -3,12 +3,12 @@
 Configure oidc-agent
 ====================
 
-`oidc-agent <https://indigo-dc.gitbook.io/oidc-agent/>`_ is a tool to manage OpenID Connect tokens
+`oidc-agent <https://indigo-dc.gitbook.io/oidc-agent/>`__ is a tool to manage OpenID Connect tokens
 and make them easily usable from the command line.
 
 .. admonition:: Requirements
 
-    * having a `DEEP IAM <https://iam.deep-hybrid-datacloud.eu/>`_ account
+    * having a `DEEP IAM <https://iam.deep-hybrid-datacloud.eu/>`__ account
     * having the oidc-agent installed (follow the `official installation guide <https://indigo-dc.gitbook.io/oidc-agent/install>`_).
 
 Start oidc-agent::
