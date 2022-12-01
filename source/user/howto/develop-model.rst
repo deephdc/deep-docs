@@ -121,11 +121,11 @@ You can do this directly `online on GitHub <https://github.com/deephdc/deep-oc/e
 
 .. code-block:: console
 
-    git clone https://github.com/[my-github-fork]
-    cd [my-github-fork]
-    echo '- module: https://github.com/deephdc/UC-[my-account-name]-DEEP-OC-[my-app-name]' >> MODULES.yml
-    git commit -a -m "adding new module to the catalogue"
-    git push
+    $ git clone https://github.com/[my-github-fork]
+    $ cd [my-github-fork]
+    $ echo '- module: https://github.com/deephdc/UC-[my-account-name]-DEEP-OC-[my-app-name]' >> MODULES.yml
+    $ git commit -a -m "adding new module to the catalogue"
+    $ git push
 
 Once the changes are done, make a PR of your fork to the original repo and wait for approval.
 Check the `GitHub Standard Fork & Pull Request Workflow <https://gist.github.com/Chaser324/ce0505fbed06b947d962>`__ in case of doubt.

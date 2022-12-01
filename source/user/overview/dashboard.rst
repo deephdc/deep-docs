@@ -24,15 +24,26 @@ Those are basically:
 Making a deployment
 -------------------
 
-Once you choose the module to deploy click in ``Train module``. This allow a user to select:
+Once you choose the module to deploy click in ``Train module``.
+
+.. image:: ../../_static/dashboard-configure.png
+
+This allow a user to select:
 
 * **The computing resources** of the new deployment. A user can select multiple CPUs and GPUs, the machine RAM as well as
   optionally choosing the physical site where the machine must be deployed.
 * **The service** to run. Currently, options include running the :doc:`DEEPaaS API <api>` (recommended for fully
-  developed modules than only need to be trained) and `JupyterLab <https://jupyterlab.readthedocs.io/en/stable/>`_
+  developed modules where) and `JupyterLab <https://jupyterlab.readthedocs.io/en/stable/>`_
   (recommended for developing code as well for cases where access to the bash console is needed).
 
-.. image:: ../../_static/dashboard-configure.png
+  - For performing simple inference, **DEEPaaS** is the recommended option, as no code changes are required.
+  - For retraining a module, **JupyterLab** is the recommended option, as it offers access to Terminal windows which are needed to mount remote data into your machine.
+  - For developing a new module, **JupyterLab** is the recommended option, as it offers the possibility to directly interact with the machine to write code.
+
+  We do not provide the option to run both services at the same time as code changes performed subsequently via JupyterLab wouldn't be
+  reflected in DEEPaaS (which is launched with the initial code), thus potentially leading to confusions.
+  If you want to have access to both services, launch JupyterLab then run ``deepaas-run --listen-ip 0.0.0.0`` in a terminal window to launch DEEPaaS.
+  If you make subsequent code changes, you will have to kill the old DEEPaaS process and launch a new one.
 
 Click ``Submit`` and you will be redirected to the page listing all the current deployments.
 

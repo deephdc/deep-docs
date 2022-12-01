@@ -23,6 +23,7 @@ There are two versions of this template:
 * `advanced <https://github.com/deephdc/cookiecutter-deep/tree/advanced>`__: this is a more advanced template.
   It makes more assumptions on how to structure projects and adds more files than those strictly needed for integration.
   Unless you are looking for some specific feature, you are probably safer using master.
+* `child-module <https://github.com/deephdc/cookiecutter-deep/tree/child-module>`__: this is a fork of the `master` branch specifically tailored to users performing a retraining of an existing module. It only creates a Docker repo whose container is based on an existing module's Docker image.
 
 In order to create your project based on the template, one has to `install <https://cookiecutter.readthedocs.io/en/latest/installation.html>`__
 and then run the `cookiecutter <https://cookiecutter.readthedocs.io>`__ tool as follows

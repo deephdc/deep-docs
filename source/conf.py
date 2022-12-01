@@ -41,7 +41,12 @@ release = 'DEEP-2'
 extensions = [
     'sphinx.ext.todo',
     'sphinx_markdown_tables',
-    'sphinx.ext.autosectionlabel'
+    'sphinx.ext.autosectionlabel',
+    'sphinx_design',  # for fonts-awesome icons
+]
+
+html_css_files = [
+    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -66,7 +71,7 @@ master_doc = 'index'
 #
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
-language = None
+language = 'en'
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -174,7 +179,7 @@ texinfo_documents = [
 # -- Options for todo extension ----------------------------------------------
 
 # If true, `todo` and `todoList` produce output, else they produce nothing.
-todo_include_todos = False
+todo_include_todos = True
 todo_emit_warnings = True
 
 # -- Options for autosectionlabel extension ----------------------------------------------
