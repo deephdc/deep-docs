@@ -21,7 +21,7 @@ Run a module locally
     Starting from version 19.03 docker supports NVIDIA GPUs (see `here <https://docs.docker.com/engine/release-notes/>`__ and `here <https://github.com/moby/moby/pull/38828>`__).
     If you happen to be using an older version you can give a try to `nvidia-docker <https://github.com/nvidia/nvidia-docker/wiki/Installation-(version-2.0)>`__
 
-    If you need to use docker in an envirronment without root privileges (eg. an HPC cluster)
+    If you need to use docker in an environment without root privileges (eg. an HPC cluster)
     check `udocker <https://github.com/indigo-dc/udocker/releases>`__ instead of docker.
 
 Run the container

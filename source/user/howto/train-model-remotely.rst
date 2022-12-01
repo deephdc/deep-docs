@@ -5,133 +5,278 @@ Train a model remotely
 ======================
 
 .. admonition:: Useful video demos
-   :class: important
+    :class: important
 
-    - `Training your model in the cloud with the DEEP training dashboard <https://www.youtube.com/watch?v=uqFXrEwtNNs&list=PLJ9x9Zk1O-J_UZfNO2uWp2pFMmbwLvzXa&index=6>`__
-
-This is a step by step guide on how to train a general model from the `DEEP Open Catalog marketplace <https://marketplace.deep-hybrid-datacloud.eu/>`__ with your own dataset.
+    * `Training your model in the cloud with the DEEP training dashboard <https://www.youtube.com/watch?v=uqFXrEwtNNs&list=PLJ9x9Zk1O-J_UZfNO2uWp2pFMmbwLvzXa&index=6>`__
 
 .. admonition:: Requirements
 
-    Before being able to run your model at the Pilot Infrastructure you should first fulfill the following prerequisites:
+    * You need  a `DEEP-IAM <https://iam.deep-hybrid-datacloud.eu/>`__ account to be able to access the Dashboard and Nextcloud storage.
 
-    * `DEEP-IAM <https://iam.deep-hybrid-datacloud.eu/>`__ registration
+This is a step by step guide on how to train a general model from the `DEEP Marketplace <https://marketplace.deep-hybrid-datacloud.eu/>`__
+with your own dataset, in the :doc:`DEEP Dashboard <../overview/dashboard>`.
 
-    For this example we are going to use `DEEP-Nextcloud <https://data-deep.a.incd.pt/>`__ for storing data. This means you also have to:
-
-        * Register at `DEEP-Nextcloud <https://data-deep.a.incd.pt/>`__ (i.e. login with your DEEP-IAM credentials)
-        * :ref:`Obtain Nextcloud security parameters for rclone <user/howto/rclone:Nextcloud configuration for rclone>`. This will provide you with ``<your_nextcloud_username>`` and
-          ``<your_nextcloud_password>``.
+A practical application of this tutorial would be to train a `generic image classifier <https://github.com/deephdc/DEEP-OC-image-classification-tf>`__
+on a custom dataset to create a `plant classifier <https://github.com/deephdc/DEEP-OC-plants-classification-tf>`__, for example.
 
 
-1. Choose a model
------------------
+1. Choose a module from the Marketplace
+---------------------------------------
 
-The first step is to choose a model from the `DEEP Open Catalog marketplace <https://marketplace.deep-hybrid-datacloud.eu/>`__.  For educational purposes we are going to use a `general model to identify images <https://marketplace.deep-hybrid-datacloud.eu/modules/train-an-image-classifier.html>`_. Some of the model dependent details can change if using another model, but this tutorial will provide a general overview of the workflow to follow when using any of the models in the Marketplace. A demo showing the different steps in this HowTo has also be recorded and you can find it our `YouTube channel <https://www.youtube.com/playlist?list=PLJ9x9Zk1O-J_UZfNO2uWp2pFMmbwLvzXa>`_.
+The first step is to choose a model from the `DEEP Open Catalog marketplace <https://marketplace.deep-hybrid-datacloud.eu/>`__. Make sure to select a module with the ``trainable`` tag.
+For educational purposes we are going to use a `general model to identify images <https://marketplace.deep-hybrid-datacloud.eu/modules/train-an-image-classifier.html>`__.
+Some of the model dependent details can change if using another model, but this tutorial will provide
+a general overview of the workflow to follow when using any of the models in the Marketplace.
 
 
 2. Upload your files to Nextcloud
 ---------------------------------
 
+For this example we are going to use `DEEP-Nextcloud <https://data-deep.a.incd.pt/>`__ for storing
+the dataset you want to retrain the model with.
+
+So login to Nextcloud with your DEEP-IAM credentials and you should access to an overview of your files.
+Now it's time to upload your dataset.
 When training a model, the data has usually to be in a specific format and folder structure.
 It's usually helpful to read the README in the source code of the module
 (in this case located `here <https://github.com/deephdc/image-classification-tf>`__)
 to learn the correct way to setting it up.
 
-We login to DEEP-Nextcloud with DEEP-IAM credentials and upload there the files needed for training. We create the folders that you need in order to store the inputs needed for the training and to retrieve the output. These folders will be visible from within the container. In this example we just need two folders (``models`` and ``data``):
+In the case of the **image classification module**, we will create the following folders:
 
 .. image:: ../../_static/nc-folders.png
 
+* A folder called ``models`` where the new training weights will be stored after the training is completed
+* A folder called ``data`` that contains two different folders:
 
-* A folder called **models** where the training weights will be stored after the training
-* A folder called **data** that contains two different folders:
+    * The sub folder ``images`` containing the input images needed for the training
+    * The sub folder ``dataset_files`` containing a couple of files:
 
-   * The folder **images** containing the input images needed for the training
-   * The folder **dataset_files** containing a couple of scripts: *train.txt* indicating the relative path to the training images and *classes.txt* indicating which are the categories for the training
+        * ``train.txt`` indicating the relative path to the training images
+        * ``classes.txt`` indicating which are the categories for the training
 
-The folder structure and their content will of course depend on the model to be used. This structure is just an example in order to complete the workflow for this tutorial.
+Again, the folder structure and their content will of course depend on the module to be used.
+This structure is just an example in order to complete the workflow for this tutorial.
 
 
 3. Deploy with the Training Dashboard
 -------------------------------------
 
-* Go to the `Training Dashboard <https://train.deep-hybrid-datacloud.eu/>`__
-* Login with DEEP-IAM credentials
-* Find the **Train an image classifier** module, click **Train module**
-* Fill the webform, e.g. provide <your_nextcloud_username> for ``rclone_user`` and <your_nextcloud_password> for ``rclone_password`` (see :ref:`Nextcloud configuration for rclone <user/howto/rclone:Nextcloud configuration for rclone>`)
-* Click **Submit**
-* Look for **Access** and choose **DEEPaaS**, you will be redirected to ``http://deepaas_endpoint``
+Now go to the `Training Dashboard <https://train.deep-hybrid-datacloud.eu/>`__  and login with your DEEP-IAM credentials.
+Then go to (1) **Modules (marketplace)** ➜ (2) **Train image classifier** ➜ (3) **Train module**.
 
+Now you will be presented with a configuration form.
+For the purposes of running a retraining, it should be filled as following:
+
+1. In the **General configuration** you should select:
+
+* ``Template = default (with storage options)``, unless stated otherwise in your modules README.
+* ``Command = JupyterLab`` because we want the flexibility of being able to interact with the code and the terminal, not just the API.
+* ``Hardware configuration = GPU`` because training is a very resource consuming task.
+* ``Docker tag = gpu`` because Docker tag has to match the hardware it will be run on.
+
+2. Once this is set, you can proceed to fill the **Specific configuration**:
+
+* ``jupyter password``, you have to provide a password at least 9 characters long, so that nobody will be able to access your machine, which will be exposed on a public IP.
+* ``rclone_user``, ``rclone_password``: those are the credentials to be able to mount your Nextcloud directory in your deployment.
+  :ref:`Go here <user/howto/rclone:Nextcloud configuration for rclone>` in order to find how to create them.
+
+Now that you are done configuring, click **Submit** to create the deployment.
 See the :doc:`Dashboard guide <../overview/dashboard>` for more details.
 
 
-4. Go to the API, train the model
----------------------------------
+4. Go to JupyterLab and mount your dataset
+------------------------------------------
 
-Now comes the fun!
+After submitting you will be redirected to the deployment's list.
+In your new deployment go to **Access** and choose **JupyterLab**. You will be redirected to ``http://jupyterlab_endpoint``
 
-Go to ``http://deepaas_endpoint/ui`` and look for the ``train`` POST method. Modify the training parameters you wish to
-change and execute. If some kind of monitorization tool is available for the module, you will be able to follow the training
-progress at ``http://monitor_endpoint``.
+Now that you are in JupyterLab, open a **Terminal** window (**[+]** (New launcher) ➜ **Others** ➜ **Terminal**).
+Now we will mount our remote Nextcloud folders in our local containers:
+
+.. code-block:: console
+
+    $ rclone copy rshare:/data/dataset_files /srv/image-classification-tf/data/dataset_files
+    $ rclone copy rshare:/data/images /srv/image-classification-tf/data/images
+
+Paths with the ``rshare`` prefix are Nextcloud paths.
+As always, paths are specific to this example. Your module might need different paths.
+
+Mounting your dataset *might take some time*, depending on the dataset size, file structure (lots of small files vs few big files), and so on.
+So grab a cup of coffee and prepare for the next steps .
+
+Now that you dataset is mounted, we will run DEEPaaS to interactively run the training. In your terminal window type:
+
+.. code-block:: console
+
+    $ nohup deepaas-run --listen-ip 0.0.0.0 &
+
+The ``&`` will keep your command running even if you close the terminal, and ``nohup`` will produce a log file
+``nohup.out`` that you can always look at if you want to know what is going on under the hood.
+
+
+5. Open the DEEPaaS API and train the model
+-------------------------------------------
+
+Now go back to the deployments list view.
+In your deployment go to **Access** and choose **DEEPaaS**. You will be redirected to ``http://deepaas_endpoint/ui``.
 
 .. image:: ../../_static/deepaas.png
    :width: 500 px
 
-In the Dashboard you will be able to view the training history of that deployment:
+Look for the ``train`` POST method. Modify the training parameters you wish to change and execute.
+
+If some kind of monitorization tool is available for the module, you will be able to follow the training
+progress at ``http://monitor_endpoint`` (click **Access** button ➜ **Monitoring**, in the deployments page).
+
+In **Access** ➜ **History** you will be able to see the status of your current training as well as old ones.
 
 .. image:: ../../_static/dashboard-history.png
 
 
-5. Testing the training
------------------------
+6. Test and export the newly trained model
+------------------------------------------
 
-Once the training has finished, you can directly test it by clicking on the ``predict`` POST method. There you can either upload the image your want to classify or give an URL to it.
+Once the training has finished, you can directly test it by clicking on the ``predict`` POST method.
+Select you new model weights upload the image your want to classify.
 
+If you are satisfied with your model, then it's time to save it into your remote storage, so that you still have
+access to it if your machine is deleted.
 
-6. Share your new module in the Marketplace
--------------------------------------------
-
-.. tip::
-    This section share lots of steps with :doc:`How to develop a model <../howto/develop-model>`
-    so you can always cross-check there in case of doubt.
-
-Let's say you managed to create a plant classifier by retraining the  `general model to identify images <https://marketplace.deep-hybrid-datacloud.eu/modules/train-an-image-classifier.html>`__ on your specific dataset. Now you want to share it with other users.
-
-Look for the Docker repo of the original module (here `deephdc/DEEP-OC-image-classification-tf <https://github.com/deephdc/DEEP-OC-image-classification-tf>`__) and make a fork of it. Rename the repo to a new name (here `deephdc/DEEP-OC-plants-classification-tf <https://github.com/deephdc/DEEP-OC-plants-classification-tf>`_)
-
-Now, in your fork, edit  the following files according to your needs:
-
-* ``Dockerfile``: For example make sure that the model know downloads the `new weights <https://github.com/deephdc/DEEP-OC-plants-classification-tf/blob/ae5eca2bda6a2a7bbbf68f2767954dc819e50c4f/Dockerfile#L19-L21>`__ instead of the `original weights <https://github.com/deephdc/DEEP-OC-image-classification-tf/blob/080584f0ad9c660ec0e55240d4b4979f2d45a2bb/Dockerfile#L112-L114>`_.
-  Check your Dockerfile works correctly by building it locally and running it:
-  ::
-
-    docker build --no-cache -t your_project .
-    docker run -ti -p 5000:5000 -p 6006:6006 -p 8888:8888 your_project
-    # --> your module should be visible in http://0.0.0.0:5000/ui
-
-* ``metadata.json``: this is the information that will be displayed in the Marketplace.
-  Update and add the information you need to make sure it reflects your new usecase.
-  Check you didn't mess up the JSON formatting by running:
-  ::
-
-    pip install git+https://github.com/deephdc/schema4apps
-    deep-app-schema-validator metadata.json
-
-Once you are fine with the state of your module, push the changes to Github.
-
-Once your repos are set it's time to make a PR to add your model to the marketplace!
-For this you have to fork the code of the DEEP catalog repo (`deephdc/deep-oc <https://github.com/deephdc/deep-oc>`__)
-and add your Docker repo name at the end of the ``MODULES.yml``.
+So go back to JupyterLab, open a Terminal window and run:
 
 .. code-block:: console
 
-    git clone https://github.com/[my-github-fork]
-    cd [my-github-fork]
-    echo '- module: https://github.com/deephdc/UC-[my-account-name]-DEEP-OC-[my-app-name]' >> MODULES.yml
-    git commit -a -m "adding new module to the catalogue"
-    git push
+    $ rclone copy /srv/image-classification/models rshare:/models
 
-You can also make it `online on GitHub <https://github.com/deephdc/deep-oc/edit/master/MODULES.yml>`__.
+Now you should be able to see your new models weights. For the next step, you need to make them
+publicly available through an URL so they can be downloaded in your Docker container
+(see `Nextcloud Public Links <https://docs.nextcloud.com/server/latest/user_manual/en/files/sharing.html>`__).
+
+
+7. Create a Docker repo for your new module
+-------------------------------------------
+
+Now, let's say you want to share your new application with your colleagues.
+The process is much simpler that when :doc:`developing a new module from scratch <develop-model>`,
+as your code is the same as the original application, only your model weights
+are different.
+
+To account for this simpler process, we have prepared a version of the
+:doc:`the DEEP Modules Template <../overview/cookiecutter-template>`
+specially tailored to this task.
+
+In your local machine, run the Template with the ``child`` branch.
+
+.. code-block::
+
+    $ pip install cookiecutter
+    $ cookiecutter https://github.com/deephdc/cookiecutter-deep -b child-module
+
+Proceed to answer the questions you will be prompted.
+This will create a single repo (``DEEP-OC-**``) with the Docker code.
+
+Now:
+
+**(1)** Modify ``metadata.json`` with the proper description of your new module.
+This is the information that will be displayed in the Marketplace.
+Check you didn't mess up the JSON formatting by running:
+
+.. code-block:: console
+
+    $ pip install git+https://github.com/deephdc/schema4apps
+    $ deep-app-schema-validator metadata.json
+
+**(2)** Then go to the ``Dockerfile``. You will see that the base Docker image
+is the image of the original repo. Modify the appropriate lines to replace
+the original model weights with the new model weights.
+In our case, this could look something like this:
+::
+    ENV SWIFT_CONTAINER https://api.cloud.ifca.es:8080/swift/v1/phytoplankton-tf/
+    ENV MODEL_TAR phytoplankton.tar.xz
+
+    RUN rm -rf image-classification-tf/models/*
+    RUN curl --insecure -o ./image-classification-tf/models/${MODEL_TAR} \
+        ${SWIFT_CONTAINER}${MODEL_TAR}
+
+Check your Dockerfile works correctly by building it locally and running it:
+
+  .. code-block:: console
+
+    $ docker build --no-cache -t your_project .
+    $ docker run -ti -p 5000:5000 -p 6006:6006 -p 8888:8888 your_project
+
+Your module should be visible in http://0.0.0.0:5000/ui
+
+Once you are fine with the state of your module, push the changes to Github.
+
+
+8. Share your new module in the Marketplace
+-------------------------------------------
+
+Once your repo is set, it's time to make a PR to add your model to the marketplace!
+
+For this you have to fork the code of the DEEP catalog repo (`deephdc/deep-oc <https://github.com/deephdc/deep-oc>`__)
+and add your Docker repo name at the end of the ``MODULES.yml``.
+You can do this directly `online on GitHub <https://github.com/deephdc/deep-oc/edit/master/MODULES.yml>`__ or via the command line:
+
+.. code-block:: console
+
+    $ git clone https://github.com/[my-github-fork]
+    $ cd [my-github-fork]
+    $ echo '- module: https://github.com/deephdc/UC-[my-account-name]-DEEP-OC-[my-app-name]' >> MODULES.yml
+    $ git commit -a -m "adding new module to the catalogue"
+    $ git push
 
 Once the changes are done, make a PR of your fork to the original repo and wait for approval.
 Check the `GitHub Standard Fork & Pull Request Workflow <https://gist.github.com/Chaser324/ce0505fbed06b947d962>`__ in case of doubt.
+
+When your module gets approved, you may need to commit and push a change to ``metadata.json``
+in ``DEEP-OC-your_project`` (`ref <https://github.com/deephdc/DEEP-OC-demo_app/blob/726e068d54a05839abe8aef741b3ace8a078ae6f/Jenkinsfile#L104>`__)
+so that the Pipeline is run for the first time, and your module gets rendered in the marketplace.
+
+
+9. [optional] Add your new module to the original Continuous Integration pipeline
+---------------------------------------------------------------------------------
+
+Your module is already in the Marketplace.
+But what happens if the code in the original image-classification module changes?
+This should trigger a rebuild of your Docker container as it is based on that code.
+
+This can be achieved by modifying the ``Jenkinsfile`` in the `image-classification Docker repo <https://github.com/deephdc/DEEP-OC-image-classification-tf/blob/master/Jenkinsfile>`__.
+One would add an additional stage to the Jenkins pipeline like so:
+
+.. code-block::
+
+    stage("Re-build DEEP-OC Docker images for derived services") {
+        when {
+            anyOf {
+               branch 'master'
+               branch 'test'
+               buildingTag()
+            }
+        }
+        steps {
+
+            // Wait for the base image to be correctly updated in DockerHub as it is going to be used as base for
+            // building the derived images
+            sleep(time:5, unit:"MINUTES")
+
+            script {
+                def derived_job_locations =
+                ['Pipeline-as-code/DEEP-OC-org/DEEP-OC-plants-classification-tf',
+                 'Pipeline-as-code/DEEP-OC-org/DEEP-OC-conus-classification-tf',
+                 'Pipeline-as-code/DEEP-OC-org/DEEP-OC-seeds-classification-tf',
+                 'Pipeline-as-code/DEEP-OC-org/DEEP-OC-phytoplankton-classification-tf'
+                 ]
+
+                for (job_loc in derived_job_locations) {
+                    job_to_build = "${job_loc}/${env.BRANCH_NAME}"
+                    def job_result = JenkinsBuildJob(job_to_build)
+                    job_result_url = job_result.absoluteUrl
+                }
+            }
+        }
+    }
+
+So if you want this step to be performed, you must submit a PR to the original module Docker repo with similar changes as above.
