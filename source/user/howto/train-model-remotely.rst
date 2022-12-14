@@ -92,6 +92,14 @@ After submitting you will be redirected to the deployment's list.
 In your new deployment go to **Access** and choose **JupyterLab**. You will be redirected to ``http://jupyterlab_endpoint``
 
 Now that you are in JupyterLab, open a **Terminal** window (**[+]** (New launcher) ➜ **Others** ➜ **Terminal**).
+
+First let's check we are seeing our GPU correctly:
+
+.. code-block:: console
+
+    $ nvidia-smi
+
+This should output the GPU model along with some extra info.
 Now we will mount our remote Nextcloud folders in our local containers:
 
 .. code-block:: console
@@ -166,7 +174,7 @@ To account for this simpler process, we have prepared a version of the
 :doc:`the DEEP Modules Template <../overview/cookiecutter-template>`
 specially tailored to this task.
 
-In your local machine, run the Template with the ``child`` branch.
+In your local machine, run the Template with the ``child-module`` branch.
 
 .. code-block::
 

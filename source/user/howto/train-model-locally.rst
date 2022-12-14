@@ -18,7 +18,8 @@ on a custom dataset to create a `plant classifier <https://github.com/deephdc/DE
 
     * having `Docker <https://www.docker.com>`__ installed. For an up-to-date installation please follow
       the `official Docker installation guide <https://docs.docker.com/install>`__.
-
+      As you will likely be using GPUs for training, you also have to install the `nvidia-container-toolkit <https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#installing-on-ubuntu-and-debian>`__
+      to make them visible from inside the container.
 
 
 1. Choose a module from the Marketplace
@@ -100,12 +101,15 @@ accessible from inside the container. This is done via the Docker volume ``-v`` 
 
 	$ docker run -ti -p 5000:5000 -p 6006:6006  -p 8888:8888 -v path_to_local_folder:path_to_docker_folder deephdc/deep-oc-image-classification-tf
 
-In our case, this looks like the following we have to mount one folder for the data
-and one folder for the model weights (where we will later retrieve the newly trained model):
+We also need to make GPUs visible from inside the container using the ``--runtime=nvidia``
+(or the ``--gpus all`` flag).
+
+In our case, the final command, mounting the data folder and the model weights folder
+(where we will later retrieve the newly trained model), looks as following:
 
 .. code-block:: console
 
-	$ docker run -ti -p 5000:5000 -p 6006:6006  -p 8888:8888 -v /home/ubuntu/data:/srv/image-classification-tf/data -v /home/ubuntu/models:/srv/image-classification-tf/models deephdc/deep-oc-image-classification-tf
+	$ docker run -ti -p 5000:5000 -p 6006:6006  -p 8888:8888 -v /home/ubuntu/data:/srv/image-classification-tf/data -v /home/ubuntu/models:/srv/image-classification-tf/models --runtime=nvidia deephdc/deep-oc-image-classification-tf:gpu
 
 
 4. Open the DEEPaaS API and train the model
@@ -141,7 +145,7 @@ To account for this simpler process, we have prepared a version of the
 :doc:`the DEEP Modules Template <../overview/cookiecutter-template>`
 specially tailored to this task.
 
-In your local machine, run the Template with the ``child`` branch.
+In your local machine, run the Template with the ``child-module`` branch.
 
 .. code-block::
 
