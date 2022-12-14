@@ -16,7 +16,7 @@ Overview
 To simplify the development and in an easy way integrate your model with the :doc:`DEEPaaS API <api>`,
 a `standard template <https://github.com/deephdc/cookiecutter-deep>`__ for modules is provided.
 
-There are two versions of this template:
+There are different versions of this template:
 
 * `master <https://github.com/deephdc/cookiecutter-deep/tree/master>`__: this is what 99% of users are probably
   looking for. Simple, minimal template, with the minimum requirements to integrate your code in DEEP.
