@@ -43,7 +43,6 @@ You will be asked to configure:
 * ``description``: Short description of the project.
 * ``app_version``: Application version (expects X.Y.Z (Major.Minor.Patch)).
 * ``open_source_license``: Choose open source license, default is MIT. `More info <https://opensource.org/licenses>`__.
-* ``dockerhub_user``: User account at hub.docker.com, e.g. 'deephdc' in https://hub.docker.com/u/deephdc .
 * ``docker_baseimage``: Docker image your Dockerfile starts from (`FROM <docker_baseimage>`) (don't provide the tag here), (e.g. tensorflow/tensorflow ).
 * ``baseimage_cpu_tag``: CPU tag for the baseimage, e.g. 2.9.1. Has to match python3!
 * ``baseimage_gpu_tag``: GPU tag for the baseimage, e.g. 2.9.1-gpu. Has to match python3!
