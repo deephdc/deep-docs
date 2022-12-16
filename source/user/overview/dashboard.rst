@@ -42,7 +42,7 @@ This allow a user to select:
 
   We do not provide the option to run both services at the same time as code changes performed subsequently via JupyterLab wouldn't be
   reflected in DEEPaaS (which is launched with the initial code), thus potentially leading to confusions.
-  If you want to have access to both services, launch JupyterLab then run ``deepaas-run --listen-ip 0.0.0.0`` in a terminal window to launch DEEPaaS.
+  If you want to have access to both services, launch JupyterLab then run ``deep-start --deepaas`` in a terminal window to launch DEEPaaS.
   If you make subsequent code changes, you will have to kill the old DEEPaaS process and launch a new one.
 
 Click ``Submit`` and you will be redirected to the page listing all the current deployments.
