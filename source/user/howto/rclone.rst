@@ -4,20 +4,22 @@
 How to use Nextcloud with rclone
 ================================
 
-``rclone` is a tool that enables you to synchronize contents between your machine and a remote storage.
+**rclone** is a tool that enables you to synchronize contents between your machine and a remote storage.
 It is kind of an `rsync <https://linux.die.net/man/1/rsync>`__ but for remote storages.
 Although we will demonstrate here how to use it with Nextcloud, it can be used with many
 different remote storages (Dropbox, Google Drive, Amazon S3, etc)
 
 
-Installation of rclone in Docker image
---------------------------------------
+Installing rclone
+-----------------
 
 All applications in the `DEEP Catalog <https://marketplace.deep-hybrid-datacloud.eu>`__ are packed in a Docker image and have
 `rclone <https://rclone.org/>`__ installed by default. If you want to create a Docker containing your own application, you should install rclone
-in the container to be able to access the data stored remotely. The following lines are an example of what has to be
-added in the Dockerfile when installation is based on Ubuntu. For other Linux flavors, please, refer to
-the `rclone official site  <https://rclone.org/downloads/>`__ ::
+in the container to be able to access the data stored remotely.
+
+To install rclone on a Docker container based on Ubuntu you should add the following code:
+
+.. code-block:: docker
 
     # Install rclone (needed if syncing with NextCloud for training; otherwise remove)
     RUN curl -O https://downloads.rclone.org/rclone-current-linux-amd64.deb && \
@@ -28,200 +30,115 @@ the `rclone official site  <https://rclone.org/downloads/>`__ ::
         rm rclone-current-linux-amd64.deb && \
         rm -rf /var/lib/apt/lists/*
 
+For other Linux flavors, please refer to the `rclone official site  <https://rclone.org/downloads/>`__.
+
 .. tip::
     When developing an application with the :doc:`DEEP Modules Template <../overview/cookiecutter-template>`,
     the Dockerfile already includes installation of rclone.
 
-Nextcloud configuration for rclone
-----------------------------------
+
+Configuring rclone
+------------------
 
 .. image:: ../../_static/nc-access.png
 
 After login into `DEEP-Nextcloud  <https://data-deep.a.incd.pt/>`__ with your DEEP-IAM credentials, go to
 (1) **Settings** (top right corner) ➜ (2) **Security** ➜ (3) **Devices & sessions**. Set a name for your
 application (typically in the docs we will use ``rshare``) and click on **Create new app password**.
-This will generate your ``<user>`` and ``<password>`` credentials.
-Next, you need to obscure the ``<password>`` for use in the rclone config file (``rclone.conf``). For this you do:
-::
-    rclone obscure <password>
+This will generate your ``<user>`` and ``<password>`` credentials. Your username should start with "DEEP-IAM-..."
 
-This ``<obscure password>`` and ``<user>`` is what one needs to include in the ``rclone.conf`` to run locally.
-When running the container you should export the ``rclone.conf`` file so that it can be reached from within the docker.
-You can see an example on how to do this here
+Now you have several options to configure rclone:
 
-.. code-block::
+Configuring via ``env`` variables (Dashboard users)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-	$ docker run -ti -p 5000:5000 -p 6006:6006 -v host_path_to_rclone.conf:/root/.config/rclone/rclone.conf deephdc/deep-oc-image-classification-tf
+If your are creating a deployment from the Dashboard, then you only need to fill the
+``rclone_user`` and ``rclone_password`` parameters in the configuration and we will
+automatically set up rclone configuration for you via setting environment variables.
 
-When deploying from the Dashboard and filling ``rclone_user``/``rclone_password``, we automatically set up rclone configuration.
+You can always check those env variables afterwards:
+
+.. code-block:: console
+
+    $ printenv | grep RCLONE_CONFIG_RSHARE_
+    RCLONE_CONFIG_RSHARE_VENDOR=nextcloud
+    RCLONE_CONFIG_RSHARE_PASS=***some-password***
+    RCLONE_CONFIG_RSHARE_URL=https://data-deep.a.incd.pt/remote.php/webdav/
+    RCLONE_CONFIG_RSHARE_TYPE=webdav
+    RCLONE_CONFIG_RSHARE_USER=***some-user***
+
+and modify them if needed:
+
+.. code-block:: console
+
+    $ export RCLONE_CONFIG_RSHARE_PASS=***new-password***
 
 
-Creating rclone.conf for your local host
-----------------------------------------
+Configuring via ``rclone config`` (local development)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-You can install rclone at your host or run Docker image with rclone installed (see installation steps of rclone above).
-In order to create the configuration file (``rclone.conf``) for rclone::
+One can use instead the ``rclone config`` command that will create a configuration file (``rclone.conf``) for rclone:
+
+.. code-block:: console
 
     $ rclone config
-   	 choose "n"  for "New remote"
-   	 choose name for DEEP-Nextcloud, e.g. deep-nextcloud
-   	 choose "Type of Storage" \u2192 "Webdav" (24)
-   	 provide DEEP-Nextcloud URL for webdav access: https://data-deep.a.incd.pt/remote.php/webdav/
-   	 choose Vendor, Nextcloud (1)
-   	 specify "user" (see "Nextcloud configuration for rclone" above). Your username starts with "DEEP-IAM-..."
-   	 specify password (see "Nextcloud configuration for rclone" above).
-   	 by default rclone.conf is created in your $HOME/.config/rclone/rclone.conf
+    choose "n"  for "New remote"
+    choose name for DEEP-Nextcloud --> rshare
+    choose "Type of Storage" --> Webdav
+    provide DEEP-Nextcloud URL for webdav access --> https://data-deep.a.incd.pt/remote.php/webdav/
+    choose Vendor --> Nextcloud
+    specify "user" --> (see `<user>` in "Configuring rclone" above).
+    specify password --> (see `<password>` in "Configuring rclone" above).
+    bearer token --> ""
+    Edit advanced config? --> n
+    Remote config --> Yes this is OK
+    Current remotes --> Quit config
 
+This will create an configuration file like the following:
 
-.. important::
-    The rclone.conf file should be in your host, i.e. outside of container. **DO NOT STORE IT IN THE CONTAINER**
+.. code-block:: console
 
-Then one has two options:
+    [rshare]
+    type = webdav
+    url = https://data-deep.a.incd.pt/remote.php/webdav/
+    vendor = nextcloud
+    user = ***some-username***
+    pass = ***some-userpassword**  --> this is equivalent to `rclone obscure <password>`
 
-If you know under what user your run your application in the container (e.g. if docker or nvidia-docker is used, most
-probably this is 'root') you can mount your host ``rclone.conf`` into the container as::
+By default ``rclone.conf`` is created in your ``$HOME/.config/rclone/rclone.conf``.
+
+For security reasons the ``rclone.conf`` file should be in your host, i.e. outside of container.
+So to access the file from inside your container one has to mount the file at runtime.
+If you know under what user your run your application in the container
+(e.g. if docker or nvidia-docker is used, most probably this is 'root')
+you can mount your host ``rclone.conf`` into the container as:
+
+.. code-block:: console
 
     $ docker run -ti -v $HOSTDIR_WITH_RCLONE_CONF/rclone.conf:/root/.config/rclone/rclone.conf <your-docker-image>
 
 i.e. you mount ``rclone.conf`` file itself directly as a volume.
+One can also mount the ``rclone.conf`` file at a custom location and tell rclone where to find it:
 
-One can also mount rclone directory with the ``rclone.conf`` file::
+.. code-block:: console
 
-  	$ docker run -ti -v $HOSTDIR_WITH_RCLONE_CONF:/root/.config/rclone <your-docker-image>
-
-A more reliable way can be to mount either rclone directory or directly ``rclone.conf`` file into a pre-defined location
-and not (container) user-dependent place::
-
-    $ docker run -ti -v $HOSTDIR_WITH_RCLONE_CONF:/rclone <your-docker-image>
-
-One has, however, to call rclone with ``--config`` option to point to the ``rclone.conf`` file, e.g::
-
-    $ rclone --config /rclone/rclone.conf ls deep-nextcloud:/Datasets/dogs_breed/models
+    $ docker run -ti -v $HOSTDIR_WITH_RCLONE_CONF/rclone.conf:/rclone/rclone.conf <your-docker-image>
+    $ rclone --config /rclone/rclone.conf
 
 
-Example code on usage of rclone from python
--------------------------------------------
+Using rclone
+------------
 
-Simple example
-^^^^^^^^^^^^^^
+You can check that everything works fine with:
 
-A simple call of rclone from python is via ``subprocess.Popen()``
+.. code-block:: console
 
-.. code-block:: python
+    rclone about rshare:
 
-    import subprocess
+which should output your used space in Nextcloud.
 
-    # from "rshare" remote storage into the container
-    command = (['rclone', 'copy', 'rshare:/Datasets/dogs_breed/data', '/srv/dogs_breed_det/data'])
+You can start copying files from your remote to your local:
 
-    result = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    output, error = result.communicate()
+.. code-block:: console
 
-.. important::
-    When deploying a module on the DEEP Pilot testbed, you pass rclone parameters e.g. ``rclone_user`` and ``rclone_password`` during the deployment.
-    If you use our `general template <https://github.com/indigo-dc/tosca-templates/blob/master/deep-oc/deep-oc-marathon-webdav.yml>`__ , the name of the remote storage has to be ``rshare`` as in the example above (``rshare:/Datasets/dogs_breed/data``). If you create your own TOSCA template, you need to pay attention on matching these names in your code and in the template (for example, see environment parameters in the `general template <https://github.com/indigo-dc/tosca-templates/blob/master/deep-oc/deep-oc-marathon-webdav.yml>`_ like RCLONE_CONFIG_RSHARE_USER etc).
-
-Advanced examples
-^^^^^^^^^^^^^^^^^
-
-More advanced usage includes calling rclone with various options (ls, copy, check) in order to check file existence at
-Source, check if after copying two versions match exactly.
-
-* rclone_call
-
-.. code-block:: python
-
-    def rclone_call(src_path, dest_dir, cmd = 'copy', get_output=False):
-        """ Function
-           rclone calls
-        """
-         if cmd == 'copy':
-            command = (['rclone', 'copy', '--progress', src_path, dest_dir])
-         elif cmd == 'ls':
-            command = (['rclone', 'ls', src_path])
-         elif cmd == 'check':
-            command = (['rclone', 'check', src_path, dest_dir])
-
-         if get_output:
-            result = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-         else:
-             result = subprocess.Popen(command, stderr=subprocess.PIPE)
-         output, error = result.communicate()
-         return output, error
-
-
-* rclone_copy
-
-.. code-block:: python
-
-    def rclone_copy(src_path, dest_dir, src_type='file', verbose=False):
-        """ Function for rclone call to copy data (sync?)
-        :param src_path: full path to source (file or directory)
-        :param dest_dir: full path to destination directory (not file!)
-        :param src_type: if source is file (default) or directory
-        :return: if destination was downloaded, and possible error
-        """
-
-        error_out = None
-
-        if src_type == 'file':
-            src_dir = os.path.dirname(src_path)
-            dest_file = src_path.split('/')[-1]
-            dest_path = os.path.join(dest_dir, dest_file)
-        else:
-            src_dir = src_path
-            dest_path =  dest_dir
-
-        # check first if we find src_path
-        output, error = rclone_call(src_path, dest_dir, cmd='ls')
-        if error:
-            print('[ERROR, rclone_copy()] %s (src):\n%s' % (src_path, error))
-            error_out = error
-            dest_exist = False
-        else:
-            # if src_path exists, copy it
-            output, error = rclone_call(src_path, dest_dir, cmd='copy')
-            if not error:
-                output, error = rclone_call(dest_path, dest_dir,
-                                            cmd='ls', get_output=True)
-                file_size = [ elem for elem in output.split(' ') if elem.isdigit() ][0]
-                print('[INFO] Copied to %s %s bytes' % (dest_path, file_size))
-                dest_exist = True
-                if verbose:
-                    # compare two directories, if copied file appears in output
-                    # as not found or not matching -> Error
-                    print('[INFO] File %s copied. Check if (src) and (dest) really match..' % (dest_file))
-                    output, error = rclone_call(src_dir, dest_dir, cmd='check')
-                    if 'ERROR : ' + dest_file in error:
-                        print('[ERROR, rclone_copy()] %s (src) and %s (dest) do not match!'
-                              % (src_path, dest_path))
-                        error_out = 'Copy failed: ' + src_path + ' (src) and ' + \
-                                     dest_path + ' (dest) do not match'
-                        dest_exist = False
-            else:
-                print('[ERROR, rclone_copy()] %s (src):\n%s' % (dest_path, error))
-                error_out = error
-                dest_exist = False
-
-        return dest_exist, error_out
-
-
-
-.. code-block:: python
-
-    import subprocess
-
-    def sync_nextcloud(frompath, topath):
-        """
-        Mount a NextCloud folder in your local machine or viceversa.
-        """
-        command = (['rclone', 'copy', frompath, topath])
-        result = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        output, error = result.communicate()
-        if error:
-            warnings.warn("Error while mounting NextCloud: {}".format(error))
-        return output, error
-
-    sync_nextcloud('rshare:/your/dataset/folder', '/your/data/path/inside/the/container') # sync local with nextcloud
-    sync_nextcloud('/your/data/path/inside/the/container', 'rshare:/your/dataset/folder') # sync nextcloud with local
-
+    $ rclone copy rshare:/some/remote/path /some/local/path

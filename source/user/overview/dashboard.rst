@@ -83,7 +83,7 @@ The are two steps in the configuration process:
   able to access your machine, which will be exposed on a public IP.
   You can leave this section empty if you are not launching JupyterLab.
 * ``Storage options``: where you have to provide the **rclone** credentials to be able to mount your Nextcloud directory in your deployment.
-  :ref:`Go here <user/howto/rclone:Nextcloud configuration for rclone>` in order to find how to create them.
+  :ref:`Go here <user/howto/rclone:Configuring rclone>` in order to find how to create them.
   You can leave this section empty if you don't want to use remote storage.
 * ``Hardware options``: where you can specify the number of CPU and GPUs for your deployment, as well as the RAM memory.
 

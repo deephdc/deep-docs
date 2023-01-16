@@ -210,8 +210,9 @@ Once the changes are done, make a PR of your fork to the original repo and wait 
 Check the `GitHub Standard Fork & Pull Request Workflow <https://gist.github.com/Chaser324/ce0505fbed06b947d962>`__ in case of doubt.
 
 When your module gets approved, you may need to commit and push a change to ``metadata.json``
-in ``DEEP-OC-your_project`` (`ref <https://github.com/deephdc/DEEP-OC-demo_app/blob/726e068d54a05839abe8aef741b3ace8a078ae6f/Jenkinsfile#L104>`__)
-so that the Pipeline is run for the first time, and your module gets rendered in the marketplace.
+in ``DEEP-OC-your_project`` so that
+`the Pipeline <https://github.com/deephdc/DEEP-OC-demo_app/blob/726e068d54a05839abe8aef741b3ace8a078ae6f/Jenkinsfile#L104>`__
+is run for the first time, and your module gets rendered in the marketplace.
 
 
 8. [optional] Add your new module to the original Continuous Integration pipeline

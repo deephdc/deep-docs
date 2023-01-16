@@ -58,6 +58,8 @@ In the case of the **image classification module**, we will create the following
 Again, the folder structure and their content will of course depend on the module to be used.
 This structure is just an example in order to complete the workflow for this tutorial.
 
+Once you have prepared your data locally, you can drag your folder to the Nextcloud Web UI to upload it.
+
 
 3. Deploy with the Training Dashboard
 -------------------------------------
@@ -79,7 +81,7 @@ For the purposes of running a retraining, it should be filled as following:
 
 * ``jupyter password``, you have to provide a password at least 9 characters long, so that nobody will be able to access your machine, which will be exposed on a public IP.
 * ``rclone_user``, ``rclone_password``: those are the credentials to be able to mount your Nextcloud directory in your deployment.
-  :ref:`Go here <user/howto/rclone:Nextcloud configuration for rclone>` in order to find how to create them.
+  :ref:`Go here <user/howto/rclone:Configuring rclone>` in order to find how to create them.
 
 Now that you are done configuring, click **Submit** to create the deployment.
 See the :doc:`Dashboard guide <../overview/dashboard>` for more details.
@@ -100,6 +102,14 @@ First let's check we are seeing our GPU correctly:
     $ nvidia-smi
 
 This should output the GPU model along with some extra info.
+We can also check rclone is correctly configured with:
+
+.. code-block:: console
+
+    rclone about rshare:
+
+which should output your used space in Nextcloud.
+
 Now we will mount our remote Nextcloud folders in our local containers:
 
 .. code-block:: console
@@ -111,7 +121,7 @@ Paths with the ``rshare`` prefix are Nextcloud paths.
 As always, paths are specific to this example. Your module might need different paths.
 
 Mounting your dataset *might take some time*, depending on the dataset size, file structure (lots of small files vs few big files), and so on.
-So grab a cup of coffee and prepare for the next steps .
+So grab a cup of coffee and prepare for the next steps.
 
 Now that you dataset is mounted, we will run DEEPaaS to interactively run the training. In your terminal window type:
 
@@ -199,7 +209,9 @@ Check you didn't mess up the JSON formatting by running:
 is the image of the original repo. Modify the appropriate lines to replace
 the original model weights with the new model weights.
 In our case, this could look something like this:
-::
+
+.. code-block:: docker
+
     ENV SWIFT_CONTAINER https://api.cloud.ifca.es:8080/swift/v1/phytoplankton-tf/
     ENV MODEL_TAR phytoplankton.tar.xz
 
@@ -240,8 +252,9 @@ Once the changes are done, make a PR of your fork to the original repo and wait 
 Check the `GitHub Standard Fork & Pull Request Workflow <https://gist.github.com/Chaser324/ce0505fbed06b947d962>`__ in case of doubt.
 
 When your module gets approved, you may need to commit and push a change to ``metadata.json``
-in ``DEEP-OC-your_project`` (`ref <https://github.com/deephdc/DEEP-OC-demo_app/blob/726e068d54a05839abe8aef741b3ace8a078ae6f/Jenkinsfile#L104>`__)
-so that the Pipeline is run for the first time, and your module gets rendered in the marketplace.
+in ``DEEP-OC-your_project`` so that
+`the Pipeline <https://github.com/deephdc/DEEP-OC-demo_app/blob/726e068d54a05839abe8aef741b3ace8a078ae6f/Jenkinsfile#L104>`__
+is run for the first time, and your module gets rendered in the marketplace.
 
 
 9. [optional] Add your new module to the original Continuous Integration pipeline
