@@ -106,7 +106,7 @@ We can also check rclone is correctly configured with:
 
 .. code-block:: console
 
-    rclone about rshare:
+    $ rclone about rshare:
 
 which should output your used space in Nextcloud.
 
@@ -127,7 +127,7 @@ Now that you dataset is mounted, we will run DEEPaaS to interactively run the tr
 
 .. code-block:: console
 
-    $ nohup deepaas-run --listen-ip 0.0.0.0 &
+    $ nohup deep-start --deepaas &
 
 The ``&`` will keep your command running even if you close the terminal, and ``nohup`` will produce a log file
 ``nohup.out`` that you can always look at if you want to know what is going on under the hood.
