@@ -60,7 +60,11 @@ Once you machine is launched, you must run the following command in the terminal
 
 .. code-block:: console
 
-    $ export RCLONE_CONFIG_RSHARE_PASS=$(rclone obscure $RCLONE_CONFIG_RSHARE_PASS)
+    $ echo export RCLONE_CONFIG_RSHARE_PASS=$(rclone obscure $RCLONE_CONFIG_RSHARE_PASS) >> /root/.bashrc
+    $ source /root/.bashrc
+
+..
+    Comment: We do this to spare users from having to install rclone in their local machines just to obscure the password.
 
 This is because, to connect with the remote, rclone needs to use an obscured version of the password, not the raw one.
 

@@ -95,7 +95,7 @@ See the :doc:`Dashboard guide <../overview/dashboard>` for more details.
 After submitting you will be redirected to the deployment's list.
 In your new deployment go to **Access** and choose **JupyterLab**. You will be redirected to ``http://jupyterlab_endpoint``
 
-Now that you are in JupyterLab, open a **Terminal** window (**[+]** (New launcher) ➜ **Others** ➜ **Terminal**).
+Now that you are in JupyterLab, open a **Terminal** window (:fa:`square-plus` (New launcher) ➜ **Others** ➜ **Terminal**).
 
 First let's check we are seeing our GPU correctly:
 
@@ -172,6 +172,7 @@ For this you have to kill the process running deepaas, and launch it again.
 .. code-block:: console
 
     $ kill -9 $(ps aux | grep '[d]eepaas-run' | awk '{print $2}')
+    $ kill -9 $(ps aux | grep '[t]ensorboard' | awk '{print $2}')  # optionally also kill monitoring process
 
 This is because the user inputs for deepaas are generated at the deepaas launching.
 Thus it is not aware of the newly trained model. Once deepaas is restarted, head to the
@@ -215,7 +216,7 @@ In your **local machine** (not the Dashboard deployment), run the Template with 
 .. code-block::
 
     $ pip install cookiecutter
-    $ cookiecutter https://github.com/deephdc/cookiecutter-deep -b child-module
+    $ cookiecutter https://github.com/deephdc/cookiecutter-deep --checkout child-module
 
 Proceed to answer the questions you will be prompted.
 This will create a single repo (``DEEP-OC-**``) with the Docker code.

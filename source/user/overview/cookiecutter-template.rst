@@ -30,7 +30,7 @@ and then run the `cookiecutter <https://cookiecutter.readthedocs.io>`__ tool as 
 ::
 
     $ pip install cookiecutter
-    $ cookiecutter https://github.com/deephdc/cookiecutter-deep -b master
+    $ cookiecutter https://github.com/deephdc/cookiecutter-deep --checkout master
 
 You are first provided with ``[Info]`` line about the parameter and in the next line you configure this parameter.
 You will be asked to configure:

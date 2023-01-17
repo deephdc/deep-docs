@@ -62,7 +62,7 @@ The are two steps in the configuration process:
   reflected in DEEPaaS (which is launched with the initial codebase), thus potentially leading to confusion.
 
   If you want to have access to both services in the same deployment, launch with JupyterLab.
-  In JupyterLab, open a **Terminal** window (**[+]** (New launcher) ➜ **Others** ➜ **Terminal**).
+  In JupyterLab, open a **Terminal** window (:fa:`square-plus` (New launcher) ➜ **Others** ➜ **Terminal**).
   Then run ``deep-start --deepaas`` to launch DEEPaaS.
   If you make subsequent code changes, you will have to kill the old DEEPaaS process and launch a new one.
 

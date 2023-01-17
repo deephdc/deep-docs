@@ -150,7 +150,7 @@ In your local machine, run the Template with the ``child-module`` branch.
 .. code-block::
 
     $ pip install cookiecutter
-    $ cookiecutter https://github.com/deephdc/cookiecutter-deep -b child-module
+    $ cookiecutter https://github.com/deephdc/cookiecutter-deep  --checkout child-module
 
 This will create a single repo (``DEEP-OC-**``) with the Docker code.
 
@@ -169,7 +169,9 @@ Check you didn't mess up the JSON formatting by running:
 is the image of the original repo. Modify the appropriate lines to replace
 the original model weights with the new model weights.
 In our case, this could look something like this:
-::
+
+.. code-block:: docker
+
     ENV SWIFT_CONTAINER https://api.cloud.ifca.es:8080/swift/v1/phytoplankton-tf/
     ENV MODEL_TAR phytoplankton.tar.xz
 
@@ -179,7 +181,7 @@ In our case, this could look something like this:
 
 Check your Dockerfile works correctly by building it locally and running it:
 
-  .. code-block:: console
+.. code-block:: console
 
     $ docker build --no-cache -t your_project .
     $ docker run -ti -p 5000:5000 -p 6006:6006 -p 8888:8888 your_project
