@@ -12,6 +12,8 @@ Train a model remotely
 .. admonition:: Requirements
 
     * You need  a `DEEP-IAM <https://iam.deep-hybrid-datacloud.eu/>`__ account to be able to access the Dashboard and Nextcloud storage.
+    * For Step 7 we recommend having `docker <https://docs.docker.com/install/#supported-platforms>`__ installed (though it's not strictly mandatory).
+
 
 This is a step by step guide on how to train a general model from the `DEEP Marketplace <https://marketplace.deep-hybrid-datacloud.eu/>`__
 with your own dataset, in the :doc:`DEEP Dashboard <../overview/dashboard>`.
@@ -110,6 +112,15 @@ We can also check rclone is correctly configured with:
 
 which should output your used space in Nextcloud.
 
+.. tip::
+    If you happen to need additional packages, you will have to update the package index first.
+    Note that sudo is not needed as you are always root in your Docker containers:
+
+    .. code-block:: console
+
+        $ apt update
+        $ apt install vim
+
 Now we will mount our remote Nextcloud folders in our local containers:
 
 .. code-block:: console
@@ -156,20 +167,35 @@ In **Access** ➜ **History** you will be able to see the status of your current
 ------------------------------------------
 
 Once the training has finished, you can directly test it by clicking on the ``predict`` POST method.
-Select you new model weights upload the image your want to classify.
+For this you have to kill the process running deepaas, and launch it again.
 
-If you are satisfied with your model, then it's time to save it into your remote storage, so that you still have
-access to it if your machine is deleted.
+.. code-block:: console
+
+    $ kill -9 $(ps aux | grep '[d]eepaas-run' | awk '{print $2}')
+
+This is because the user inputs for deepaas are generated at the deepaas launching.
+Thus it is not aware of the newly trained model. Once deepaas is restarted, head to the
+``predict`` POST method, select you new model weights and upload the image your want to classify.
+
+If you are satisfied with your model, then it's time to save it into your remote storage,
+so that you still have access to it if your machine is deleted.
+For this we have to create a ``tar`` file with the model folder (in this case, the foldername is
+the timestamp at which the training was launched) so that we can download in our Docker container.
 
 So go back to JupyterLab, open a Terminal window and run:
 
 .. code-block:: console
 
-    $ rclone copy /srv/image-classification/models rshare:/models
+    $ cd /srv/image-classification-tf/models
+    $ tar cfJ <modelname.tar.xz> <foldername>
+    $ rclone copy /srv/image-classification-tf/models rshare:/models
 
-Now you should be able to see your new models weights. For the next step, you need to make them
-publicly available through an URL so they can be downloaded in your Docker container
-(see `Nextcloud Public Links <https://docs.nextcloud.com/server/latest/user_manual/en/files/sharing.html>`__).
+Now you should be able to see your new models weights in Nextcloud.
+
+For the next step, you need to make them `publicly available <https://docs.nextcloud.com/server/latest/user_manual/en/files/sharing.html>`__
+through an URL so they can be downloaded in your Docker container.
+In Nextcloud, go to the ``tar`` file you just created:
+:fa:`share-nodes` ➜ Share Link ➜ :fa:`square-plus` (Create a new share link)
 
 
 7. Create a Docker repo for your new module
@@ -184,7 +210,7 @@ To account for this simpler process, we have prepared a version of the
 :doc:`the DEEP Modules Template <../overview/cookiecutter-template>`
 specially tailored to this task.
 
-In your local machine, run the Template with the ``child-module`` branch.
+In your **local machine** (not the Dashboard deployment), run the Template with the ``child-module`` branch.
 
 .. code-block::
 

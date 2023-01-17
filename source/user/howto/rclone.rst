@@ -45,16 +45,24 @@ Configuring rclone
 After login into `DEEP-Nextcloud  <https://data-deep.a.incd.pt/>`__ with your DEEP-IAM credentials, go to
 (1) **Settings** (top right corner) ➜ (2) **Security** ➜ (3) **Devices & sessions**. Set a name for your
 application (typically in the docs we will use ``rshare``) and click on **Create new app password**.
-This will generate your ``<user>`` and ``<password>`` credentials. Your username should start with "DEEP-IAM-..."
+This will generate your ``<user>`` and ``<password>`` credentials. Your username should start with ``DEEP-IAM-...``.
 
 Now you have several options to configure rclone:
 
 Configuring via ``env`` variables (Dashboard users)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If your are creating a deployment from the Dashboard, then you only need to fill the
-``rclone_user`` and ``rclone_password`` parameters in the configuration and we will
+If your are creating a deployment from the **Dashboard**, then you only need to fill the
+``rclone_user`` and ``rclone_password`` parameters in the configuration form (**Storage options**) and we will
 automatically set up rclone configuration for you via setting environment variables.
+
+Once you machine is launched, you must run the following command in the terminal to properly configure rclone:
+
+.. code-block:: console
+
+    $ export RCLONE_CONFIG_RSHARE_PASS=$(rclone obscure $RCLONE_CONFIG_RSHARE_PASS)
+
+This is because, to connect with the remote, rclone needs to use an obscured version of the password, not the raw one.
 
 You can always check those env variables afterwards:
 
@@ -71,13 +79,14 @@ and modify them if needed:
 
 .. code-block:: console
 
-    $ export RCLONE_CONFIG_RSHARE_PASS=***new-password***
+    $ export RCLONE_CONFIG_RSHARE_PASS=***new-password***  # remember this should an obscured version of the raw password --> `rclone obscure <raw-password>`
 
 
 Configuring via ``rclone config`` (local development)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-One can use instead the ``rclone config`` command that will create a configuration file (``rclone.conf``) for rclone:
+If you are developing in a Docker container deployed in your **local machine**,
+one can use instead the ``rclone config`` command that will create a configuration file (``rclone.conf``) for rclone:
 
 .. code-block:: console
 
@@ -133,9 +142,15 @@ You can check that everything works fine with:
 
 .. code-block:: console
 
-    rclone about rshare:
+    $ rclone listremotes    # check you don't have two remote storages with same name
+    $ rclone about rshare:  # should output your used space in Nextcloud.
 
-which should output your used space in Nextcloud.
+.. tip::
+
+    If ``listremotes`` is listing two remotes with the same name you probably configured the rclone twice.
+    Most likely you ran ``rclone config`` on a machine deployed with the Dashboard, so you
+    have both the ``env`` and ``rclone.conf`` configurations. To fix this, either remove the ``env`` variables
+    (use ``unset`` command) or delete the ``rclone.conf`` file.
 
 You can start copying files from your remote to your local:
 
