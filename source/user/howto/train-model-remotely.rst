@@ -269,13 +269,18 @@ Once your repo is set, it's time to make a PR to add your model to the marketpla
 
 For this you have to fork the code of the DEEP catalog repo (`deephdc/deep-oc <https://github.com/deephdc/deep-oc>`__)
 and add your Docker repo name at the end of the ``MODULES.yml``.
+
+.. code-block:: yaml
+
+    - module: https://github.com/deephdc/UC-<account_name>-DEEP-OC-<module_name>
+
 You can do this directly `online on GitHub <https://github.com/deephdc/deep-oc/edit/master/MODULES.yml>`__ or via the command line:
 
 .. code-block:: console
 
     $ git clone https://github.com/[my-github-fork]
     $ cd [my-github-fork]
-    $ echo '- module: https://github.com/deephdc/UC-[my-account-name]-DEEP-OC-[my-app-name]' >> MODULES.yml
+    $ echo '- module: https://github.com/deephdc/UC-<account_name>-DEEP-OC-<module_name>' >> MODULES.yml
     $ git commit -a -m "adding new module to the catalogue"
     $ git push
 
@@ -283,7 +288,7 @@ Once the changes are done, make a PR of your fork to the original repo and wait 
 Check the `GitHub Standard Fork & Pull Request Workflow <https://gist.github.com/Chaser324/ce0505fbed06b947d962>`__ in case of doubt.
 
 When your module gets approved, you may need to commit and push a change to ``metadata.json``
-in ``DEEP-OC-your_project`` so that
+in your ``https://github.com/<github-user>/DEEP-OC-<project-name>`` so that
 `the Pipeline <https://github.com/deephdc/DEEP-OC-demo_app/blob/726e068d54a05839abe8aef741b3ace8a078ae6f/Jenkinsfile#L104>`__
 is run for the first time, and your module gets rendered in the marketplace.
 
