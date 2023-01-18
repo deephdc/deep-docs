@@ -239,12 +239,14 @@ In our case, this could look something like this:
 
 .. code-block:: docker
 
-    ENV SWIFT_CONTAINER https://api.cloud.ifca.es:8080/swift/v1/phytoplankton-tf/
+    ENV SWIFT_CONTAINER https://data-deep.a.incd.pt/index.php/s/r8y3WMK9jwEJ3Ei/download/
     ENV MODEL_TAR phytoplankton.tar.xz
 
     RUN rm -rf image-classification-tf/models/*
     RUN curl --insecure -o ./image-classification-tf/models/${MODEL_TAR} \
         ${SWIFT_CONTAINER}${MODEL_TAR}
+    RUN cd image-classification-tf/models && \
+            tar -xf ${MODEL_TAR}
 
 Check your Dockerfile works correctly by building it locally and running it:
 
