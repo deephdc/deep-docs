@@ -255,7 +255,8 @@ Check your Dockerfile works correctly by building it locally and running it:
 
 Your module should be visible in http://0.0.0.0:5000/ui
 
-Once you are fine with the state of your module, push the changes to Github.
+Once you are fine with the state of your module, got to Github to create the repo
+``https://github.com/<github-user>/DEEP-OC-<project-name>`` and push the changes.
 
 
 8. Share your new module in the Marketplace

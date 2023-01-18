@@ -126,139 +126,28 @@ progress from `<http://0.0.0.0:6006>`__.
 ------------------------------------------
 
 Once the training has finished, you can directly test it by clicking on the ``predict`` POST method.
-Select you new model weights upload the image your want to classify.
-
-If you are satisfied with your model, you have to save your new model weights to a remote storage.
-For the next step, you need to make them publicly available through an URL so they can be downloaded in your Docker container
-(see `Nextcloud Public Links <https://docs.nextcloud.com/server/latest/user_manual/en/files/sharing.html>`__).
-
-
-6. Create a Docker repo for your new module
--------------------------------------------
-
-Now, let's say you want to share your new application with your colleagues.
-The process is much simpler that when :doc:`developing a new module from scratch <develop-model>`,
-as your code is the same as the original application, only your model weights
-are different.
-
-To account for this simpler process, we have prepared a version of the
-:doc:`the DEEP Modules Template <../overview/cookiecutter-template>`
-specially tailored to this task.
-
-In your local machine, run the Template with the ``child-module`` branch.
-
-.. code-block::
-
-    $ pip install cookiecutter
-    $ cookiecutter https://github.com/deephdc/cookiecutter-deep  --checkout child-module
-
-This will create a single repo (``DEEP-OC-**``) with the Docker code.
-
-Now:
-
-**(1)** Modify ``metadata.json`` with the proper description of your new module.
-This is the information that will be displayed in the Marketplace.
-Check you didn't mess up the JSON formatting by running:
+For this you have to kill the process running deepaas, and launch it again.
 
 .. code-block:: console
 
-    $ pip install git+https://github.com/deephdc/schema4apps
-    $ deep-app-schema-validator metadata.json
+    $ kill -9 $(ps aux | grep '[d]eepaas-run' | awk '{print $2}')
+    $ kill -9 $(ps aux | grep '[t]ensorboard' | awk '{print $2}')  # optionally also kill monitoring process
 
-**(2)** Then go to the ``Dockerfile``. You will see that the base Docker image
-is the image of the original repo. Modify the appropriate lines to replace
-the original model weights with the new model weights.
-In our case, this could look something like this:
+This is because the user inputs for deepaas are generated at the deepaas launching.
+Thus it is not aware of the newly trained model. Once deepaas is restarted, head to the
+``predict`` POST method, select you new model weights and upload the image your want to classify.
 
-.. code-block:: docker
+If you are satisfied with your model, then it's time to save it into your remote storage,
+so that you still have access to it if your machine is deleted.
+For this we have to create a ``tar`` file with the model folder (in this case, the foldername is
+the timestamp at which the training was launched) so that we can download in our Docker container.
 
-    ENV SWIFT_CONTAINER https://api.cloud.ifca.es:8080/swift/v1/phytoplankton-tf/
-    ENV MODEL_TAR phytoplankton.tar.xz
+For the next step, you need to make them `publicly available <https://docs.nextcloud.com/server/latest/user_manual/en/files/sharing.html>`__
+through an URL so they can be downloaded in your Docker container.
+In Nextcloud, go to the ``tar`` file you just created:
+:fa:`share-nodes` ➜ Share Link ➜ :fa:`square-plus` (Create a new share link)
 
-    RUN rm -rf image-classification-tf/models/*
-    RUN curl --insecure -o ./image-classification-tf/models/${MODEL_TAR} \
-        ${SWIFT_CONTAINER}${MODEL_TAR}
+6. Next steps
+-------------
 
-Check your Dockerfile works correctly by building it locally and running it:
-
-.. code-block:: console
-
-    $ docker build --no-cache -t your_project .
-    $ docker run -ti -p 5000:5000 -p 6006:6006 -p 8888:8888 your_project
-
-Your module should be visible in http://0.0.0.0:5000/ui
-
-Once you are fine with the state of your module, push the changes to Github.
-
-
-7. Share your new module in the Marketplace
--------------------------------------------
-
-Once your repo is set, it's time to make a PR to add your model to the marketplace!
-
-For this you have to fork the code of the DEEP catalog repo (`deephdc/deep-oc <https://github.com/deephdc/deep-oc>`__)
-and add your Docker repo name at the end of the ``MODULES.yml``.
-You can do this directly `online on GitHub <https://github.com/deephdc/deep-oc/edit/master/MODULES.yml>`__ or via the command line:
-
-.. code-block:: console
-
-    $ git clone https://github.com/[my-github-fork]
-    $ cd [my-github-fork]
-    $ echo '- module: https://github.com/deephdc/UC-[my-account-name]-DEEP-OC-[my-app-name]' >> MODULES.yml
-    $ git commit -a -m "adding new module to the catalogue"
-    $ git push
-
-Once the changes are done, make a PR of your fork to the original repo and wait for approval.
-Check the `GitHub Standard Fork & Pull Request Workflow <https://gist.github.com/Chaser324/ce0505fbed06b947d962>`__ in case of doubt.
-
-When your module gets approved, you may need to commit and push a change to ``metadata.json``
-in ``DEEP-OC-your_project`` so that
-`the Pipeline <https://github.com/deephdc/DEEP-OC-demo_app/blob/726e068d54a05839abe8aef741b3ace8a078ae6f/Jenkinsfile#L104>`__
-is run for the first time, and your module gets rendered in the marketplace.
-
-
-8. [optional] Add your new module to the original Continuous Integration pipeline
----------------------------------------------------------------------------------
-
-Your module is already in the Marketplace.
-But what happens if the code in the original image-classification module changes?
-This should trigger a rebuild of your Docker container as it is based on that code.
-
-This can be achieved by modifying the ``Jenkinsfile`` in the `image-classification Docker repo <https://github.com/deephdc/DEEP-OC-image-classification-tf/blob/master/Jenkinsfile>`__.
-One would add an additional stage to the Jenkins pipeline like so:
-
-.. code-block::
-
-    stage("Re-build DEEP-OC Docker images for derived services") {
-        when {
-            anyOf {
-               branch 'master'
-               branch 'test'
-               buildingTag()
-            }
-        }
-        steps {
-
-            // Wait for the base image to be correctly updated in DockerHub as it is going to be used as base for
-            // building the derived images
-            sleep(time:5, unit:"MINUTES")
-
-            script {
-                def derived_job_locations =
-                ['Pipeline-as-code/DEEP-OC-org/DEEP-OC-plants-classification-tf',
-                 'Pipeline-as-code/DEEP-OC-org/DEEP-OC-conus-classification-tf',
-                 'Pipeline-as-code/DEEP-OC-org/DEEP-OC-seeds-classification-tf',
-                 'Pipeline-as-code/DEEP-OC-org/DEEP-OC-phytoplankton-classification-tf'
-                 ]
-
-                for (job_loc in derived_job_locations) {
-                    job_to_build = "${job_loc}/${env.BRANCH_NAME}"
-                    def job_result = JenkinsBuildJob(job_to_build)
-                    job_result_url = job_result.absoluteUrl
-                }
-            }
-        }
-    }
-
-So if you want this step to be performed, you must submit a PR to the original module Docker repo with similar changes as above.
-
+The next steps are common with the :ref:`remote training tutorial <user/howto/train-model-remotely:7. Create a Docker repo for your new module>`.
