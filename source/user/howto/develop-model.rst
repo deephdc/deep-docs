@@ -63,7 +63,7 @@ Once this is done, check that DEEPaaS is interfacing correctly by running:
 
 .. code-block:: console
 
-    $ deep-start --deepaas
+    $ deepaas-run --listen-ip 0.0.0.0
 
 Your module should be visible in http://0.0.0.0:5000/ui .
 If you don't see your module, you probably messed the ``api.py`` file.
@@ -131,7 +131,7 @@ You need to modify the following files according to your needs:
 .. code-block:: console
 
     $ docker build --no-cache -t your_project .
-    $ docker run -ti -p 5000:5000 -p 6006:6006 -p 8888:8888 your_project  #
+    $ docker run -ti -p 5000:5000 -p 6006:6006 -p 8888:8888 your_project
 
 Your module should be visible in http://0.0.0.0:5000/ui .
 You can make a POST request to the ``predict`` method to check everything is working as intended.
