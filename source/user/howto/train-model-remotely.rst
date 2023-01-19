@@ -12,7 +12,7 @@ Train a model remotely
 .. admonition:: Requirements
 
     * You need  a `DEEP-IAM <https://iam.deep-hybrid-datacloud.eu/>`__ account to be able to access the Dashboard and Nextcloud storage.
-    * For Step 7 we recommend having `docker <https://docs.docker.com/install/#supported-platforms>`__ installed (though it's not strictly mandatory).
+    * For **Step 7** we recommend having `docker <https://docs.docker.com/install/#supported-platforms>`__ installed (though it's not strictly mandatory).
 
 
 This is a step by step guide on how to train a general model from the `DEEP Marketplace <https://marketplace.deep-hybrid-datacloud.eu/>`__
@@ -272,7 +272,7 @@ and add your Docker repo name at the end of the ``MODULES.yml``.
 
 .. code-block:: yaml
 
-    - module: https://github.com/deephdc/UC-<account_name>-DEEP-OC-<module_name>
+    - module: https://github.com/deephdc/UC-<github-user>-DEEP-OC-<project-name>
 
 You can do this directly `online on GitHub <https://github.com/deephdc/deep-oc/edit/master/MODULES.yml>`__ or via the command line:
 
@@ -280,7 +280,7 @@ You can do this directly `online on GitHub <https://github.com/deephdc/deep-oc/e
 
     $ git clone https://github.com/[my-github-fork]
     $ cd [my-github-fork]
-    $ echo '- module: https://github.com/deephdc/UC-<account_name>-DEEP-OC-<module_name>' >> MODULES.yml
+    $ echo '- module: https://github.com/deephdc/UC-<github-user>-DEEP-OC-<project-name>' >> MODULES.yml
     $ git commit -a -m "adding new module to the catalogue"
     $ git push
 
