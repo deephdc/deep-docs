@@ -1,7 +1,7 @@
 .. highlight:: console
 
-Develop a model
-===============
+Develop a model from scratch
+============================
 
 This tutorial explains how to develop a DEEP module from scratch on your local machine.
 
@@ -42,7 +42,7 @@ Go to Github and create the corresponding repositories:
 Do a ``git push origin --all`` in both created directories to put your initial code in Github.
 
 
-2. Editing ``<your_project>`` code
+2. Editing ``<project-name>`` code
 ----------------------------------
 
 Install your project as a Python module in **editable** mode (so that the changes you make to the codebase are picked by Python).
@@ -113,10 +113,10 @@ in some parts of the code if long lines are really needed.
 
     Remember to have a backup before reformatting, just in case!
 
-Once you are fine with the state of ``<your_project>`` folder, push the changes to Github.
+Once you are fine with the state of ``<project-name>`` folder, push the changes to Github.
 
 
-3. Editing ``DEEP-OC-<your_project>`` code
+3. Editing ``DEEP-OC-<project-name>`` code
 ------------------------------------------
 
 This is the repo in charge of creating a single docker image that integrates
@@ -134,7 +134,7 @@ You need to modify the following files according to your needs:
     $ docker run -ti -p 5000:5000 -p 6006:6006 -p 8888:8888 your_project  #
 
 Your module should be visible in http://0.0.0.0:5000/ui .
-You can make a POST request to the ``predict``method to check everything is working as intended.
+You can make a POST request to the ``predict`` method to check everything is working as intended.
 
 * ``metadata.json``: this is the information that will be displayed in the Marketplace.
   Update and add the information you need.
@@ -145,7 +145,7 @@ You can make a POST request to the ``predict``method to check everything is work
     $ pip install git+https://github.com/deephdc/schema4apps
     $ deep-app-schema-validator metadata.json
 
-Once you are fine with the state of ``DEEP-OC-<your_project>``, push the changes to Github.
+Once you are fine with the state of ``DEEP-OC-<project-name>``, push the changes to Github.
 
 
 4. Integrating the module in the Marketplace

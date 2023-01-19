@@ -5,10 +5,15 @@ All  modules are found at the `DEEP Marketplace <https://marketplace.deep-hybrid
 hosted under `Github's deephdc <https://github.com/deephdc>`__ organization and the corresponding Docker images are
 hosted under `DockerHub's deephdc <https://hub.docker.com/u/deephdc/>`__ organization.
 
-Github repositories follow the following convention:
+Modules developed by **deephdc members** follow the following convention:
 
-* ``deephdc/some_module``: source code of the module
-* ``deephdc/DEEP-OC-some_module``: Dockerfiles and metadata of that module.
+* ``deephdc/<project-name>``: source code of the module
+* ``deephdc/DEEP-OC-<project-name>``: Dockerfiles and metadata of that module.
+
+Modules developed by **external users** follow the following convention:
+
+* ``deephdc/UC-<github-user>-<project-name>``: source code of the module
+* ``deephdc/UC-<github-user>-DEEP-OC-<project-name>``: Dockerfiles and metadata of that module.
 
 Docker images have usually tags depending on whether they are using Github's ``master`` or ``test`` and
 whether they use ``cpu`` or ``gpu``. Tags are usually:
