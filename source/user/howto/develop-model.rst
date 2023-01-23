@@ -3,6 +3,12 @@
 Develop a model from scratch
 ============================
 
+.. raw:: html
+
+    <div style="position: relative; padding-bottom: 56.25%; margin-bottom: 2em; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+        <iframe src="https://www.youtube.com/embed/Ajgz51Sd1SU" frameborder="0" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+    </div>
+
 This tutorial explains how to develop a DEEP module from scratch on your local machine.
 
 You could also use the **DEEP Development environment** from the :doc:`Dashboard<../overview/dashboard>`

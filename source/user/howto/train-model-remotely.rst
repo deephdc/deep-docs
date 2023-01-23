@@ -4,16 +4,11 @@
 Train a model remotely
 ======================
 
-.. admonition:: Useful video demos
-    :class: important
+.. raw:: html
 
-    * `Training your model in the cloud with the DEEP training dashboard <https://www.youtube.com/watch?v=uqFXrEwtNNs&list=PLJ9x9Zk1O-J_UZfNO2uWp2pFMmbwLvzXa&index=6>`__
-
-.. admonition:: Requirements
-
-    * You need  a `DEEP-IAM <https://iam.deep-hybrid-datacloud.eu/>`__ account to be able to access the Dashboard and Nextcloud storage.
-    * For **Step 7** we recommend having `docker <https://docs.docker.com/install/#supported-platforms>`__ installed (though it's not strictly mandatory).
-
+    <div style="position: relative; padding-bottom: 56.25%; margin-bottom: 2em; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+        <iframe src="https://www.youtube.com/embed/W1bPmUhzYFY" frameborder="0" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+    </div>
 
 This is a step by step guide on how to train a general model from the `DEEP Marketplace <https://marketplace.deep-hybrid-datacloud.eu/>`__
 with your own dataset, in the :doc:`DEEP Dashboard <../overview/dashboard>`.
@@ -21,6 +16,10 @@ with your own dataset, in the :doc:`DEEP Dashboard <../overview/dashboard>`.
 A practical application of this tutorial would be to train a `generic image classifier <https://github.com/deephdc/DEEP-OC-image-classification-tf>`__
 on a custom dataset to create a `plant classifier <https://github.com/deephdc/DEEP-OC-plants-classification-tf>`__, for example.
 
+.. admonition:: Requirements
+
+    * You need  a `DEEP-IAM <https://iam.deep-hybrid-datacloud.eu/>`__ account to be able to access the Dashboard and Nextcloud storage.
+    * For **Step 7** we recommend having `docker <https://docs.docker.com/install/#supported-platforms>`__ installed (though it's not strictly mandatory).
 
 1. Choose a module from the Marketplace
 ---------------------------------------
