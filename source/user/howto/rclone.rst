@@ -16,6 +16,8 @@ Installing rclone
 All applications in the `DEEP Catalog <https://marketplace.deep-hybrid-datacloud.eu>`__ are packed in a Docker image and have
 `rclone <https://rclone.org/>`__ installed by default. If you want to create a Docker containing your own application, you should install rclone
 in the container to be able to access the data stored remotely.
+When developing an application with the :doc:`DEEP Modules Template <../overview/cookiecutter-template>`,
+the Dockerfile already includes installation of rclone.
 
 To install rclone on a Docker container based on Ubuntu you should add the following code:
 
@@ -33,8 +35,6 @@ To install rclone on a Docker container based on Ubuntu you should add the follo
 For other Linux flavors, please refer to the `rclone official site  <https://rclone.org/downloads/>`__.
 
 .. tip::
-    When developing an application with the :doc:`DEEP Modules Template <../overview/cookiecutter-template>`,
-    the Dockerfile already includes installation of rclone.
 
 
 Configuring rclone
@@ -161,3 +161,13 @@ You can start copying files from your remote to your local:
 .. code-block:: console
 
     $ rclone copy rshare:/some/remote/path /some/local/path
+
+.. tip::
+
+    Uploading to Nextcloud can be particularly slow if your dataset is composed of lots of small files.
+    Considering zipping your folder before uploading.
+
+    .. code-block:: console
+
+        $ zip -r <foldername>.zip <foldername>
+        $ unzip <foldername>.zip

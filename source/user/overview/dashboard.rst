@@ -129,3 +129,10 @@ If your deployment is running DEEPaaS, you can click on the UUID of the deployme
 as the training history, etc.
 
 .. image:: ../../_static/dashboard-history.png
+
+.. important::
+  GPUs are scarce resources, so we kindly ask you to limit the number of GPUs you are using
+  to at most 1 per user (2 if **really** needed). Take into account that sometimes even failed
+  created/deleted deployments might be consuming resources, so don't forget to delete them.
+
+  And remember to do periodic review of your deployments (either CPU or GPU) to delete the ones you no longer use.

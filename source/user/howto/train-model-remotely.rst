@@ -13,8 +13,9 @@ Train a model remotely
 This is a step by step guide on how to train a general model from the `DEEP Marketplace <https://marketplace.deep-hybrid-datacloud.eu/>`__
 with your own dataset, in the :doc:`DEEP Dashboard <../overview/dashboard>`.
 
-A practical application of this tutorial would be to train a `generic image classifier <https://github.com/deephdc/DEEP-OC-image-classification-tf>`__
-on a custom dataset to create a `plant classifier <https://github.com/deephdc/DEEP-OC-plants-classification-tf>`__, for example.
+In this tutorial we will see how to retrain a `generic image classifier <https://github.com/deephdc/DEEP-OC-image-classification-tf>`__
+on a custom dataset to create a `phytoplankton classifier <https://github.com/deephdc/DEEP-OC-phytoplankton-classification-tf>`__.
+If you want to follow along, you can download the toy phytoplankton dataset :fa:`download` `here <https://api.cloud.ifca.es:8080/swift/v1/public-datasets/phytoplankton-mini.zip>`__.
 
 .. admonition:: Requirements
 
@@ -60,6 +61,16 @@ Again, the folder structure and their content will of course depend on the modul
 This structure is just an example in order to complete the workflow for this tutorial.
 
 Once you have prepared your data locally, you can drag your folder to the Nextcloud Web UI to upload it.
+
+.. tip::
+
+    Uploading to Nextcloud can be particularly slow if your dataset is composed of lots of small files.
+    Considering zipping your folder before uploading.
+
+    .. code-block:: console
+
+        $ zip -r <foldername>.zip <foldername>
+        $ unzip <foldername>.zip
 
 
 3. Deploy with the Training Dashboard
@@ -129,6 +140,8 @@ Now we will mount our remote Nextcloud folders in our local containers:
 
 Paths with the ``rshare`` prefix are Nextcloud paths.
 As always, paths are specific to this example. Your module might need different paths.
+If you zipped your files before uploading to Nextcloud you will have to ``rclone copy`` the ``zip`` file,
+unzip it and copy the contents to the appropriate folders.
 
 Mounting your dataset *might take some time*, depending on the dataset size, file structure (lots of small files vs few big files), and so on.
 So grab a cup of coffee and prepare for the next steps.
