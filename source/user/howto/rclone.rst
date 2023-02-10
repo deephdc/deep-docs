@@ -134,7 +134,7 @@ you can mount your host ``rclone.conf`` into the container as:
 
 .. code-block:: console
 
-    $ docker run -ti -v $HOSTDIR_WITH_RCLONE_CONF/rclone.conf:/root/.config/rclone/rclone.conf <your-docker-image>
+    $ docker run -ti -v $HOSTDIR_WITH_RCLONE_CONF/rclone.conf:/srv/.rclone/rclone.conf <your-docker-image>
 
 i.e. you mount ``rclone.conf`` file itself directly as a volume.
 One can also mount the ``rclone.conf`` file at a custom location and tell rclone where to find it:
