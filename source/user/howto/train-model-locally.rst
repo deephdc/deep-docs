@@ -15,6 +15,9 @@ In this tutorial we will see how to retrain a `generic image classifier <https:/
 on a custom dataset to create a `phytoplankton classifier <https://github.com/deephdc/DEEP-OC-phytoplankton-classification-tf>`__.
 If you want to follow along, you can download the toy phytoplankton dataset :fa:`download` `here <https://api.cloud.ifca.es:8080/swift/v1/public-datasets/phytoplankton-mini.zip>`__.
 
+If you are new to Machine Learning, you might want to check some
+:doc:`useful Machine Learning resources <../others/useful-ml-resources>` we compiled to help you getting started.
+
 .. admonition:: Requirements
 
     * having `Docker <https://www.docker.com>`__ installed. For an up-to-date installation please follow

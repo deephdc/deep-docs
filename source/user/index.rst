@@ -85,17 +85,11 @@ Develop a model (advanced user)
    Develop a model <howto/develop-model>
 
 Others
-^^^^^^
+------
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
-   Video demos <howto/video-demos>
-
-More
-----
-
-.. toctree::
-   :maxdepth: 1
-
-   Modules <modules/index>
+   Useful Machine Learning resources <others/useful-ml-resources>
+   Video demos <others/video-demos>
+   Modules <others/modules>

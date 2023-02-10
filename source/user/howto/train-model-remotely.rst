@@ -17,6 +17,9 @@ In this tutorial we will see how to retrain a `generic image classifier <https:/
 on a custom dataset to create a `phytoplankton classifier <https://github.com/deephdc/DEEP-OC-phytoplankton-classification-tf>`__.
 If you want to follow along, you can download the toy phytoplankton dataset :fa:`download` `here <https://api.cloud.ifca.es:8080/swift/v1/public-datasets/phytoplankton-mini.zip>`__.
 
+If you are new to Machine Learning, you might want to check some
+:doc:`useful Machine Learning resources <../others/useful-ml-resources>` we compiled to help you getting started.
+
 .. admonition:: Requirements
 
     * You need  a `DEEP-IAM <https://iam.deep-hybrid-datacloud.eu/>`__ account to be able to access the Dashboard and Nextcloud storage.
@@ -61,7 +64,12 @@ Again, the folder structure and their content will of course depend on the modul
 This structure is just an example in order to complete the workflow for this tutorial.
 
 Once you have prepared your data locally, you can drag your folder to the Nextcloud Web UI to upload it.
-jhdfjhdjfhhdjfhjdhfhjfjdhfjhdjfhjdhfjhdfhjdfjhdjfhjdhfjdhfjhdfjhdjhfjdhfjhjdhfjhdjfhjdfhjdhfjhdjfhjdhfjdhfjhdjfhdjfhjhfjdhdjfhjdhfjdhfjhdfjhjdfhjdfhjdfjhdjfhdjfhjdhfjdhfjhdjfhjdfjfdhjhfdjhjfhdjhfjdhjdhfjhdjfhdjfhjdfjdhfjhdfjhjdfhjhjfdhjhfjdhfjhfdjhfjdhjdhfjhfdjdhfjhdjfjhjhfdjhfdhjhfdjhfjdhfjdhfjhjdfhjdfjdfhfdjhfdjhjdhfjhfd
+
+If you have your dataset in a remote machine, you will have to
+:ref:`install rclone <user/howto/rclone:Installing rclone>` on your remote machine,
+:ref:`configure it <user/howto/rclone:Configuring rclone>`
+and do an :ref:`rclone copy <user/howto/rclone:Using rclone>` to move your data to Nextcloud.
+
 .. tip::
 
     Uploading to Nextcloud can be particularly slow if your dataset is composed of lots of small files.

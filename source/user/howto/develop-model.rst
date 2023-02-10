@@ -18,10 +18,14 @@ You only need to go to the Dashboard, select the **DEEP Development environment*
 configure the Docker image and resources you want to use
 (see `video demo <https://www.youtube.com/watch?v=J_l_xWiBGNA&list=PLJ9x9Zk1O-J_UZfNO2uWp2pFMmbwLvzXa&index=3>`__).
 
+If you are new to Machine Learning, you might want to check some
+:doc:`useful Machine Learning resources <../others/useful-ml-resources>` we compiled to help you getting started.
+
 .. admonition:: Requirements
 
     * If you plan to use the **DEEP Development environment**, you need  a `DEEP-IAM <https://iam.deep-hybrid-datacloud.eu/>`__ account to be able to access the Dashboard.
     * For **Step 7** we recommend having `docker <https://docs.docker.com/install/#supported-platforms>`__ installed (though it's not strictly mandatory).
+
 
 1. Setting the framework
 ------------------------
