@@ -24,6 +24,9 @@ Courses
 * `Google Machine Learning Crash Course <https://developers.google.com/machine-learning/crash-course>`__
 * `Machine Learning Mastery <https://machinelearningmastery.com/start-here/>`__
 * `DAIR ML YouTube Courses <https://github.com/dair-ai/ML-YouTube-Courses>`__
+* `Introduction to Convolutional Neural Networks for Visual Recognition course <hhttps://www.youtube.com/watch?v=vT1JzLTH4G4&list=PL3FW7Lu3i5JvHM8ljYj-zLfQRF3EO8sYv&index=1>`__
+* `Deep Learning course (2018)<https://www.youtube.com/playlist?list=PLoROMvodv4rOABXSygHTsbvUz4G_YQhOb>`__
+
 
 
 
@@ -41,6 +44,7 @@ Some tools to help you getting started creating your dataset.
 * `superintendent <https://github.com/janfreyberg/superintendent>`__ - ipywidget-based interactive labelling tool for your data.
 * `Roboflow <https://roboflow.com/annotate>`__ - only free is your dataset is public
 * `Labelbox <https://labelbox.com/>`__ - paid tool
+* `VGG Image Annotator (VIA)<https://www.robots.ox.ac.uk/~vgg/software/via/>`__ - paid tool
 
 
 Find a dataset
@@ -53,6 +57,9 @@ If you don't have any data, try find an open dataset that suits you.
 * `DataHub <https://datahub.io/collections>`__
 * `Kaggle <https://www.kaggle.com/>`__
 * `Paperwithcode Datasets <https://paperswithcode.com/datasets>`__
+* `PlantVillage <https://plantvillage.psu.edu/>`__
+* `Enabling AI in agrifood. <https://edenlibrary.ai/>`__
+* `Enabling AI in agrifood. <https://data.world/datasets/agriculture>`__
 
 
 Explore your dataset
