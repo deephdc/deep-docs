@@ -97,7 +97,22 @@ Configuring via ``rclone config`` (local development)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you are developing in a Docker container deployed in your **local machine**,
-one can use instead the ``rclone config`` command that will create a configuration file (``rclone.conf``) for rclone:
+one can use instead the ``rclone config`` command that will create a configuration file (``rclone.conf``) for rclone.
+
+First, make sure you don't have a remote with the same name already configured, as names will collide.
+
+.. code-block:: console
+
+    $ rclone listremotes
+
+This should return an empty output. If this is not the case, make sure you don't have a remote configured via environment variables (previous section), which is the case if you are running this in a Dashboard deployment. To clear that remote, you just need to unset the variables:
+
+.. code-block:: console
+
+    $ echo 'unset RCLONE_CONFIG_RSHARE_VENDOR RCLONE_CONFIG_RSHARE_PASS RCLONE_CONFIG_RSHARE_URL RCLONE_CONFIG_RSHARE_TYPE RCLONE_CONFIG_RSHARE_USER' >> ~/.bashrc
+    $ source ~/.bashrc 
+
+Then run ``rclone config`` and answer the questions to configure the new remote:
 
 .. code-block:: console
 
@@ -108,11 +123,12 @@ one can use instead the ``rclone config`` command that will create a configurati
     provide DEEP-Nextcloud URL for webdav access --> https://data-deep.a.incd.pt/remote.php/webdav/
     choose Vendor --> Nextcloud
     specify "user" --> (see `<user>` in "Configuring rclone" above).
-    specify password --> (see `<password>` in "Configuring rclone" above).
+    password --> y (Yes type in my own password)
+    specify "password" --> (see `<password>` in "Configuring rclone" above).
     bearer token --> ""
-    Edit advanced config? --> n
-    Remote config --> Yes this is OK
-    Current remotes --> Quit config
+    Edit advanced config? --> n (No)
+    Remote config --> y (Yes this is OK)
+    Current remotes --> q (Quit config)
 
 This will create an configuration file like the following:
 
@@ -125,25 +141,23 @@ This will create an configuration file like the following:
     user = ***some-username***
     pass = ***some-userpassword**  --> this is equivalent to `rclone obscure <password>`
 
-By default ``rclone.conf`` is created in your ``$HOME/.config/rclone/rclone.conf``.
+By default:
 
-For security reasons the ``rclone.conf`` file should be in your host, i.e. outside of container.
-So to access the file from inside your container one has to mount the file at runtime.
-If you know under what user your run your application in the container
-(e.g. if docker or nvidia-docker is used, most probably this is 'root')
-you can mount your host ``rclone.conf`` into the container as:
+* if you are on your local machine or inside a local Docker container, ``rclone.conf`` is created in ``$HOME/.config/rclone/rclone.conf``.
+* if you are inside a Dashboard deployment, ``rclone.conf`` is created in ``/srv/.rclone/rclone.conf``.
+
+For security reasons, the ``rclone.conf`` should never be saved as part of the Docker image. If you are running rclone from inside a Docker container, you should mount ``rclone.conf`` at runtime directly as a volume.
 
 .. code-block:: console
 
-    $ docker run -ti -v $HOSTDIR_WITH_RCLONE_CONF/rclone.conf:/srv/.rclone/rclone.conf <your-docker-image>
+    $ docker run -ti -v $HOSTDIR_WITH_RCLONE_CONF/rclone.conf:/$HOME/.config/rclone/rclone.conf <your-docker-image>
 
-i.e. you mount ``rclone.conf`` file itself directly as a volume.
 One can also mount the ``rclone.conf`` file at a custom location and tell rclone where to find it:
 
 .. code-block:: console
 
-    $ docker run -ti -v $HOSTDIR_WITH_RCLONE_CONF/rclone.conf:/rclone/rclone.conf <your-docker-image>
-    $ rclone --config /rclone/rclone.conf
+    $ docker run -ti -v $HOSTDIR_WITH_RCLONE_CONF/rclone.conf:/custom/path/to/rclone.conf <your-docker-image>
+    $ rclone --config /custom/path/to/rclone.conf
 
 
 Using rclone
@@ -161,7 +175,7 @@ You can check that everything works fine with:
     If ``listremotes`` is listing two remotes with the same name you probably configured the rclone twice.
     Most likely you ran ``rclone config`` on a machine deployed with the Dashboard, so you
     have both the ``env`` and ``rclone.conf`` configurations. To fix this, either remove the ``env`` variables
-    (use ``unset`` command) or delete the ``rclone.conf`` file.
+    (echo ``unset`` command into the ``.bashrc``) or delete the ``rclone.conf`` file.
 
 You can start copying files from your remote to your local:
 
