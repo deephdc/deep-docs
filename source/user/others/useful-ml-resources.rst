@@ -24,6 +24,9 @@ Courses
 * `Google Machine Learning Crash Course <https://developers.google.com/machine-learning/crash-course>`__
 * `Machine Learning Mastery <https://machinelearningmastery.com/start-here/>`__
 * `DAIR ML YouTube Courses <https://github.com/dair-ai/ML-YouTube-Courses>`__
+* `Stanford CS231N (2017): Introduction to Convolutional Neural Networks for Visual Recognition course <https://www.youtube.com/playlist?list=PL3FW7Lu3i5JvHM8ljYj-zLfQRF3EO8sYv>`__
+* `Stanford CS230 (2018): Deep Learning <https://www.youtube.com/playlist?list=PLoROMvodv4rOABXSygHTsbvUz4G_YQhOb>`__
+
 
 
 
@@ -41,6 +44,7 @@ Some tools to help you getting started creating your dataset.
 * `superintendent <https://github.com/janfreyberg/superintendent>`__ - ipywidget-based interactive labelling tool for your data.
 * `Roboflow <https://roboflow.com/annotate>`__ - only free is your dataset is public
 * `Labelbox <https://labelbox.com/>`__ - paid tool
+* `VGG Image Annotator (VIA) <https://www.robots.ox.ac.uk/~vgg/software/via/>`__ - paid tool
 
 
 Find a dataset
@@ -53,6 +57,9 @@ If you don't have any data, try find an open dataset that suits you.
 * `DataHub <https://datahub.io/collections>`__
 * `Kaggle <https://www.kaggle.com/>`__
 * `Paperwithcode Datasets <https://paperswithcode.com/datasets>`__
+* `Dataworld datasets <https://data.world/datasets/agriculture>`__
+* `Eden library <https://edenlibrary.ai/>`__ - agriculture datasets
+
 
 
 Explore your dataset
