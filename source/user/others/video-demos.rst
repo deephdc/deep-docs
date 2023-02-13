@@ -13,3 +13,5 @@ Available demos include:
 * How to use some of the modules available in the Marketplace
 * How to develop a module in the Testbed
 * ...
+
+Bear in mind the demos can become quickly **outdated** so please refer to the docs for the latest information.

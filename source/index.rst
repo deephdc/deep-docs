@@ -20,6 +20,8 @@ Welcome to DEEP-Hybrid-DataCloud's documentation!
     |   The code of all the modules and services behind the project is stored.
     | :fa:`docker` `DockerHub <https://hub.docker.com/u/deephdc/>`__
     |   Where the Docker images of the modules are stored.
+    | :fa:`timeline` `CI/CD pipeline <https://jenkins.indigo-datacloud.eu/job/Pipeline-as-code/job/DEEP-OC-org/>`__
+    |   Continuous Integration and Continuous Development Jenkins instance to keep everything up-to-date with latest code changes.
     | :fa:`temperature-half` `Status of services <https://status.deep-hybrid-datacloud.eu/>`__
     |   Check if a specific DEEP service might be down for some reason.
 

@@ -10,9 +10,6 @@ DEEP Modules Template
     - `Data science cookiecutter template <https://www.youtube.com/watch?v=mCxz8LQJWWA&list=PLJ9x9Zk1O-J_UZfNO2uWp2pFMmbwLvzXa&index=7>`__
 
 
-Overview
---------
-
 To simplify the development and in an easy way integrate your model with the :doc:`DEEPaaS API <api>`,
 a `standard template <https://github.com/deephdc/cookiecutter-deep>`__ for modules is provided.
 
