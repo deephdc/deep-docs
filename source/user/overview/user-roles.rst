@@ -44,8 +44,11 @@ model and retrains it to perform `seed classification <https://marketplace.deep-
 
 * the ability to train out-of-the-box a module of the :ref:`catalogue <user/overview/architecture:The marketplace>` on your personal dataset
 * an :ref:`API <user/overview/architecture:The DEEPaaS API>` to easily interact with the model
-* data :ref:`storage resources <user/overview/architecture:The data storage resources>` to access your dataset
-  (`DEEP-Nextcloud <https://data-deep.a.incd.pt/>`__, `OneData <https://onedata.org/>`__, ...)
+* :ref:`data storage resources <user/overview/architecture:The data storage resources>` to access your dataset
+  using `DEEP-Nextcloud <https://data-deep.a.incd.pt/>`__ (up to 2 Terabytes by default)
+* integration with popular cloud storage options like
+  `Google Drive <https://www.google.com/drive/>`__, `Dropbox <https://www.dropbox.com/>`__,
+  `Amazon S3 <https://aws.amazon.com/s3/>`__ and `many more <https://rclone.org/>`__
 * the ability to deploy the developed service on Cloud resources
 * the ability to share the service with other users in the user's catalogue
 
@@ -68,8 +71,11 @@ models.
 
 * a ready-to-use environment with the main DL frameworks running in a dockerized solution running on different types of
   hardware (CPUs, GPUs, etc)
-* data :ref:`storage resources <user/overview/architecture:The data storage resources>` to access your dataset
-  (`DEEP-Nextcloud <https://data-deep.a.incd.pt/>`__, `OneData <https://onedata.org/>`__, ...)
+* :ref:`data storage resources <user/overview/architecture:The data storage resources>` to access your dataset
+  using `DEEP-Nextcloud <https://data-deep.a.incd.pt/>`__ (up to 2 Terabytes by default)
+* integration with popular cloud storage options like
+  `Google Drive <https://www.google.com/drive/>`__, `Dropbox <https://www.dropbox.com/>`__,
+  `Amazon S3 <https://aws.amazon.com/s3/>`__ and `many more <https://rclone.org/>`__
 * the ability to deploy the developed module on Cloud resources
 * the ability to share the module with other users in the open :ref:`catalogue <user/overview/architecture:The marketplace>`
 * the possibility to :ref:`integrate your module with the API <user/overview/api:Integrate your model with the API>`

@@ -24,7 +24,7 @@ Courses
 * `Google Machine Learning Crash Course <https://developers.google.com/machine-learning/crash-course>`__
 * `Machine Learning Mastery <https://machinelearningmastery.com/start-here/>`__
 * `DAIR ML YouTube Courses <https://github.com/dair-ai/ML-YouTube-Courses>`__
-* `Stanford CS231N (2017): Introduction to Convolutional Neural Networks for Visual Recognition course <https://www.youtube.com/playlist?list=PL3FW7Lu3i5JvHM8ljYj-zLfQRF3EO8sYv>`__
+* `Stanford CS231N (2017): Introduction to Convolutional Neural Networks for Visual Recognition <https://www.youtube.com/playlist?list=PL3FW7Lu3i5JvHM8ljYj-zLfQRF3EO8sYv>`__
 * `Stanford CS230 (2018): Deep Learning <https://www.youtube.com/playlist?list=PLoROMvodv4rOABXSygHTsbvUz4G_YQhOb>`__
 
 

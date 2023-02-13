@@ -35,6 +35,7 @@ To install rclone on a Docker container based on Ubuntu you should add the follo
 To install it directly on your machine:
 
 .. code-block:: console
+
     $ curl -O https://downloads.rclone.org/rclone-current-linux-amd64.deb
     $ dpkg -i rclone-current-linux-amd64.deb
     $ apt install -f
