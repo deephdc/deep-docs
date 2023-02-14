@@ -42,9 +42,9 @@ Some tools to help you getting started creating your dataset.
 * `LabelImg <https://github.com/tzutalin/labelImg>`__ - Image annotation
 * `refinery <https://github.com/code-kern-ai/refinery>`__ - Labeling for NLP
 * `superintendent <https://github.com/janfreyberg/superintendent>`__ - ipywidget-based interactive labelling tool for your data.
+* `VGG Image Annotator (VIA) <https://www.robots.ox.ac.uk/~vgg/software/via/>`__ - Image annotation
 * `Roboflow <https://roboflow.com/annotate>`__ - only free is your dataset is public
 * `Labelbox <https://labelbox.com/>`__ - paid tool (free with educational license)
-* `VGG Image Annotator (VIA) <https://www.robots.ox.ac.uk/~vgg/software/via/>`__ - paid tool
 
 
 Find a dataset
@@ -57,6 +57,7 @@ If you don't have any data, try find an open dataset that suits you.
 * `DataHub <https://datahub.io/collections>`__
 * `Kaggle <https://www.kaggle.com/>`__
 * `Paperwithcode Datasets <https://paperswithcode.com/datasets>`__
+* `OpenML datasets <https://www.openml.org/search?type=data&status=active>`__
 * `Dataworld datasets <https://data.world/datasets/agriculture>`__
 * `Eden library <https://edenlibrary.ai/>`__ - agriculture datasets
 
