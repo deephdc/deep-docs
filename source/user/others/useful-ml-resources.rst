@@ -44,7 +44,7 @@ Some tools to help you getting started creating your dataset.
 * `superintendent <https://github.com/janfreyberg/superintendent>`__ - ipywidget-based interactive labelling tool for your data.
 * `Roboflow <https://roboflow.com/annotate>`__ - only free is your dataset is public
 * `Labelbox <https://labelbox.com/>`__ - paid tool (free with educational license)
-* `VGG Image Annotator (VIA) <https://www.robots.ox.ac.uk/~vgg/software/via/>`__ - paid tool
+* `VGG Image Annotator (VIA) <https://www.robots.ox.ac.uk/~vgg/software/via/>`__ - free tool
 
 
 Find a dataset
@@ -59,7 +59,7 @@ If you don't have any data, try find an open dataset that suits you.
 * `Paperwithcode Datasets <https://paperswithcode.com/datasets>`__
 * `Dataworld datasets <https://data.world/datasets/agriculture>`__
 * `Eden library <https://edenlibrary.ai/>`__ - agriculture datasets
-
+* `plantvillage <https://plantvillage.psu.edu/>`__ - agriculture datasets
 
 
 Explore your dataset
