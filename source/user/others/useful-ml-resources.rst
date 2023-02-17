@@ -43,6 +43,7 @@ Some tools to help you getting started creating your dataset.
 * `refinery <https://github.com/code-kern-ai/refinery>`__ - Labeling for NLP
 * `superintendent <https://github.com/janfreyberg/superintendent>`__ - ipywidget-based interactive labelling tool for your data.
 * `VGG Image Annotator (VIA) <https://www.robots.ox.ac.uk/~vgg/software/via/>`__ - Image annotation
+* `Biigle <https://biigle.de/>`__ - Web based annotation and exploration of images and videos
 * `Roboflow <https://roboflow.com/annotate>`__ - only free is your dataset is public
 * `Labelbox <https://labelbox.com/>`__ - paid tool (free with educational license)
 
