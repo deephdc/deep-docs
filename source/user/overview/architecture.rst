@@ -5,7 +5,7 @@ There are several different components in the DEEP-HybridDataCloud project that 
 how each :doc:`different type of user <user-roles>` can take advantage of the different components.
 
 
-The marketplace
+The Marketplace
 ---------------
 
 The `DEEP Marketplace <https://marketplace.deep-hybrid-datacloud.eu/>`__ is a catalogue of modules that every user can have access to. Modules can be:
@@ -26,16 +26,19 @@ can be trained to create other image classifiers but can also be deployed for in
 general-purpose image classifier.
 
 
-DEEP as a Service
------------------
+..
+  TODO: uncomment when serverless is running back again
 
-`DEEP as a Service (or DEEPaaS) <https://deepaas.deep-hybrid-datacloud.eu/>`__ is a fully managed service that allows
-to easily and automatically deploy developed applications as services, with horizontal scalability thanks to a
-serverless approach. Module owners only need to care about the application development process, and incorporate
-new features that the automation system receives as an input.
+  DEEP as a Service
+  -----------------
 
-The serverless framework allows any user to automatically deploy from the browser any module in real time to try it.
-It only supports prediction. For training, which is more resource consuming, users must use the DEEP Training Dashboard.
+  `DEEP as a Service (or DEEPaaS) <https://deepaas.deep-hybrid-datacloud.eu/>`__ is a fully managed service that allows
+  to easily and automatically deploy developed applications as services, with horizontal scalability thanks to a
+  serverless approach. Module owners only need to care about the application development process, and incorporate
+  new features that the automation system receives as an input.
+
+  The serverless framework allows any user to automatically deploy from the browser any module in real time to try it.
+  It only supports prediction. For training, which is more resource consuming, users must use the DEEP Training Dashboard.
 
 
 The DEEPaaS API

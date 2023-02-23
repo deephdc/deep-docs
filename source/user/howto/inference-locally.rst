@@ -62,7 +62,7 @@ Instead of pulling from Dockerhub you can choose to build the image yourself:
 
 Run the container with::
 
-	$ docker run -ti -p 5000:5000 p 6006:6006 -p 8888:8888 deephdc/deep-oc-image-classification-tf
+	$ docker run -ti -p 5000:5000 -p 6006:6006 -p 8888:8888 deephdc/deep-oc-image-classification-tf
 
 Once running, point your browser to http://127.0.0.1:5000/ui and you will see the API documentation, where you can
 test the module's functionality, as well as perform other actions.
