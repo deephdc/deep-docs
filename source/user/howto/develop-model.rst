@@ -64,6 +64,15 @@ Install your project as a Python module in **editable** mode (so that the change
 
 Now you can start writing your code.
 
+.. tip::
+    
+    Some users have reported issues in some systems when installing ``deepaas`` (which is always present in the ``requirements.txt`` of your project).
+    Those issues have been resolved as following:
+
+    * In `Pytorch Docker images <https://hub.docker.com/r/pytorch/pytorch>`__, making sure ``gcc`` is installed (``apt install gcc``)
+    * In other systems, sometimes ``python3-dev`` is needed (``apt install python3-dev``).
+
+
 To be able to interface with DEEPaaS :ref:`you have to define <user/overview/api:1. Define the API methods for your model>`
 in ``api.py`` the functions you want to make accessible to the user.
 For this tutorial we are going to head to our `official demo module <https://github.com/deephdc/demo_app/blob/master/demo_app/api.py>`__
