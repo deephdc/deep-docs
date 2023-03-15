@@ -218,6 +218,9 @@ through an URL so they can be downloaded in your Docker container.
 In Nextcloud, go to the ``tar`` file you just created:
 :fa:`share-nodes` ➜ Share Link ➜ :fa:`square-plus` (Create a new share link)
 
+`Optionally`, in order to improve the reproducibility of your code, you can share the dataset you trained on.
+If your dataset is not already publicly available, we have a `Zenodo community <https://zenodo.org/communities/ai4eosc>`__ we you are more than welcomed to contribute your dataset.
+
 
 7. Create a Docker repo for your new module
 -------------------------------------------
@@ -241,16 +244,30 @@ In your **local machine** (not the Dashboard deployment), run the Template with 
 Proceed to answer the questions you will be prompted.
 This will create a single repo (``DEEP-OC-**``) with the Docker code.
 
-Now:
+Once this is done, the following steps are:
 
 **(1)** Modify ``metadata.json`` with the proper description of your new module.
 This is the information that will be displayed in the Marketplace.
+Among the fields you might need to edit are:
+
+* ``title`` (`mandatory`): short title,
+* ``summary`` (`mandatory`): one liner summary of your module,
+* ``description`` (`optional`): extended description of your module, like a README,
+* ``keywords`` (`mandatory`): tags to make your module more findable
+* ``training_files_url`` (`optional`): the URL  of your model weights and additional training information,
+* ``dataset_url`` (`optional`): the URL dataset URL,
+* ``cite_url`` (`optional`): the DOI URL of any related publication,
+
+Most other fields are pre-filled via the cookiecutter and usually do not need to be modified.
 Check you didn't mess up the JSON formatting by running:
 
 .. code-block:: console
 
     $ pip install git+https://github.com/deephdc/schema4apps
     $ deep-app-schema-validator metadata.json
+
+:fa:`warning` Due to some issues with the JSON format parsing **avoid** using ``:``  in the values you are filling.
+
 
 **(2)** Then go to the ``Dockerfile``. You will see that the base Docker image
 is the image of the original repo. Modify the appropriate lines to replace

@@ -143,26 +143,40 @@ your application, along with deepaas and any other dependency.
 
 You need to modify the following files according to your needs:
 
-* ``Dockerfile``: check the installation steps are fine. If your module needs additional
-  Linux packages add them to the Dockerfile.
-  Check your Dockerfile works correctly by building it locally and running it:
+* ``Dockerfile``:
+    Check the installation steps are fine. 
+    If your module needs additional Linux packages add them to the Dockerfile.
+    Check your Dockerfile works correctly by building it locally and running it:
 
-.. code-block:: console
+    .. code-block:: console
 
-    $ docker build --no-cache -t your_project .
-    $ docker run -ti -p 5000:5000 -p 6006:6006 -p 8888:8888 your_project
+        $ docker build --no-cache -t your_project .
+        $ docker run -ti -p 5000:5000 -p 6006:6006 -p 8888:8888 your_project
 
-Your module should be visible in http://0.0.0.0:5000/ui .
-You can make a POST request to the ``predict`` method to check everything is working as intended.
+    Your module should be visible in http://0.0.0.0:5000/ui .
+    You can make a POST request to the ``predict`` method to check everything is working as intended.
 
-* ``metadata.json``: this is the information that will be displayed in the Marketplace.
-  Update and add the information you need.
-  Check you didn't mess up the JSON formatting by running:
+* ``metadata.json``: 
+    This is the information that will be displayed in the Marketplace.
+    Among the fields you might need to edit are:
 
-.. code-block:: console
+    * ``title`` (`mandatory`): short title,
+    * ``summary`` (`mandatory`): one liner summary of your module,
+    * ``description`` (`optional`): extended description of your module, like a README,
+    * ``keywords`` (`mandatory`): tags to make your module more findable
+    * ``training_files_url`` (`optional`): the URL  of your model weights and additional training information,
+    * ``dataset_url`` (`optional`): the URL dataset URL,
+    * ``cite_url`` (`optional`): the DOI URL of any related publication,
 
-    $ pip install git+https://github.com/deephdc/schema4apps
-    $ deep-app-schema-validator metadata.json
+    Most other fields are pre-filled via the cookiecutter and usually do not need to be modified.
+    Check you didn't mess up the JSON formatting by running:
+
+    .. code-block:: console
+
+        $ pip install git+https://github.com/deephdc/schema4apps
+        $ deep-app-schema-validator metadata.json
+
+    :fa:`warning` Due to some issues with the JSON format parsing **avoid** using ``:``  in the values you are filling.
 
 Once you are fine with the state of ``DEEP-OC-<project-name>``, push the changes to Github.
 
