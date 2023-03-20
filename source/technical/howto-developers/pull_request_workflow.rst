@@ -160,3 +160,17 @@ corresponding UPSTREAM_REPO**. Following the previous example:
              git tag -d $(git tag -l)
              git fetch upstream --tags --quiet
              git push origin --tags --force
+
+
+4. Update `<branchname>` in `.gitmodules`
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If the user has a default `<branchname>` different from `master` you should update the `.gitmodules` file in this repo to reflect this. You will have to wait after the PR is approved and the bot has added the module to the file.
+
+The change could look like this:
+```
+[submodule "..."]
+  path = ...
+	url = ...
+	branch = main
+```

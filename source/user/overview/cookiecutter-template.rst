@@ -33,8 +33,7 @@ You are first provided with ``[Info]`` line about the parameter and in the next 
 You will be asked to configure:
 
 * ``git_base_url``: Remote URL to host your new git repositories (e.g. https://github.com/deephdc ).
-* ``project_name``: Project name.
-* ``repo_name``: Name of your new repository, to be added after \"git_base_url\" (see above)", (aka <your_project> in the following).
+* ``project_name``: Project name, to be added after \"git_base_url\" (see above)", (aka <your_project> in the following).
 * ``author_name``: Author name(s) (and/or your organization/company/team). If many, separate by comma.
 * ``author_email``: E-Mail(s) of main author(s) (or contact person). If many, separate by comma.
 * ``description``: Short description of the project.
@@ -75,7 +74,7 @@ The content of these files is populated based on your answer to the questions.
     ├── setup.py, setup.cfg    <- makes project pip installable (pip install -e .) so
     │                             {{cookiecutter.repo_name}} can be imported
     │
-    ├── {{cookiecutter.repo_name}}    <- Source code for use in this project.
+    ├── {{cookiecutter.__repo_name}}    <- Source code for use in this project.
     │   │
     │   ├── __init__.py        <- Makes {{cookiecutter.repo_name}} a Python module
     │   │
@@ -138,7 +137,7 @@ The content of these files is populated based on your answer to the questions.
     ├── setup.py               <- makes project pip installable (pip install -e .) so
     │                             {{cookiecutter.repo_name}} can be imported
     │
-    ├── {{cookiecutter.repo_name}}    <- Source code for use in this project.
+    ├── {{cookiecutter.__repo_name}}    <- Source code for use in this project.
     │   │
     │   ├── __init__.py        <- Makes {{cookiecutter.repo_name}} a Python module
     │   │
