@@ -65,7 +65,8 @@ In your web browser go to http://0.0.0.0:5000/ui and start trying the module.
 If you are training a model, you can go to http://0.0.0.0:6006 to monitor the training progress (if such monitoring is
 available for the model).
 
-For more details on particular models, please read :doc:`the module's <modules/index>` documentation.
+For more details on particular models, please read the module's documentation
+(see the Marketplace page of the module or the ``README`` of the code repository).
 
 .. image:: ../_static/deepaas.png
    :width: 500 px

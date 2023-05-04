@@ -1,8 +1,9 @@
 Module integration workflow for external (non-deephdc) users
 ============================================================
 
-In the case the PR to :ref:`integrate a module <user/howto/develop-model:Integrating the module in the Marketplace>` comes from a **non-deephdc** member, remember you have
-to perform the following additional steps for integration:
+In the case the PR to :ref:`integrate a module <user/howto/develop-model:4. Integrating the module in the Marketplace>`
+comes from a **non-deephdc** member, remember you have to perform the following
+additional steps for integration:
 
 
 1. Name check
@@ -21,6 +22,7 @@ Docker repo:
 should have the following repo in ``deephdc``:
 
 - https://github.com/deephdc/UC-adnaneds-DEEP-OC-unet ⬅ This is the repo that should be included in the PR change to ``MODULES.yml``
+
 
 2. Fork creation
 ~~~~~~~~~~~~~~~~
@@ -51,6 +53,7 @@ would give the following forks:
 In case of doubt check the Jenkins badges in the respective
 ``README``\ s of the repos (code and docker). They should display the
 expected repo names for ``deephdc`` forks.
+
 
 3. Keep the forks updated
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -162,15 +165,18 @@ corresponding UPSTREAM_REPO**. Following the previous example:
              git push origin --tags --force
 
 
-4. Update `<branchname>` in `.gitmodules`
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+4. Update ``<branchname>`` in ``.gitmodules``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If the user has a default `<branchname>` different from `master` you should update the `.gitmodules` file in this repo to reflect this. You will have to wait after the PR is approved and the bot has added the module to the file.
+If the user has a default ``<branchname>`` different from ``master`` you should update
+the ``.gitmodules`` file in this repo to reflect this. You will have to wait after the
+PR is approved and the bot has added the module to the file.
 
 The change could look like this:
-```
-[submodule "..."]
-  path = ...
-	url = ...
-	branch = main
-```
+
+.. code-block::
+
+  [submodule "..."]
+    path = ...
+    url = ...
+    branch = main
