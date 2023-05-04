@@ -4,33 +4,30 @@
 DEEP Modules Template
 =====================
 
-.. admonition:: Useful video demos
-   :class: important
-
-    - `Data science cookiecutter template <https://www.youtube.com/watch?v=mCxz8LQJWWA&list=PLJ9x9Zk1O-J_UZfNO2uWp2pFMmbwLvzXa&index=7>`__
-
-
-To simplify the development and in an easy way integrate your model with the :doc:`DEEPaaS API <api>`,
-a `standard template <https://github.com/deephdc/cookiecutter-deep>`__ for modules is provided.
+To simplify the development of new modules, and make the integration of your model with the
+:doc:`DEEPaaS API <api>` easier, we provide a `standard template <https://github.com/deephdc/cookiecutter-deep>`__
+for modules.
 
 There are different versions of this template:
 
-* `master <https://github.com/deephdc/cookiecutter-deep/tree/master>`__: this is what 99% of users are probably
-  looking for. Simple, minimal template, with the minimum requirements to integrate your code in DEEP.
-* `advanced <https://github.com/deephdc/cookiecutter-deep/tree/advanced>`__: this is a more advanced template.
-  It makes more assumptions on how to structure projects and adds more files than those strictly needed for integration.
-  Unless you are looking for some specific feature, you are probably safer using master.
-* `child-module <https://github.com/deephdc/cookiecutter-deep/tree/child-module>`__: this is a fork of the `master` branch specifically tailored to users performing a retraining of an existing module. It only creates a Docker repo whose container is based on an existing module's Docker image.
+* `master <https://github.com/deephdc/cookiecutter-deep/tree/master>`__:
+  this is what 99% of users are probably looking for. Simple, minimal template,
+  with the minimum requirements to integrate your code in DEEP.
+* `child-module <https://github.com/deephdc/cookiecutter-deep/tree/child-module>`__:
+  this is a fork of the ``master`` branch specifically tailored to users performing a
+  retraining of an existing module. It only creates a Docker repo whose container is
+  based on an existing module's Docker image.
+* `advanced <https://github.com/deephdc/cookiecutter-deep/tree/advanced>`__:
+  this is a more advanced template.
+  It makes more assumptions on how to structure projects and adds more files than those
+  strictly needed for integration.
+  Unless you are looking for some specific feature, you are probably safer using ``master``.
 
-In order to create your project based on the template, one has to `install <https://cookiecutter.readthedocs.io/en/latest/installation.html>`__
-and then run the `cookiecutter <https://cookiecutter.readthedocs.io>`__ tool as follows
-::
+Create your project based on the template
+-----------------------------------------
 
-    $ pip install cookiecutter
-    $ cookiecutter https://github.com/deephdc/cookiecutter-deep --checkout master
-
-You are first provided with ``[Info]`` line about the parameter and in the next line you configure this parameter.
-You will be asked to configure:
+Based on the version of the template you choose you will be asked to answer a number of
+questions, which might include:
 
 * ``git_base_url``: Remote URL to host your new git repositories (e.g. https://github.com/deephdc ).
 * ``project_name``: Project name, to be added after \"git_base_url\" (see above)", (aka <your_project> in the following).
@@ -39,28 +36,66 @@ You will be asked to configure:
 * ``description``: Short description of the project.
 * ``app_version``: Application version (expects X.Y.Z (Major.Minor.Patch)).
 * ``open_source_license``: Choose open source license, default is MIT. `More info <https://opensource.org/licenses>`__.
-* ``docker_baseimage``: Docker image your Dockerfile starts from (`FROM <docker_baseimage>`) (don't provide the tag here), (e.g. tensorflow/tensorflow ).
+* ``docker_baseimage``: Docker image your Dockerfile starts from (``FROM <docker_baseimage>``) (don't provide the tag here), (e.g. tensorflow/tensorflow ).
 * ``baseimage_cpu_tag``: CPU tag for the baseimage, e.g. 2.9.1. Has to match python3!
 * ``baseimage_gpu_tag``: GPU tag for the baseimage, e.g. 2.9.1-gpu. Has to match python3!
+  Sometimes ``baseimage_cpu_tag`` and ``baseimage_gpu_tag`` are the same (for example in `Pytorch <https://hub.docker.com/r/pytorch/pytorch/tags>`__).
+  In `Tensorflow <https://hub.docker.com/r/tensorflow/tensorflow/tags>`__ they are different.
 * ``failure_notify``: whether you want to receive updates if your model fails to build.
 
-When these questions are answered, following two repositories will be created locally and immediately linked to your ``git_base_url``:
+Based on your answers, we will fill the template and create two repositories
+(linked to your ``git_base_url``):
 
-* ``~/your_project``: Main repository to integrate model
-* ``~/DEEP-OC-your_project``: Repository for the integration of the :doc:`DEEPaaS API <api>` and your_project in one Docker image.
+* ``~/your_project``: this is where the code of your module goes
+* ``~/DEEP-OC-your_project``: this is where the Docker files to build your module go.
+  It also has the metadata of your module that will be shown in the Marketplace.
 
-Each repository of these has two branches: ``master`` (to commit stable changes) and ``test`` (to test features
-without disrupting your users).
+Each repository has two branches: ``master`` (to commit stable changes) and ``test``
+(to test features without disrupting your users).
+
+Via User Interface
+~~~~~~~~~~~~~~~~~~
+
+Go to the `Template creation webpage <https://templates.cloud.ai4eosc.eu/>`__.
+You will need an `EGI Check-In <https://aai-demo.egi.eu/>`__ account to access to this
+webpage, so if you don't have one already, you will need to create it.
+
+.. TODO: replace demo EGI Check-in with production Check-in once ready
+
+Then select which version of the template you want and answer the questions.
+Click on ``Generate`` and you will be able to download a ``.zip`` file with both
+repositories.
+
+Via Terminal
+~~~~~~~~~~~~
+
+.. admonition:: Useful video demos
+   :class: important
+
+    - `Data science cookiecutter template <https://www.youtube.com/watch?v=mCxz8LQJWWA&list=PLJ9x9Zk1O-J_UZfNO2uWp2pFMmbwLvzXa&index=7>`__
+
+You will need to `install cookiecutter <https://cookiecutter.readthedocs.io/en/latest/installation.html>`__
+and then run it as follows:
+
+.. code-block:: console
+
+  $ pip install cookiecutter
+  $ cookiecutter https://github.com/deephdc/cookiecutter-deep --checkout master
+
+You are first provided with an ``[Info]`` line with information about the parameter.
+And in the next line you configure this parameter.
+Once all questions are answered, the two repositories will be created.
 
 Project structure
 -----------------
 
-Based on the on the branch you choose, the template will create different files, being master the most minimal option (see above).
+Based on the on the branch you choose, the template will create different files, being
+master the most minimal option (see above).
 The content of these files is populated based on your answer to the questions.
 
 **Master branch**
 
-.. code-block:: console
+.. code-block::
 
     <your_project>
     ##############
@@ -71,7 +106,7 @@ The content of these files is populated based on your answer to the questions.
     ├── requirements.txt       <- The requirements file for reproducing the analysis
     │                              environment (`pip freeze > requirements.txt`)
     │
-    ├── setup.py, setup.cfg    <- makes project pip installable (pip install -e .) so
+    ├── setup.py, setup.cfg    <- makes project pip installable (`pip install -e .`) so
     │                             {{cookiecutter.repo_name}} can be imported
     │
     ├── {{cookiecutter.__repo_name}}    <- Source code for use in this project.
@@ -101,9 +136,27 @@ The content of these files is populated based on your answer to the questions.
     └─ metadata.json          <- Defines information propagated to the DEEP Marketplace
 
 
+**Child-module branch**
+
+.. code-block::
+
+    DEEP-OC-<your_project>
+    ######################
+    ├─ Dockerfile             <- Describes main steps on integration of DEEPaaS API and
+    │                            <your_project> application in one Docker image
+    │
+    ├─ Jenkinsfile            <- Describes basic Jenkins CI/CD pipeline
+    │
+    ├─ LICENSE                <- License file
+    │
+    ├─ README.md              <- README for developers and users.
+    │
+    └─ metadata.json          <- Defines information propagated to the DEEP Marketplace
+
+
 **Advanced branch**
 
-.. code-block:: console
+.. code-block::
 
     <your_project>
     ##############
