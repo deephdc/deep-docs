@@ -164,6 +164,11 @@ corresponding UPSTREAM_REPO**. Following the previous example:
              git fetch upstream --tags --quiet
              git push origin --tags --force
 
+         # Keep the workflow running
+         # Github automatically disbales a workflow is the repo hasn't seen activity in the last 60 days.
+         # This steps will make a dummy commit after 50 days of inactivity to avoid the disabling.
+         - uses: gautamkrishnar/keepalive-workflow@v1
+
 
 4. Update ``<branchname>`` in ``.gitmodules``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
