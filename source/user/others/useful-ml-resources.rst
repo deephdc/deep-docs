@@ -1,7 +1,7 @@
 Useful Machine Learning resources
 =================================
 
-This is a piece of documentation trying to offer some advice on tools to 
+This is a piece of documentation trying to offer some advice on tools to
 use to answer common problems (non ML expert) users might face.
 
 
@@ -15,7 +15,7 @@ Books
 
 * *Deep Learning with Python*, F. Chollet
 * *The FastAI book*
-* *Deep Learning Book*, Ian Goodfellow  
+* *Deep Learning Book*, Ian Goodfellow
 
 
 Courses
@@ -38,6 +38,7 @@ Dataset labeling
 
 Some tools to help you getting started creating your dataset.
 
+* `CVAT <https://www.cvat.ai/>`__ - Image annotation tool (with integration with the Segment Anything Model)
 * `LabelStudio <https://labelstud.io/>`__ - General annotation (text, images, etc)
 * `LabelImg <https://github.com/tzutalin/labelImg>`__ - Image annotation
 * `refinery <https://github.com/code-kern-ai/refinery>`__ - Labeling for NLP
@@ -145,7 +146,7 @@ Training debugging
 
 Is your training failing for some reason?
 
-* `Netron <https://github.com/lutzroeder/netron>`__ - visualize DL models 
+* `Netron <https://github.com/lutzroeder/netron>`__ - visualize DL models
 * `Cockpit <https://github.com/f-dangel/cockpit>`__ - debug training
 
 
