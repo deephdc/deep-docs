@@ -28,6 +28,20 @@ version = 'DEEP-2'  #todo: add deep version
 # The full version, including alpha/beta/rc tags
 release = 'DEEP-2'
 
+rst_prolog = """.. attention::
+    **The DEEP platform is sunsetting.**
+
+    The `DEEP-Hybrid-DataCloud project <https://deep-hybrid-datacloud.eu>`_ project has
+    ended and its plaftform and software are being decomissioned during 2023, as they
+    have been superseeded by the AI4EOSC platform and the AI4OS software stack.
+
+    Please refer to the following links for further information:
+
+        * `AI4OS software distribution documentation <https://docs.ai4eosc.eu/>`_
+        * `AI4EOSC project <https://ai4eosc.eu/>`_
+        * `AI4EOSC platformt <https://ai4eosc.eu/platform>`_
+
+"""
 
 # -- General configuration ---------------------------------------------------
 
